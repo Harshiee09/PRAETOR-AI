@@ -1,0 +1,44 @@
+# Source of truth for in-force / repealed status (spec: docs/topics/legal/statute-status.md).
+# Every entry carries source_url and verified_on. Phase 1 covers only the three corpus Acts; the criminal-code
+# entries (IPC/BNS, CrPC/BNSS, IEA/BSA) and the rest of the seed list are added in Phase 2 after verification.
+
+- id: registration-1908
+  title: The Registration Act, 1908
+  short_title: Registration Act, 1908
+  aliases: [Registration Act, Indian Registration Act]
+  act_number: 16
+  act_year: 1908
+  status: in_force
+  in_force_from: 1909-01-01
+  source_url: https://indiacode.gov.in/handle/123456789/496068
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=1909-01-01; s. 1(3) of the text."
+
+- id: tpa-1882
+  title: The Transfer of Property Act, 1882
+  short_title: Transfer of Property Act, 1882
+  aliases: [TP Act, TPA, Transfer of Property Act]
+  act_number: 4
+  act_year: 1882
+  status: in_force
+  in_force_from: 1882-07-01
+  source_url: https://indiacode.gov.in/handle/123456789/496421
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=1882-07-01."
+
+- id: cpa-2019
+  title: The Consumer Protection Act, 2019
+  short_title: Consumer Protection Act, 2019
+  aliases: [CPA 2019, CP Act 2019, Consumer Protection Act]
+  act_number: 35
+  act_year: 2019
+  status: in_force
+  in_force_from: 2020-07-20
+  notes: >-
+    Commenced in two stages per the footnote to s. 1(3) in the India Code text: most provisions on 20 July 2020
+    (S.O. 2351(E), 15 July 2020); s. 2 clauses (4), (13), (14), (16), (40), ss. 10-27, s. 58(1)(a)(iv), ss. 88, 89,
+    92-94, 96, 97, 99, parts of s. 101 and s. 104 on 24 July 2020 (S.O. 2421(E), 23 July 2020).
+  replaces: cpa-1986
+  source_url: https://indiacode.gov.in/handle/123456789/496115
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false; commencement footnote on p. 6 of A2019-35.pdf."

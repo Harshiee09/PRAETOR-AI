@@ -31,9 +31,9 @@ Live state: `docs/STATUS.md` (what works now) · `docs/DECISIONS.md` (dated deci
 ## Repo map (keep current)
 ```text
 app/          api/ ingestion/ parsing/ ocr/ chunking/ embeddings/ retrieval/ reranking/
-              rag/ llm/ citations/ multilingual/ config/ cli.py
+              rag/ llm/ citations/ multilingual/ store/ config/ cli.py
 data/         raw/ processed/ indexes/   (gitignored)
-              registry/                  (committed: statutes.yaml, aliases.yaml, sources.yaml)
+              registry/                  (committed: statutes.yaml, aliases.yaml, sources.yaml, jurisdictions.yaml)
 evaluation/   gold.jsonl  reports/
 infra/        cloudformation.yaml  deploy.sh  teardown.sh
 scripts/      one-off utilities only; real entry points live in app/cli.py
@@ -42,19 +42,20 @@ docs/         INDEX.md  STATUS.md  DECISIONS.md  reports/  sources/  topics/
 ```
 
 ## Commands (the CLI is created in Phase 0; keep this table accurate)
-`praetor <cmd>` is the console script from `pyproject.toml`; `python -m app.cli <cmd>` is equivalent.
+`praetor <cmd>` is the console script from `pyproject.toml`; run it as `uv run praetor <cmd>` (or activate `.venv`). Setup: `uv sync`.
 
 | Task | Command |
 |---|---|
 | GPU and model smoke test | `praetor gpu-check` |
-| Download sources | `praetor ingest --source indiacode` · `praetor ingest --source sc-judgments --limit 50` |
-| Parse, chunk, embed, index | `praetor index` |
+| Download sources | `praetor ingest --source indiacode` · `praetor ingest --source sc-judgments --years 2016-2025 --limit 50` |
+| Parse, chunk, embed, index (incremental; `--force` re-processes all) | `praetor index` |
 | Corpus data profile | `praetor profile` |
 | Ask from the terminal | `praetor ask "question" --explain` |
 | Run the API | `praetor serve` |
 | Evaluation | `praetor eval` |
 | AWS pre-flight / sync | `praetor aws-check` · `praetor s3-sync push` |
 | Tests | `pytest -m "not integration"` · `pytest -m integration` |
+| Phase 1 acceptance | `python scripts/phase1_acceptance.py` · fixtures: `python scripts/make_fixtures.py` |
 
 ## Working agreement
 - Inspect before editing. Reuse working code; don't rewrite it without a reason recorded in DECISIONS.md.

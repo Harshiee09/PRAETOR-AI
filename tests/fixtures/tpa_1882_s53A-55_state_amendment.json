@@ -1,0 +1,512 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496421",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/df9f8770-4efe-4cf9-85ba-1ea884649679/content",
+ "raw_sha256": "28f73f2e4ab32913b7bd2c1d46fba41f4dd86ba845502823cc47d77cace3b623",
+ "retrieved_at": "2026-09-22T22:35:14+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  20
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "For the purposes of this sub-section, no transfer made without consideration shall be deemed to have",
+   "page": 20,
+   "x0": 86.184,
+   "x1": 539.78248,
+   "top": 73.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "been made with intent to defraud by reason only that a subsequent transfer for consideration was made.]",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 530.0478400000001,
+   "top": 86.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[53A. Part performance.—Where any person contracts to transfer for consideration any",
+   "page": 20,
+   "x0": 96.864,
+   "x1": 540.0970399999999,
+   "top": 101.04463999999996,
+   "size": 11.0,
+   "bold_prefix": "[53A. Part performance",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "immoveable property by writing signed by him or on his behalf from which the terms necessary to",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7887999999997,
+   "top": 112.68463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "constitute the transfer can be ascertained with reasonable certainty,",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 366.74072,
+   "top": 124.44463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and the transferee has, in part performance of the contract, taken possession of the property or any",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.8551199999998,
+   "top": 139.92463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "part thereof, or the transferee, being already in possession, continues in possession in part performance of",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.6231999999995,
+   "top": 152.64463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the contract and has done some act in furtherance of the contract,",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 358.5340799999999,
+   "top": 165.24464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and the transferee has performed or is willing to perform his part of the contract,",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 425.9404799999998,
+   "top": 180.96464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "then, notwithstanding that ***, or, where there is an instrument of transfer, that the transfer has not",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.8354400000001,
+   "top": 196.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "2"
+   ]
+  },
+  {
+   "text": "been completed in the manner prescribed therefor by the law for the time being in force, the transferor or",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.88856,
+   "top": 209.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "any person claiming under him shall be debarred from enforcing against the transferee and persons",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.6231999999999,
+   "top": 221.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "claiming under him any right in respect of the property of which the transferee has taken or continued in",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.5569599999999,
+   "top": 234.51463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "possession, other than a right expressly provided by the terms of the contract:",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 412.81912,
+   "top": 247.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that nothing in this section shall affect the rights of a transferee for consideration who has",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.86744,
+   "top": 262.83464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "no notice of the contract or of the part performance thereof.]",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 337.3703999999999,
+   "top": 275.43463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER III",
+   "page": 20,
+   "x0": 274.01,
+   "x1": 337.78808,
+   "top": 291.15464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OF SALES OF IMMOVEABLE PROPERTY",
+   "page": 20,
+   "x0": 226.73,
+   "x1": 385.654,
+   "top": 306.75464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "54. “Sale” defined.—“Sale” is a transfer of ownership in exchange for a price paid or promised",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.7562399999999,
+   "top": 322.4746399999999,
+   "size": 11.0,
+   "bold_prefix": "54. “Sale” defined",
+   "markers": []
+  },
+  {
+   "text": "or part-paid and part-promised.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 209.5136,
+   "top": 335.07464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sale how made.—Such transfer, in the case of tangible immoveable property of the value of one",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.6868799999997,
+   "top": 350.67464,
+   "size": 11.0,
+   "bold_prefix": "Sale how made",
+   "markers": []
+  },
+  {
+   "text": "hundred rupees and upwards, or in the case of a reversion or other intangible thing, can be made only by a",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.5687999999999,
+   "top": 363.39464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "registered instrument.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 167.97263999999996,
+   "top": 375.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "In the case of tangible immoveable property of a value less than one hundred rupees, such transfer",
+   "page": 20,
+   "x0": 86.184,
+   "x1": 539.6078399999997,
+   "top": 391.71464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "may be made either by a registered instrument or by delivery of the property.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 411.0912799999999,
+   "top": 404.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Delivery of tangible immoveable property takes place when the seller places the buyer, or such person",
+   "page": 20,
+   "x0": 86.184,
+   "x1": 539.6299199999996,
+   "top": 419.93464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "as he directs, in possession of the property.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 261.05087999999995,
+   "top": 432.65464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Contract for sale.—A contract for the sale of immoveable property is a contract that a sale of",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.97184,
+   "top": 448.25464,
+   "size": 11.0,
+   "bold_prefix": "Contract for sale",
+   "markers": []
+  },
+  {
+   "text": "such property shall take place on terms settled between the parties.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 365.71,
+   "top": 460.97463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "It does not, of itself, create any interest in or charge on such property.",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 395.9644799999998,
+   "top": 476.57464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "STATE AMENDMENTS",
+   "page": 20,
+   "x0": 246.17,
+   "x1": 365.56759999999997,
+   "top": 492.29463999999996,
+   "size": 11.0,
+   "bold_prefix": "STATE AMENDMENTS",
+   "markers": []
+  },
+  {
+   "text": "Assam.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 106.0824,
+   "top": 507.89464,
+   "size": 11.0,
+   "bold_prefix": "Assam.",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 54 of the Central Act 4 of 1882.—In Section 54 of the principal Act, in",
+   "page": 20,
+   "x0": 86.184,
+   "x1": 539.9888799999999,
+   "top": 523.49464,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 54 of the Central Act 4 of 1882.",
+   "markers": []
+  },
+  {
+   "text": "para 2, for the expression “by a registered instrument” the following expression shall be substituted,",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7556799999998,
+   "top": 536.2146399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "namely: —",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 122.06,
+   "top": 548.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "“by an instrument registered in the State of Assam, notwithstanding anything contained in the India",
+   "page": 20,
+   "x0": 86.184,
+   "x1": 539.5377599999995,
+   "top": 564.56464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Registration Act, 1908 (Act 16 of 1908) to the contrary.”",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 322.85176,
+   "top": 577.16464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Assam Act 10 of 1976, s. 2.]",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 242.88632,
+   "top": 592.76464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "55. Rights and liabilities of buyer and seller.—In the absence of a contract to the contrary,",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.9437599999999,
+   "top": 608.4846399999999,
+   "size": 11.0,
+   "bold_prefix": "55. Rights and liabilities of buyer and seller",
+   "markers": []
+  },
+  {
+   "text": "the buyer and the seller of immoveable property respectively are subject to the liabilities, and have the",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.4907199999998,
+   "top": 621.0846399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "rights, mentioned in the rules next following, or such of them as are applicable to the property sold:",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 509.6606399999998,
+   "top": 633.80464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(1) The seller is bound—",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 204.29,
+   "top": 649.40464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) to disclose to the buyer any material defect in the property [or in the seller’s title thereto] of",
+   "page": 20,
+   "x0": 108.02,
+   "x1": 539.97424,
+   "top": 665.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "3"
+   ]
+  },
+  {
+   "text": "which the seller is, and the buyer is not, aware, and which the buyer could not with ordinary care",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.6721599999996,
+   "top": 677.7246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "discover;",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 130.40912,
+   "top": 690.3246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Ins. by Act 20 of 1929, s. 16.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 211.14600000000004,
+   "top": 730.3439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. The words “the contract though required to be registered, has not been registered, or” omitted by Act 48 of 2001, s. 10 (w.e.f.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 533.2280000000001,
+   "top": 740.87136,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "24-9-2001).",
+   "page": 20,
+   "x0": 81.024,
+   "x1": 123.809,
+   "top": 752.184,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Ins. by Act 20 of 1929, s. 17.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 211.42100000000002,
+   "top": 761.184,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

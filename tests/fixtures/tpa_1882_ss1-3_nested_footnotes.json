@@ -1,0 +1,1477 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496421",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/df9f8770-4efe-4cf9-85ba-1ea884649679/content",
+ "raw_sha256": "28f73f2e4ab32913b7bd2c1d46fba41f4dd86ba845502823cc47d77cace3b623",
+ "retrieved_at": "2026-09-22T22:35:14+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  1,
+  7,
+  8
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "THE TRANSFER OF PROPERTY ACT, 1882",
+   "page": 1,
+   "x0": 192.29,
+   "x1": 419.6299999999999,
+   "top": 79.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "_________",
+   "page": 1,
+   "x0": 278.93,
+   "x1": 332.93,
+   "top": 93.57199999999989,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ARRANGEMENT OF SECTIONS",
+   "page": 1,
+   "x0": 205.13,
+   "x1": 405.09799999999996,
+   "top": 113.37199999999996,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "___________",
+   "page": 1,
+   "x0": 275.69,
+   "x1": 336.28855999999996,
+   "top": 126.96464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PREAMBLE",
+   "page": 1,
+   "x0": 72.024,
+   "x1": 121.065,
+   "top": 139.56463999999994,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER I",
+   "page": 1,
+   "x0": 277.73,
+   "x1": 334.34632,
+   "top": 158.28463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 1,
+   "x0": 274.61,
+   "x1": 337.142,
+   "top": 176.88464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "SECTIONS",
+   "page": 1,
+   "x0": 72.024,
+   "x1": 115.79100000000001,
+   "top": 195.60464000000002,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 166.7,
+   "top": 214.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commencement.",
+   "page": 1,
+   "x0": 108.02,
+   "x1": 182.87167999999997,
+   "top": 232.83464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Extent.",
+   "page": 1,
+   "x0": 108.02,
+   "x1": 139.56896,
+   "top": 245.55463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Repeal of Acts.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 188.63407999999998,
+   "top": 264.15464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Saving of certain enactments, incidents, rights, liabilities, etc.",
+   "page": 1,
+   "x0": 108.02,
+   "x1": 433.38751999999977,
+   "top": 282.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Interpretation-clause.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 214.3928,
+   "top": 301.47464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. Enactments relating to contracts to be taken as part of Contract Act and",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 538.0169600000002,
+   "top": 320.07463999999993,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "supplemental to the Registration Act.",
+   "page": 1,
+   "x0": 108.02,
+   "x1": 311.4430399999999,
+   "top": 332.79463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER II",
+   "page": 1,
+   "x0": 271.37,
+   "x1": 339.74663999999996,
+   "top": 351.39464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OF TRANSFERS OF PROPERTY BY ACT OF PARTIES",
+   "page": 1,
+   "x0": 195.65,
+   "x1": 416.16400000000004,
+   "top": 370.11464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(A) Transfer of Property, whether moveable or immoveable",
+   "page": 1,
+   "x0": 146.9,
+   "x1": 463.58552,
+   "top": 388.71464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. “Transfer of property” defined.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 245.55752,
+   "top": 407.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. What may be transferred.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 219.91807999999995,
+   "top": 426.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. Persons competent to transfer.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 268.65199999999993,
+   "top": 444.65464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "8. Operation of transfer.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 221.79824,
+   "top": 463.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "9. Oral transfer.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 176.99791999999997,
+   "top": 481.97463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "10. Condition restraining alienation.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 276.03776,
+   "top": 500.69464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "11. Restriction repugnant to interest cleated.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 286.13935999999995,
+   "top": 519.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "12. Condition making interest determinable on insolvency or attempted alienation.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 454.26616,
+   "top": 537.89464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "13. Transfer for benefit of unborn person.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 311.42096000000004,
+   "top": 556.61464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "14. Rule against perpetuity.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 228.70927999999995,
+   "top": 575.24464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "15. Transfer to class some of whom come under sections 13 and 14.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 455.70271999999966,
+   "top": 593.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "16. Transfer to take effect on failure of prior interest.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 376.62912,
+   "top": 612.5646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "17. Direction for accumulation.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 250.53535999999997,
+   "top": 631.16464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "18. Transfer in perpetuity for benefit of public.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 339.1976,
+   "top": 649.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "19. Vested interest.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 176.49007999999998,
+   "top": 668.4846399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "20. When unborn person acquires vested interest on transfer for his benefit.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 496.8156799999996,
+   "top": 687.2046399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "21. Contingent interest.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 212.79199999999997,
+   "top": 705.80464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "THE TRANSFER OF PROPERTY ACT, 1882",
+   "page": 7,
+   "x0": 192.29,
+   "x1": 419.6299999999999,
+   "top": 78.8119999999999,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ACT NO. 4 OF 1882",
+   "page": 7,
+   "x0": 258.65,
+   "x1": 353.23,
+   "top": 97.53199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[17th February, 1882.]",
+   "page": 7,
+   "x0": 427.51,
+   "x1": 539.57632,
+   "top": 115.44463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "An Act to amend the law relating to the Transfer of Property by act of Parties.",
+   "page": 7,
+   "x0": 102.86,
+   "x1": 507.9620000000001,
+   "top": 133.41199999999992,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Preamble.—WHEREAS it is expedient to define and amend certain parts of the law",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 535.1458399999999,
+   "top": 151.68463999999994,
+   "size": 11.0,
+   "bold_prefix": "Preamble",
+   "markers": []
+  },
+  {
+   "text": "relating to the transfer of property by act of parties; It is hereby enacted as follows:—",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 500.98,
+   "top": 163.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER I",
+   "page": 7,
+   "x0": 277.73,
+   "x1": 334.31,
+   "top": 183.84464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 7,
+   "x0": 274.61,
+   "x1": 337.142,
+   "top": 199.68463999999994,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title.—This Act may be called the Transfer of Property Act, 1882.",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 482.5,
+   "top": 216.48464,
+   "size": 11.0,
+   "bold_prefix": "1. Short title.—",
+   "markers": []
+  },
+  {
+   "text": "Commencement.—It shall come into force on the first day of July, 1882.",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 414.4292,
+   "top": 232.35464000000002,
+   "size": 11.0,
+   "bold_prefix": "Commencement.—",
+   "markers": []
+  },
+  {
+   "text": "Extent.— [It extends in the first instance to the whole of India. except [the",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 535.48624,
+   "top": 245.79463999999996,
+   "size": 11.0,
+   "bold_prefix": "Extent",
+   "markers": [
+    "1",
+    "2",
+    "3"
+   ]
+  },
+  {
+   "text": "territories which, immediately before the 1st November, 1956, were comprised in Part B",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 534.6662399999999,
+   "top": 257.55463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "States or in the States of], Bombay, Punjab and Delhi.]",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 353.2569599999999,
+   "top": 269.31463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[But this Act or any part thereof may by notification in the Official Gazette be",
+   "page": 7,
+   "x0": 95.064,
+   "x1": 535.0434399999999,
+   "top": 282.51464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "4",
+    "5"
+   ]
+  },
+  {
+   "text": "extended to the whole or any part of [the said territories] by the State Government",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 535.15976,
+   "top": 294.63464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "6"
+   ]
+  },
+  {
+   "text": "concerned.]",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 129.9288,
+   "top": 306.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[And any State Government may *** from time to time, by notification in the Official",
+   "page": 7,
+   "x0": 93.504,
+   "x1": 534.96296,
+   "top": 319.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "7",
+    "8"
+   ]
+  },
+  {
+   "text": "Gazette, exempt, either retrospectively or prospectively, any part of the territories",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 535.28776,
+   "top": 331.71464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "administered by such State Government from all or any of the following provisions,",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 534.7683199999997,
+   "top": 343.59463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "namely:—",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 122.9,
+   "top": 355.47463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sections 54, paragraphs 2 and 3, 59, 107 and 123.]",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 353.7696,
+   "top": 373.47463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Subs. by the A.O. 1950, for the third paragraph.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 282.87899999999996,
+   "top": 399.094,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. The application of this Act was barred in the Naga Hills District, including the Mokokchung Sub-division, the",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 535.939,
+   "top": 408.81399999999996,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Dibrugarh Frontier Tract, the North Cachar Hills, the Garo Hills, the Khasi and Jantia Hills and the Mikir hills",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 535.0700000000002,
+   "top": 418.654,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Tract, by notification under s. 2 of the Assam Frontier Tracts Regulation, 1880 (Reg. 2 of 1880).",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 476.719,
+   "top": 428.37399999999997,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Partially extended to Berar by Act 4 of 1941. Extended to Manipur by Act 68 of 1956; to Dadra and Nagar Haveli",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 535.7109999999999,
+   "top": 438.214,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "by Reg. 6 of 1963, s. 2 and Sch. I; to Goa, Daman and Diu by Reg. 11 of 1963, s. 3 and Sch.; to Lakshadweep by",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 535.0920000000001,
+   "top": 448.054,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Reg. 8 of 1965, s. 3 and Sch., to Pondicherry by Act 26 of 1968, s. 3 and Sch.",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 390.99100000000004,
+   "top": 457.774,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "It has been amended to Bombay by Bombay Act 14 of 1939, 57 of 1959, in U.P. by U.P. Act 24 of 1954, 14 of 1970 and 57",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 535.3720000000001,
+   "top": 467.854,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of 1976.",
+   "page": 7,
+   "x0": 82.824,
+   "x1": 112.875,
+   "top": 478.054,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Extended to the Union territory of Jammu and Kashmir and Union territory of Ladakh by Act 34 of 2019, s. 95 and Fifth",
+   "page": 7,
+   "x0": 82.824,
+   "x1": 516.8129999999996,
+   "top": 488.25399999999996,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Schedule (w.e.f. 31-10-2019).",
+   "page": 7,
+   "x0": 82.824,
+   "x1": 190.889,
+   "top": 498.45399999999995,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Subs. by the Adaptation of Laws (No. 2) Order, 1956, for “Part B States”.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 393.76,
+   "top": 508.054,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. Subs. by the A.O. 1937, for the original paragraph.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 292.93500000000006,
+   "top": 517.294,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. The Act has been extended to—",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 215.93,
+   "top": 525.0546400000001,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The Presidency of Bombay (except Scheduled Districts) w.e.f. 1-1-1893; to Mehwassi Estate by Born. Reg. 1",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 506.30799999999994,
+   "top": 535.294,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of 1949; and to former princely area w.e.f. 1-4-1951; now applicable to whole of Maharashtra;",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 467.12600000000003,
+   "top": 543.814,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Gujarat (Saurashtra area) by Saurashtra Ordinance 25 of 1949, and to Kutch area w.e.f.1-1-1950.",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 520.024,
+   "top": 552.574,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Madhya Pradesh:",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 204.482,
+   "top": 561.364,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Mysore, w.e.f. 1-4-1951;",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 233.79200000000003,
+   "top": 570.364,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Rajasthan, w.e.f. 1-7-1952;",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 242.67200000000003,
+   "top": 579.124,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the former State of Travancore-Cochin, w.e.f. 1-5-1952, now applicable to whole of Kerala.",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 511.69900000000007,
+   "top": 587.884,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The provisions o( sections 54, 107 and 123 were extended to—",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 394.15,
+   "top": 596.884,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Delhi, w.e.f. 30-5-1939. Section 129 was extended to certain areas of Delhi w.e.f. 16-11-1940 and to",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 529.252,
+   "top": 605.7639999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the remaining areas w.e.f. 1-12-1962. the remaining provisions were also extended to the Union",
+   "page": 7,
+   "x0": 139.58,
+   "x1": 512.0930000000001,
+   "top": 615.0039999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "territory of Delhi w.e.f. 1-12-1962;",
+   "page": 7,
+   "x0": 139.58,
+   "x1": 276.392,
+   "top": 624.3639999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Himachal Pradesh, w.e.f. 7-12-1970:",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 281.516,
+   "top": 633.2439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Punjab, w.e.f. 1-4-1955 and to former princely area w.e.f. 15-5-1957. (Section 59 was enforced in",
+   "page": 7,
+   "x0": 136.82,
+   "x1": 527.254,
+   "top": 642.2439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Haryana area, w.e.f. 5-8-1967).",
+   "page": 7,
+   "x0": 118.82,
+   "x1": 243.82999999999998,
+   "top": 651.1239999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The Act has been declared in force in the Pargana of Manpur by the Manpur Law Regulation, 1926 (Reg. 2 of",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 539.833,
+   "top": 660.0039999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1926), in Panth Piploda by the Panth Piploda Laws Regulation, 1929 (Reg. 1 of 1929), and in the State of",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 539.452,
+   "top": 668.7639999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sikkim on 1.9.1984 vide Notification No. S.O. 643(E), dated 24-8-1984, Gazette of India, Extraordinary,",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 539.008,
+   "top": 677.5239999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Pt. II, sec. 3(0.",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 160.55,
+   "top": 686.404,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The Act has been repealed as to Government Grants by the Government Grants Act, 1895 (15 of 1895).",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 529.808,
+   "top": 695.644,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The Act has been repealed or modified to the extent necessary to give effect to the provisions of Madras Act 3",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 538.3769999999998,
+   "top": 704.164,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of 1922, in the City of Madras see s. 13 of Madras Act 3 of 1922.",
+   "page": 7,
+   "x0": 99.024,
+   "x1": 372.221,
+   "top": 712.564,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. Subs. by the Adaptation of Laws (No. 2) Order, 1956, for “said States”.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 384.16,
+   "top": 721.804,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. Subs. by Act 3 of 1885, s. 1, for the original paragraph.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 313.173,
+   "top": 731.064,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "8. The words “with the previous sanction of the Governor General in Council” omitted by Act 38 of 1920, s. 2 and the",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 525.958,
+   "top": 740.424,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Schedule.",
+   "page": 7,
+   "x0": 81.024,
+   "x1": 118.31,
+   "top": 749.664,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Notwithstanding anything in the foregoing part of this section, sections 54, paragraphs 2",
+   "page": 8,
+   "x0": 93.504,
+   "x1": 536.8041599999998,
+   "top": 73.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "and 3, 59, 107 and 123 shall not extend or be extended to any district or tract of country for the",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 537.0946399999998,
+   "top": 86.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "time being excluded from the operation of the Indian Registration Act, [1908 (16 of 1908)],",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 537.6301599999999,
+   "top": 98.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "2"
+   ]
+  },
+  {
+   "text": "under the power conferred by the first section of that Act or otherwise.]",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 414.36336,
+   "top": 111.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Repeal of Acts. Saving of certain enactments, incidents, rights, liabilities, etc.—",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 532.42,
+   "top": 130.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "2. Repeal of Acts. Saving of certain enactments, incidents, rights, liabilities, etc.—",
+   "markers": []
+  },
+  {
+   "text": "In the territories to which this Act extends for the time being the enactments specified in",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 531.1223999999997,
+   "top": 142.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the Schedule hereto annexed shall be repealed to the extent therein mentioned. But nothing",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 531.2438399999994,
+   "top": 155.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "herein contained shall be deemed to affect—",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 294.05,
+   "top": 168.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) the provisions of any enactment not hereby expressly repealed:",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 433.45912,
+   "top": 186.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) any terms or incidents of any contract or constitution of property which are consistent",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 539.69824,
+   "top": 205.44463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "with the provisions of this Act, and are allowed by the law for the time being in force:",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 490.24912,
+   "top": 218.04463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(c) any right or liability arising out of a legal relation constituted before this Act comes into force,",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 539.8111999999999,
+   "top": 236.67463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or any relief in respect of any such right or liability: or",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 330.02631999999994,
+   "top": 249.39463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(d) save as provided by section 57 and Chapter IV of this Act, any transfer by operation",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 539.2972,
+   "top": 267.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of law or by, or in execution of, a decree or order of a Court of competent jurisdiction:",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 505.60912,
+   "top": 280.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and nothing in the second chapter of this Act shall be deemed to affect any rule of *** Muhammadan",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 538.15792,
+   "top": 299.31463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "3"
+   ]
+  },
+  {
+   "text": "*** law.",
+   "page": 8,
+   "x0": 75.504,
+   "x1": 113.56992,
+   "top": 312.03463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "4"
+   ]
+  },
+  {
+   "text": "3. Interpretation-clause.—In this Act, unless there is something repugnant in the subject or",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 539.0314400000002,
+   "top": 330.63464,
+   "size": 11.0,
+   "bold_prefix": "3. Interpretation-clause",
+   "markers": []
+  },
+  {
+   "text": "context,—",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 120.25999999999999,
+   "top": 343.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "“immoveable property” does not include standing timber, growing crops or grass:",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 532.84912,
+   "top": 361.95464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "“instrument”, means a non-testamentary instrument:",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 320.17912,
+   "top": 374.55464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[“attested”, in relation to an instrument, means and shall be deemed always to have",
+   "page": 8,
+   "x0": 111.98,
+   "x1": 538.8692,
+   "top": 393.27464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "5"
+   ]
+  },
+  {
+   "text": "meant attested by two or more witnesses each of whom has seen the executant sign or affix",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 538.51296,
+   "top": 405.89464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "his mark to the instrument, or has seen some other person sign the instrument in the",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 538.5239999999999,
+   "top": 418.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "presence and by the direction of the executant, or has received from the executant a personal",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 538.77512,
+   "top": 431.21464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "acknowledgement of his signature or mark, or of the signature of such other person, and",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 538.59024,
+   "top": 443.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "each of whom has signed the instrument in the presence of the executant; but it shall not be",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 538.5460800000001,
+   "top": 456.53463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "necessary that more than one of such witnesses shall have been present at the same time, and",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 538.5214400000003,
+   "top": 469.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "no particular form of attestation shall be necessary:]",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 342.74631999999997,
+   "top": 481.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "“registered” means registered in [ [any part of the territories] to which this Act extends]",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 538.99208,
+   "top": 500.45464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "6",
+    "7"
+   ]
+  },
+  {
+   "text": "under the law for the time being in force regulating the registration of documents:",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 477.88912,
+   "top": 513.0546400000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "8"
+   ]
+  },
+  {
+   "text": "“attached to the earth” means—",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 267.29,
+   "top": 531.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) rooted in the earth, as in the case of trees and shrubs;",
+   "page": 8,
+   "x0": 126.02,
+   "x1": 417.90416000000005,
+   "top": 550.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) imbedded in the earth, as in the case of walls or buildings; or",
+   "page": 8,
+   "x0": 126.02,
+   "x1": 452.10999999999996,
+   "top": 569.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(c) attached to what is so imbedded for the permanent beneficial enjoyment of that to which it",
+   "page": 8,
+   "x0": 126.02,
+   "x1": 539.8301599999999,
+   "top": 587.7246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "is attached:",
+   "page": 8,
+   "x0": 108.02,
+   "x1": 157.88912,
+   "top": 600.3246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[“actionable claim” means a claim to any debt, other than a debt secured by mortgage",
+   "page": 8,
+   "x0": 111.5,
+   "x1": 538.4847199999998,
+   "top": 619.04464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "9"
+   ]
+  },
+  {
+   "text": "of",
+   "page": 8,
+   "x0": 90.024,
+   "x1": 99.82032000000001,
+   "top": 631.64464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Added by Act 3 of 1885, s. 2 (w.e.f. 1-7-1882).",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 274.778,
+   "top": 672.0039999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Subs. by Act 20 of 1929, s. 2, for “1877”.",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 255.33,
+   "top": 681.8439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. The word “Hindu” omitted by s. 3, ibid.",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 247.54399999999998,
+   "top": 691.564,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. The words “or Buddhist” omitted by s. 3, ibid.",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 270.806,
+   "top": 701.2839999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. Ins. by Act 27 of 1926, s. 2, as amended by Act 10 of 1927, s. 2 and Sch. I.",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 399.88,
+   "top": 711.0039999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. Subs. by Act 3 of 1951, s. 3 and the Schedule, for “a Part A State or a Part C State” (w.e.f. 1-4-1951).",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 513.733,
+   "top": 720.7239999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. Subs. by the Adaptation of Laws (No. 2) Order 1956, for “any State”.",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 369.3210000000002,
+   "top": 729.8639999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "8. See the Indian Registration Act, 1908 (16 of 1908).",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 289.328,
+   "top": 740.184,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "9. Ins. by Act 2 of 1900, s. 2.",
+   "page": 8,
+   "x0": 72.024,
+   "x1": 190.30999999999997,
+   "top": 749.544,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

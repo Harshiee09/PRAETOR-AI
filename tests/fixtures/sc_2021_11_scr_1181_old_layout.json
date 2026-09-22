@@ -1,0 +1,850 @@
+{
+ "source_url": "s3://indian-supreme-court-judgments/data/pdf/year=2021/english/2021_11_1181_1194_EN.pdf",
+ "download_url": "s3://indian-supreme-court-judgments/data/pdf/year=2021/english/2021_11_1181_1194_EN.pdf",
+ "raw_sha256": "90f39a278328e4b75bc5e271b24d7ab39d2ac857818b7163d307d40ed3539850",
+ "retrieved_at": "2026-09-22T22:36:18+00:00",
+ "licence": "CC-BY-4.0",
+ "pages": [
+  3,
+  4,
+  14
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": true,
+ "body_size": 11.0,
+ "page_height": 792,
+ "lines": [
+  {
+   "text": "PVT. LTD. v. SANJEEV KUMAR SHARMA",
+   "page": 3,
+   "x0": 200.28100000000003,
+   "x1": 410.0902760464,
+   "top": 118.89289999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CIVIL APPELLATE JURISDICTION: Civil Appeal No.7098 of",
+   "page": 3,
+   "x0": 177.71999999999997,
+   "x1": 460.75548365279985,
+   "top": 147.93309999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2021.",
+   "page": 3,
+   "x0": 149.40009999999998,
+   "x1": 173.40035454399998,
+   "top": 161.1331,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "From the Judgment and Order dated 27.09.2021 of the National",
+   "page": 3,
+   "x0": 177.71999999999997,
+   "x1": 460.86802431983995,
+   "top": 179.97289999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Consumer Disputes Redressal Commission, New Delhi in IA/3621/2021",
+   "page": 3,
+   "x0": 149.40009999999998,
+   "x1": 460.9198444239999,
+   "top": 193.17290000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "in FA/330/2021.",
+   "page": 3,
+   "x0": 149.40009999999995,
+   "x1": 219.8402437119999,
+   "top": 206.37290000000007,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "With",
+   "page": 3,
+   "x0": 177.71999999999994,
+   "x1": 198.00016977599995,
+   "top": 225.33310000000006,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Civil Appeal Nos. 7099, 7100, 7101, 7104, 7102 and 7103 of 2021.",
+   "page": 3,
+   "x0": 177.71999999999994,
+   "x1": 461.0399258399999,
+   "top": 244.17290000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sidharth Dave, Sr. Adv., Pawan Kumar Ray, Riju Mani Talukdar,",
+   "page": 3,
+   "x0": 177.71999999999994,
+   "x1": 460.9174713647999,
+   "top": 263.1331,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Deepak Goel, Ms. Kanika Agnihotri, Ms. Yashodhara Gupta, Ms. Niharika",
+   "page": 3,
+   "x0": 149.40009999999995,
+   "x1": 461.02235092639995,
+   "top": 276.33309999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Ahluwalia, Ankit Khera, Ms. Sneha Kohli, Advs. for the Appellant.",
+   "page": 3,
+   "x0": 149.40009999999995,
+   "x1": 443.87964989439996,
+   "top": 289.53309999999993,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Jitender Vashisht, Pranab Kumar Mullick, Ms. Deeplaxmi Subhash",
+   "page": 3,
+   "x0": 177.72009999999997,
+   "x1": 460.9201466464,
+   "top": 308.37289999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Matwankar, Advs. for the Respondents.",
+   "page": 3,
+   "x0": 149.4001,
+   "x1": 326.15864215456,
+   "top": 321.57289999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The Judgment of the Court was delivered by",
+   "page": 3,
+   "x0": 177.72,
+   "x1": 374.9978984544,
+   "top": 340.53309999999993,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "M. R. SHAH, J.",
+   "page": 3,
+   "x0": 177.72,
+   "x1": 257.1596958048,
+   "top": 359.37289999999996,
+   "size": 11.0,
+   "bold_prefix": "M. R. SHAH, J.",
+   "markers": []
+  },
+  {
+   "text": "1. Feeling aggrieved and dissatisfied with the impugned order",
+   "page": 3,
+   "x0": 177.72,
+   "x1": 460.87632,
+   "top": 378.33309999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "passed by the National Consumer Disputes Redressal Commission, New",
+   "page": 3,
+   "x0": 149.39500000000004,
+   "x1": 460.8510475920001,
+   "top": 391.41319999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Delhi (hereinafter referred to as “National Commission”) dated",
+   "page": 3,
+   "x0": 149.4000000000001,
+   "x1": 461.0408411520001,
+   "top": 404.7331,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "27.09.2021 in I.A. No. 3621 of 2021 in First Appeal No. 330 of 2021 by",
+   "page": 3,
+   "x0": 149.4000000000001,
+   "x1": 460.9184524972799,
+   "top": 417.93309999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "which, the National Commission, while staying the order passed by the",
+   "page": 3,
+   "x0": 149.4000000000001,
+   "x1": 460.78147698048014,
+   "top": 431.13309999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "State Commission has directed the appellant to deposit the entire decretal",
+   "page": 3,
+   "x0": 149.4000000000001,
+   "x1": 460.86831725760004,
+   "top": 444.33309999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "amount with the State Commission, the original appellant – builder – M/",
+   "page": 3,
+   "x0": 149.40000000000006,
+   "x1": 460.74885728160007,
+   "top": 457.41319999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "s. Manohar Infrastructure and Constructions Private Limited, has",
+   "page": 3,
+   "x0": 149.40000000000003,
+   "x1": 461.1350717376001,
+   "top": 470.7331,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "preferred the Civil Appeal No. 7098 of 2021.",
+   "page": 3,
+   "x0": 149.39500000000007,
+   "x1": 347.0393472865601,
+   "top": 483.93309999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Feeling aggrieved and dissatisfied with the impugned order",
+   "page": 3,
+   "x0": 177.72040000000007,
+   "x1": 460.87672000000003,
+   "top": 502.7729,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "passed by the National Commission dated 31.08.2021 passed in I.A.",
+   "page": 3,
+   "x0": 149.39540000000005,
+   "x1": 460.91760192416,
+   "top": 515.9729,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "No. 5880 of 2021; I.A. No.5881 of 2021; I.A. No.5882 of 2021; I.A.",
+   "page": 3,
+   "x0": 149.39540000000005,
+   "x1": 460.7987262511999,
+   "top": 529.1729,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "No. 5883 of 2021 and I.A. No. 5884 of 2021 in respect of First Appeal",
+   "page": 3,
+   "x0": 149.39540000000005,
+   "x1": 460.74807598976,
+   "top": 542.3729,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Nos. 856 of 2020, 857 of 2020, 858 of 2020, 859 of 2020 and 860 of 2020",
+   "page": 3,
+   "x0": 149.39540000000005,
+   "x1": 460.92030232,
+   "top": 555.5728999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "by which the National Commission has dismissed the said I.A.s and",
+   "page": 3,
+   "x0": 149.39540000000005,
+   "x1": 460.80023665600004,
+   "top": 568.7728999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "refused to modify or review or recall its earlier order dated 04.02.2021",
+   "page": 3,
+   "x0": 149.40040000000005,
+   "x1": 460.79993329600006,
+   "top": 581.9729,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "by which, while admitting the respective appeals, the National Commission",
+   "page": 3,
+   "x0": 149.39540000000008,
+   "x1": 461.0417312848001,
+   "top": 595.1728999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "granted stay of the orders passed by the State Commission, subject to",
+   "page": 3,
+   "x0": 149.40040000000008,
+   "x1": 460.91963742784,
+   "top": 608.3728999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "deposit of entire decretal amount with up-to-date interest, if any, the",
+   "page": 3,
+   "x0": 149.40040000000005,
+   "x1": 460.9017130000001,
+   "top": 621.5728999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "original appellant/applicant – builder – M/s. TDI Infrastructure Ltd. has",
+   "page": 3,
+   "x0": 149.40040000000005,
+   "x1": 460.77419427039996,
+   "top": 634.7728999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "preferred the present Civil Appeal Nos. 7099 to 7104 of 2021.",
+   "page": 3,
+   "x0": 149.39540000000002,
+   "x1": 422.7594803705599,
+   "top": 647.9728999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. At the outset, it is required to be noted that feeling aggrieved",
+   "page": 4,
+   "x0": 191.63996,
+   "x1": 474.840022784,
+   "top": 147.933044,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and dissatisfied with the order passed by the State Commission directing",
+   "page": 4,
+   "x0": 163.31996000000004,
+   "x1": 474.83961011360003,
+   "top": 161.13304400000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the appellant(s) to refund the amount paid by the respective home buyers",
+   "page": 4,
+   "x0": 163.31996000000004,
+   "x1": 474.69468760928004,
+   "top": 174.3330440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "with interest, the appellant(s) have preferred the first appeals before the",
+   "page": 4,
+   "x0": 163.31996000000007,
+   "x1": 474.7012802649601,
+   "top": 187.53304400000013,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "National Commission under Section 51 of the Consumer Protection Act,",
+   "page": 4,
+   "x0": 163.31496000000007,
+   "x1": 474.71986335200006,
+   "top": 200.73304400000018,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2019 (hereinafter referred to as the “Act, 2019”). That in the said",
+   "page": 4,
+   "x0": 163.31996000000004,
+   "x1": 474.959240384,
+   "top": 213.8131440000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "appeal(s), the respective appellant(s)/applicant(s) filed the said",
+   "page": 4,
+   "x0": 163.31996000000004,
+   "x1": 474.96066627199997,
+   "top": 227.13304400000015,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "application(s) to stay the respective order(s) passed by the State",
+   "page": 4,
+   "x0": 163.31996,
+   "x1": 475.062735968,
+   "top": 240.3330440000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commission.",
+   "page": 4,
+   "x0": 163.31995999999998,
+   "x1": 219.60072124159996,
+   "top": 253.53304400000025,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. At this stage, it is required to be noted that as the said respective",
+   "page": 4,
+   "x0": 191.63985999999997,
+   "x1": 474.70129476639994,
+   "top": 275.2529440000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "appellant(s) have deposited 50 per cent of the decretal amount by",
+   "page": 4,
+   "x0": 163.31985999999992,
+   "x1": 475.0785560415999,
+   "top": 288.4529440000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "preferring the appeal(s), which the appellant(s) are required to deposit",
+   "page": 4,
+   "x0": 163.31485999999992,
+   "x1": 474.7891778943999,
+   "top": 301.65294400000016,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "as a pre-deposit at the time of preferring the appeal(s) as required under",
+   "page": 4,
+   "x0": 163.31985999999992,
+   "x1": 474.79551101919986,
+   "top": 314.85294400000015,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Section 19 of the Act, 2019. But the National Commission has stayed",
+   "page": 4,
+   "x0": 163.3198599999999,
+   "x1": 474.83982347199986,
+   "top": 328.05294400000014,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the order passed by the State Commission on condition that the appellant(s)",
+   "page": 4,
+   "x0": 163.3198599999999,
+   "x1": 475.0369425231998,
+   "top": 341.2529440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "shall deposit the entire decretal amount with interest, if any, with the",
+   "page": 4,
+   "x0": 163.31985999999986,
+   "x1": 474.8215415343999,
+   "top": 354.4529440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "State Commission. Feeling aggrieved and dissatisfied with the order(s)",
+   "page": 4,
+   "x0": 163.31985999999986,
+   "x1": 474.6752405439999,
+   "top": 367.6529440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "passed by the National Commission passed on the stay application(s)",
+   "page": 4,
+   "x0": 163.3148599999999,
+   "x1": 474.7951257903999,
+   "top": 380.8529440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "directing the appellant(s) to deposit the entire decretal amount with",
+   "page": 4,
+   "x0": 163.3198599999999,
+   "x1": 474.71987209599985,
+   "top": 394.0529440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "interest, if any, while staying the respective order(s) passed by the State",
+   "page": 4,
+   "x0": 163.3198599999999,
+   "x1": 474.8211908988799,
+   "top": 407.25294400000007,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commission, the original appellant(s) have preferred the present appeals.",
+   "page": 4,
+   "x0": 163.31985999999986,
+   "x1": 474.8397735692798,
+   "top": 420.3330440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. Shri Sidharth Dave, learned Senior Advocate has appeared on",
+   "page": 4,
+   "x0": 191.63985999999986,
+   "x1": 474.7185380833597,
+   "top": 442.1728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "behalf of the appellant in Civil Appeal No. 7098 of 2021 and Ms. Kanika",
+   "page": 4,
+   "x0": 163.31445999999985,
+   "x1": 474.70111343519983,
+   "top": 455.2529440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Agnihotri, learned Advocate has appeared on behalf of the appellant –",
+   "page": 4,
+   "x0": 163.31945999999982,
+   "x1": 474.7139413838398,
+   "top": 468.57284400000015,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "M/s. TDI Infrastructure Ltd. in Civil Appeal Nos. 7099 to 7104 of 2021.",
+   "page": 4,
+   "x0": 163.31945999999982,
+   "x1": 474.7190213759998,
+   "top": 481.77284400000013,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. Shri Sidharth Dave, learned Senior Advocate on behalf of the",
+   "page": 4,
+   "x0": 191.6394599999998,
+   "x1": 474.70121999999986,
+   "top": 503.37284400000016,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "respective appellant has vehemently submitted that the National",
+   "page": 4,
+   "x0": 163.31945999999982,
+   "x1": 474.90898161599983,
+   "top": 516.5728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commission cannot pass an order to deposit the entire decretal amount",
+   "page": 4,
+   "x0": 163.31945999999982,
+   "x1": 474.66798275999986,
+   "top": 529.7728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and/or any amount higher than 50 per cent of the amount in terms of the",
+   "page": 4,
+   "x0": 163.31945999999985,
+   "x1": 474.8210145839999,
+   "top": 542.9728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "order of the State Commission while entertaining the appeal in view of",
+   "page": 4,
+   "x0": 163.31945999999988,
+   "x1": 474.6753715487999,
+   "top": 556.1728440000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the second proviso to Section 51 of the Act, 2019. It is submitted that",
+   "page": 4,
+   "x0": 163.31945999999988,
+   "x1": 474.78773984639986,
+   "top": 569.3728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "according to the statutory intent, the requirement of deposit at best can",
+   "page": 4,
+   "x0": 163.31945999999988,
+   "x1": 474.8385059404799,
+   "top": 582.572844,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "be 50 per cent of the decretal amount and not higher than that. Learned",
+   "page": 4,
+   "x0": 163.31445999999988,
+   "x1": 474.83879450399985,
+   "top": 595.7728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "counsel appearing on behalf of the respective appellant(s) have heavily",
+   "page": 4,
+   "x0": 163.31945999999988,
+   "x1": 474.9592325759999,
+   "top": 608.9728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "relied upon the number of orders passed by this Court against several",
+   "page": 4,
+   "x0": 163.3194599999999,
+   "x1": 474.6683628719999,
+   "top": 622.172844,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "orders passed by the National Commission granting stay of the order of",
+   "page": 4,
+   "x0": 163.31945999999988,
+   "x1": 474.79496474399986,
+   "top": 635.372844,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the State Commission subject to deposit of the entire decretal amount",
+   "page": 4,
+   "x0": 163.31945999999988,
+   "x1": 474.66780080639984,
+   "top": 648.572844,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "stay application(s). The aforesaid exercise has to be completed within a",
+   "page": 14,
+   "x0": 163.32005999999998,
+   "x1": 474.82138971328,
+   "top": 147.933044,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "period of eight weeks from today. Either of the parties to place a copy of",
+   "page": 14,
+   "x0": 163.31506,
+   "x1": 474.6760870528,
+   "top": 161.13304400000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the present judgment and order before the National Commission forthwith.",
+   "page": 14,
+   "x0": 163.32006,
+   "x1": 474.9607888896,
+   "top": 174.3330440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "All these appeals are partly allowed to the aforesaid extent only",
+   "page": 14,
+   "x0": 191.64006000000003,
+   "x1": 474.95996124,
+   "top": 193.17284400000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "with the law laid down on the powers of the National Commission to",
+   "page": 14,
+   "x0": 163.32006,
+   "x1": 474.7200195168,
+   "top": 206.3728440000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "grant conditional stay of the order passed by the State Commission on",
+   "page": 14,
+   "x0": 163.32006,
+   "x1": 474.72006,
+   "top": 219.57284400000015,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "condition of deposit of the entire amount and/or any amount higher than",
+   "page": 14,
+   "x0": 163.32006,
+   "x1": 474.7192840521599,
+   "top": 232.7728440000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "50 per cent of the amount as observed hereinabove.",
+   "page": 14,
+   "x0": 163.32006,
+   "x1": 392.63836908672,
+   "top": 245.97284400000024,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ],
+ "metadata": {
+  "case_title": "MANOHAR INFRASTRUCTURE AND CONSTRUCTIONS PRIVATE LIMITED versus SANJEEV KUMAR SHARMA AND ORS.",
+  "petitioner": "MANOHAR INFRASTRUCTURE AND CONSTRUCTIONS PRIVATE LIMITED",
+  "respondent": "SANJEEV KUMAR SHARMA AND ORS.",
+  "court": "Supreme Court of India",
+  "decision_date": "2021-12-07",
+  "judges": [
+   "M.R. SHAH",
+   "B.V. NAGARATHNA"
+  ],
+  "author_judge": "M.R. SHAH",
+  "citation": "[2021] 11 S.C.R. 1181",
+  "neutral_citation": "2021 INSC 836",
+  "cnr": "ESCR010006312021",
+  "disposal_nature": "Case Partly allowed",
+  "available_languages": "ENG,HIN,PUN",
+  "path": "2021_11_1181_1194",
+  "year": 2021,
+  "matched_acts": [
+   "cpa-2019"
+  ]
+ }
+}

@@ -1,0 +1,125 @@
+{
+  "model": "qwen3.5:4b",
+  "results": [
+    {
+      "question": "What is the time limit for presenting a document for registration?",
+      "expected": [
+        "Registration Act, 1908",
+        "23"
+      ],
+      "passed": true,
+      "seconds": 29.1,
+      "cited": [
+        [
+          "Registration Act, 1908",
+          "s. 23"
+        ],
+        [
+          "Registration Act, 1908",
+          "s. 25"
+        ],
+        [
+          "Registration Act, 1908",
+          "s. 26"
+        ]
+      ],
+      "abstained": false,
+      "provider": "ollama",
+      "llm": {
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "input_tokens": 2883,
+        "output_tokens": 280,
+        "latency_ms": 13516
+      },
+      "top_dense": 0.7065,
+      "warnings": [],
+      "answer_markdown": "**Short answer:** A document must generally be presented within four months of its execution, unless it is a copy of a decree or order, which has a different calculation period [S1].\n\n**What the sources say:**\n- No document other than a will shall be accepted for registration unless presented to the proper officer within four months from the date of its execution [S1].\n- A copy of a decree or order may be presented within four months from the day on which the decree or order was made, or where it is appealable, within four months from the day on which it becomes final [S1].\n- If delay in presentation is due to urgent necessity or unavoidable accident and does not exceed four months, the Registrar may direct acceptance upon payment of a fine not exceeding ten times the proper registration fee [S2].\n- For documents executed out of India, if presented within four months after their arrival in India, they may be accepted on payment of the proper registration fee [S6].\n\n**Uncertain or not covered:**\n- The sources do not specify whether state-level variations exist for these time limits; Indian law can have state-specific rules that differ from central provisions.\n\n**Jurisdiction and date:**\n- Central law under the Registration Act, 1908, as retrieved on 2026-09-22."
+    },
+    {
+      "question": "What counts as a sale of immovable property?",
+      "expected": [
+        "Transfer of Property Act, 1882",
+        "54"
+      ],
+      "passed": true,
+      "seconds": 9.6,
+      "cited": [
+        [
+          "Transfer of Property Act, 1882",
+          "s. 54"
+        ],
+        [
+          "THE SUB REGISTRAR, AMUDALAVALASA & ANR. versus M/S DANKUNI STEELS LTD. & ORS.",
+          "para 36"
+        ],
+        [
+          "THE SUB REGISTRAR, AMUDALAVALASA & ANR. versus M/S DANKUNI STEELS LTD. & ORS.",
+          "para 28 (part 2 of 3)"
+        ],
+        [
+          "THE SUB REGISTRAR, AMUDALAVALASA & ANR. versus M/S DANKUNI STEELS LTD. & ORS.",
+          "paras 20-21"
+        ],
+        [
+          "M/S. SESHASAYEE STEELS P. LTD. versus ASSISTANT COMMISSIONER OF INCOME TAX, COMPANY CIRCLE VI(2), CHENNAI",
+          "para 10 (part 2 of 3)"
+        ]
+      ],
+      "abstained": false,
+      "provider": "ollama",
+      "llm": {
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "input_tokens": 3396,
+        "output_tokens": 368,
+        "latency_ms": 9554
+      },
+      "top_dense": 0.7055,
+      "warnings": [],
+      "answer_markdown": "**Short answer:** A \"sale\" is a transfer of ownership in exchange for a price paid or promised, and it requires a registered instrument if the property value is one hundred rupees or more [S1]. Immovable property includes land, buildings, and things attached to the earth but excludes standing timber, growing crops, or grass [S5][S6].\n\n**What the sources say:**\n- \"Sale\" is defined as a transfer of ownership in exchange for a price paid or promised or part-paid and part-promised [S1].\n- Such a transfer of tangible immovable property valued at one hundred rupees or upwards can be made only by a registered instrument [S1].\n- Immovable property includes land, buildings, hereditary allowances, rights to ways, lights, ferries, fisheries, or any other benefit to arise out of land, and things attached to the earth or permanently fastened to anything which is attached to the earth, but does not include standing timber, growing crops, or grass [S5][S6].\n- Section 8 of the Transfer of Property Act states that unless a different intention is expressed, a transfer passes all interests and legal incidents of the property to the transferee [S5][S6].\n\n**Uncertain or not covered:** The sources do not specify whether machinery permanently embedded in land counts as immovable property for sale purposes under this specific definition, though they note it may fall under immovable property if permanently attached [S4]. They also do not clarify how \"sale\" interacts with part-performance agreements under Section 53A beyond mentioning the term appears in that context [S7].\n\n**Jurisdiction and date:** Central law (India); based on texts retrieved on 2026-09-22."
+    },
+    {
+      "question": "What is the limitation period for filing a consumer complaint?",
+      "expected": [
+        "Consumer Protection Act, 2019",
+        "69"
+      ],
+      "passed": true,
+      "seconds": 7.4,
+      "cited": [
+        [
+          "Consumer Protection Act, 2019",
+          "s. 69"
+        ]
+      ],
+      "abstained": false,
+      "provider": "ollama",
+      "llm": {
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "input_tokens": 3129,
+        "output_tokens": 237,
+        "latency_ms": 7344
+      },
+      "top_dense": 0.7275,
+      "warnings": [],
+      "answer_markdown": "**Short answer:** A consumer complaint must generally be filed within two years from the date the cause of action arises, though it may be entertained after this period if sufficient cause for delay is shown and reasons are recorded [S1].\n\n**What the sources say:**\n- The District Commission, State Commission, or National Commission shall not admit a complaint unless it is filed within two years from the date on which the cause of action has arisen [S1].\n- A complaint may be entertained after the specified period if the complainant satisfies the Commission that he had sufficient cause for not filing the complaint within such period, provided the Commission records its reasons for condoning the delay [S1].\n\n**Uncertain or not covered:** The sources do not specify whether \"sufficient cause\" is defined elsewhere in the Act or by rules; they also do not address how limitation applies to specific types of complaints (e.g., service of notice vs. receipt of complaint) beyond general principles.\n\n**Jurisdiction and date:** Central law under the Consumer Protection Act, 2019, based on texts retrieved on 2026-09-22."
+    },
+    {
+      "question": "How do I apply for a passport?",
+      "expected": null,
+      "passed": true,
+      "seconds": 0.0,
+      "cited": [],
+      "abstained": true,
+      "provider": null,
+      "llm": null,
+      "top_dense": 0.5301,
+      "warnings": [
+        "insufficient_sources"
+      ],
+      "answer_markdown": "I could not find sources in the current corpus that answer this. I searched Consumer Protection Act, 2019, Registration Act, 1908, Transfer of Property Act, 1882 and 50 Supreme Court judgments; the closest passage scored 0.53, below the evidence threshold of 0.60, so no answer was generated. A reliable answer would need the Act, rules or state regulations that govern this topic, which are not in the corpus yet."
+    }
+  ]
+}

@@ -35,6 +35,7 @@ def setup_logging(level: str = "INFO") -> None:
     root.setLevel(level.upper())
     for noisy in ("httpx", "httpcore", "urllib3", "botocore", "boto3", "s3transfer", "filelock", "pdfminer"):
         logging.getLogger(noisy).setLevel(logging.WARNING)
+    logging.getLogger("huggingface_hub").setLevel(logging.ERROR)  # "unauthenticated requests" notice on cached models
 
 
 def query_hash(query: str) -> str:

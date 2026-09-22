@@ -1,0 +1,510 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496068",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/0b9471f4-9b18-47dd-bb76-cccf556db838/content",
+ "raw_sha256": "736a9560fb7c323874e79d3a4a884f36ca979a30dab73110cdabe2662ae35a22",
+ "retrieved_at": "2026-09-22T22:35:10+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  17
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "satisfaction of the registering officer that such transferor has right, title and interest over the property so",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 540.08032,
+   "top": 73.68463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "transferred.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 122.49888,
+   "top": 88.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Explanation.—For the purpose of this sub-section ‘record-of-rights’ means the record of rights as",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 539.84008,
+   "top": 102.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "defined under the Odisha Survey and Settlement Act, 1958 (Odisha Act 3 of 1959).”",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 443.93176,
+   "top": 117.36464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Orissa Act 1 of 2014, s. 2]",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 214.70543999999998,
+   "top": 131.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Rajasthan",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 120.36815999999999,
+   "top": 152.28463999999997,
+   "size": 11.0,
+   "bold_prefix": "Rajasthan",
+   "markers": []
+  },
+  {
+   "text": "Insertion of section 22-A in Central Act XVI of 1908.— After section 22 of the principal Act, the",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 539.98744,
+   "top": 171.00464,
+   "size": 11.0,
+   "bold_prefix": "Insertion of section 22-A in Central Act XVI of 1908.—",
+   "markers": []
+  },
+  {
+   "text": "following section shall be inserted, namely:-",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 267.60632,
+   "top": 183.60464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"22-A. Documents registration of which is opposed to public policy.-(1) The State Government",
+   "page": 17,
+   "x0": 99.024,
+   "x1": 539.9202399999999,
+   "top": 202.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "\"22-A. Documents registration of which is opposed to public policy",
+   "markers": []
+  },
+  {
+   "text": "may, by notification in the Official Gazette, declare that the registration of any document or class of",
+   "page": 17,
+   "x0": 81.024,
+   "x1": 539.73992,
+   "top": 214.92463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "documents is opposed to public policy.",
+   "page": 17,
+   "x0": 81.024,
+   "x1": 252.81743999999998,
+   "top": 227.52463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) Notwithstanding anything contained in this Act, the registering officer shall refuse to register a document",
+   "page": 17,
+   "x0": 99.024,
+   "x1": 539.3954400000005,
+   "top": 246.16135999999995,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to which a notification issued under sub-section (1) is applicable.\"",
+   "page": 17,
+   "x0": 81.024,
+   "x1": 345.52135999999996,
+   "top": 257.68136000000004,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Rajasthan Act 16 of 1976, s. 3]",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 220.50504000000004,
+   "top": 275.20136,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART IV",
+   "page": 17,
+   "x0": 286.61,
+   "x1": 325.20500000000004,
+   "top": 294.40135999999995,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OF THE TIME OF PRESENTATION",
+   "page": 17,
+   "x0": 229.01,
+   "x1": 382.72268,
+   "top": 313.60136,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "23. Time for presenting documents.—Subject to the provisions contained in sections 24, 25 and 26, no",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 539.6453600000002,
+   "top": 331.1213599999999,
+   "size": 10.0,
+   "bold_prefix": "23. Time for presenting documents.",
+   "markers": []
+  },
+  {
+   "text": "document other than a will shall be accepted for registration unless presented for that purpose to the proper officer",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.47736,
+   "top": 342.6413599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "within four months from the date of its execution:",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 271.14431999999994,
+   "top": 354.16135999999995,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that a copy a of a decree or order may be presented within four months from the day on which the",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 539.2100400000006,
+   "top": 371.6813599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "decree or order was made, or, where it is appealable, within four months from the day on which it becomes final.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 523.1206400000002,
+   "top": 383.2013599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[23A. Re-registration of certain documents.—Notwithstanding anything to the contrary contained in this",
+   "page": 17,
+   "x0": 93.264,
+   "x1": 539.7371599999999,
+   "top": 400.6213599999999,
+   "size": 10.0,
+   "bold_prefix": "[23A. Re-registration of certain documents.",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "Act, if in any case a document requiring registration has been accepted for registration by a Registrar or Sub-",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.93668,
+   "top": 412.1413599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Registrar from a person not duly empowered to present the same, and has been registered, any person claiming",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.4866400000001,
+   "top": 423.66135999999995,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "under such document may, within four months form his first becoming aware that the registration of such document",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.82292,
+   "top": 435.1813599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "is invalid, present such document or cause the same to be presented, in accordance with the provisions of Part VI for",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.4468000000005,
+   "top": 446.7013599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "re-registration in the office of the Registrar of the district in which the document was originally registered; and upon",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.2917600000005,
+   "top": 458.10135999999994,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the Registrar being satisfied that the document was so accepted for registration from a person not duly empowered",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.4246000000006,
+   "top": 469.6213599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to present the same, he shall proceed to the re-registration of the document as if it has not been previously registered,",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.5978399999999,
+   "top": 481.1413599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and as if such presentation for re-registration was a presentation for registration made within the time allowed",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.603,
+   "top": 492.66135999999995,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "therefore under Part IV, and all the provisions of this Act, as to registration of documents, shall apply to such re-",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 540.05668,
+   "top": 504.1813599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "registration; and such document, if duly re-registered in accordance with the provisions of this section, shall be",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.7896,
+   "top": 515.7013599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "deemed to have been duly registered for all purposes from the date of its original registration:",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 445.72320000000036,
+   "top": 527.1013599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that, within three months from the twelfth day of September, 1917, any person claiming under",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 540.03808,
+   "top": 544.61464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "a document to which this section applies may present the same or cause the same to be presented for re-",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 540.17632,
+   "top": 557.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "registration in accordance with this section, whatever may have been the time when he first became aware",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.7335999999999,
+   "top": 569.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "that the registration of the document was invalid.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 287.9108,
+   "top": 582.68464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "24. Documents executed by several persons at different times.—Where there are several persons executing a",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 539.7604,
+   "top": 601.2913599999999,
+   "size": 10.0,
+   "bold_prefix": "24. Documents executed by several persons at different times.",
+   "markers": []
+  },
+  {
+   "text": "document at different times, such document may be presented for registration and re-registration within four months",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.7078400000001,
+   "top": 612.8113599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "from the date of each execution.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 200.72396,
+   "top": 624.3313599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "25. Provision where delay in presentation is unavoidable.—(1) If, owing to urgent necessity or unavoidable",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 539.8064799999999,
+   "top": 641.73136,
+   "size": 10.0,
+   "bold_prefix": "25. Provision where delay in presentation is unavoidable.",
+   "markers": []
+  },
+  {
+   "text": "accident, any document executed, or copy of a decree or order made, in [India] is not presented for registration till",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.66536,
+   "top": 653.25136,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": [
+    "2"
+   ]
+  },
+  {
+   "text": "after the expiration of the time hereinbefore prescribed in that behalf, the Registrar, in cases where the delay in",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.3464400000003,
+   "top": 664.77136,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "presentation does not exceed four months, may direct that, on payment of a fine not exceeding ten times the amount",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 539.2376400000005,
+   "top": 676.2913599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of the proper registration-fee, such document shall be accepted for registration.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 387.7784,
+   "top": 687.8113599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) Any application for such direction may be lodged with a Sub-Registrar, who shall forthwith forward it to the",
+   "page": 17,
+   "x0": 90.024,
+   "x1": 539.8168,
+   "top": 705.3313599999999,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Registrar to whom he is subordinate.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 218.95392000000004,
+   "top": 716.73136,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Ins. by Act 15 of 1917, s. 2.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 181.31,
+   "top": 750.7439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Subs. by Act 3 of 1951, s. 3 and the Schedule, for “the State”.",
+   "page": 17,
+   "x0": 72.024,
+   "x1": 303.35400000000016,
+   "top": 761.064,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

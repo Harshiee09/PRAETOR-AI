@@ -3,7 +3,7 @@ id: 20260922-chunk-schema
 title: Chunk schema and provenance
 tags: [schema, data, architecture]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-23
 related: [20260922-minimum-viable-architecture, 20260922-retrieval-pipeline, 20260922-grounding-and-citations, 20260922-statute-status, 20260922-multilingual, 20260922-evaluation]
 summary: Storage layout, required provenance fields, parsing and legal-aware chunking rules, and ingestion validation.
 ---
@@ -47,7 +47,7 @@ Required for every chunk:
 | `token_count` | measured with the embedding model's tokenizer |
 | `status` | statutes: `in_force`, `repealed`, `partially_in_force` or `unknown`, from `data/registry/statutes.yaml`; other types: `n/a` |
 | `domain_tags` | JSON list, for example `["property_land", "registration"]` |
-| `text_source`, `ocr_confidence` | `layer` or `ocr`, and the mean OCR confidence when OCR was used |
+| `text_source`, `ocr_confidence` | `layer`, `ocr`, or `metadata` (a judgment's case-header chunk, rendered from the dataset record; DECISIONS D13), and the mean OCR confidence when OCR was used |
 
 Statute chunks also require `act_title`, `act_year`, `section` and `section_heading`; optionally `act_number`, `part`, `chapter`, `subsection`, `amendment_notes` (a JSON list parsed from footnotes) and `successor`.
 
@@ -63,15 +63,17 @@ Procedure and form chunks also require `issuing_body` and `valid_as_of`; optiona
 
 ### Legal-aware chunking
 - **Statutes (India Code bare acts).** One chunk per section, including its sub-sections, provisos, Explanations and Illustrations. Section starts look like `23. Time for presenting documents.—`, and inserted sections carry a footnote marker and bracket, like `1[23A. ...`. Build the detector against real India Code PDFs rather than from memory, and cover it with fixture tests. When a section exceeds `MAX_CHUNK_TOKENS`, split at sub-section and then clause boundaries, never mid-sentence, repeating the header in each piece (`... s. 17 (part 2 of 3)`).
+- **State amendments.** India Code prints `STATE AMENDMENT(S)` blocks after the section they amend. They become their own chunks, located `s. 3, State amendment (Uttarakhand)`, with the state's ISO 3166-2 code as `jurisdiction`; central section text never includes them (DECISIONS D14).
+- **Watermark.** India Code PDFs are watermarked on download; the parser drops the rotated glyphs (DECISIONS V16).
 - **Amendment footnotes.** India Code PDFs record amendment history in small-font footnotes (`Subs. by Act ...`, `Ins. by ...`, `Omitted by ...`). Capture them per page — pdfplumber exposes font size — into `amendment_notes`. Best effort only; don't block Phase 1 on linking footnotes to sections.
-- **Judgments.** The first chunk is the case header: parties, bench, date. Split on numbered paragraphs (lines starting `12.`), group consecutive paragraphs up to `MAX_CHUNK_TOKENS`, and record `para_start` and `para_end`. Never split a paragraph unless it alone is too long.
+- **Judgments.** The first chunk is the case header: parties, bench, date. Split on numbered paragraphs (lines starting `12.`), group consecutive paragraphs up to `MAX_CHUNK_TOKENS`, and record `para_start` and `para_end`. Never split a paragraph unless it alone is too long. Index from the "delivered by" / "Judgment / Order of the Supreme Court" marker: SCR headnotes and counsel lists are not indexed (DECISIONS D13). Paragraphs are found by number sequence, not position, and a paragraph that would span more than 3 chunks is located by pages instead (D15).
 - **Procedures and forms.** Split by headings and numbered steps.
 - **Headers come from metadata, never from an LLM.** Example header inside `embed_text`: `Registration Act, 1908 > Part IV > s. 23 — Time for presenting documents`.
 - No fixed-size character windows, and no GPT-2 tokenizer: token counts use the bge-m3 tokenizer.
 
 ### Ingestion validation: reject, don't warn
 - A required field that is null or empty rejects the chunk; log the `doc_id` and the field.
-- Placeholder or impossible values reject the chunk: `...`, `TBD`, `N/A`, `example`, a party name of `...`, future dates, or a Supreme Court `decision_date` before 28 January 1950.
+- Placeholder or impossible values reject the chunk: `...`, `TBD`, `N/A`, `example`, a party name of `...`, future dates, or a Supreme Court `decision_date` before 28 January 1950. Enumerated fields (`status`, `doc_type`, `text_source`) are checked against their allowed sets instead, since `n/a` is a valid `status`.
 - `source_url` must start with `https://` or `s3://`.
 - Duplicate `(doc_id, sha1(text))` pairs keep one row.
 - Re-running ingestion over unchanged sources must add zero rows. Cover this with an idempotency test.

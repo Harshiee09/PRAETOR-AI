@@ -1,0 +1,2246 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496068",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/0b9471f4-9b18-47dd-bb76-cccf556db838/content",
+ "raw_sha256": "736a9560fb7c323874e79d3a4a884f36ca979a30dab73110cdabe2662ae35a22",
+ "retrieved_at": "2026-09-22T22:35:10+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  1,
+  4,
+  5,
+  6,
+  7
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "THE REGISTRATION ACT, 1908",
+   "page": 1,
+   "x0": 220.61,
+   "x1": 391.202,
+   "top": 73.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "___________",
+   "page": 1,
+   "x0": 272.93,
+   "x1": 338.93,
+   "top": 87.57199999999989,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ARRANGEMENT OF SECTIONS",
+   "page": 1,
+   "x0": 220.61,
+   "x1": 391.166,
+   "top": 107.37199999999996,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "___________",
+   "page": 1,
+   "x0": 272.93,
+   "x1": 338.93,
+   "top": 121.17199999999991,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART I",
+   "page": 1,
+   "x0": 288.65,
+   "x1": 323.28247999999996,
+   "top": 140.76463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 1,
+   "x0": 274.61,
+   "x1": 337.142,
+   "top": 159.36464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "SECTIONS",
+   "page": 1,
+   "x0": 72.024,
+   "x1": 116.025,
+   "top": 178.08464000000004,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title, extent and commencement.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 277.87039999999996,
+   "top": 196.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Definitions.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 160.34,
+   "top": 211.32463999999993,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART II",
+   "page": 1,
+   "x0": 286.85,
+   "x1": 325.08152,
+   "top": 225.84464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OF THE REGISTRATION-ESTABLISHMENT",
+   "page": 1,
+   "x0": 208.97,
+   "x1": 402.70023999999995,
+   "top": 238.47464000000002,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Inspector-General of Registration.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 258.65648,
+   "top": 251.19463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. [Repealed.].",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 161.89999999999998,
+   "top": 265.83464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. Districts and sub-districts.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 223.37,
+   "top": 280.35464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. Registrars and Sub-Registrars.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 242.28199999999998,
+   "top": 294.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. Offices of Registrar and Sub-Registrar.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 280.6964,
+   "top": 309.39464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "8. Inspectors of Registration offices.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 257.21,
+   "top": 324.03463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "9. [Repealed.].",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 161.90001999999998,
+   "top": 338.55464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "10. Absence of Registrar or vacancy in his office.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 309.77,
+   "top": 353.07464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "11. Absence of Registrar on duty in his district.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 300.05,
+   "top": 367.59463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "12. Absence of Sub-Registrar or vacancy in his office.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 330.55,
+   "top": 382.11464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "13. Report to State Government of appointments under sections 10, 11 and 12.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 437.23,
+   "top": 396.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "14. Establishments of registering officers.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 275.57,
+   "top": 411.29463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "15. Seal of registering officers.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 227.92999999999998,
+   "top": 425.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "16. Register-books and fire-proof boxes.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 270.05,
+   "top": 440.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "16A. Keeping of books in computer floppies, diskettes, etc.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 351.6316,
+   "top": 454.97463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART III",
+   "page": 1,
+   "x0": 285.05,
+   "x1": 326.88056,
+   "top": 469.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OR REGISTRABEL DOCUMENTS",
+   "page": 1,
+   "x0": 236.57,
+   "x1": 375.14200000000005,
+   "top": 481.97463999999997,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "17. Documents of which registration is compulsory.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 320.11,
+   "top": 494.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "18. Documents of which registration is optional.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 304.37,
+   "top": 509.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "19. Documents in language not understood by registering officer.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 378.75392,
+   "top": 523.85464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "20. Documents containing interlineations, blanks, erasures or alterations.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 412.09288,
+   "top": 538.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "21. Description of property and maps or plans.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 296.69,
+   "top": 552.89464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "22. Description of houses and land by reference to Government maps or surveys.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 447.82,
+   "top": 567.56464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART IV",
+   "page": 1,
+   "x0": 284.69,
+   "x1": 327.09464,
+   "top": 581.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OF THE TIME OF PRESENTATION",
+   "page": 1,
+   "x0": 234.53,
+   "x1": 377.25100000000003,
+   "top": 594.5646399999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "23. Time for presenting documents.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 248.69,
+   "top": 607.40464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "23A. Re-registration of certain documents.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 278.33,
+   "top": 621.92464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "24. Documents executed by several persons at different times.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 364.63,
+   "top": 636.4446399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "25. Provision where delay in presentation is unavoidable.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 343.75,
+   "top": 650.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "26. Documents executed out of India.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 256.85,
+   "top": 665.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "27. Wills may be presented or deposited at any time.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 322.87,
+   "top": 680.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART V",
+   "page": 1,
+   "x0": 286.61,
+   "x1": 325.41560000000004,
+   "top": 694.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OF THE PLACE OF REGISTRATION",
+   "page": 1,
+   "x0": 232.25,
+   "x1": 379.519,
+   "top": 707.12464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "28. Place for registering documents relating to land.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 319.87,
+   "top": 719.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "29. Place for registering other documents.",
+   "page": 1,
+   "x0": 90.024,
+   "x1": 275.81,
+   "top": 734.50464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "THE REGISTRATION ACT, 1908",
+   "page": 4,
+   "x0": 220.61,
+   "x1": 391.202,
+   "top": 73.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ACT NO. 16 OF 1908",
+   "page": 4,
+   "x0": 253.85,
+   "x1": 353.95,
+   "top": 93.57199999999989,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "[18th December, 1908.]",
+   "page": 4,
+   "x0": 434.83,
+   "x1": 540.05488,
+   "top": 113.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "An Act to consolidate the enactments relating to the Registration of Documents.",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 456.46400000000006,
+   "top": 131.97199999999998,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "WHEREAS it is expedient to consolidate the enactments relating to the registration of documents; it is",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 540.06784,
+   "top": 151.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "hereby enacted as follows:—",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 200.09,
+   "top": 164.28463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART I",
+   "page": 4,
+   "x0": 288.65,
+   "x1": 323.28247999999996,
+   "top": 182.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 4,
+   "x0": 274.61,
+   "x1": 337.142,
+   "top": 199.56463999999994,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title, extent and commencement.—(1) This Act may be called the *** Registration Act,",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 540.04288,
+   "top": 216.24464,
+   "size": 11.0,
+   "bold_prefix": "1. Short title, extent and commencement",
+   "markers": [
+    "2"
+   ]
+  },
+  {
+   "text": "1908.",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 96.864,
+   "top": 228.84464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[(2) It extends to the whole of India ***:",
+   "page": 4,
+   "x0": 93.504,
+   "x1": 276.11912,
+   "top": 245.55463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "3",
+    "4"
+   ]
+  },
+  {
+   "text": "Provided that the State Government may exclude any districts or tracts of country from its operation.]",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 537.1219199999996,
+   "top": 262.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) It shall come into force on the first day of January, 1909.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 355.94984,
+   "top": 278.91463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "STATE AMENDMENT",
+   "page": 4,
+   "x0": 249.29,
+   "x1": 362.59351999999996,
+   "top": 295.47464,
+   "size": 11.0,
+   "bold_prefix": "STATE AMENDMENT",
+   "markers": []
+  },
+  {
+   "text": "Karnataka",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 123.50351999999998,
+   "top": 312.15464,
+   "size": 11.0,
+   "bold_prefix": "Karnataka",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 1.-For sub-section (3) of section 1 of the Registration (Karnataka",
+   "page": 4,
+   "x0": 108.02,
+   "x1": 539.92216,
+   "top": 328.8346399999999,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 1",
+   "markers": []
+  },
+  {
+   "text": "Amendment) Act, 1976 (Karnataka Act 55 of 1976) the following sub-section shall be and shall be",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 540.02608,
+   "top": 341.43464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "deemed have been substituted, namely:--",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 270.00633999999997,
+   "top": 354.03463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "“(3) This section and sections 3, 13, 14, 16, 17 and 19 shall come into force at once and the other",
+   "page": 4,
+   "x0": 108.02,
+   "x1": 539.82008,
+   "top": 370.71464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "sections shall come into force on such date as the State Government may, by notification, appoint and",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 539.7273599999995,
+   "top": 383.31464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "different sections areas.”",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 199.15439999999998,
+   "top": 396.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Karnataka Act 64 of 1976, s. 2]",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 237.31376,
+   "top": 412.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Definitions.—In this Act, unless there is anything repugnant in the subject or context,—",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 491.02000000000004,
+   "top": 429.41463999999996,
+   "size": 11.0,
+   "bold_prefix": "2. Definitions",
+   "markers": []
+  },
+  {
+   "text": "(1) “Addition” means the place of residence, and the profession, trade, rank and title (if any) of a",
+   "page": 4,
+   "x0": 108.02,
+   "x1": 539.6623999999997,
+   "top": 446.09463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "person described, and in the case of [an Indian], *** his father's name, or where he is usually",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 539.9245599999999,
+   "top": 458.69464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "5",
+    "6"
+   ]
+  },
+  {
+   "text": "described as the son of his mother, then his mother's name;",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 349.38672,
+   "top": 471.29463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) “Book” includes a portion of a book and also any number of sheets connected together with a",
+   "page": 4,
+   "x0": 108.02,
+   "x1": 539.7929599999999,
+   "top": 487.97463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "view of forming a book or portion of a book;",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 287.66208,
+   "top": 500.57464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) “District” and “sub-district” respectively mean a district and sub-district formed under this",
+   "page": 4,
+   "x0": 108.02,
+   "x1": 539.96104,
+   "top": 517.25464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Act;",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 109.03488,
+   "top": 529.85464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(4) “District Court” includes the High Court in its ordinary original civil jurisdiction;",
+   "page": 4,
+   "x0": 108.02,
+   "x1": 482.00072,
+   "top": 546.53464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. It has been amended in its application to West Bengal by Ben. Act 5 of 1942 and West Ben. Acts 29 of 1950 and 31 of 1951;",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 539.4809999999995,
+   "top": 584.13136,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to Maharashtra by Bombay Acts 5 of 1929, 17 of 1930, 18 of 1933, 24 of 1939, 10 of 1939, 10 of 1942 and 6 of 1960,",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 539.5760000000001,
+   "top": 595.444,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Maharashtra Acts 19 of 1960 and 20 of 1971; to the C.P. Act 1 of 1937 and M.P. Act 8 of 1965; to Madras and Andhra by",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 539.4929999999996,
+   "top": 605.7639999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Madras Acts 3 of 1935 and 17 of 1952; to Orissa by Orissa Act 3 of 1933; to the Punjab by Punjab Act 8 of 1941 and 19 of",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 539.8910000000001,
+   "top": 616.204,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1961; to Bihar by Bihar Acts 14 of 1947 and 24 of 1952; to Kerala by Kerala Act 7 of 1968; to Himachal Pradesh by H.P. Act",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 539.3219999999999,
+   "top": 626.5239999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2 of 1969; to Pondicherry by Pondicherry Act 17 of 1970; to Uttar Pradesh by U.P. Acts 14 of 1971, 48 of 1975 and 57 of",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 539.7830000000001,
+   "top": 636.8439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1976; to Haryana by Haryana Act 36 of 1973; to Maharashtra by Maharashtra Acts 29 of 1974 and 49 of 1975; to Tamil Nadu",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 539.493,
+   "top": 647.164,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "by T.N. Act 31 of 1974; to Orissa by Orissa Act 11 of 1976 and to West Bengal by West Ben. Act 17 of 1978.",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 477.98199999999997,
+   "top": 657.6039999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "This Act has been extended to—",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 198.89,
+   "top": 667.924,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Dadra and Nagar Haveli by Reg. 6 of 1963, s.2 and First Schedule, Goa, Daman and Diu by Reg. 11 of 1963, s. 3 and",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 539.1859999999999,
+   "top": 678.2439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Schedule and the whole of the Union territory of Lakshadweep by Reg. 8 of 1965, s.3 and Schedule.",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 470.89,
+   "top": 688.564,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Pondicherry by Act 26 of 1968, s. 3 and Schedule.",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 276.495,
+   "top": 699.0039999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. The word “Indian” omitted by Act 45 of 1969, s. 2.",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 265.51500000000004,
+   "top": 709.324,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Subs. by Act 3 of 1951, s. 3 and the Schedule, for sub-section (2).",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 318.02,
+   "top": 719.644,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. The words “except the State of Jammu and Kashmir” omitted by Act 34 of 2019, s. 95 and the Fifth Schedule",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 475.17699999999996,
+   "top": 729.9839999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(w.e.f. 31-10-2019).",
+   "page": 4,
+   "x0": 81.024,
+   "x1": 153.80900000000003,
+   "top": 740.424,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. Subs. by A.O. 1950, for “a Native of India”.",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 240.04200000000006,
+   "top": 750.7439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. The words and brackets “his cast (if any) and” omitted by Act 17 of 1956, s. 2.",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 364.46000000000004,
+   "top": 761.064,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(5) “Endorsement” and “endorsed” include and apply to an entry in writing by a registering",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 539.9879199999999,
+   "top": 73.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "officer on a rider or covering slip to any document tendered for registration under this Act;",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 489.28559999999976,
+   "top": 86.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(6) “Immovable Property” includes land, buildings, hereditary allowances, rights to ways, lights,",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 539.8013599999998,
+   "top": 102.96464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ferries, fisheries or any other benefit to arise out of land, and things attached to the earth, or",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 539.60592,
+   "top": 115.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "permanently fastened to anything which is attached to the earth, but not standing timber, growing",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 540.17056,
+   "top": 128.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "crops nor grass;",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 159.66431999999998,
+   "top": 140.76463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[(6A) “India” means the territory of India excluding the State of Jammu and Kashmir;]",
+   "page": 5,
+   "x0": 111.5,
+   "x1": 492.39631999999983,
+   "top": 157.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "(7) “Lease” includes a counterpart, kabuliyat, and undertaking to cultivate or occupy, and an",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 539.88704,
+   "top": 176.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "agreement to lease;",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 174.98783999999998,
+   "top": 188.76463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(8) “Minor” means a person who, according to the personal law to which he is subject, has not",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 539.8083199999999,
+   "top": 207.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "attained majority;",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 167.92224,
+   "top": 220.08464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(9) “Movable Property” includes standing timber, growing crops and grass, fruit upon and juice",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 539.7787999999998,
+   "top": 238.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "in trees, and property of every other description, except immovable property; and",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 447.84952,
+   "top": 251.43463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(10) “Representative” includes the guardian of a minor and the committee or other legal curator",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 539.72168,
+   "top": 270.03463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of a lunatic or idiot.",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 177.21791999999996,
+   "top": 282.63464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "* * * * *",
+   "page": 5,
+   "x0": 111.5,
+   "x1": 509.62,
+   "top": 301.35464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "2"
+   ]
+  },
+  {
+   "text": "STATE AMENDMENT",
+   "page": 5,
+   "x0": 249.29,
+   "x1": 362.59351999999996,
+   "top": 319.95464000000004,
+   "size": 11.0,
+   "bold_prefix": "STATE AMENDMENT",
+   "markers": []
+  },
+  {
+   "text": "Uttarakhand",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 133.22976,
+   "top": 338.67464,
+   "size": 11.0,
+   "bold_prefix": "Uttarakhand",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 2.—In the Registration Act, 1908 (hereinafter referred to as the Principal Act),",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 525.8346399999999,
+   "top": 357.27464,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 2.",
+   "markers": []
+  },
+  {
+   "text": "(a) Clause (2) of section 2 shall be substituted as follows; namely:-",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 402.26631999999995,
+   "top": 375.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"(2) ‘book’ includes a portion of a book and also any number of sheets connected together",
+   "page": 5,
+   "x0": 126.02,
+   "x1": 539.6974399999999,
+   "top": 394.59463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "with a view to forming a book, or portion of a book and also includes a book in electronic form;\"",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 534.5062399999998,
+   "top": 407.21464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) after clause (10), the following clauses shall be inserted, namely:-",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 412.94631999999996,
+   "top": 425.93464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"(10-A) 'true copy' includes a true Photostat copy;",
+   "page": 5,
+   "x0": 126.02,
+   "x1": 346.18640000000005,
+   "top": 444.53463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(10-B) the words and expressions used herein and not defined but defined in the Information",
+   "page": 5,
+   "x0": 126.02,
+   "x1": 539.6134399999999,
+   "top": 463.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Technology Act, 2000 shall have the meaning respectively assigned to them in that Act.\"",
+   "page": 5,
+   "x0": 108.02,
+   "x1": 499.4652799999998,
+   "top": 475.85463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Uttarakhand Act 24 of 2014, s. 2]",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 246.57944,
+   "top": 494.45464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Uttar Pradesh",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 139.08095999999998,
+   "top": 513.17464,
+   "size": 11.0,
+   "bold_prefix": "Uttar Pradesh",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 2 .—In section 2 of the Registration Act, 1908, hereinafter referred to as the",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 539.6803999999998,
+   "top": 531.77464,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 2 .—",
+   "markers": []
+  },
+  {
+   "text": "Principal Act, in clause (2),—",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 204.04999999999998,
+   "top": 544.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) for the words \"or portion of a book\", the words, \"or portion of a book and also includes a book in",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 532.4036799999999,
+   "top": 568.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "electronic form\".]",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 150.408,
+   "top": 586.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) after clause (10), the following clauses shall be inserted, namely :—",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 405.07,
+   "top": 610.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "“(10-A) ‘true copy’ includes a true photostat copy;",
+   "page": 5,
+   "x0": 92.784,
+   "x1": 316.06208000000004,
+   "top": 634.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(10-B) the words and expressions used but not defined in this Act and defined in the Information",
+   "page": 5,
+   "x0": 90.024,
+   "x1": 515.9608,
+   "top": 658.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Technology Act, 2000, shall have the respective meaning assigned to them in that Act.\"",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 457.7174399999998,
+   "top": 676.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Uttar Pradesh Act 36 of 2001, s. 2]",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 252.27455999999992,
+   "top": 700.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Ins. by Act 3 of 1951, s. 3 and the Schedule.",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 240.614,
+   "top": 748.824,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Clause (11) omitted by Act 3 of 1951, s. 3 and Schedule. Earlier it was inserted by the A.O. 1950.",
+   "page": 5,
+   "x0": 72.024,
+   "x1": 433.61992000000004,
+   "top": 759.93,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART II",
+   "page": 6,
+   "x0": 286.85,
+   "x1": 325.08152,
+   "top": 73.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OF THE REGISTRATION-ESTABLISHMENT",
+   "page": 6,
+   "x0": 208.97,
+   "x1": 402.70023999999995,
+   "top": 92.16463999999996,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Inspector-General of Registration.—(1) The [State Government] shall appoint an officer to be",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.84584,
+   "top": 110.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "3. Inspector-General of Registration",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "the Inspector-General of Registration for the territories subject to such Government:",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 442.18015999999994,
+   "top": 123.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that the [State Government] may, instead of making such appointment, direct that all or any",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.90408,
+   "top": 142.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "of the powers and duties hereinafter conferred and imposed upon the Inspector-General shall be exercised",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.986,
+   "top": 154.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and performed by such officer or officers, and within such local limits, as the [State Government]",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.88256,
+   "top": 167.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "appoints in this behalf.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 172.27823999999995,
+   "top": 180.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) Any Inspector-General may hold simultaneously any other office under the [Government].",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 507.77392,
+   "top": 198.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "2"
+   ]
+  },
+  {
+   "text": "STATE AMENDMENT",
+   "page": 6,
+   "x0": 232.73,
+   "x1": 346.03351999999995,
+   "top": 217.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "STATE AMENDMENT",
+   "markers": []
+  },
+  {
+   "text": "Uttarakhand",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 133.22976,
+   "top": 237.99464,
+   "size": 11.0,
+   "bold_prefix": "Uttarakhand",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 3.—Sub-section (3) of section 3 of the Principal Act, shall be substituted as",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.7615199999999,
+   "top": 256.59464,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 3.—",
+   "markers": []
+  },
+  {
+   "text": "follows; namely:--",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 154.29634000000001,
+   "top": 269.31463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"(3) The State Government may appoint one or more Additional Inspector General of",
+   "page": 6,
+   "x0": 108.02,
+   "x1": 539.7171199999998,
+   "top": 287.91463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Registration, Deputy Inspectors General of Registration and Assistant Inspector General of",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.9351200000001,
+   "top": 300.63464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Registration for the territories subject to such Government and may prescribe the duties of such",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7273599999999,
+   "top": 313.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "officers and authorize them to exercise and perform all or any of the powers and duties of the",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.6721599999996,
+   "top": 325.8346399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Inspector General of Registration.\"",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 244.30903999999998,
+   "top": 338.55464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Uttarakhand Act 24 of 2014, s. 3]",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 246.52271999999996,
+   "top": 357.15464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Uttar Pradesh",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 139.08095999999998,
+   "top": 375.87464,
+   "size": 11.0,
+   "bold_prefix": "Uttar Pradesh",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 3.—In section 3 of the principal Act, in sub-section (3), for the words, Additional",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.88712,
+   "top": 394.47463999999997,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 3.—",
+   "markers": []
+  },
+  {
+   "text": "Inspector-General of Registration and Deputy Inspector General of Registration”, the words, “Additional",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.5486399999998,
+   "top": 407.09463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Inspector-General of Registration, Deputy Inspector-General of Registration and Assistant Inspector-",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 540.17632,
+   "top": 419.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "General of Registration” shall be substituted.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 269.99327999999997,
+   "top": 432.41463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Uttar Pradesh Act 36 of 2001, s. 3]",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 253.45535999999996,
+   "top": 451.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. [Branch Inspector-General of Sindh.]—Rep.by the Government of India (Adaptation of Indian",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 540.1,
+   "top": 469.73464,
+   "size": 11.0,
+   "bold_prefix": "4.",
+   "markers": []
+  },
+  {
+   "text": "Laws) Order, 1937.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 158.89855999999997,
+   "top": 482.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. Districts and sub-districts.—(1) For the purposes of this Act, the [State Government] shall form",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 540.0248799999999,
+   "top": 501.05464,
+   "size": 11.0,
+   "bold_prefix": "5. Districts and sub-districts",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "districts and sub-districts, and shall prescribe, and may alter, the limits of such districts and sub-districts.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 532.60576,
+   "top": 513.65464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The districts and sub-districts formed under this section, together with the limits thereof, and",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.8996,
+   "top": 532.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "every alternation of such limits, shall be notified in the [Official Gazette].",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 399.73096,
+   "top": 544.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "3"
+   ]
+  },
+  {
+   "text": "(3) Every such alternation shall take effect on such day after the date of the notification as is therein",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.5612799999996,
+   "top": 563.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "mentioned.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 121.30655999999999,
+   "top": 576.32464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. Registrars and Sub-Registrars.—The [State Government] may appoint such persons, whether",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 540.0109600000001,
+   "top": 594.92464,
+   "size": 11.0,
+   "bold_prefix": "6. Registrars and Sub-Registrars",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "public officers or not, as it thinks proper, to be Registrars of the several districts, and to be Sub-Registrars",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 540.05056,
+   "top": 607.64464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of the several sub-districts, formed as aforesaid, respectively.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 341.3969599999999,
+   "top": 620.2446399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "* * * * *",
+   "page": 6,
+   "x0": 93.504,
+   "x1": 509.62,
+   "top": 638.84464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "4"
+   ]
+  },
+  {
+   "text": "STATE AMENDMENT",
+   "page": 6,
+   "x0": 249.29,
+   "x1": 362.59351999999996,
+   "top": 694.88464,
+   "size": 11.0,
+   "bold_prefix": "STATE AMENDMENT",
+   "markers": []
+  },
+  {
+   "text": "1. Subs. by the A.O. 1950, for “Provincial Government”.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 276.7860000000001,
+   "top": 729.9839999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Subs., ibid., for “the Crown”.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 186.791,
+   "top": 740.424,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. Subs. by the A.O. 1937, for “Local Official Gazette”.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 273.14,
+   "top": 750.7439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. The proviso rep. by the A.O. 1937. Earlier it was inserted by Act 4 of 1914, s. 2 and the Schedule.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 434.0009999999997,
+   "top": 761.064,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Karnataka",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 123.50351999999998,
+   "top": 73.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "Karnataka",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 6.-In section 6 of the Registration Act, 1908 (Central Act 16 of 1908) the",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 539.7840799999997,
+   "top": 92.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 6",
+   "markers": []
+  },
+  {
+   "text": "following provisos inserted, namely:-",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 237.12632,
+   "top": 104.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"Provided that the State Government may also appoint one or more Sub-Registrars for the same",
+   "page": 7,
+   "x0": 108.02,
+   "x1": 539.962,
+   "top": 123.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sub-District:",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 146.9264,
+   "top": 136.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided further that the State Government may delegate to the Inspector-General of",
+   "page": 7,
+   "x0": 108.02,
+   "x1": 540.0088,
+   "top": 154.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Registration, the power of appointing Sub-Registrars.\"",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 330.18631999999997,
+   "top": 167.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Karnataka Act 32 of 2001, s. 2]",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 237.29328,
+   "top": 186.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Uttar Pradesh",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 139.08095999999998,
+   "top": 204.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "Uttar Pradesh",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 6.—After section 6 of the Registration Act, 1908 as amended in its",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 539.73848,
+   "top": 223.44463999999994,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 6.—",
+   "markers": []
+  },
+  {
+   "text": "application in Uttar Pradesh, hereinafter referred to as the principal Act, the following section shall be",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 540.0692799999999,
+   "top": 236.07463999999993,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "inserted, namely :—",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 161.66,
+   "top": 248.67463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "“6A. Additional Registrar.—The State Government may, by order, also appoint any public officer as an",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 539.64368,
+   "top": 267.39464,
+   "size": 10.0,
+   "bold_prefix": "“6A. Additional Registrar",
+   "markers": []
+  },
+  {
+   "text": "Additional Registrar, to assist the Registrar, or any two or more Registrars, specified in the order and may authorise",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 539.2575600000006,
+   "top": 280.00136,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "such Additional Registrars to exercise and perform all or any of the powers and duties of the Registrar under this",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 539.2177200000008,
+   "top": 291.52135999999996,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Act.”",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 93.24624,
+   "top": 303.04135999999994,
+   "size": 10.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Uttar Pradesh Act 27 of 1994, s. 2]",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 255.0345599999999,
+   "top": 320.55463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. Offices of Registrar and Sub-Registrar.—(1) The [State Government] shall establish in every",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 540.21568,
+   "top": 339.15464,
+   "size": 11.0,
+   "bold_prefix": "7. Offices of Registrar and Sub-Registrar",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "district an office to be styled the office of the Registrar and in every sub-district an office or offices to be",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 539.9236,
+   "top": 351.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "styled the office of the Sub-Registrar or the offices of the Joint Sub-Registrars.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 418.83304,
+   "top": 364.47463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The [State Government] may amalgamate with any office of a Registrar, any office of a",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 539.77528,
+   "top": 383.07464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "Sub-Registrar subordinate to such Registrar, and may authorise any Sub-Registrar whose office has been",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 539.9274399999999,
+   "top": 395.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "so amalgamated to exercise and perform, in addition to his own powers and duties, all or any of the",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 539.6011199999994,
+   "top": 408.41463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "powers and the duties of the Registrar to whom he is subordinate:",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 360.69791999999995,
+   "top": 421.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that no such authorisation shall enable a Sub-Registrar to hear an appeal against an order",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 539.85208,
+   "top": 439.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "passed by himself under this Act.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 218.72351999999998,
+   "top": 452.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "8. Inspectors of Registration offices.—(1) The [State Government] may also appoint officers to be",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 539.87896,
+   "top": 471.05464,
+   "size": 11.0,
+   "bold_prefix": "8. Inspectors of Registration offices",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "called Inspectors of Registrations offices, and may prescribe the duties of such officers.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 456.98263999999995,
+   "top": 483.65464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) Every such Inspector shall be subordinate to the Inspector-General.",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 401.78679999999997,
+   "top": 502.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "STATE AMENDMENT",
+   "page": 7,
+   "x0": 258.29,
+   "x1": 371.59352,
+   "top": 520.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "STATE AMENDMENT",
+   "markers": []
+  },
+  {
+   "text": "Orissa",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 102.72624,
+   "top": 534.65464,
+   "size": 11.0,
+   "bold_prefix": "Orissa",
+   "markers": []
+  },
+  {
+   "text": "Amendment of section 8.--In section 8 of the Registration Act, 1908 (16 of 1908) (hereinafter",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 540.0299200000001,
+   "top": 548.33464,
+   "size": 11.0,
+   "bold_prefix": "Amendment of section 8.-",
+   "markers": []
+  },
+  {
+   "text": "referred to as the principal Act),—",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 224.20999999999998,
+   "top": 563.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) in sub-section (1), for the words “ Inspector of Registration Offices” the words “ Additional",
+   "page": 7,
+   "x0": 108.02,
+   "x1": 539.6052799999999,
+   "top": 578.4846399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Inspector –General of Registration, Joint Inspector-General of Registration and Deputy Inspector-",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 540.17632,
+   "top": 593.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "General of Registration” shall be substituted; and",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 306.93791999999996,
+   "top": 607.64464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) in sub-section(2), for the words “Inspector”, the words “Additional Inspector-General, Joint",
+   "page": 7,
+   "x0": 108.02,
+   "x1": 539.97136,
+   "top": 628.16464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Inspector-General and Deputy Inspector-General” shall be substituted.",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 400.24408,
+   "top": 642.68464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[Vide Orissa Act 8 of 2002, s. 2]",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 214.70543999999998,
+   "top": 663.2046399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Uttarakhand",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 133.22976,
+   "top": 677.84464,
+   "size": 11.0,
+   "bold_prefix": "Uttarakhand",
+   "markers": []
+  },
+  {
+   "text": "Repealed of section 8.—Section 8 of the Principal act shall be repealed.",
+   "page": 7,
+   "x0": 90.024,
+   "x1": 409.33399999999995,
+   "top": 692.36464,
+   "size": 11.0,
+   "bold_prefix": "Repealed of section 8",
+   "markers": []
+  },
+  {
+   "text": "[Vide Uttarakhand Act 24 of 2014, s. 4]",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 246.52271999999996,
+   "top": 706.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. The proviso rep. by the A.O. 1937. Earlier it was inserted by Act 4 of 1914, s. 2 and the Schedule.",
+   "page": 7,
+   "x0": 72.024,
+   "x1": 434.86199999999974,
+   "top": 759.93,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

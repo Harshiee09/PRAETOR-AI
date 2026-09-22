@@ -1,0 +1,506 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496115",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/d546dfb5-3044-4661-981d-3e1771c290b9/content",
+ "raw_sha256": "4bbed366bc2206bb1c3b1817c5ccdd652d1e66d9476c6779cf5239e71e3ba2a7",
+ "retrieved_at": "2026-09-22T22:35:51+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  30
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "(3) When an acknowledgment or any other receipt purporting to be signed by the opposite party or his",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.9807999999996,
+   "top": 73.54463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "agent or, as the case may be, by the complainant is received by the District Commission, the State",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7667199999996,
+   "top": 86.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commission or the National Commission, as the case may be, or postal article containing the notice is",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7887999999996,
+   "top": 98.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "received back by such District Commission, State Commission or the National Commission, with an",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.8329599999995,
+   "top": 111.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "endorsement purporting to have been made by a postal employee or by any person authorised by the",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7777599999995,
+   "top": 124.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "courier service to the effect that the opposite party or his agent or complainant had refused to take",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.8078399999998,
+   "top": 136.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "delivery of the postal article containing the notice or had refused to accept the notice by any other means",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.75568,
+   "top": 149.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "specified in sub-section (1) when tendered or transmitted to him, the District Commission or the State",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7797599999997,
+   "top": 162.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commission or the National Commission, as the case may be, shall declare that the notice has been duly",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.6894399999999,
+   "top": 174.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "served on the opposite party or to the complainant, as the case may be:",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 382.98768,
+   "top": 187.44463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that where the notice was properly addressed, pre-paid and duly sent by registered post",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 540.0028000000001,
+   "top": 206.04463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "acknowledgment due, a declaration referred to in this sub-section shall be made notwithstanding the fact",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.94856,
+   "top": 218.64463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "that the acknowledgment has been lost or misplaced, or for any other reason, has not been received by the",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7667199999996,
+   "top": 231.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "District Commission, the State Commission or the National Commission, as the case may be, within",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.8550399999997,
+   "top": 243.96464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "thirty days from the date of issue of notice.",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 261.05087999999995,
+   "top": 256.68463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(4) All notices required to be served on an opposite party or to complainant, as the case may be, shall",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.7048000000001,
+   "top": 275.31463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "be deemed to be sufficiently served, if addressed in the case of the opposite party, to the place where",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.8660799999997,
+   "top": 288.03463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "business or profession is carried on, and in case of the complainant, the place where such person actually",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 540.2008,
+   "top": 300.63464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and voluntarily resides.",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 175.06031999999993,
+   "top": 313.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "66. Experts to assist National Commission or State Commission.—Where the National",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 540.11104,
+   "top": 331.95464,
+   "size": 11.0,
+   "bold_prefix": "66. Experts to assist National Commission or State Commission.—",
+   "markers": []
+  },
+  {
+   "text": "Commission or the State Commission, as the case may be, on an application by a complainant or",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7556799999998,
+   "top": 344.55464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "otherwise, is of the opinion that it involves the larger interest of consumers, it may direct any individual",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.6783999999998,
+   "top": 357.27464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or organisation or expert to assist the National Commission or the State Commission, as the case may be.",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 535.08904,
+   "top": 369.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "67. Appeal against order of National Commission.—Any person, aggrieved by an order made by",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 540.07864,
+   "top": 388.47463999999997,
+   "size": 11.0,
+   "bold_prefix": "67. Appeal against order of National Commission.—",
+   "markers": []
+  },
+  {
+   "text": "the National Commission in exercise of its powers conferred by sub-clause (i) or (ii) of clause (a) of",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 540.14992,
+   "top": 401.19464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "sub-section (1) of section 58, may prefer an appeal against such order to the Supreme Court within a",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7391999999995,
+   "top": 413.79463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "period of thirty days from the date of the order:",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 279.9513599999999,
+   "top": 426.51464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that the Supreme Court may entertain an appeal after the expiry of the said period of thirty",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.5838399999997,
+   "top": 445.11464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "days if it is satisfied that there was sufficient cause for not filing it within that period:",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 446.9644799999996,
+   "top": 457.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided further that no appeal by a person who is required to pay any amount in terms of an order of",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.7935999999995,
+   "top": 476.45464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the National Commission shall be entertained by the Supreme Court unless that person has deposited fifty",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.8108799999997,
+   "top": 489.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "per cent. of that amount in the manner as may be prescribed.",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 338.25176,
+   "top": 501.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "68. Finality of orders.—Every order of a District Commission or the State Commission or the",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.8911199999998,
+   "top": 520.37464,
+   "size": 11.0,
+   "bold_prefix": "68. Finality of orders.—",
+   "markers": []
+  },
+  {
+   "text": "National Commission, as the case may be, shall, if no appeal has been preferred against such order under",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7556799999999,
+   "top": 532.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the provisions of this Act, be final.",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 224.95391999999993,
+   "top": 545.6946399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "69. Limitation period.—(1) The District Commission, the State Commission or the National",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.9933599999998,
+   "top": 564.29464,
+   "size": 11.0,
+   "bold_prefix": "69. Limitation period.—",
+   "markers": []
+  },
+  {
+   "text": "Commission shall not admit a complaint unless it is filed within two years from the date on which the",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7777599999995,
+   "top": 577.01464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "cause of action has arisen.",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 187.27055999999996,
+   "top": 589.61464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) Notwithstanding anything contained in sub-section (1), a complaint may be entertained after the",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 540.04216,
+   "top": 608.2146399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "period specified in sub-section (1), if the complainant satisfies the District Commission, the State",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.9271199999998,
+   "top": 620.93464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commission or the National Commission, as the case may be, that he had sufficient cause for not filing",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.6342399999994,
+   "top": 633.53464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the complaint within such period:",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 219.86063999999996,
+   "top": 646.28464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that no such complaint shall be entertained unless the District Commission or the State",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.8156799999997,
+   "top": 664.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Commission or the National Commission, as the case may be, records its reasons for condoning such",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 540.1132,
+   "top": 677.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "delay.",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 98.65248000000001,
+   "top": 690.2046399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "70. Administrative control.—(1) The National Commission shall have the authority to lay down",
+   "page": 30,
+   "x0": 90.024,
+   "x1": 539.9391199999999,
+   "top": 708.80464,
+   "size": 11.0,
+   "bold_prefix": "70. Administrative control.—",
+   "markers": []
+  },
+  {
+   "text": "such adequate standards in consultation with the Central Government from time to time, for better",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.6452799999997,
+   "top": 721.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "protection of the interests of consumers and for that purpose, shall have administrative control over all the",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 539.7998399999999,
+   "top": 734.12064,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "State Commissions in the following matters, namely:—",
+   "page": 30,
+   "x0": 72.024,
+   "x1": 316.85,
+   "top": 746.8406399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

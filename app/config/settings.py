@@ -36,7 +36,10 @@ class Settings(BaseSettings):
     rerank_top_n: int = 30
     context_max_chunks: int = 8
     context_max_tokens: int = 6000
-    min_evidence_score: float = 0.30
+    min_evidence_score: float = 0.30  # reranker-score gate (Phase 2)
+    # Phase 1 gate on the top dense cosine, until the reranker gate exists. Provisional: in-corpus known items
+    # scored ~0.70 and out-of-corpus questions <= 0.55 on 2026-09-23 (n=7, DECISIONS D11); calibrate in Phase 2.
+    min_dense_score: float = 0.60
 
     # --- LLM routing
     llm_classify: Literal["rules", "ollama"] = "rules"

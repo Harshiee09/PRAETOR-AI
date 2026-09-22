@@ -1,0 +1,50 @@
+# Seed corpus: what to fetch, its domain tags and the verified source. Spec: docs/topics/data/data-sources.md
+# Every entry here was located through the source's own API on the date given; nothing is typed from memory.
+
+indiacode:
+  name: India Code
+  # India Code moved from www.indiacode.nic.in to indiacode.gov.in (DSpace 9.1); verified 2026-09-23 (DECISIONS V11)
+  base_url: https://indiacode.gov.in
+  api_url: https://indiacode.gov.in/server/api
+  authority: Parliament of India
+  jurisdiction: IN
+  licence: >-
+    Government of India legislative text published on India Code. Reproduction of Acts is governed by
+    Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).
+  acts:
+    # item_uuid / handle: the CENTRAL item (dc.identifier.state_name = CENTRAL); state copies are separate items
+    - id: registration-1908
+      title: The Registration Act, 1908
+      act_id: AC_CEN_18_43_00004_190816_1523340837338
+      item_uuid: 1930ffdb-10f3-4d71-bc42-f91303dae14e
+      handle: 123456789/496068
+      domain_tags: [property_land, registration]
+      phase: 1
+    - id: tpa-1882
+      title: The Transfer of Property Act, 1882
+      act_id: AC_CEN_3_20_00042_188204_1523272233671
+      item_uuid: 2b436b95-ae89-4c5f-ab70-3d5ef5ffd8e8
+      handle: 123456789/496421
+      domain_tags: [property_land, contract_civil]
+      phase: 1
+    - id: cpa-2019
+      title: The Consumer Protection Act, 2019
+      act_id: AC_CEN_21_44_00007_201935_1596441164903
+      item_uuid: 1b6c1754-47b1-411e-9607-1712a9caf368
+      handle: 123456789/496115
+      domain_tags: [consumer]
+      phase: 1
+
+sc-judgments:
+  name: Indian Supreme Court Judgments (AWS Open Data)
+  bucket: indian-supreme-court-judgments
+  region: ap-south-1
+  registry_page: https://registry.opendata.aws/indian-supreme-court-judgments/
+  authority: Supreme Court of India
+  jurisdiction: IN
+  licence: CC-BY-4.0
+  attribution: >-
+    Indian Supreme Court Judgments, accessed {date} from registry.opendata.aws/indian-supreme-court-judgments
+  # metadata/parquet/year=YYYY/metadata.parquet; PDFs at data/pdf/year=YYYY/english/<name>_EN.pdf (verified 2026-09-23)
+  metadata_prefix: metadata/parquet
+  pdf_prefix: data/pdf

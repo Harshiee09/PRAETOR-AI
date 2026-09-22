@@ -1,0 +1,30 @@
+# Language registry (spec: docs/topics/data/multilingual.md). Per-language behaviour lives here, not in code.
+# tesseract: traineddata code from `tesseract --list-langs` on the dev machine. Tesseract is NOT installed yet
+#            (DECISIONS D9), so every value is null until it is and the list is checked.
+# lid:       whether the chosen statistical language-ID model supports the language. No LID model chosen yet
+#            (Phase 1 relies on the source's declared language plus Unicode script detection), so null.
+# translation: engine used for query/answer translation, if any. None yet.
+
+en: {name: English, name_native: English, scripts: [Latn], tesseract: null, lid: null, translation: null, demo_enabled: true}
+as: {name: Assamese, name_native: অসমীয়া, scripts: [Beng], tesseract: null, lid: null, translation: null, demo_enabled: false}
+bn: {name: Bengali, name_native: বাংলা, scripts: [Beng], tesseract: null, lid: null, translation: null, demo_enabled: false}
+brx: {name: Bodo, name_native: बड़ो, scripts: [Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+doi: {name: Dogri, name_native: डोगरी, scripts: [Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+gu: {name: Gujarati, name_native: ગુજરાતી, scripts: [Gujr], tesseract: null, lid: null, translation: null, demo_enabled: false}
+hi: {name: Hindi, name_native: हिन्दी, scripts: [Deva], tesseract: null, lid: null, translation: null, demo_enabled: true}
+kn: {name: Kannada, name_native: ಕನ್ನಡ, scripts: [Knda], tesseract: null, lid: null, translation: null, demo_enabled: false}
+ks: {name: Kashmiri, name_native: كٲشُر, scripts: [Arab, Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+kok: {name: Konkani, name_native: कोंकणी, scripts: [Deva, Latn, Knda], tesseract: null, lid: null, translation: null, demo_enabled: false}
+mai: {name: Maithili, name_native: मैथिली, scripts: [Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+ml: {name: Malayalam, name_native: മലയാളം, scripts: [Mlym], tesseract: null, lid: null, translation: null, demo_enabled: false}
+mni: {name: Manipuri (Meitei), name_native: ꯃꯩꯇꯩꯂꯣꯟ, scripts: [Mtei, Beng], tesseract: null, lid: null, translation: null, demo_enabled: false}
+mr: {name: Marathi, name_native: मराठी, scripts: [Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+ne: {name: Nepali, name_native: नेपाली, scripts: [Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+or: {name: Odia, name_native: ଓଡ଼ିଆ, scripts: [Orya], tesseract: null, lid: null, translation: null, demo_enabled: false}
+pa: {name: Punjabi, name_native: ਪੰਜਾਬੀ, scripts: [Guru], tesseract: null, lid: null, translation: null, demo_enabled: false}
+sa: {name: Sanskrit, name_native: संस्कृतम्, scripts: [Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+sat: {name: Santali, name_native: ᱥᱟᱱᱛᱟᱲᱤ, scripts: [Olck], tesseract: null, lid: null, translation: null, demo_enabled: false}
+sd: {name: Sindhi, name_native: سنڌي, scripts: [Arab, Deva], tesseract: null, lid: null, translation: null, demo_enabled: false}
+ta: {name: Tamil, name_native: தமிழ், scripts: [Taml], tesseract: null, lid: null, translation: null, demo_enabled: false}
+te: {name: Telugu, name_native: తెలుగు, scripts: [Telu], tesseract: null, lid: null, translation: null, demo_enabled: false}
+ur: {name: Urdu, name_native: اردو, scripts: [Arab], tesseract: null, lid: null, translation: null, demo_enabled: false}

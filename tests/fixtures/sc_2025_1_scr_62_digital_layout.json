@@ -1,0 +1,1120 @@
+{
+ "source_url": "s3://indian-supreme-court-judgments/data/pdf/year=2025/english/2025_1_62_80_EN.pdf",
+ "download_url": "s3://indian-supreme-court-judgments/data/pdf/year=2025/english/2025_1_62_80_EN.pdf",
+ "raw_sha256": "1d20c15ff00fef7ecde863d38a885555fddd0b009678a2ac6b625f80bf893250",
+ "retrieved_at": "2026-09-22T22:36:13+00:00",
+ "licence": "CC-BY-4.0",
+ "pages": [
+  4,
+  5,
+  19
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": true,
+ "body_size": 10.5,
+ "page_height": 666.15,
+ "lines": [
+  {
+   "text": "Judgment / Order of the Supreme Court",
+   "page": 4,
+   "x0": 123.8332,
+   "x1": 315.5192,
+   "top": 98.44499999999994,
+   "size": 10.0,
+   "bold_prefix": "Judgment / Order of the Supreme Court",
+   "markers": []
+  },
+  {
+   "text": "Judgment",
+   "page": 4,
+   "x0": 194.5914,
+   "x1": 244.76039999999998,
+   "top": 123.31049999999993,
+   "size": 10.5,
+   "bold_prefix": "Judgment",
+   "markers": []
+  },
+  {
+   "text": "C.T. Ravikumar, J.",
+   "page": 4,
+   "x0": 75.02789999999999,
+   "x1": 165.4854,
+   "top": 149.43449999999996,
+   "size": 10.5,
+   "bold_prefix": "C.T. Ravikumar, J.",
+   "markers": []
+  },
+  {
+   "text": "1. Leave granted.",
+   "page": 4,
+   "x0": 51.02489999999999,
+   "x1": 145.6677,
+   "top": 174.56100000000004,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. In the captioned appeals by Special Leave the appellant calls in",
+   "page": 4,
+   "x0": 51.02489999999999,
+   "x1": 388.26389999999986,
+   "top": 193.68150000000003,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "question the common judgment dated 14.02.2024 of the Karnataka,",
+   "page": 4,
+   "x0": 75.02789999999999,
+   "x1": 388.32585000000006,
+   "top": 206.80650000000003,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "High Court, Dharwad Bench, passed in RFA Nos.100168 and 100247,",
+   "page": 4,
+   "x0": 75.02789999999999,
+   "x1": 388.2975000000006,
+   "top": 219.93150000000003,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of 2018 which emanated from the judgment and preliminary decree",
+   "page": 4,
+   "x0": 75.02789999999999,
+   "x1": 388.3174500000001,
+   "top": 233.05650000000003,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "dated 31.03.2018 in OS No.122 of 2009 of the Court of III Additional",
+   "page": 4,
+   "x0": 75.02789999999999,
+   "x1": 388.31870000000004,
+   "top": 246.18150000000003,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Senior Civil Judge, Belagavi.",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 210.42560000000003,
+   "top": 259.3105,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. The self-same appellant was the plaintiff in OS No.122 of 2009 filed",
+   "page": 4,
+   "x0": 51.0167,
+   "x1": 388.31030000000015,
+   "top": 278.431,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "for partition of the suit schedule properties and separate possession",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.3008500000001,
+   "top": 291.556,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "against the defendants. Respondent Nos.1 to 4 herein were the",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.4373500000003,
+   "top": 304.681,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "original defendant Nos. 2 to 5 respectively in the said suit. Pending the",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.3291999999997,
+   "top": 317.806,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "first appeals, respondent No.5/defendant No.6 died and consequently,",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.42474999999996,
+   "top": 330.931,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "his legal representatives were impleaded as additional respondent",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.3050500000001,
+   "top": 344.056,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Nos.5A to 5F and they are respondent Nos.5 to 10 in these appeals.",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.33130000000006,
+   "top": 357.181,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. The facts of the case necessary for disposal of the captioned appeals",
+   "page": 4,
+   "x0": 51.0167,
+   "x1": 388.3921999999997,
+   "top": 376.3015,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "are as follows:-",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 146.79770000000002,
+   "top": 389.4265,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "One Bhavakanna Shahapurkar was the original owner of the suit",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.1402,
+   "top": 408.54699999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "schedule properties and original defendant No.1-Smt. Parvatibai",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.43735000000044,
+   "top": 421.67199999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "was his legally wedded wife. They had no issues in their wedlock",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.24205000000035,
+   "top": 434.79699999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and hence, with the consent of defendant No.1 the said Bhavakanna",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.3082000000003,
+   "top": 447.92199999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "married one Laxmibai without dissolving his first marriage with",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.4258000000006,
+   "top": 461.04699999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "defendant No.1. In his wedlock with Smt. Laxmibai, Bhavakanna",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.23260000000016,
+   "top": 474.17199999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Shahpurkar got two children, namely, Parashuram and Renuka.",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.2599000000004,
+   "top": 487.29699999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "On 04.03.1982, Bhavakanna Shahapurkar died leaving behind two",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.2767000000003,
+   "top": 500.42199999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "widows. After his demise, OS No.266/1982 was filed by defendant",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.27985000000024,
+   "top": 513.547,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "No.1 against Laxmibai, and her children Parashuram and Renuka",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.18220000000014,
+   "top": 526.672,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "for partition and separate possession of suit schedule properties.",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.44994999999994,
+   "top": 539.797,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Based on a compromise, a decree was drawn in the said suit and",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.26620000000037,
+   "top": 552.922,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "later, in the final decree proceedings defendant No.1 was allotted",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.4279000000004,
+   "top": 566.047,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and thereby acquired 9/32 share in schedule ‘A’ and ‘D’ properties.",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.26620000000025,
+   "top": 579.172,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The appellant herein/the plaintiff was adopted by defendant",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.4457499999998,
+   "top": 592.297,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "No.1-Parvatibai on 16.07.1994. The adoption deed was signed and",
+   "page": 4,
+   "x0": 75.0197,
+   "x1": 388.28720000000027,
+   "top": 605.422,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "got registered by his natural father and the adoptee mother (defendant",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.1125999999999,
+   "top": 98.39240000000007,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "No.1) and other witnesses. Later, the appellant came and started",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.43809999999996,
+   "top": 111.51740000000007,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "residing with defendant No.1 as her adopted son after relinquishing",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.2659000000003,
+   "top": 124.64240000000007,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "all his rights in his natural family. At the time of his adoption the",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.4066000000003,
+   "top": 137.76740000000007,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "appellant was aged 21 years. The case of the appellant/plaintiff in",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.2491000000003,
+   "top": 150.89240000000007,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "OS No.122 of 2009 is that on being adopted he became the legal",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.29110000000014,
+   "top": 164.0174,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "heir of Bhavakanna and, therefore, entitled to half share in the",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.45699999999994,
+   "top": 177.1424,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "suit schedule properties. According to him, in such circumstances,",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3110500000002,
+   "top": 190.2674,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "defendant No.1 was not having absolute right or title to execute sale",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.2491000000003,
+   "top": 203.3924,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "deed dated 13.12.2007 in favour of defendants 2 and 3 without his",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3016000000003,
+   "top": 216.5174,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "consent as also to execute gift deed dated 27.08.2008 in favour of",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.2858500000002,
+   "top": 229.6424,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "defendant Nos.4 and 5. Earlier, the appellant demanded for partition",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3047500000002,
+   "top": 242.7674,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of the suit schedule properties. However, defendant No.1 refused",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.36774999999966,
+   "top": 255.8924,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to effect partition which made him to institute the aforementioned",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.41185000000013,
+   "top": 269.0174,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Original Suit. In fact, in the said suit beside seeking partition and",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.4559499999998,
+   "top": 282.1424,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "separate possession of the suit schedule properties he also sought",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.2774500000003,
+   "top": 295.2674,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to set aside a sale deed executed on 13.12.2007 by defendant No.1",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.25960000000026,
+   "top": 308.3924,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "in favour of defendant Nos.2 and 3 (respondent Nos.1 and 2 herein)",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.29110000000037,
+   "top": 321.5174,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and a gift deed dated 27.08.2008 made by defendant No.1 in favour",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.25960000000026,
+   "top": 334.6424,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of defendant Nos.4 and 5 as null and void.",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 274.2306499999999,
+   "top": 347.7674,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. Defendant No.1 filed written statement stating, inter alia, that the",
+   "page": 5,
+   "x0": 51.0206,
+   "x1": 388.34359999999964,
+   "top": 366.8879,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "suit schedule properties are wrongly described. While admitting the",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3163,
+   "top": 380.0129,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "adoption of the appellant/plaintiff on 16.07.1994 as also the fact that",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3026500000001,
+   "top": 393.1379,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "subsequently, he came to stay with her, defendant No.1 would state",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.32680000000005,
+   "top": 406.2629,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "that she became the full and absolute owner of the suit schedule",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.30790000000013,
+   "top": 419.3879,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "properties after the death of her husband Bhavakanna and further",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.32890000000026,
+   "top": 432.5129,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "that by virtue of adoption of the appellant/plaintiff she was not",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.37615000000045,
+   "top": 445.6379,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "divested off her ownership over the suit schedule properties. She",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.31210000000004,
+   "top": 458.7629,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "had also refuted the claims of the appellant/plaintiff that without his",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.30055000000016,
+   "top": 471.8879,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "consent she could not have sold the property covered under sale",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.30895,
+   "top": 485.0129,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "deed dated 13.12.2007 and that she had played fraud in creating",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3016000000001,
+   "top": 498.1379,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "gift deed dated 27.08.2008 in respect of properties described in",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.2806000000003,
+   "top": 511.2629,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "para 1B and C of the plaint, in favour of defendant Nos.4 and 5",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3961000000003,
+   "top": 524.3879,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "viz., respondent Nos.3 and 4. Above all, defendant No.1 denied the",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.31525000000016,
+   "top": 537.5129,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "claim of acquisition of half share of the suit schedule properties by",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3236500000001,
+   "top": 550.6379,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "virtue of his adoption by her and thereby becoming the legal heir of",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.3142,
+   "top": 563.7629,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "her husband Sri Bhavakanna Shahapurkar.",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 278.17550000000006,
+   "top": 576.8879,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. Defendant Nos.2 and 3 jointly filed a separate written statement, but",
+   "page": 5,
+   "x0": 51.0206,
+   "x1": 388.33099999999996,
+   "top": 596.0083999999999,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "adopting the contentions raised by defendant No.1. They claimed",
+   "page": 5,
+   "x0": 75.0236,
+   "x1": 388.30055000000016,
+   "top": 609.1333999999999,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "pre-requisite to constitute a valid gift is lacking and the evidence",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.0884499999998,
+   "top": 98.42549999999994,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "discussed by the trial Court would support the said finding we do not",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.2879500000001,
+   "top": 111.76049999999998,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "find any reason for the Appellate Court to interfere with the same.",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.32469999999995,
+   "top": 125.09550000000002,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The declaration that gift deed dated 27.08.2008 is null and void is",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3320500000002,
+   "top": 138.43050000000005,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "made by the trial Court in the aforesaid circumstances and it is only",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.34045000000015,
+   "top": 151.7655000000001,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "as a necessary sequel that the trial Court held that the appellant/",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.31105000000014,
+   "top": 165.10050000000007,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "plaintiff is entitled to entire ‘B’ and ‘C’ schedule properties as the",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.40660000000037,
+   "top": 178.43550000000005,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "sole legal heir of deceased defendant No.1. As noted hereinbefore,",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3100000000001,
+   "top": 191.77050000000003,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "DW-1 herself in her written statement admitted the adoption of the",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.29740000000004,
+   "top": 205.1055,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "appellant/plaintiff as her son and the registered adoption deed could",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3100000000003,
+   "top": 218.4405,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "fortify the same. When that be so the finding that the appellant is",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.31945000000013,
+   "top": 231.77549999999997,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "entitled to the said properties being the sole legal heir of deceased",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3016000000002,
+   "top": 245.11049999999994,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "defendant No.1 cannot be said to be faulty as it is the inevitable",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.42865,
+   "top": 258.4454999999999,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "consequence of application for the ‘Doctrine of Relation Back’ and",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3215500000002,
+   "top": 271.7804999999999,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the ratio of the decisions in Kasabai Tukaram Karvar’s case (supra)",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3226,
+   "top": 285.1154999999999,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and Sripad Gajanan Suthankar’s case (supra).",
+   "page": 19,
+   "x0": 75.02359999999999,
+   "x1": 302.6111,
+   "top": 298.45049999999986,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "30. In the result the appeal is partly allowed. The concurrent finding",
+   "page": 19,
+   "x0": 51.0206,
+   "x1": 388.25120000000027,
+   "top": 317.57099999999986,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of the courts below that the sale deed dated 13.12.2007 in favour",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3310000000001,
+   "top": 330.69599999999986,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of defendant Nos.2 and 3 is valid and that the appellant/plaintiff is",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.30685000000005,
+   "top": 343.82099999999986,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "not entitled to any share in ‘A’ schedule property is confirmed and",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.32890000000003,
+   "top": 356.94599999999986,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "consequently the appeal against the judgment in RFA No.100247 of",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.32575000000014,
+   "top": 370.07099999999986,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2018, viz., SLP (C) No.10558 of 2024 is dismissed.",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 317.0444000000001,
+   "top": 383.19599999999986,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "31. The appeal against the judgment in RFA No.100168 of 2018 against",
+   "page": 19,
+   "x0": 51.0206,
+   "x1": 388.30475000000024,
+   "top": 402.31649999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the reversal of the judgment and the decree of the trial Court pertaining",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3960999999994,
+   "top": 415.44149999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to the alienation of properties through gift deed dated 27.08.2008 and",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.4118500000003,
+   "top": 428.56649999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the gift deed itself, is allowed and the judgment of the High Court in",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3331000000001,
+   "top": 441.69149999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "RFA No.100168/2018 is quashed and set aside. Consequently, the",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.32050000000015,
+   "top": 454.81649999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "judgment and decree of the trial Court holding the gift deed dated",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3205000000001,
+   "top": 467.94149999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "27.08.2008 as null and void and the finding that the appellant/plaintiff",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.3226000000002,
+   "top": 481.06649999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "is entitled to entire ‘B’ and ‘C’ schedule properties as the sole heir",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 388.2984500000002,
+   "top": 494.19149999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of deceased defendant No.1 are restored.",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 272.3165,
+   "top": 507.31649999999985,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "32. In the circumstances there will be no order as to costs.",
+   "page": 19,
+   "x0": 51.0206,
+   "x1": 334.15099999999995,
+   "top": 526.4369999999999,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Result of the case: Appeal partly allowed.",
+   "page": 19,
+   "x0": 75.0236,
+   "x1": 271.1216,
+   "top": 557.0339999999999,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Headnotes prepared by: Nidhi Jain",
+   "page": 19,
+   "x0": 77.9417,
+   "x1": 218.52169999999998,
+   "top": 604.629,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ],
+ "metadata": {
+  "case_title": "SRI MAHESH versus SANGRAM & ORS",
+  "petitioner": "SRI MAHESH",
+  "respondent": "SANGRAM & ORS",
+  "court": "Supreme Court of India",
+  "decision_date": "2025-01-01",
+  "judges": [
+   "C.T. RAVIKUMAR",
+   "PRASHANT KUMAR MISHRA"
+  ],
+  "author_judge": "C.T. RAVIKUMAR",
+  "citation": "[2025] 1 S.C.R. 62",
+  "neutral_citation": "2025 INSC 14",
+  "cnr": "ESCR010000042025",
+  "disposal_nature": "Case Partly allowed",
+  "available_languages": "ENG,PUN",
+  "path": "2025_1_62_80",
+  "year": 2025,
+  "matched_acts": [
+   "tpa-1882"
+  ]
+ }
+}

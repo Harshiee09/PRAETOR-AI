@@ -1,0 +1,52 @@
+# State / UT name -> ISO 3166-2:IN code, for STATE AMENDMENT blocks in India Code Act texts.
+# Codes as of the 2023-11-23 ISO change (IN-OR->IN-OD, IN-CT->IN-CG, IN-TG->IN-TS, IN-UT->IN-UK).
+# Source: https://en.wikipedia.org/wiki/ISO_3166-2:IN (verified 2026-09-23). Former names map to the successor
+# only where the territory is the same; ambiguous historical names (e.g. Bombay, Punjab before 1966) are left
+# unmapped so ingestion rejects the block instead of guessing.
+verified_on: 2026-09-23
+source_url: https://en.wikipedia.org/wiki/ISO_3166-2:IN
+codes:
+  Andhra Pradesh: IN-AP
+  Arunachal Pradesh: IN-AR
+  Assam: IN-AS
+  Bihar: IN-BR
+  Chhattisgarh: IN-CG
+  Goa: IN-GA
+  Gujarat: IN-GJ
+  Haryana: IN-HR
+  Himachal Pradesh: IN-HP
+  Jharkhand: IN-JH
+  Karnataka: IN-KA
+  Kerala: IN-KL
+  Madhya Pradesh: IN-MP
+  Maharashtra: IN-MH
+  Manipur: IN-MN
+  Meghalaya: IN-ML
+  Mizoram: IN-MZ
+  Nagaland: IN-NL
+  Odisha: IN-OD
+  Punjab: IN-PB
+  Rajasthan: IN-RJ
+  Sikkim: IN-SK
+  Tamil Nadu: IN-TN
+  Telangana: IN-TS
+  Tripura: IN-TR
+  Uttar Pradesh: IN-UP
+  Uttarakhand: IN-UK
+  West Bengal: IN-WB
+  Andaman and Nicobar Islands: IN-AN
+  Chandigarh: IN-CH
+  Dadra and Nagar Haveli and Daman and Diu: IN-DH
+  Delhi: IN-DL
+  Jammu and Kashmir: IN-JK
+  Ladakh: IN-LA
+  Lakshadweep: IN-LD
+  Puducherry: IN-PY
+# same territory, older name (Madras and Mysore are deliberately absent: their pre-reorganisation territory differs)
+aliases:
+  Orissa: Odisha
+  Uttaranchal: Uttarakhand
+  Uttarkhand: Uttarakhand  # misspelling in the India Code Registration Act PDF
+  Pondicherry: Puducherry
+  National Capital Territory of Delhi: Delhi
+  NCT of Delhi: Delhi

@@ -54,3 +54,26 @@ Append-only, newest last. Each entry: what was decided or verified, and the evid
 | V13 | SC judgments bucket layout: `metadata/parquet/year=YYYY/metadata.parquet` (~1 MB for 2023); `data/pdf/year=YYYY/english/<name>_EN.pdf` (854 files for 2023) and `regional/<name>_<LANG>.pdf` (e.g. `HIN`, `PUN`); `data/tar/year=YYYY/{english,regional}/*.tar` with `*.index.json` | `aws s3 ls --no-sign-request --region ap-south-1`, 2026-09-23 |
 | V14 | Ollama library sizes: `qwen3.5:4b` 3.4 GB, `qwen3.5:9b` 6.6 GB, `gemma4:e2b-it-qat` 4.3 GB, `gemma4:e4b-it-qat` 6.1 GB, `gemma4:12b-it-qat` 7.2 GB | https://ollama.com/library/qwen3.5/tags · https://ollama.com/library/gemma4/tags, 2026-09-23 |
 | V15 | The migrated India Code site's terms of use could not be located (`/info/end-user-agreement` carries none). Licence field says so; still CHECK | https://indiacode.gov.in/info/end-user-agreement, 2026-09-23 |
+
+## 2026-09-23 — Phase 1 build
+
+### Decisions
+| # | Decision | Reason |
+|---|---|---|
+| D11 | Until the Phase 2 reranker gate exists, the evidence gate runs on the top dense cosine: `MIN_DENSE_SCORE=0.60`, provisional | Known-item questions scored 0.70–0.71 (correct section at rank 1); out-of-corpus questions (passport, IPC murder, capital-gains tax) topped out at 0.50–0.55. n=7 — calibrate on the eval dev split in Phase 2 |
+| D12 | SQLite access lives in a new `app/store/` module (documents, chunks + FTS5, ingest_runs, rejects, cache, spend); chunk columns are generated from the `Chunk` dataclass | one owner for the schema, used by both ingestion and retrieval |
+| D13 | SCR headnotes, case-law lists and counsel are not indexed; judgments are indexed from the "delivered by" / "Judgment / Order of the Supreme Court" marker onwards. Headnotes in the metadata `raw_html` are used only to select judgments. The case-header chunk is rendered from the dataset record with `text_source = metadata` (a third allowed value besides `layer` and `ocr`) | headnotes are editorial additions (data-sources licensing notes) and not the court's reasoning |
+| D14 | India Code `STATE AMENDMENT(S)` blocks become separate chunks with the state's ISO 3166-2 code as `jurisdiction` (`data/registry/jurisdictions.yaml`); an unmapped state name is rejected, never guessed. Central section text never contains them | state amendments are state law; mixing them into central text would misstate the law |
+| D15 | Judgment locators are paragraph ranges (`paras 12-15`, `para 7 (part 2 of 3)`) when numbering is detected, and page ranges (`pp. 13-16`) when one "paragraph" would span more than 3 chunks (numbering lost mid-judgment) | a label like "para 11 (part 47 of 73)" would mislead a reader |
+| D16 | `doc_id` canonical keys: Acts = India Code handle URL + `#<lang>`; judgments = the `s3://` key. Judgment `source_url` = the public HTTPS object URL; Act `source_url` = the handle page | stable across re-downloads; clickable in citations |
+| D17 | Provisional local answer model for Phase 1: `qwen3.5:4b` with `think: false`, temperature 0.1, `num_ctx` 8192 — runs 100% on GPU (3.3 GB), warm answers 7–14 s | fits the 8 GB budget next to bge-m3; the Phase 2 benchmark decides |
+
+### Verifications
+| # | Fact | Evidence |
+|---|---|---|
+| V16 | India Code stamps a rotated "India Code" watermark (Helvetica-Bold 27–37 pt, grey, 45°) into each PDF as it is served, so the bytes differ from the repository copy: `a1908-16.pdf` is 870,914 B served vs 702,521 B / MD5 `85c5ae58…` in the repository. Without filtering, watermark glyphs land inside words (`appointmIents`) | download + char inspection with pdfplumber, 2026-09-23 |
+| V17 | Consumer Protection Act 2019 commencement, from the footnote to s. 1(3) in the India Code text: most provisions 20 July 2020 (S.O. 2351(E), 15 July 2020); listed provisions 24 July 2020 (S.O. 2421(E), 23 July 2020) | `A2019-35.pdf` p. 6; recorded in `statutes.yaml` |
+| V18 | ISO 3166-2:IN codes after the 2023-11-23 change: IN-OD, IN-CG, IN-TS, IN-UK (formerly IN-OR, IN-CT, IN-TG, IN-UT) | https://en.wikipedia.org/wiki/ISO_3166-2:IN |
+| V19 | SC metadata parquet: 18 columns (`title, petitioner, respondent, description, judge, author_judge, citation, case_id, cnr, decision_date, disposal_nature, court, available_languages, raw_html, path, nc_display, scraped_at, year`); `decision_date` is DD-MM-YYYY; `author_judge` always null; `raw_html` holds the coram (author marked `*`) and headnotes; PDF key = `data/pdf/year=<year>/english/<path>_EN.pdf`. 2016–2025: 7,997 rows, no duplicate `cnr` or `path` | `docs/reports/sc_metadata_profile.md` |
+| V20 | Two SCR PDF layouts: older (to ~2023) with A–H margin letters and "The Judgment of the Court was delivered by"; Digital SCR (2024+) with "Judgment / Order of the Supreme Court", hanging paragraph numbers, and a "Result of the case" / "Headnotes prepared by" tail. Some older PDFs carry an OCR text layer with recognition errors | inspection of the 50 downloaded PDFs |
+| V21 | Bucket objects are readable over plain HTTPS (`https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/...` → 200 application/pdf); India Code handle pages resolve with GET (HEAD returns 405) | requests on 2026-09-23 |
