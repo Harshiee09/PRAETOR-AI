@@ -1,0 +1,41 @@
+# secrets and local config
+.env
+.env.*
+!.env.example
+*.pem
+credentials*
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# data: corpora, processed stores and indexes are never committed (data/registry/ is)
+data/raw/
+data/processed/
+data/indexes/
+data/scratch/
+
+# model weights, if any land in the repo
+models/
+*.safetensors
+*.gguf
+*.bin
+
+# logs (may contain query hashes or, in debug mode, query text)
+logs/
+*.log
+
+# archives
+*.zip
+
+# OS / editors
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
