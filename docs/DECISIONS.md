@@ -34,3 +34,23 @@ Append-only, newest last. Each entry: what was decided or verified, and the evid
 - AWS Budgets pricing, and API Gateway timeouts if API Gateway is ever considered.
 - Tesseract traineddata available on this machine for the demo languages.
 - Commencement notifications for the BNS, BNSS, BSA and the Consumer Protection Act 2019, including excluded provisions.
+
+## 2026-09-23 — Phase 0 setup
+
+### Decisions
+| # | Decision | Reason |
+|---|---|---|
+| D6 | Project lives at `C:\dev\praetor-ai` in its own git repo (`main`), not in `OneDrive\Desktop` | OneDrive would sync the venv, corpora, SQLite and FAISS files (locking risk for SQLite), and the old folder sat inside an accidental git repo rooted at the home directory |
+| D7 | Python 3.12 (uv-managed, user-level, no admin) with `uv.lock`; torch from the PyTorch `cu130` index via `[tool.uv.sources]` — resolved to `torch 2.14.0+cu130` | only Python 3.14 was installed system-wide; 3.12 has the broadest wheel coverage. cu130 includes `sm_120` and was already proven on this GPU (global `torch 2.13.0+cu130`) |
+| D8 | **The GPU has 8 GB, not 12 GB** (RTX 5070 *Laptop*, 7.93 GiB usable). bge-m3 in fp16 peaks at 1.09 GiB when converted to fp16 on the CPU before moving to CUDA (2.62 GiB if moved in fp32 first). Local LLM candidates must fit in ~5 GB: `qwen3.5:4b` (3.4 GB) and `gemma4:e2b-it-qat` (4.3 GB) were pulled. `gemma4:latest` (9.6 GB, already on the machine) can only run partly offloaded to CPU. Phase 1 uses `qwen3.5:4b` provisionally; the pick is made by the Phase 2 benchmark | measured with `praetor gpu-check` and `nvidia-smi` |
+| D9 | Tesseract deferred: not installed, and the installer needs admin. Pages that need OCR are rejected with a logged reason, never indexed as garbage | the Phase 1 corpus is English PDFs with text layers |
+| D10 | CLI built on stdlib `argparse` | no new dependency needed |
+
+### Verifications
+| # | Fact | Evidence |
+|---|---|---|
+| V11 | India Code moved from `www.indiacode.nic.in` to `https://indiacode.gov.in`; the old domain now serves only a migration notice. The new site runs DSpace 9.1, with a public REST API at `/server/api` (search: `/discover/search/objects`, items: `/core/items/{uuid}`, files: `/core/bitstreams/{uuid}/content`) | GET https://www.indiacode.nic.in/ and https://indiacode.gov.in/server/api, 2026-09-23 |
+| V12 | Central Act items (`dc.identifier.state_name = CENTRAL`): Registration Act 1908 handle `123456789/496068`; Transfer of Property Act 1882 `123456789/496421`; Consumer Protection Act 2019 `123456789/496115`. The ORIGINAL bundle holds the English `a<year>-<no>.pdf` and Hindi `H<year>-<no>.pdf` with MD5 checksums. State copies are separate items whose `dc.identifier.refact` points to the central `act_id`. Per-section items (collection `SECTION`) carry `section_number` and the section text | API responses, 2026-09-23; IDs recorded in `data/registry/sources.yaml` |
+| V13 | SC judgments bucket layout: `metadata/parquet/year=YYYY/metadata.parquet` (~1 MB for 2023); `data/pdf/year=YYYY/english/<name>_EN.pdf` (854 files for 2023) and `regional/<name>_<LANG>.pdf` (e.g. `HIN`, `PUN`); `data/tar/year=YYYY/{english,regional}/*.tar` with `*.index.json` | `aws s3 ls --no-sign-request --region ap-south-1`, 2026-09-23 |
+| V14 | Ollama library sizes: `qwen3.5:4b` 3.4 GB, `qwen3.5:9b` 6.6 GB, `gemma4:e2b-it-qat` 4.3 GB, `gemma4:e4b-it-qat` 6.1 GB, `gemma4:12b-it-qat` 7.2 GB | https://ollama.com/library/qwen3.5/tags · https://ollama.com/library/gemma4/tags, 2026-09-23 |
+| V15 | The migrated India Code site's terms of use could not be located (`/info/end-user-agreement` carries none). Licence field says so; still CHECK | https://indiacode.gov.in/info/end-user-agreement, 2026-09-23 |

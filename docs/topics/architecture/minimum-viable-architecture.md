@@ -3,7 +3,7 @@ id: 20260922-minimum-viable-architecture
 title: Minimum viable architecture
 tags: [architecture, aws, cost]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-23
 related: [20260922-chunk-schema, 20260922-retrieval-pipeline, 20260922-llm-layer, 20260922-aws-cost-plan, 20260922-report-validation]
 summary: What runs locally vs on AWS, the request flow, the env contract, and what was cut from the AWS blueprint and why.
 ---
@@ -13,7 +13,7 @@ summary: What runs locally vs on AWS, the request flow, the env contract, and wh
 > Summary: What runs locally vs on AWS, the request flow, the env contract, and what was cut from the AWS blueprint and why.
 
 ## Context
-The AWS blueprint (`docs/sources/research-report-2-aws-blueprint.md`) describes a generic enterprise RAG stack sized for 100K–1M documents, thousands of queries a day and sub-second SLOs, built on always-on managed services. PRAETOR's constraints are the opposite: 3 days, about $50 of credits, one RTX 5070 with 12 GB of VRAM, and a demo audience. This architecture therefore inverts the blueprint: compute-heavy work runs locally, and AWS supplies durable storage, optional stronger generation, and cost guardrails.
+The AWS blueprint (`docs/sources/research-report-2-aws-blueprint.md`) describes a generic enterprise RAG stack sized for 100K–1M documents, thousands of queries a day and sub-second SLOs, built on always-on managed services. PRAETOR's constraints are the opposite: 3 days, about $50 of credits, one RTX 5070 Laptop GPU with 8 GB of VRAM (DECISIONS D8), and a demo audience. This architecture therefore inverts the blueprint: compute-heavy work runs locally, and AWS supplies durable storage, optional stronger generation, and cost guardrails.
 
 ## Details
 
@@ -64,8 +64,8 @@ Runs are incremental: files whose sha256 is unchanged are skipped, and a changed
 - `local+bedrock`: identical, but final answers use `LLM_ANSWER=bedrock`.
 - `cloud-lite` (stretch): a Lambda container behind a Function URL that pulls the SQLite database and FAISS index from S3 into `/tmp` at cold start, embeds queries on CPU, skips or shrinks reranking, and generates with Bedrock. Size the ephemeral storage to fit the index. Build it only after measuring cold start and memory; if the cold start is too slow for a live demo, demo `local` instead, through a tunnel with an API key if people need remote access.
 
-### VRAM budget (12 GB)
-bge-m3 and bge-reranker-v2-m3 each take roughly 1.1 GB in fp16, and a 7–9B instruct model at 4-bit takes roughly 4.5–6 GB plus KV cache. That fits with headroom as long as the LLM context stays modest. Load models lazily, expose `EMBED_DEVICE` and `RERANK_DEVICE` for CPU fallback, and run bulk embedding with the LLM unloaded.
+### VRAM budget (8 GB — the dev machine is an RTX 5070 Laptop GPU, DECISIONS D8)
+bge-m3 in fp16 peaks at 1.09 GiB (measured), and bge-reranker-v2-m3 is similar. That leaves about 5 GB for the LLM and its KV cache, so local answer models are 2–4B-class at 4-bit (`qwen3.5:4b`, `gemma4:e2b-it-qat`), with a modest context. A 7–9B model only fits by unloading the encoders or partly offloading to CPU. Load models lazily, convert encoders to fp16 before moving them to CUDA, expose `EMBED_DEVICE` and `RERANK_DEVICE` for CPU fallback, and run bulk embedding with the LLM unloaded.
 
 ### Environment contract (`.env.example`)
 ```dotenv

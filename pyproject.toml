@@ -1,0 +1,50 @@
+[project]
+name = "praetor-ai"
+version = "0.1.0"
+description = "India-focused informational legal-assistance RAG (MVP). Not legal advice."
+readme = "CLAUDE.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "torch>=2.9",
+    "sentence-transformers>=3.0",
+    "faiss-cpu>=1.8",
+    "numpy>=1.26",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "httpx>=0.27",
+    "boto3>=1.34",
+    "pyarrow>=16",
+    "pandas>=2.2",
+    "pdfplumber>=0.11",
+    "pypdfium2>=4.30",
+    "regex>=2024.5",
+    "pyyaml>=6.0",
+    "beautifulsoup4>=4.12",
+]
+
+[project.scripts]
+praetor = "app.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.2"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+# The RTX 50-series (Blackwell, sm_120) needs a CUDA 12.8+ build; cu130 is proven on this machine (DECISIONS D6).
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu130" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: needs the GPU, network, downloaded models or corpora"]
+addopts = "-ra"

@@ -1,56 +1,35 @@
 # PRAETOR AI — status
 
-_Last updated: 2026-09-23 · Phase: 0 not started. Inspection done; waiting for plan approval._
+_Last updated: 2026-09-23 · Phase 0 done · Phase 1 in progress_
 
-## What exists
-- The knowledge-base kit only: `CLAUDE.md`, `KICKOFF_PROMPT.md`, `docs/` (INDEX, DECISIONS, 12 topic notes, 2 source reports), extracted from `praetor-ai-kit.zip` (the zip is still in the folder).
-- No application code, no `pyproject.toml`, no tests, no `data/`, no `evaluation/`, no `infra/`.
-- **Git:** the project folder isn't its own repository. It sits inside a repo rooted at the **home directory `C:\Users\DELL`** (branch `master`, 0 commits, `origin` = `github.com/Harshiee09/GenentAi.git`). Committing from here would commit into that home repo. A decision is needed (see Risks).
-
-## Environment (checked 2026-09-23, read-only)
-| Item | Found | Notes |
+## What works (with the command that proves it)
+| Capability | Command | Result |
 |---|---|---|
-| OS | Windows 11 Home 10.0.26200, native (no usable WSL distro; only Docker Desktop's, stopped) | commands will be PowerShell |
-| Project path | `C:\Users\DELL\OneDrive\Desktop\Praetor AI` | **OneDrive-synced**, path has a space |
-| Python | 3.14.0 only (python.org install), `uv` 0.11.6 available | no 3.11/3.12 installed |
-| Global torch | `2.13.0+cu130`, arch list includes `sm_120` | installed in the global 3.14 site-packages, not a project env |
-| GPU | **RTX 5070 Laptop GPU, 8 GB** (7.93 GiB usable), compute capability 12.0 (Blackwell) | KB assumes 12 GB. See Discrepancies |
-| Driver | 616.92, CUDA UMD 13.4 | supports cu128 / cu130 wheels |
-| GPU proof | `torch.cuda.is_available()` = True; fp16 4096² matmul **26.7 TFLOPS** after warm-up | first cold call took 14 s (one-time init) |
-| Disk | C: 288.5 GB free | enough |
-| SQLite | 3.50.4 with FTS5 (in Python 3.14) | re-check inside the project venv |
-| Ollama | 0.34.2, server running; one model: `gemma4:latest` (9.6 GB) | that model is larger than VRAM and would partially offload to CPU |
-| Tesseract | **not installed** | needed for OCR pages; the installer needs admin |
-| AWS CLI | 2.34.4; profiles: `default` only, **no `praetor` profile** | needed on Day 3 only |
-| Network | `s3://indian-supreme-court-judgments` lists unsigned (`data/{pdf,tar}/`, `metadata/{json,parquet,tar}/`, parquet at `metadata/parquet/year=YYYY/metadata.parquet`, ~1 MB/year); `https://www.indiacode.nic.in/` → HTTP 200 | India Code per-Act download behaviour still unverified |
-| gh CLI | not installed | not needed |
+| Unit tests | `uv run pytest -m "not integration"` | green |
+| GPU + embeddings | `uv run praetor gpu-check` | CUDA on RTX 5070 Laptop (sm_120), fp16 matmul ~27 TFLOPS, bge-m3 on CUDA, dim 1024, L2-normalised, peak VRAM 1.09 GiB, en/hi/ta cross-lingual sanity check passes |
+| Local LLM candidates | `ollama list` | `qwen3.5:4b` (3.4 GB), `gemma4:e2b-it-qat` (4.3 GB), plus the pre-existing `gemma4:latest` (9.6 GB, too big for full GPU) |
 
-## What works when run
-Nothing of PRAETOR exists yet. Verified pieces of the environment:
-- GPU compute: `python -c "import torch; print(torch.cuda.is_available())"` → `True` (global interpreter).
-- Judgments bucket: `aws s3 ls --no-sign-request --region ap-south-1 s3://indian-supreme-court-judgments/metadata/parquet/`.
+## Environment
+- Project: `C:\dev\praetor-ai` (moved out of OneDrive, own git repo on `main`; DECISIONS D6). The original copy at `C:\Users\DELL\OneDrive\Desktop\Praetor AI` is still there and can be deleted.
+- Windows 11, native. Python 3.12.13 (uv-managed) in `.venv`, created by `uv sync`. torch 2.14.0+cu130, sentence-transformers 6.1, transformers 5.17, faiss-cpu 1.15.1, SQLite 3.50.4 with FTS5.
+- GPU: RTX 5070 Laptop, **8 GB** (DECISIONS D8), driver 616.92, CUDA 13.4 UMD.
+- Ollama 0.34.2. AWS CLI 2.34.4, only a `default` profile (a `praetor` profile is needed on Day 3).
+- Hugging Face cache: `C:\Users\DELL\.cache\huggingface` (no symlinks on Windows without Developer Mode, so files are copied; harmless).
 
 ## Gaps against the minimum viable architecture
-Everything is still to build: config/env contract, CLI, ingestion and manifest, parsing and OCR, language ID, legal-aware chunking, schema validation, SQLite + FTS5, embeddings, FAISS, retrieval, reranking, evidence gate, context builder, LLM router (ollama / bedrock / extractive), cost meter, citation validator, registries (`statutes.yaml`, `aliases.yaml`, `sources.yaml`, `languages.yaml`), gold set and eval, API, AWS infra.
-
-## Discrepancies with the KB
-1. **VRAM is 8 GB, not 12 GB.** `CLAUDE.md` and the architecture note's VRAM budget assume 12 GB. With bge-m3 (~1.1 GB) and the reranker (~1.1 GB) resident, about 5 GB remains for the LLM plus KV cache. That points to ~4B-class models fully on GPU, or 7–8B at Q4 with a short context, or unloading the encoders during generation. Proposed fix: a DECISIONS entry, and correcting both notes.
-2. The existing Ollama model (`gemma4:latest`, 9.6 GB) can't run fully on this GPU.
+Phase 1 (building now): ingestion, parsing, chunking, validation, SQLite + FTS5 store, FAISS index, `praetor ask` with the first citation validator, `praetor profile`, first gold questions.
+Later phases: classifier, keyword search, fusion, reranker, evidence gate, full validator, statute registry beyond the Phase 1 Acts, eval harness, Bedrock + cost meter, API, AWS infra.
 
 ## Risks
-- **OneDrive sync.** `.venv` (several GB), `data/raw`, the SQLite database and the FAISS index would all sync. OneDrive locking a live SQLite file risks corruption and failed writes. Recommendation: move the project outside OneDrive.
-- **Home-directory git repo.** `C:\Users\DELL` is a git repo with a GitHub remote, and `.aws/`, `.claude.json` and other private files sit untracked inside it. A stray `git add .` + push from home would publish credentials. Not touched; flagged for the user.
-- **Tesseract missing**, and its Windows installer needs admin. The Phase 1 corpus (English India Code PDFs, SC judgments) should mostly have text layers, so this isn't blocking day one. Hindi/Indic OCR needs it later.
-- **India Code** may serve PDFs through handle pages or with bot protection. If a download is blocked, stop and ask (per the kickoff rules).
-- **Laptop GPU** (40 W cap, battery 9% on AC at inspection time): long embedding runs should stay on AC power.
-- Python 3.14 is recent; some wheels (faiss-cpu, pypdfium2, regex) may lag. A uv-managed 3.12 venv avoids that without admin rights.
-
-## Side effects of the inspection
-- Extracted `praetor-ai-kit.zip` into the project folder (required to install the kit).
-- `ollama list` started the Ollama app while its server wasn't running; the app then applied a queued self-update, **0.34.1 → 0.34.2**. Nothing else was changed.
+- 8 GB VRAM limits local answer models to the 2–4B class (quality risk for Hindi answers; Bedrock comparison on Day 3 matters more).
+- India Code moved domains during 2026 (DECISIONS V11). Its site terms aren't located yet (V15).
+- Home-directory git repo at `C:\Users\DELL` (origin `Harshiee09/GenentAi`) still exists with private files untracked inside it; a stray `git add .` + push there would publish credentials. Not touched.
+- Laptop GPU: keep it on AC power for bulk embedding.
 
 ## Deferred
-_(none yet)_
+- **Tesseract OCR** (DECISIONS D9): needs an admin install. Until then, pages that need OCR are rejected and logged. Install the UB Mannheim build plus `eng`, `hin` (and the third demo language), then fill `tesseract` in `app/multilingual/languages.yaml` from `tesseract --list-langs`.
+- **Download contact address:** `HTTP_USER_AGENT` identifies the project but carries no contact; set one in `.env` if you want government sites to be able to reach you.
+- **India Code terms of use** (V15): locate on the migrated site and update `sources.yaml`.
 
 ## Next step
-Waiting for approval of the Phase 0/1 plan and decisions on project location, git, downloads and Tesseract.
+Phase 1: ingest the three Acts and ~50 SC judgments, then parse, chunk, validate, index and ask.

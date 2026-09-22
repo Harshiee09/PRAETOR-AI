@@ -1,7 +1,7 @@
 # PRAETOR AI — project memory for Claude Code
 
 PRAETOR AI is an India-focused **informational** legal-assistance RAG system. It is not a lawyer.
-Goal: a working, demoable MVP in 3 days on one local RTX 5070 (12 GB VRAM) with about $50 of AWS credits.
+Goal: a working, demoable MVP in 3 days on one local RTX 5070 Laptop GPU (8 GB VRAM, see DECISIONS D8) with about $50 of AWS credits.
 Local-first. AWS only where it clearly beats running locally.
 
 Knowledge base (read the index, then open only the notes the task needs): @docs/INDEX.md

@@ -3,7 +3,7 @@ id: 20260922-data-sources
 title: Data sources
 tags: [data, licensing]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-23
 related: [20260922-report-validation, 20260922-chunk-schema, 20260922-statute-status, 20260922-multilingual, 20260922-aws-cost-plan]
 summary: Verified source registry, licences and terms, the MVP seed corpus and download etiquette.
 ---
@@ -20,7 +20,7 @@ Status legend: **OK** verified on 2026-09-22, with evidence in DECISIONS.md; **C
 ### Registry
 | Source | Use | Access | Licence and terms | Status |
 |---|---|---|---|---|
-| India Code (`indiacode.nic.in`) | central Acts: bare text, and Hindi versions where published | web pages and PDFs; no documented public API | government text, see licensing notes | OK as the authority; CHECK current URLs and site terms |
+| India Code (`indiacode.gov.in`, moved from `indiacode.nic.in`) | central Acts: bare text, and Hindi versions where published | DSpace 9.1 REST API at `/server/api` (items, bundles, bitstream PDFs with MD5); IDs in `sources.yaml` (DECISIONS V11, V12) | government text, see licensing notes | OK as the authority and the access path; CHECK site terms (V15) |
 | Indian Supreme Court Judgments, AWS Open Data (`s3://indian-supreme-court-judgments`, ap-south-1) | SC judgments 1950–2025, English and regional PDFs, per-year metadata parquet | `aws s3 ... --no-sign-request`, no AWS account needed | CC-BY-4.0, attribution required | OK |
 | Indian High Court Judgments, AWS Open Data (`s3://indian-high-court-judgments`) | 25 High Courts, raw JSON and parquet metadata | same | CC-BY-4.0, confirm on the registry page | OK, but stretch only: roughly 17.8M judgments and 1.25 TiB |
 | OpenNyAI InJudgements (`opennyaiorg/InJudgements_dataset`) | about 12k judgments with domain labels | Hugging Face `datasets` | report claims Apache-2.0; read the card | CHECK, optional, overlaps the SC dataset |
