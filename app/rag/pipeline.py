@@ -176,12 +176,13 @@ def answer(engine: Engine, query: str, *, explain: bool = False, mode: str = "fu
                 log.warning("provider failed, falling back", extra={"provider": name, "error": str(exc), "trace_id": trace_id})
                 continue
             v = validate(result.text, id_map, engine.registry.statutes, engine.registry)
-            attempts.append({"provider": name, "unsupported_share": round(v.unsupported_share, 3), "used": len(v.used_ids)})
+            attempts.append({"provider": name, "unsupported_share": round(v.unsupported_share, 3), "used": len(v.used_ids),
+                             "raw": result.text})
             if provider != "extractive" and (v.unsupported_share > UNSUPPORTED_LIMIT or not v.used_ids):
                 result = _generate(engine, name, user, model, True, blocks)
                 v = validate(result.text, id_map, engine.registry.statutes, engine.registry)
                 attempts.append({"provider": name, "stricter": True, "unsupported_share": round(v.unsupported_share, 3),
-                                 "used": len(v.used_ids)})
+                                 "used": len(v.used_ids), "raw": result.text})
                 if v.unsupported_share > UNSUPPORTED_LIMIT or not v.used_ids:
                     warnings.append("The generated answer was not grounded well enough in the sources, so the "
                                     "verbatim passages are shown instead.")
@@ -207,7 +208,8 @@ def answer(engine: Engine, query: str, *, explain: bool = False, mode: str = "fu
                             attempts=attempts,
                             validator={"invalid_ids": v.invalid_ids, "unverified_quotes": v.unverified_quotes,
                                        "unverified_authority": v.unverified_authority, "unsupported": v.unsupported,
-                                       "unsupported_share": round(v.unsupported_share, 3)})
+                                       "unsupported_share": round(v.unsupported_share, 3),
+                                       "removed_sentences": v.removed_sentences})
         _log(s, q, trace_id, out, t_start)
         return {**out, "explain": explain_info} if explain else out
     finally:

@@ -1,0 +1,1952 @@
+{
+  "split": "dev",
+  "n_questions": 30,
+  "model": "gemma4:latest",
+  "retrieval": [
+    {
+      "mode": "full",
+      "n": 27,
+      "recall@5": 0.9259259259259259,
+      "recall@10": 0.9259259259259259,
+      "mrr": 0.8888888888888888,
+      "statute_n": 12,
+      "statute_recall@5": 1.0,
+      "p50_ms": 587.5
+    }
+  ],
+  "retrieval_rows": {
+    "full": [
+      {
+        "id": "reg-023-time-limit",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.706,
+          "threshold": 0.1
+        },
+        "ms": 26769,
+        "timings": {
+          "classify_ms": 7,
+          "exact_ms": 0,
+          "dense_ms": 16799,
+          "keyword_ms": 534,
+          "rerank_ms": 9335
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-017-gift-compulsory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9895,
+          "threshold": 0.1
+        },
+        "ms": 743,
+        "timings": {
+          "classify_ms": 1,
+          "exact_ms": 0,
+          "dense_ms": 28,
+          "keyword_ms": 282,
+          "rerank_ms": 384
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-054-sale",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9694,
+          "threshold": 0.1
+        },
+        "ms": 572,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 76,
+          "rerank_ms": 445
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3
+        ]
+      },
+      {
+        "id": "tpa-122-gift-donee-dies",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9852,
+          "threshold": 0.1
+        },
+        "ms": 533,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 16,
+          "rerank_ms": 472
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-106-lease-notice",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9308,
+          "threshold": 0.1
+        },
+        "ms": 721,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 227,
+          "rerank_ms": 433
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-034-district-pecuniary",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9822,
+          "threshold": 0.1
+        },
+        "ms": 704,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 21,
+          "keyword_ms": 217,
+          "rerank_ms": 400
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "rera-018-refund",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.948,
+          "threshold": 0.1
+        },
+        "ms": 735,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 144,
+          "rerank_ms": 536
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.08333333333333333,
+        "ranks": [
+          12
+        ]
+      },
+      {
+        "id": "lim-003-bar",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9959,
+          "threshold": 0.1
+        },
+        "ms": 717,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 230,
+          "rerank_ms": 413
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-010-valid-contract",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.871,
+          "threshold": 0.1
+        },
+        "ms": 601,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 14,
+          "keyword_ms": 30,
+          "rerank_ms": 524
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-025-no-consideration",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9972,
+          "threshold": 0.1
+        },
+        "ms": 559,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 62,
+          "rerank_ms": 438
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-009-civil-suits",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9875,
+          "threshold": 0.1
+        },
+        "ms": 605,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 14,
+          "keyword_ms": 31,
+          "rerank_ms": 520
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-o39r1-injunction",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.865,
+          "threshold": 0.1
+        },
+        "ms": 671,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 1,
+          "dense_ms": 16,
+          "keyword_ms": 161,
+          "act_scoped_ms": 26,
+          "rerank_ms": 383
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "rfct-026-market-value",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.97,
+          "threshold": 0.1
+        },
+        "ms": 671,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 36,
+          "rerank_ms": 573
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-072-refusal-appeal",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9969,
+          "threshold": 0.1
+        },
+        "ms": 516,
+        "timings": {
+          "classify_ms": 1,
+          "exact_ms": 0,
+          "dense_ms": 21,
+          "keyword_ms": 20,
+          "rerank_ms": 443
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          1
+        ]
+      },
+      {
+        "id": "proc-reg-032-present",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9884,
+          "threshold": 0.1
+        },
+        "ms": 552,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 23,
+          "rerank_ms": 484
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-482-anticipatory",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9774,
+          "threshold": 0.1
+        },
+        "ms": 519,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 11,
+          "rerank_ms": 469
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.08333333333333333,
+        "ranks": [
+          12
+        ]
+      },
+      {
+        "id": "proc-cpa-038-after-admission",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8795,
+          "threshold": 0.1
+        },
+        "ms": 623,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 13,
+          "rerank_ms": 571
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-ida-24-2-lapse",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.9992,
+          "threshold": 0.1
+        },
+        "ms": 668,
+        "timings": {
+          "classify_ms": 1,
+          "exact_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 97,
+          "rerank_ms": 440
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-anticipatory-bail",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9899,
+          "threshold": 0.1
+        },
+        "ms": 687,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 70,
+          "rerank_ms": 534
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1,
+          10,
+          null
+        ]
+      },
+      {
+        "id": "cl-part-performance",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.9445,
+          "threshold": 0.1
+        },
+        "ms": 587,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 1,
+          "dense_ms": 16,
+          "keyword_ms": 83,
+          "act_scoped_ms": 15,
+          "rerank_ms": 392
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          null,
+          1
+        ]
+      },
+      {
+        "id": "cl-unregistered-agreement",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9997,
+          "threshold": 0.1
+        },
+        "ms": 629,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 37,
+          "rerank_ms": 531
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          6,
+          1
+        ]
+      },
+      {
+        "id": "tr-ipc-in-force",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.8763,
+          "threshold": 0.1
+        },
+        "ms": 470,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 26,
+          "act_scoped_ms": 22,
+          "rerank_ms": 352
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-evidence-act",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.3686,
+          "threshold": 0.1
+        },
+        "ms": 575,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 79,
+          "act_scoped_ms": 16,
+          "rerank_ms": 373
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-reg-023-time-limit",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9625,
+          "threshold": 0.1
+        },
+        "ms": 473,
+        "timings": {
+          "classify_ms": 1,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 0,
+          "rerank_ms": 445
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-tpa-054-sale",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.7526,
+          "threshold": 0.1
+        },
+        "ms": 522,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 0,
+          "rerank_ms": 497
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-ica-073-damages",
+        "language": "hi",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.159,
+          "threshold": 0.1
+        },
+        "ms": 580,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 23,
+          "keyword_ms": 0,
+          "rerank_ms": 546
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "oos-passport",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0268,
+          "threshold": 0.1
+        },
+        "ms": 436,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 14,
+          "keyword_ms": 6,
+          "rerank_ms": 398
+        }
+      },
+      {
+        "id": "oos-visa",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0007,
+          "threshold": 0.1
+        },
+        "ms": 485,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 14,
+          "keyword_ms": 14,
+          "rerank_ms": 433
+        }
+      },
+      {
+        "id": "oos-gst",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0038,
+          "threshold": 0.1
+        },
+        "ms": 588,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 13,
+          "keyword_ms": 3,
+          "rerank_ms": 550
+        }
+      },
+      {
+        "id": "hs-eviction-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.025,
+          "threshold": 0.1
+        },
+        "ms": 578,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 36,
+          "rerank_ms": 485
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      }
+    ]
+  },
+  "abstention": {
+    "should_abstain": 3,
+    "abstained_correctly": 3,
+    "false_abstentions": 1,
+    "precision": 0.75,
+    "recall": 1.0
+  },
+  "retrieval_by_language": {
+    "en": {
+      "n": 24,
+      "recall@5": 0.9166666666666666
+    },
+    "hi": {
+      "n": 3,
+      "recall@5": 1.0
+    }
+  },
+  "answers": {
+    "n": 30,
+    "answered": 26,
+    "invalid_citations_after_validation": 0,
+    "with_citation": "100% (n=26)",
+    "unverified_authority_removals": 0,
+    "invalid_ids_removed": 0,
+    "unsupported_flags": 5,
+    "extractive_fallbacks": 0,
+    "must_mention": "95% (n=21)",
+    "expected_source_cited": "92% (n=26)",
+    "regime_note": "100% (n=2)",
+    "latency_p50_s": 10.600000000000001,
+    "latency_p95_s": 17.4,
+    "tokens_in_mean": 3569.8846153846152,
+    "tokens_out_mean": 372.65384615384613,
+    "abstention": {
+      "should_abstain": 3,
+      "abstained_correctly": 3,
+      "false_abstentions": 1,
+      "precision": 0.75,
+      "recall": 1.0
+    }
+  },
+  "answer_rows": [
+    {
+      "id": "reg-023-time-limit",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 3,
+      "seconds": 18.4,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3473,
+        "output_tokens": 308,
+        "latency_ms": 17727
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 3,
+          "raw": "**Short answer:** For a document that is not a will, it must generally be presented for registration within four months from the date of its execution, unless specific provisions apply [S1].\n\n**What the sources say:**\n- \"no document other than a will shall be accepted for registration unless presented for that purpose to the proper officer within four months from the date of its execution\" [S1].\n- A copy of a decree or order may be presented within four months from the day on which it was made, or, if it is appealable, within four months from the day on which it becomes final [S1].\n- If a document, or a copy of a decree or order, is not presented for registration until after the time prescribed, the Registrar may accept it if the delay does not exceed four months, upon payment of a fine [S3].\n- For a document purporting to have been executed out of India, the registering officer may accept it if the officer is satisfied that the instrument was so executed and that it has been presented for registration within four months after its arrival in India, upon payment of the proper registration-fee [S5].\n\n**Uncertain or not covered:** The sources do not provide a specific time limit for presenting a sale deed, only general rules for documents, decrees/orders, and documents executed out of India.\n\n**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "reg-017-gift-compulsory",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 5,
+      "seconds": 7.2,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4258,
+        "output_tokens": 147,
+        "latency_ms": 6360
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 5,
+          "raw": "**Short answer:** Yes, instruments of gift of immovable property are among the documents for which registration is compulsory [S1][S4][S5][S6][S7].\n\n**What the sources say:**\n- Under Section 17(1), \"instruments of gift of immovable property\" are listed as documents that \"shall be registered\" [S1][S4][S5][S6][S7].\n\n**Uncertain or not covered:** The sources do not specify any exceptions or conditions for the compulsory registration of a gift deed of immovable property.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "tpa-054-sale",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 1,
+      "seconds": 8.1,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 2690,
+        "output_tokens": 257,
+        "latency_ms": 7624
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 1,
+          "raw": "**Short answer:** A \"Sale\" is defined as a transfer of ownership in exchange for a price paid or promised or part-paid and part-promised [S3]. For tangible immovable property valued at one hundred rupees and upwards, or for a reversion or other intangible thing, the transfer must be made by a registered instrument [S3].\n\n**What the sources say:**\n- \"Sale\" is a transfer of ownership in exchange for a price paid or promised or part-paid and part-promised [S3].\n- For tangible immovable property of the value of one hundred rupees and upwards, or in the case of a reversion or other intangible thing, the transfer can only be made by a registered instrument [S3].\n- In the case of tangible immovable property of a value less than one hundred rupees, such transfer may be made either by a registered instrument or by delivery of the property [S3].\n\n**Uncertain or not covered:** The sources do not provide a comprehensive list of all circumstances that constitute a sale of immovable property, only the definition and requirements for making such a transfer [S3].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "tpa-122-gift-donee-dies",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 1,
+      "seconds": 5.9,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3523,
+        "output_tokens": 104,
+        "latency_ms": 5332
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 1,
+          "raw": "**Short answer:** If the donee dies before acceptance, the gift is void [S1].\n\n**What the sources say:**\n- \"If the donee dies before acceptance, the gift is void\" [S1].\n\n**Uncertain or not covered:** The sources do not provide further details on the implications of the gift being void in this scenario.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "tpa-106-lease-notice",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 1,
+      "seconds": 7.0,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3858,
+        "output_tokens": 147,
+        "latency_ms": 6209
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 1,
+          "raw": "**Short answer:** The sources do not specify the notice period for ending a monthly residential lease when there is no written contract.\n\n**What the sources say:**\n- For a lease of immovable property for any purpose other than agricultural or manufacturing, the law deems it to be a lease from month to month, terminable by fifteen days' notice, in the absence of a contract or local law or usage to the contrary [S1].\n\n**Uncertain or not covered:** The sources do not specify the notice period for a *residential* lease when there is no written contract.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "cpa-034-district-pecuniary",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 4,
+      "seconds": 8.0,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3782,
+        "output_tokens": 215,
+        "latency_ms": 7363
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 4,
+          "raw": "**Short answer:** A District Commission can hear complaints where the value of the goods or services paid as consideration does not exceed one crore rupees [S1].\n\n**What the sources say:**\n- The District Commission shall have jurisdiction to entertain complaints where the value of the goods or services paid as consideration does not exceed one crore rupees [S1].\n- The jurisdiction of the District Commission in terms of Section 34 is to entertain complaints where the value of goods and services paid as consideration does not exceed one crore rupees [S6].\n- The State Commission also has jurisdiction where the amount claimed is in excess of Rupees twenty lakhs (complaints below that amount lie before the district fora) and upto Rupees one crore [S7][S8].\n\n**Uncertain or not covered:** The sources do not specify the current pecuniary limit for the District Commission if the law has been amended since the texts were retrieved.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "rera-018-refund",
+      "language": "en",
+      "intent": "explain",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "high",
+      "invalid_after_validation": 0,
+      "n_citations": 4,
+      "seconds": 10.8,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 0,
+      "unsupported": 0,
+      "removed_sentences": [],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4414,
+        "output_tokens": 361,
+        "latency_ms": 10106
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 4,
+          "raw": "**Short answer:** A home buyer may argue that a builder's failure to hand over possession of a flat by the stipulated date constitutes a deficiency of service, and the buyer may be entitled to seek compensation and a refund of the amount paid [S3][S4][S8].\n\n**What the sources say:**\n- A failure of the developer to comply with the contractual obligation to provide the flat to a flat purchaser within a contractually stipulated period amounts to a deficiency [S3].\n- The Supreme Court noted that \"Flat purchasers suffer agony and harassment, as a result of the default of the developer\" [S3].\n- The Supreme Court stated that \"a person cannot be made to wait indefinitely for possession of the flat allotted to him, and is entitled to seek refund of the amount paid by him, along with compensation\" [S4][S8].\n- In a case concerning the failure to hand over possession, the Supreme Court noted that \"the inordinate delay in handing over possession of the flat clearly amounts to deficiency of service\" [S4][S8].\n- The Supreme Court also noted that \"the rights provided to the developer for a default on the part of the home buyer are not placed on an equal platform with the contractual right provided to the home buyer in the case of a default by the developer\" [S2].\n\n**Uncertain or not covered:** The sources do not specify the exact amount or calculation of compensation a home buyer can claim, only that they may be entitled to compensation [S3][S4][S8].\n\n**Jurisdiction and date:** The sources contain references to both central and state law, and the information is based on texts retrieved on 2026-09-22."
+        }
+      ],
+      "warnings": [],
+      "must_mention_hit": false,
+      "expected_cited": false
+    },
+    {
+      "id": "lim-003-bar",
+      "language": "en",
+      "intent": "explain",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 2,
+      "seconds": 8.5,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3298,
+        "output_tokens": 248,
+        "latency_ms": 7760
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 2,
+          "raw": "**Short answer:** Generally, a suit, appeal, or application filed after the prescribed period shall be dismissed, even if limitation was not raised as a defense [S1]. However, the plaint must show the ground for exemption from the limitation law [S2].\n\n**What the sources say:**\n- \"Subject to the provisions contained in sections 4 to 24 (inclusive), every suit instituted, appeal preferred, and application made after the prescribed period shall be dismissed, although limitation has not been set up as a defence\" [S1].\n- Where a suit is instituted after the expiration of the period prescribed by the law of limitation, \"the plaint shall show the ground upon which exemption from such law is claimed\" [S2].\n- The Limitation Act, 1963, includes provisions regarding the \"Bar of limitation\" [S1].\n\n**Uncertain or not covered:** The sources do not detail all possible exceptions or grounds for exemption from the limitation period, other than stating that the plaint must show the ground for exemption [S2].\n\n**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "ica-010-valid-contract",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 2,
+      "seconds": 7.7,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3364,
+        "output_tokens": 209,
+        "latency_ms": 7092
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 2,
+          "raw": "**Short answer:** All agreements become contracts if they are made by parties with free consent, who are competent to contract, for a lawful consideration, and with a lawful object, provided they are not expressly declared void [S1].\n\n**What the sources say:**\n* All agreements are contracts if they are made by the free consent of parties competent to contract, for a lawful consideration and with a lawful object, and are not hereby expressly declared to be void [S1].\n* An agreement is considered a contract only if it is enforceable [S7].\n* For an agreement to be considered a contract, it must be made by the free consent of parties [S7].\n\n**Uncertain or not covered:** The sources do not provide a comprehensive list of all elements required for an agreement to be a contract, only that it must meet the criteria listed in [S1].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "ica-025-no-consideration",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 3,
+      "seconds": 11.5,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4070,
+        "output_tokens": 417,
+        "latency_ms": 10924
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 3,
+          "raw": "**Short answer:** An agreement made without consideration is generally void, unless it meets specific criteria such as being in writing and registered due to natural love and affection, or being a promise to compensate for something done, or being a promise to pay a debt barred by limitation law [S1][S6][S8].\n\n**What the sources say:**\n- An agreement made without consideration is void, unless it is expressed in writing and registered under the law for the time being in force for the registration of documents, and is made on account of natural love and affection between parties standing in a near relation to each other [S1][S6][S8].\n- An agreement without consideration is void, unless it is a promise to compensate, wholly or in part, a person who has already voluntarily done something for the promisor, or something which the promisor was legally compellable to do [S1][S6].\n- An agreement without consideration is also void unless it is a promise, made in writing and signed by the person to be charged therewith, or by his agent generally or specially authorized in that behalf, to pay wholly or in part a debt of which the creditor might have enforced payment but for the law for the limitation of suits [S1][S6].\n- In any of the cases where the agreement is made without consideration but meets the exceptions, \"such an agreement is a contract\" [S1][S6].\n- An agreement made without consideration is void, unless it is in writing and registered, or is a promise to compensate for something done, or is a promise to pay a debt barred by limitation law [S8].\n\n**Uncertain or not covered:** The sources do not provide a comprehensive list of all situations where an agreement without consideration might be valid, only the exceptions listed in the relevant sections of the Indian Contract Act, 1872.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "cpc-009-civil-suits",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 4,
+      "seconds": 8.7,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3200,
+        "output_tokens": 275,
+        "latency_ms": 8189
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 4,
+          "raw": "**Short answer:** Generally, courts have jurisdiction to try all civil suits unless the cognizance is expressly or impliedly barred [S1][S6].\n\n**What the sources say:**\n- The Courts shall have jurisdiction to try all suits of a civil nature excepting suits of which their cognizance is either expressly or impliedly barred [S1][S6].\n- A suit in which the right to property or to an office is contested is considered a suit of a civil nature, even if that right depends entirely on decisions regarding religious rites or ceremonies [S1].\n- Every suit must be instituted in the Court of the lowest grade competent to try it [S4].\n- The Code of Civil Procedure, 1908, provides that the courts shall have jurisdiction to try all suits of a civil nature excepting suits of which cognizance is either expressly or impliedly barred [S6].\n- The civil courts have the jurisdiction to try all suits of civil nature except those where cognizance is expressly or impliedly barred [S7].\n\n**Uncertain or not covered:** The sources do not provide a comprehensive list of all courts that can try civil suits, only general rules regarding jurisdiction.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "cpc-o39r1-injunction",
+      "language": "en",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 1,
+      "seconds": 10.4,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\"."
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 2402,
+        "output_tokens": 385,
+        "latency_ms": 9731
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 1,
+          "raw": "**Short answer:** A court may grant a temporary injunction under Order XXXIX Rule 1 of the Code of Civil Procedure, 1908, if it is proved by affidavit or otherwise that certain actions are occurring or threatened, such as property being wasted, damaged, or alienated, or if the defendant threatens to dispose of property to defraud creditors [S1].\n\n**What the sources say:**\n* A temporary injunction may be granted if it is proved by affidavit or otherwise that \"any property in dispute in a suit is in danger of being wasted, damaged or alienated by any party to the suit, or wrongfully sold in execution of a decree, or\" [S1].\n* A temporary injunction may also be granted if it is proved that \"the defendant threatens, or intends, to remove or dispose of his property with a view to [defrauding] his creditors\" [S1].\n* Furthermore, a temporary injunction may be granted if \"the defendant threatens to dispossess, the plaintiff or otherwise cause injury to the plaintiff in relation to any property in dispute in the suit\" [S1].\n* The court may grant such an order \"to restrain such act, or make such other order for the purpose of staying and preventing the wasting, damaging, alienation, sale, removal or disposition of the property [or dispossession of the plaintiff, or otherwise causing injury to the plaintiff in relation to any property in dispute in the suit] as the Court thinks fit, until the disposal of the suit or until further orders\" [S1].\n\n**Uncertain or not covered:** The sources do not detail the specific procedure for applying for or obtaining the injunction under this rule, other than stating the conditions under which it may be granted.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\"."
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "rfct-026-market-value",
+      "language": "en",
+      "intent": "explain",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 5,
+      "seconds": 17.4,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 1,
+      "removed_sentences": [
+        "**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3801,
+        "output_tokens": 757,
+        "latency_ms": 16773
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.077,
+          "used": 5,
+          "raw": "**Short answer:** The market value of land is determined by the Collector using criteria such as the market value specified in the Indian Stamp Act, 1899, the average sale price of similar land in the nearest vicinity, or the consented compensation amount for certain projects, whichever is higher [S1].\n\n**What the sources say:**\n* The Collector must adopt criteria when assessing and determining the market value of the land, including:\n    * \"the market value, if any, specified in the Indian Stamp Act, 1899 (2 of 1899) for the registration of sale deeds or agreements to sell, as the case may be, in the area, where the land is situated\" [S1].\n    * \"the average sale price for similar type of land situated in the nearest village or nearest vicinity area\" [S1].\n    * \"consented amount of compensation as agreed upon under sub-section (2) of section 2 in case of acquisition of lands for private companies or for public private partnership projects, whichever is higher\" [S1].\n* The date for determining the market value must be \"the date on which the notification has been issued under section 11\" [S1].\n* The average sale price is determined by considering sale deeds or agreements to sell for similar land in the near village or near vicinity area during the \"immediately preceding three years of the year in which such acquisition of land is proposed to be made\" [S1].\n* When determining the market value, any price paid as compensation for land acquired earlier in the district \"shall not be taken into consideration\" [S1].\n* Any price paid that the Collector believes \"is not indicative of actual prevailing market value may be discounted for the purposes of calculating market value\" [S2].\n* If the market value cannot be determined due to restrictions on land transactions or lack of available sale deeds, the State Government can specify a \"floor price or minimum price per unit area of the said land based on the price calculated in the manner specified in sub-section (1) in respect of similar types of land situated in the immediate adjoining areas\" [S2].\n* The Collector must take steps before starting land acquisition proceedings to \"revise and update the market value of the land on the basis of the prevalent market rate in that area\" [S3].\n* The standard method for determining market value is by \"evaluating the land on the date of publication of notification under Section 4(1) of the Act, acting as a hypothetical purchaser willing to purchase the land in open market at the prevailing price on that day, from a seller willing to sell such land at a reasonable price\" [S8].\n* The market value is determined with reference to the open market sale of comparable land in the neighborhood, by a willing seller to a willing buyer, on or before the date of preliminary notification, to give a fair indication of the market value [S8].\n* The determination of market value depends on factors such as \"the location of the land; area of the land; whether the land is in a developed area or not; whether the acquisition is of a small plot of land or a big chunk of land and number of other advantageous and disadvantageous factors\" [S7].\n\n**Uncertain or not covered:** The sources do not provide a comprehensive, step-by-step guide for all scenarios, nor do they detail the specific process for determining the \"consented amount of compensation\" mentioned in [S1].\n\n**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "reg-072-refusal-appeal",
+      "language": "en",
+      "intent": "procedure",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 6,
+      "seconds": 11.1,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 2966,
+        "output_tokens": 421,
+        "latency_ms": 10632
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 6,
+          "raw": "**Short answer:** If the Sub-Registrar refuses to register a document because someone denies its execution, you may apply to the Registrar within thirty days to establish your right to have the document registered [S1][S6]. If the refusal is on a ground other than denial of execution, an appeal may lie to the Registrar [S3][S7].\n\n**What the sources say:**\n- If a Sub-Registrar refuses to register a document because \"any person by whom it purports to be executed, or his representative or assign, denies its execution,\" any person claiming under the document, or their representative, assign, or authorized agent, may apply to the Registrar within thirty days after the order of refusal to establish their right to have the document registered [S1][S6].\n- Such an application must be in writing and include a copy of the reasons recorded under Section 71 [S1][S6].\n- If the Sub-Registrar refuses to register a document on a ground other than denial of execution, an appeal can be made to the Registrar within thirty days from the date of the order [S3][S7].\n- If the Registrar refuses to order the document to be registered, under section 72 or section 76, any person claiming under the document, or their representative, assign, or agent, may file a suit in the Civil Court within thirty days after the order of refusal [S5][S6].\n- The Sub-Registrar must record reasons for refusal when refusing to register a document, unless the refusal is because the property is not in their sub-district [S2][S7].\n\n**Uncertain or not covered:** The sources do not provide a comprehensive, step-by-step guide for every possible refusal scenario, only specific remedies for refusal due to denial of execution, refusal on other grounds, or refusal by the Registrar.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "proc-reg-032-present",
+      "language": "en",
+      "intent": "procedure",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 2,
+      "seconds": 9.6,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 2544,
+        "output_tokens": 340,
+        "latency_ms": 9067
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 2,
+          "raw": "**Short answer:** Generally, a document must be presented at the proper registration office by the person executing or claiming under the document, or by their representative or agent who is duly authorized by a power-of-attorney [S1][S8].\n\n**What the sources say:**\n- Except in the cases mentioned in sections 31, 88 and 89, every document to be registered must be presented at the proper registration-office [S1][S8].\n- The document can be presented by \"some person executing or claiming under the same, or, in the case of a copy of a decree or order, claiming under the decree or order\" [S1][S8].\n- Alternatively, it can be presented by \"the representative or assign of such person, or (c) by the agent of such person, representative or assign, duly authorised by power-of-attorney executed and authenticated in manner hereinafter mentioned\" [S1][S8].\n- For the purposes of section 32, the recognized powers-of-attorney include those executed before and authenticated by a Notary Public, or any Court, Judge, Magistrate, [Indian] Consul or Vice-Consul, or representative of the Central Government, if the principal does not reside in [India] [S8].\n\n**Uncertain or not covered:** The sources do not detail the specific requirements for the \"manner hereinafter mentioned\" for the power-of-attorney mentioned in [S1].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "proc-bnss-482-anticipatory",
+      "language": "en",
+      "intent": "procedure",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "high",
+      "invalid_after_validation": 0,
+      "n_citations": 6,
+      "seconds": 10.3,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 0,
+      "unsupported": 0,
+      "removed_sentences": [],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4623,
+        "output_tokens": 340,
+        "latency_ms": 9787
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 6,
+          "raw": "**Short answer:** An application for anticipatory bail can be made when a person has \"reason to believe\" that they may be arrested for a non-bailable offence [S5].\n\n**What the sources say:**\n* An accused is entitled to seek anticipatory bail while they are not arrested in connection with an offence [S1].\n* If a person has reason to believe that they may be arrested on accusation of having committed a non-bailable offence, they may apply to the High Court or the Court of Session for a direction that in the event of such arrest, they shall be released on bail [S3].\n* An application for anticipatory bail should be based on concrete facts and not on vague or general allegations [S4][S5].\n* An application for anticipatory bail could be moved at a stage before an FIR is filed, at a stage when an FIR is registered but the charge sheet has not been filed, while the investigation is underway, or after the completion of the investigation [S6].\n* If an individual cannot seek full-fledged anticipatory bail in the State where the FIR was registered, they would be entitled to seek a \"transit anticipatory bail\" from the Court of Session or High Court in the State where they are a resident [S8].\n\n**Uncertain or not covered:** The sources do not provide a step-by-step procedural guide for filing the application, only the conditions and courts to which it can be made.\n\n**Jurisdiction and date:** The sources discuss both central and state law, and are based on texts retrieved on 2026-09-22."
+        }
+      ],
+      "warnings": [
+        "Criminal law changed on 2024-07-01: the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita and Bharatiya Sakshya Adhiniyam replaced the Indian Penal Code, the Code of Criminal Procedure and the Indian Evidence Act. Which applies depends on when the events happened and the stage of any proceedings; proceedings pending on that date continue under the old Code."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": false
+    },
+    {
+      "id": "proc-cpa-038-after-admission",
+      "language": "en",
+      "intent": "procedure",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 2,
+      "seconds": 13.4,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4002,
+        "output_tokens": 521,
+        "latency_ms": 12778
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 2,
+          "raw": "**Short answer:** If a complaint about goods is admitted, the District Commission must refer a copy of the complaint to the opposite party within twenty-one days, directing them to provide their version within thirty days or an extended period not exceeding fifteen days [S1].\n\n**What the sources say:**\n- The District Commission shall, upon admitting a complaint, proceed with it [S1].\n- If the complaint concerns goods, the District Commission must \"refer a copy of the admitted complaint, within twenty-one days from the date of its admission to the opposite party mentioned in the complaint directing him to give his version of the case within a period of thirty days or such extended period not exceeding fifteen days\" [S1].\n- If the opposite party disputes the allegations or fails to act within the given time, the District Commission must \"proceed to settle the consumer dispute in the manner specified in clauses (c) to (g)\" [S1].\n- If the complaint alleges a defect in goods that requires analysis or testing, the District Commission must \"obtain a sample of the goods from the complainant, seal it and authenticate it in the manner as may be prescribed and refer the sample so sealed to the appropriate laboratory\" [S1].\n- Before referring a sample to a laboratory, the District Commission must \"require the complainant to deposit to the credit of the Commission such fees as may be specified, for payment to the appropriate laboratory\" [S1].\n- The Commission must \"remit the amount deposited to its credit under clause (d) to the appropriate laboratory\" and, upon receiving the report, \"forward a copy of the report along with such remarks as it may feel appropriate to the opposite party\" [S2].\n- If either party disputes the laboratory's findings or methods, the Commission must \"require the opposite party or the complainant to submit in writing his objections\" [S2].\n- Finally, the Commission must \"give a reasonable opportunity to the complainant as well as the opposite party of being heard as to the correctness or otherwise of the report made by the appropriate laboratory\" [S2].\n\n**Uncertain or not covered:** The sources do not detail the specific steps taken if the complaint relates to services, only that the District Commission will refer a copy of the complaint to the opposite party directing them to give their version within thirty days or an extended period not exceeding fifteen days [S2].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "cl-ida-24-2-lapse",
+      "language": "en",
+      "intent": "case_law",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 4,
+      "seconds": 31.1,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 1,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4710,
+        "output_tokens": 674,
+        "latency_ms": 15774
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.3,
+          "used": 3,
+          "raw": "**Short answer:** The Supreme Court held that for land acquisition proceedings to lapse under Section 24(2) of the 2013 Act, both the possession of the land must not have been taken AND the compensation must not have been paid/tendered, and this lapse occurs only due to the inaction of the authorities for five years or more prior to the commencement of the Act [S7][S8].\n\n**What the sources say:**\n- The Supreme Court observed and held that for lapsing of the acquisition under Section 24(2) of the Act, 2013, \"twin conditions, of not taking over the possession and not paying / tendering the compensation, are required to be satisfied\" [S8].\n- The Court stated that \"The word “or” used in Section 24(2) between possession and compensation has to be read as “nor” or as “and”\" [S7].\n- The deemed lapse of land acquisition proceedings under Section 24(2) of the 2013 Act takes place where \"due to inaction of authorities for five years or more prior to commencement of the said Act, the possession of land has not been taken nor compensation has been paid\" [S7].\n- The Court clarified that \"in case possession has been taken, compensation has not been paid then there is no lapse. Similarly, if compensation has been paid, possession has not been taken then there is no lapse\" [S7].\n- The Court further held that \"if one of the conditions is not satisfied, there shall not be deemed lapse of the acquisition proceedings under Section 24(2) of the Act, 2013\" [S8].\n- Regarding the interpretation of Section 24(2), the Court noted that \"The time of five years is provided for authorities to take action, not to sleep over the matter. Lapse is provided only in case of default by Authorities acquiring the land, not caused by any other reason or order of the court\" [S1].\n- The Court also stated that \"In view of the aforesaid discussion, we answer the questions as under: 366.3. The word “or” used in Section 24(2) between possession and compensation has to be read as “nor” or as “and”\" [S7].\n\n**Uncertain or not covered:** The sources do not detail the specific requirements for the \"tendering of payment\" or \"deposit\" mentioned in relation to compensation, other than stating that the term \"paid\" means tendering of payment and that \"deposit\" includes deposit with the government treasury and the Reference Court [S5].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        },
+        {
+          "provider": "ollama",
+          "stricter": true,
+          "unsupported_share": 0.1,
+          "used": 4,
+          "raw": "**Short answer:** The Supreme Court held that for land acquisition proceedings to lapse under Section 24(2) of the 2013 Act, both the possession of the land must not have been taken AND the compensation must not have been paid/tendered, and this lapse occurs due to the inaction of authorities for five years or more prior to the commencement of the Act [S7][S8].\n\n**What the sources say:**\n- The Supreme Court observed and held that for lapsing of the acquisition under Section 24(2) of the Act, 2013, \"twin conditions, of not taking over the possession and not paying / tendering the compensation, are required to be satisfied\" [S8].\n- The Court stated that \"The word “or” used in Section 24(2) between possession and compensation has to be read as “nor” or as “and”\" [S7].\n- The deemed lapse of land acquisition proceedings under Section 24(2) of the 2013 Act happens \"where due to inaction of authorities for five years or more prior to commencement of the said Act, the possession of land has not been taken nor compensation has been paid\" [S7].\n- Conversely, the Court clarified that \"in case possession has been taken, compensation has not been paid then there is no lapse. Similarly, if compensation has been paid, possession has not been taken then there is no lapse\" [S7].\n- The Court further noted that if one of the conditions is not satisfied, there shall not be deemed lapse of the acquisition proceedings under Section 24(2) of the Act, 2013 [S8].\n- Regarding the interpretation of Section 24(2), the Court stated that \"The provisions totally exclude the applicability of any provision of Act of 2013\" when proceedings initiated under the Act of 1894 are pending as on the date the Act of 2013 was enacted, and if no award has been passed, only determination of compensation has to be made under the Act of 2013 [S1].\n- The Court also addressed that the period of five years is provided for authorities to take action, and lapse is provided only in case of default by Authorities acquiring the land, not caused by any other reason or order of the court [S1].\n- The Court determined that \"the term “or” in Section 24(2) of the 2013 Act shall be read as “and”, such that for land acquisition proceedings to lapse under this Section, neither the compensation must have been paid nor the possession must have been taken\" [S5].\n- The Court also held that \"the period of stay granted in favour of landowners ought to be excluded\" [S5].\n\n**Uncertain or not covered:** The sources do not detail the specific requirements for the \"Authorities\" to take action within the five-year period, other than stating that the lapse is provided only in case of default by the Authorities [S1].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "cl-anticipatory-bail",
+      "language": "en",
+      "intent": "case_law",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 5,
+      "seconds": 14.7,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 3,
+      "unsupported": 0,
+      "removed_sentences": [
+        "* Courts should generally be guided by considerations such as \"the nature and gravity of the offences, the role attributed to the applicant, and the facts of the case, while considering whether to grant anticipatory bail, or refusing it\" [S7][S8].",
+        "* An order of anticipatory bail should not be \"blanket\" and must be confined to the specific offense or offenses for which the apprehension of arrest is sought, and it \"cannot operate in respect of a future incident that involves commission of an offence\" [S4][S7][S8].",
+        "**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4475,
+        "output_tokens": 548,
+        "latency_ms": 13447
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 5,
+          "raw": "**Short answer:** The Supreme Court has stated that whether to grant anticipatory bail is a matter of discretion, and the considerations guiding this decision include the nature and seriousness of the proposed charges, the context of the events, and the possibility of the applicant's presence not being secured at trial [S1][S6][S7][S8].\n\n**What the sources say:**\n* If the proposed accusation for anticipatory bail appears to stem from an ulterior motive intended to injure and humiliate the applicant by having them arrested, a direction for release on bail in the event of arrest would generally be made [S1][S6].\n* If it appears likely, considering the applicant's antecedents, that they will flee from justice by taking advantage of an anticipatory bail order, such an order would generally not be made [S1][S6].\n* The Court noted that \"it cannot be laid down as an inexorable rule that anticipatory bail cannot be granted unless the proposed accusation appears to be actuated by mala fides; and, equally, that anticipatory bail must be granted if there is no fear that the applicant will abscond\" [S1][S6].\n* Several considerations the Court must keep in mind include \"the nature and seriousness of the proposed charges, the context of the events likely to lead to the making of the charges, a reasonable possibility of the applicant’s presence not being secured at the trial, a reasonable apprehension that witnesses will be tampered with and 'the larger interests of the public or the State'\" [S1][S6].\n* Courts should generally be guided by considerations such as \"the nature and gravity of the offences, the role attributed to the applicant, and the facts of the case, while considering whether to grant anticipatory bail, or refusing it\" [S7][S8].\n* Whether to grant or not is a matter of discretion, and similarly, the conditions to be imposed depend upon the facts of each case and the discretion of the Court [S4][S7][S8].\n* An order of anticipatory bail should not be \"blanket\" and must be confined to the specific offense or offenses for which the apprehension of arrest is sought, and it \"cannot operate in respect of a future incident that involves commission of an offence\" [S4][S7][S8].\n\n**Uncertain or not covered:** The sources do not specify the exact legal criteria or mandatory conditions for granting anticipatory bail, only the factors the Court should consider.\n\n**Jurisdiction and date:** Central law, and \"based on texts retrieved on 2026-09-22\"."
+        }
+      ],
+      "warnings": [
+        "Removed 3 sentence(s) whose quotation did not match the cited source word for word.",
+        "Criminal law changed on 2024-07-01: the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita and Bharatiya Sakshya Adhiniyam replaced the Indian Penal Code, the Code of Criminal Procedure and the Indian Evidence Act. Which applies depends on when the events happened and the stage of any proceedings; proceedings pending on that date continue under the old Code."
+      ],
+      "expected_cited": true
+    },
+    {
+      "id": "cl-part-performance",
+      "language": "en",
+      "intent": "case_law",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 4,
+      "seconds": 16.2,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 4,
+      "unsupported": 2,
+      "removed_sentences": [
+        "* The Court ruled that \"mere expiration of the period of limitation for bringing a suit for specific performance would not debar a person in possession of an immovable property by way of part performance from setting up a plea, as contemplated therein in defence to protect his possession of the property involved\" [S6].",
+        "* However, the Court also underlined that \"if the conditions precedent, as enumerated, in Section 53A of the Act, are complied with, the law of limitation would not come in the way of the said person to avail the benefit of the protection to his possession as extended thereby even though a suit for specific performance·of a contract by him had gone barred by limitation\" [S6].",
+        "* The Court noted that the provision \"shall not affect the rights of a transferee for consideration who has no notice of the contract or of the part performance thereof\" [S1][S5][S8].",
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3801,
+        "output_tokens": 681,
+        "latency_ms": 15507
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.182,
+          "used": 4,
+          "raw": "**Short answer:** The Supreme Court has established that for Section 53A of the Transfer of Property Act to apply, several prerequisites must be met, including the transferee taking possession of the property or part thereof in part performance of the contract, and the transferee having performed or being willing to perform their part of the contract [S4][S5][S8].\n\n**What the sources say:**\n* The Supreme Court noted that Section 53A of the Transfer of Property Act, 1882, imports a modified form of the equity of part performance [S4].\n* The postulates considered *sine qua non* for basing a claim on Section 53A of the Transfer of Property Act, 1882, include:\n    * \"There must be a contract to transfer for consideration any im-movable property\" [S4].\n    * \"The contract must be in writing signed by the transferor, or by someone on his behalf\" [S4].\n    * \"The writing must be in such words from which the terms necessary to construe the transfer can be ascertained\" [S4].\n    * \"The transferee must be in part performance of the contract take possession of the property, or of any part thereof\" [S4].\n    * \"The transferee must have done some act in furtherance of the contract\" [S4].\n    * \"The transferee must have performed or be willing to perform his part of the contract\" [S4][S8].\n* The Supreme Court stated that \"In order that the provisions of Section 53A of the T.P. Act be attracted, first and foremost, the transferee must, in part performance of the contract, have taken possession of the property or any part thereof. Secondly, the transferee must have performed or be willing to perform his part of the agreement\" [S8].\n* The Court ruled that \"mere expiration of the period of limitation for bringing a suit for specific performance would not debar a person in possession of an immovable property by way of part performance from setting up a plea, as contemplated therein in defence to protect his possession of the property involved\" [S6].\n* However, the Court also underlined that \"if the conditions precedent, as enumerated, in Section 53A of the Act, are complied with, the law of limitation would not come in the way of the said person to avail the benefit of the protection to his possession as extended thereby even though a suit for specific performance·of a contract by him had gone barred by limitation\" [S6].\n* The Court clarified that \"it is nevertheless imperative that to avail the benefit of such protection, all the essential pre-requisites therefor would have to be obligatorily complied with\" [S6].\n* The Court noted that the provision \"shall not affect the rights of a transferee for consideration who has no notice of the contract or of the part performance thereof\" [S1][S5][S8].\n\n**Uncertain or not covered:** The sources do not detail every aspect of the application of the doctrine, only the essential prerequisites and the effect of limitation periods.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 4 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "expected_cited": true
+    },
+    {
+      "id": "cl-unregistered-agreement",
+      "language": "en",
+      "intent": "case_law",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 5,
+      "seconds": 10.9,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 2,
+      "unsupported": 0,
+      "removed_sentences": [
+        "- An unregistered document affecting immovable property and required by the Registration Act or the Transfer of Property Act to be registered \"may be received as evidence of a contract in a suit for specific performance under Chapter-II of the Specific Relief Act, 1877, or as evidence of any collateral transaction not required to be effected by registered instrument\" [S1][S6].",
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 4176,
+        "output_tokens": 377,
+        "latency_ms": 10365
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 5,
+          "raw": "**Short answer:** Yes, an unregistered document affecting immovable property and required to be registered may be received as evidence of a contract in a suit for specific performance under the proviso to Section 49 of the Registration Act [S1][S6][S7].\n\n**What the sources say:**\n- An unregistered document affecting immovable property and required by the Registration Act or the Transfer of Property Act to be registered \"may be received as evidence of a contract in a suit for specific performance under Chapter-II of the Specific Relief Act, 1877, or as evidence of any collateral transaction not required to be effected by registered instrument\" [S1][S6].\n- The proviso to Section 49 of the Registration Act allows an unregistered document affecting immovable property and required to be registered to be received as evidence of a contract in a suit for specific performance [S5].\n- One source notes that when an unregistered sale deed is tendered in evidence, \"not as evidence of a completed sale, but as proof of an oral agreement of sale, the deed can be received as evidence making an endorsement that it is received only as evidence of an oral agreement of sale under the proviso to Section 49 of the 1908 Act\" [S6].\n- The proviso to Section 49 allows the reception of an unregistered document affecting immovable property and required to be registered as evidence of a contract in a suit for specific performance [S1][S5].\n\n**Uncertain or not covered:** The sources do not specify the exact conditions under which the \"collateral transaction\" exception applies, only that it is a separate category from the specific performance exception [S1][S8].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 2 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true
+    },
+    {
+      "id": "tr-ipc-in-force",
+      "language": "en",
+      "intent": "explain",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 2,
+      "seconds": 13.1,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 2,
+      "unsupported": 1,
+      "removed_sentences": [
+        "- In the context of the Indian Contract Act, 1872, the definition of \"Coercion\" refers to acts forbidden by the Indian Penal Code (45 of 1860), and the source notes that \"It is immaterial whether the Indian Penal Code (45 of 1860) is or is not in force in the place where the coercion is employed\" [S3].",
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3507,
+        "output_tokens": 514,
+        "latency_ms": 12514
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.125,
+          "used": 2,
+          "raw": "**Short answer:** The Indian Penal Code (45 of 1860) has been repealed by the Bharatiya Nyaya Sanhita, 2023, but its previous operation and any rights, liabilities, or proceedings related to it are not affected [S1][S2].\n\n**What the sources say:**\n- The Indian Penal Code (45 of 1860) is hereby repealed by the Bharatiya Nyaya Sanhita, 2023 [S1][S2].\n- Notwithstanding the repeal of the Indian Penal Code (45 of 1860), it shall not affect:\n    - \"the previous operation of the Code so repealed or anything duly done or suffered thereunder\" [S1][S2].\n    - \"any right, privilege, obligation or liability acquired, accrued or incurred under the Code so repealed\" [S1][S2].\n    - \"any penalty, or punishment incurred in respect of any offences committed against the Code so repealed\" [S1][S2].\n    - \"any investigation or remedy in respect of any such penalty, or punishment\" [S1][S2].\n    - \"any proceeding, investigation or remedy in respect of any such penalty or punishment as aforesaid, and any such proceeding or remedy may be instituted, continued or enforced, and any such penalty may be imposed as if that Code had not been repealed\" [S1][S2].\n- \"Notwithstanding such repeal, anything done or any action taken under the said Code shall be deemed to have been done or taken under the corresponding provisions of this Sanhita\" [S1][S2].\n- In the context of the Indian Contract Act, 1872, the definition of \"Coercion\" refers to acts forbidden by the Indian Penal Code (45 of 1860), and the source notes that \"It is immaterial whether the Indian Penal Code (45 of 1860) is or is not in force in the place where the coercion is employed\" [S3].\n\n**Uncertain or not covered:** The sources do not provide a definitive statement on the current operational status of the Indian Penal Code in general, only that it has been repealed by the Bharatiya Nyaya Sanhita, 2023 [S1][S2].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 2 sentence(s) whose quotation did not match the cited source word for word.",
+        "The Indian Penal Code, 1860 was repealed from 2024-07-01 and replaced by the Bharatiya Nyaya Sanhita, 2023.",
+        "Criminal law changed on 2024-07-01: the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita and Bharatiya Sakshya Adhiniyam replaced the Indian Penal Code, the Code of Criminal Procedure and the Indian Evidence Act. Which applies depends on when the events happened and the stage of any proceedings; proceedings pending on that date continue under the old Code."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true,
+      "regime_note": true
+    },
+    {
+      "id": "tr-evidence-act",
+      "language": "en",
+      "intent": "explain",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 2,
+      "seconds": 8.6,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 2923,
+        "output_tokens": 249,
+        "latency_ms": 7601
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 2,
+          "raw": "**Short answer:** The Bharatiya Sakshya Adhiniyam, 2023, has repealed the Indian Evidence Act, 1872 [S1][S2].\n\n**What the sources say:**\n- The Indian Evidence Act, 1872 (1 of 1872) is hereby repealed by the Bharatiya Sakshya Adhiniyam, 2023 [S1][S2].\n- Notwithstanding the repeal, if any application, trial, inquiry, investigation, proceeding, or appeal was pending immediately before the Bharatiya Sakshya Adhiniyam, 2023 came into force, it shall be dealt with under the provisions of the Indian Evidence Act, 1872 (1 of 1872), as it was before the Adhiniyam came into force [S1][S2].\n\n**Uncertain or not covered:** The sources do not specify the exact date the Bharatiya Sakshya Adhiniyam, 2023, came into force.\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word.",
+        "The Indian Evidence Act, 1872 was repealed from 2024-07-01 and replaced by the Bharatiya Sakshya Adhiniyam, 2023.",
+        "Criminal law changed on 2024-07-01: the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita and Bharatiya Sakshya Adhiniyam replaced the Indian Penal Code, the Code of Criminal Procedure and the Indian Evidence Act. Which applies depends on when the events happened and the stage of any proceedings; proceedings pending on that date continue under the old Code."
+      ],
+      "must_mention_hit": true,
+      "expected_cited": true,
+      "regime_note": true
+    },
+    {
+      "id": "hi-reg-023-time-limit",
+      "language": "hi",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 5,
+      "seconds": 11.3,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** केंद्रीय कानून, और \"based on texts retrieved on 2026-09-22\"."
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 2587,
+        "output_tokens": 435,
+        "latency_ms": 10773
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 5,
+          "raw": "**Short answer:** दस्तावेज़ को प्रस्तुत करने के लिए समय सीमा दस्तावेज़ के प्रकार पर निर्भर करती है, क्योंकि कुछ दस्तावेज़ों के लिए अलग-अलग समय सीमा निर्धारित की गई है [S1][S2][S3][S4][S7]।\n\n**What the sources say:**\n- विलेख (will) को पंजीकृत करने के लिए, उसे निष्पादन की तारीख से चार महीने के भीतर उचित अधिकारी के समक्ष प्रस्तुत किया जाना चाहिए [S1]।\n- एक डिक्री या आदेश की प्रति को, डिक्री या आदेश बनने की तारीख से चार महीने के भीतर, या यदि वह अपील योग्य है तो, जिस दिन वह अंतिम होता है, उस तारीख से चार महीने के भीतर प्रस्तुत किया जा सकता है [S1]।\n- यदि किसी दस्तावेज़ को निष्पादित करने वाले कई व्यक्ति अलग-अलग समय पर दस्तावेज़ निष्पादित करते हैं, तो ऐसे दस्तावेज़ को प्रत्येक निष्पादन की तारीख से चार महीने के भीतर पंजीकृत और पुन: पंजीकृत किया जा सकता है [S4]।\n- यदि किसी दस्तावेज़ को निष्पादित करने वाले व्यक्ति या उनके प्रतिनिधि, असाइनी या एजेंट, समय पर उपस्थित नहीं होते हैं, तो रजिस्ट्रार, यदि उपस्थिति में देरी चार महीने से अधिक नहीं है, तो यह निर्देश दे सकता है कि उचित पंजीकरण शुल्क के भुगतान पर दस्तावेज़ को पंजीकृत किया जाए [S7]।\n- यदि कोई दस्तावेज़ भारत के बाहर निष्पादित किया गया है और समय सीमा समाप्त होने के बाद प्रस्तुत किया जाता है, तो पंजीकरण अधिकारी, यदि संतुष्ट है कि दस्तावेज़ भारत के बाहर निष्पादित किया गया था और उसे भारत में आगमन के चार महीने के भीतर प्रस्तुत किया गया था, तो वह उचित पंजीकरण शुल्क के भुगतान पर ऐसे दस्तावेज़ को पंजीकृत कर सकता है [S3]।\n\n**Uncertain or not covered:** स्रोतों में यह स्पष्ट रूप से नहीं बताया गया है कि सभी प्रकार के दस्तावेज़ों के लिए एक सामान्य समय सीमा क्या है, केवल विशिष्ट परिस्थितियों के लिए समय सीमा बताई गई है।\n\n**Jurisdiction and date:** केंद्रीय कानून, और \"based on texts retrieved on 2026-09-22\"."
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "expected_cited": true
+    },
+    {
+      "id": "hi-tpa-054-sale",
+      "language": "hi",
+      "intent": "statute_lookup",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 1,
+      "seconds": 8.5,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 4,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Short answer:** The sources do not define what \"sale of immovable property\" means in general terms, but they do define \"Sale\" as a transfer of ownership in exchange for a price paid or promised or part-paid and part-promised [S1].",
+        "- \"Sale\" is defined as \"a transfer of ownership in exchange for a price paid or promised or part-paid and part-promised\" [S1].",
+        "**Uncertain or not covered:** The sources do not provide a general definition of \"sale of immovable property\" outside of the specific legal definition of \"Sale\" provided in the Transfer of Property Act, 1882 [S1].",
+        "**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 2659,
+        "output_tokens": 275,
+        "latency_ms": 7967
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 1,
+          "raw": "**Short answer:** The sources do not define what \"sale of immovable property\" means in general terms, but they do define \"Sale\" as a transfer of ownership in exchange for a price paid or promised or part-paid and part-promised [S1].\n\n**What the sources say:**\n- \"Sale\" is defined as \"a transfer of ownership in exchange for a price paid or promised or part-paid and part-promised\" [S1].\n- For tangible immovable property of the value of one hundred rupees and upwards, a sale can only be made by a registered instrument [S1].\n- For tangible immovable property of a value less than one hundred rupees, such transfer may be made either by a registered instrument or by delivery of the property [S1].\n- A contract for the sale of immovable property is defined as \"a contract that a sale of such property shall take place on terms settled between the parties\" [S1].\n\n**Uncertain or not covered:** The sources do not provide a general definition of \"sale of immovable property\" outside of the specific legal definition of \"Sale\" provided in the Transfer of Property Act, 1882 [S1].\n\n**Jurisdiction and date:** central law, and \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 4 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "expected_cited": true
+    },
+    {
+      "id": "hi-ica-073-damages",
+      "language": "hi",
+      "intent": "explain",
+      "should_abstain": false,
+      "abstained": false,
+      "provider": "ollama",
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 6,
+      "seconds": 12.7,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 1,
+      "unsupported": 0,
+      "removed_sentences": [
+        "**Jurisdiction and date:** केंद्रीय कानून, और \"based on texts retrieved on 2026-09-22\""
+      ],
+      "llm": {
+        "provider": "ollama",
+        "model": "gemma4:latest",
+        "input_tokens": 3711,
+        "output_tokens": 484,
+        "latency_ms": 12087
+      },
+      "attempts": [
+        {
+          "provider": "ollama",
+          "unsupported_share": 0.0,
+          "used": 6,
+          "raw": "**Short answer:** अनुबंध टूटने पर मुआवजे का प्रकार इस बात पर निर्भर करता है कि नुकसान किस कारण से हुआ है, क्योंकि अनुबंध के उल्लंघन से हुए नुकसान के लिए और अनुबंध के समान दायित्वों के निर्वहन में विफलता से हुए नुकसान के लिए अलग-अलग प्रावधान हैं [S5]।\n\n**What the sources say:**\n- जब कोई अनुबंध टूट जाता है, तो पीड़ित पक्ष को अनुबंध तोड़ने वाले पक्ष से उस नुकसान या क्षति के लिए मुआवजा प्राप्त करने का अधिकार है जो उस उल्लंघन से स्वाभाविक रूप से सामान्य क्रम में उत्पन्न हुआ हो, या जो पार्टियों को अनुबंध करते समय यह ज्ञात था कि उल्लंघन से होने की संभावना है [S2][S5]।\n- ऐसा मुआवजा किसी दूरस्थ और अप्रत्यक्ष नुकसान या क्षति के लिए नहीं दिया जाएगा [S2][S5]।\n- जब कोई दायित्व जो अनुबंध द्वारा बनाए गए दायित्व के समान है, उसे पूरा नहीं किया जाता है, तो उस विफलता से घायल किसी भी व्यक्ति को उस पक्ष से समान मुआवजा प्राप्त करने का अधिकार है, जैसे कि उस व्यक्ति ने अनुबंध किया हो और उसका उल्लंघन हुआ हो [S2][S5]।\n- यदि अनुबंध में उल्लंघन की स्थिति में भुगतान की जाने वाली राशि का उल्लेख किया गया है, या यदि अनुबंध में दंड के रूप में कोई अन्य प्रावधान है, तो शिकायत करने वाले पक्ष को, चाहे वास्तविक नुकसान या हानि साबित हो या नहीं, अनुबंध तोड़ने वाले पक्ष से उचित मुआवजा प्राप्त करने का अधिकार है, जो नामित राशि या, जैसा मामला हो, निर्धारित दंड से अधिक नहीं होगा [S1][S6][S7]।\n- यदि पार्टियों ने तरल क्षति (liquidated damages) के लिए सहमति नहीं की है, तो अनुबंध के उल्लंघन करने वाले पक्ष को अतरल क्षति (unliquidated damages) का भुगतान करने का निर्देश दिया जा सकता है, जो क्षतिपूर्ति प्रकृति के होते हैं [S8]।\n- क्षतिपूर्ति का उद्देश्य दंडित करना नहीं है, बल्कि नुकसान न पहुँचाने वाले पक्ष को उल्लंघन के परिणामस्वरूप हुए नुकसान के लिए मुआवजा देना है [S8]।\n\n**Uncertain or not covered:** स्रोतों में यह स्पष्ट नहीं है कि भारतीय कानून के तहत मुआवजे के लिए कौन सा विशिष्ट कानूनी प्रावधान लागू होगा, क्योंकि यह इस बात पर निर्भर करता है कि उल्लंघन किस प्रकार का है।\n\n**Jurisdiction and date:** केंद्रीय कानून, और \"based on texts retrieved on 2026-09-22\""
+        }
+      ],
+      "warnings": [
+        "Removed 1 sentence(s) whose quotation did not match the cited source word for word."
+      ],
+      "expected_cited": true
+    },
+    {
+      "id": "oos-passport",
+      "language": "en",
+      "intent": "out_of_scope",
+      "should_abstain": true,
+      "abstained": true,
+      "provider": null,
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 0,
+      "seconds": 0.5,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 0,
+      "unsupported": 0,
+      "removed_sentences": [],
+      "llm": null,
+      "attempts": null,
+      "warnings": [
+        "insufficient_sources"
+      ]
+    },
+    {
+      "id": "oos-visa",
+      "language": "en",
+      "intent": "out_of_scope",
+      "should_abstain": true,
+      "abstained": true,
+      "provider": null,
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 0,
+      "seconds": 0.6,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 0,
+      "unsupported": 0,
+      "removed_sentences": [],
+      "llm": null,
+      "attempts": null,
+      "warnings": [
+        "insufficient_sources"
+      ]
+    },
+    {
+      "id": "oos-gst",
+      "language": "en",
+      "intent": "out_of_scope",
+      "should_abstain": true,
+      "abstained": true,
+      "provider": null,
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 0,
+      "seconds": 0.6,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 0,
+      "unsupported": 0,
+      "removed_sentences": [],
+      "llm": null,
+      "attempts": null,
+      "warnings": [
+        "insufficient_sources"
+      ]
+    },
+    {
+      "id": "hs-eviction-tomorrow",
+      "language": "en",
+      "intent": "explain",
+      "should_abstain": false,
+      "abstained": true,
+      "provider": null,
+      "confidence": "low",
+      "invalid_after_validation": 0,
+      "n_citations": 0,
+      "seconds": 0.9,
+      "invalid_removed": 0,
+      "unverified_authority": 0,
+      "unverified_quotes": 0,
+      "unsupported": 0,
+      "removed_sentences": [],
+      "llm": null,
+      "attempts": null,
+      "warnings": [
+        "insufficient_sources"
+      ]
+    }
+  ]
+}

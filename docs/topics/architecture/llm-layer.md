@@ -3,7 +3,7 @@ id: 20260922-llm-layer
 title: LLM layer
 tags: [llm, architecture, cost]
 created: 2026-09-22
-updated: 2026-09-23
+updated: 2026-09-24
 related: [20260922-minimum-viable-architecture, 20260922-retrieval-pipeline, 20260922-grounding-and-citations, 20260922-aws-cost-plan, 20260922-evaluation]
 summary: Provider interface, task routing, local model selection, Bedrock usage, caching and the cost meter.
 ---
@@ -46,7 +46,7 @@ Per task, from the environment: `LLM_CLASSIFY` (rules or ollama), `LLM_REWRITE` 
 Summarising a long judgment chunk into a short case note for the context, cached and labelled as a summary — the citation still points at the underlying chunk, never at the summary. Also all privacy-sensitive preprocessing, which must happen before anything leaves the machine.
 
 ### Choosing the local model
-Check what the Ollama library offers at build time. Shortlist two or three current instruct models that fit in the ~5 GB left after the embedder and reranker on the 8 GB dev GPU (2–4B class at 4-bit; see the VRAM budget in the architecture note), favouring good Hindi and Indic coverage. Candidates pulled on 2026-09-23: `qwen3.5:4b` and `gemma4:e2b-it-qat` (DECISIONS D8). Qwen 3.5 is a thinking model: send `think: false` for answers. Run the eval subset on each — answer quality, `[S#]` marker compliance, latency, VRAM — and record the pick in DECISIONS.md. Use temperature 0 to 0.2 for answers.
+Check what the Ollama library offers at build time. Shortlist two or three current instruct models that fit in the ~5 GB left after the embedder and reranker on the 8 GB dev GPU (2–4B class at 4-bit; see the VRAM budget in the architecture note), favouring good Hindi and Indic coverage. Candidates benchmarked on 2026-09-24: `qwen3.5:4b`, `gemma4:e2b-it-qat` and `gemma4:latest`; the pick is **`gemma4:latest`** (DECISIONS D32, with the numbers). All three fit on the 8 GB GPU next to the encoders (D33 corrects D8). Qwen 3.5 is a thinking model: send `think: false` for answers. Run the eval subset on each — answer quality, `[S#]` marker compliance, latency, VRAM — and record the pick in DECISIONS.md. Use temperature 0 to 0.2 for answers.
 
 ### Bedrock usage
 - Discover rather than hard-code: `aws bedrock list-foundation-models --region $AWS_REGION` and `aws bedrock list-inference-profiles --region $AWS_REGION`. Some models are callable only through an inference-profile ID.

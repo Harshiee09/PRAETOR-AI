@@ -3,7 +3,7 @@ id: 20260922-minimum-viable-architecture
 title: Minimum viable architecture
 tags: [architecture, aws, cost]
 created: 2026-09-22
-updated: 2026-09-23
+updated: 2026-09-24
 related: [20260922-chunk-schema, 20260922-retrieval-pipeline, 20260922-llm-layer, 20260922-aws-cost-plan, 20260922-report-validation]
 summary: What runs locally vs on AWS, the request flow, the env contract, and what was cut from the AWS blueprint and why.
 ---
@@ -65,7 +65,7 @@ Runs are incremental: files whose sha256 is unchanged are skipped, and a changed
 - `cloud-lite` (stretch): a Lambda container behind a Function URL that pulls the SQLite database and FAISS index from S3 into `/tmp` at cold start, embeds queries on CPU, skips or shrinks reranking, and generates with Bedrock. Size the ephemeral storage to fit the index. Build it only after measuring cold start and memory; if the cold start is too slow for a live demo, demo `local` instead, through a tunnel with an API key if people need remote access.
 
 ### VRAM budget (8 GB — the dev machine is an RTX 5070 Laptop GPU, DECISIONS D8)
-bge-m3 in fp16 peaks at 1.09 GiB (measured), and bge-reranker-v2-m3 is similar. That leaves about 5 GB for the LLM and its KV cache, so local answer models are 2–4B-class at 4-bit (`qwen3.5:4b`, `gemma4:e2b-it-qat`), with a modest context. A 7–9B model only fits by unloading the encoders or partly offloading to CPU. Load models lazily, convert encoders to fp16 before moving them to CUDA, expose `EMBED_DEVICE` and `RERANK_DEVICE` for CPU fallback, and run bulk embedding with the LLM unloaded.
+bge-m3 in fp16 peaks at 1.09 GiB (measured), and bge-reranker-v2-m3 is similar. That leaves about 5 GB for the LLM and its KV cache. Measured resident sizes (`ollama ps`, 8k context): `gemma4:latest` 3.2 GB (the chosen answer model, DECISIONS D32), `qwen3.5:4b` 3.3 GB, `gemma4:e2b-it-qat` 1.8 GB — all 100% on GPU alongside both encoders. Judge fit by `ollama ps`, not download size (D33). Load models lazily, convert encoders to fp16 before moving them to CUDA, expose `EMBED_DEVICE` and `RERANK_DEVICE` for CPU fallback, and run bulk embedding with the LLM unloaded.
 
 ### Environment contract (`.env.example`)
 ```dotenv
@@ -85,16 +85,16 @@ RRF_K=60
 RERANK_TOP_N=30
 CONTEXT_MAX_CHUNKS=8
 CONTEXT_MAX_TOKENS=6000
-# starting value only; calibrate on the eval dev split
-MIN_EVIDENCE_SCORE=0.30
+# reranker-score evidence gate (DECISIONS D27); re-calibrate on the verified gold set
+MIN_EVIDENCE_SCORE=0.10
 # --- LLM routing: rules|ollama, aliases|ollama, ollama|bedrock|extractive
 LLM_CLASSIFY=rules
 LLM_REWRITE=aliases
 LLM_ANSWER=ollama
 LLM_FALLBACK=extractive
 OLLAMA_BASE_URL=http://localhost:11434
-# set after the local-model benchmark
-OLLAMA_MODEL=
+# set after the local-model benchmark (DECISIONS D32)
+OLLAMA_MODEL=gemma4:latest
 # strict = never call a cloud service
 PRIVACY_MODE=standard
 CACHE_ENABLED=true

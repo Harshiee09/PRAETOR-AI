@@ -158,7 +158,8 @@ def _cmd_ask(args: argparse.Namespace) -> int:
             print(f"  {used:<4} {str(r.get('exact', '-')):>5} {str(r.get('dense', '-')):>5} {str(r.get('keyword', '-')):>3} "
                   f"{r.get('fused', '-'):>5} {rr:>13}  {c['title'][:42]} — {c['locator']}")
         if "llm" in e:
-            print(f"llm: {e['llm']} prompt {e['prompt_version']} attempts {e['attempts']}")
+            attempts = [{k: v for k, v in a.items() if k != "raw"} for a in e["attempts"]]
+            print(f"llm: {e['llm']} prompt {e['prompt_version']} attempts {attempts}")
             print(f"validator: {e['validator']}")
     return 0
 

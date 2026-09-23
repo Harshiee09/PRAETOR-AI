@@ -61,6 +61,7 @@ class ValidationResult:
     unsupported: int = 0
     unsupported_share: float = 0.0
     warnings: list[str] = field(default_factory=list)
+    removed_sentences: list[str] = field(default_factory=list)  # for --explain / eval only, never shown in the answer
 
     @property
     def changed(self) -> bool:
@@ -178,7 +179,7 @@ def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | N
         log.warning("invalid_citation", extra={"sid": sid})
 
     all_chunks = list(id_map.values())
-    unverified_q, unverified_a, kept = [], [], []
+    unverified_q, unverified_a, kept, removed = [], [], [], []
     for sentence, sep in _split(text):
         cited = [id_map[f"S{int(n)}"] for n in MARKER.findall(sentence) if f"S{int(n)}" in id_map]
         pool = cited or all_chunks
@@ -187,6 +188,7 @@ def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | N
         bad_q = [q for q in QUOTE.findall(sentence) if _norm(q) not in _norm(" ".join(c["text"] for c in pool))]
         if bad_q:
             unverified_q += bad_q
+            removed.append(sentence.strip())
             log.warning("unverified_quote", extra={"quote": bad_q[0][:80]})
             if heading:
                 kept.append(heading.group(1) + sep)
@@ -194,6 +196,7 @@ def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | N
         bad_a = _authority_problems(sentence, ev, sections, registry)
         if bad_a:
             unverified_a += bad_a
+            removed.append(sentence.strip())
             log.warning("unverified_authority", extra={"items": bad_a[:3]})
             if heading:
                 kept.append(heading.group(1) + sep)
@@ -220,7 +223,8 @@ def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | N
                             "It may still govern events or proceedings from before the repeal.")
     return ValidationResult(text=text, used_ids=used, invalid_ids=invalid, unverified_quotes=unverified_q,
                             unverified_authority=unverified_a, unsupported=flagged,
-                            unsupported_share=(flagged / total) if total else 0.0, warnings=warnings)
+                            unsupported_share=(flagged / total) if total else 0.0, warnings=warnings,
+                            removed_sentences=removed)
 
 
 def citation_card(sid: str, c: dict) -> dict:

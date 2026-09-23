@@ -141,7 +141,8 @@ def run_answers(engine: Engine, gold: list[dict], model: str | None) -> list[dic
         v = e.get("validator") or {}
         row.update(invalid_removed=len(v.get("invalid_ids", [])), unverified_authority=len(v.get("unverified_authority", [])),
                    unverified_quotes=len(v.get("unverified_quotes", [])), unsupported=v.get("unsupported", 0),
-                   llm=e.get("llm"), attempts=e.get("attempts"))
+                   removed_sentences=v.get("removed_sentences", []), llm=e.get("llm"), attempts=e.get("attempts"),
+                   warnings=out["warnings"])
         if g["must_mention"] and not out["abstained"]:
             low = text.lower()
             row["must_mention_hit"] = all(m.lower() in low for m in g["must_mention"])
