@@ -3,7 +3,7 @@ id: 20260922-data-sources
 title: Data sources
 tags: [data, licensing]
 created: 2026-09-22
-updated: 2026-09-23
+updated: 2026-09-24
 related: [20260922-report-validation, 20260922-chunk-schema, 20260922-statute-status, 20260922-multilingual, 20260922-aws-cost-plan]
 summary: Verified source registry, licences and terms, the MVP seed corpus and download etiquette.
 ---
@@ -51,6 +51,8 @@ Acts in English from India Code, grouped by demo domain:
 Add the Hindi text of one or two of these Acts, where India Code publishes it, for the multilingual demo. Phase 1 uses only three Acts: the Registration Act, the Transfer of Property Act, and the Consumer Protection Act 2019.
 
 Judgments come from the SC dataset, selected through the per-year metadata parquet rather than by downloading whole years blindly, since a single year's English archive can run to several GB. Phase 1 takes about 50 judgments; Phase 2 takes 300–1,000 filtered to the demo domains by title and Act mentions across recent years, plus regional-language versions of a few for the multilingual demo. Individual PDF downloads are fine for a few hundred files; for bulk, use the tar archives, as the dataset maintainers ask.
+
+**As ingested (2026-09-24, DECISIONS D18):** 12 Acts (Registration, TPA, CPA 2019, RFCTLARR, RERA, Limitation, Contract, Specific Relief, CPC, BNSS, BNS, BSA; the CrPC is not available in current form, V23; the Constitution was skipped as optional) and 1,000 judgments 2016–2025, selected by headnote Act mentions round-robin across Acts (including judgments under repealed Acts), extracted from the English year tars. Hindi Act texts and regional-language judgments are not yet ingested (Phase 4 multilingual demo).
 
 Landmark cases to locate in the dataset. These are lookups, not facts: every field shown to a user comes from the dataset record, and if a case can't be found, report that rather than inventing it.
 | Case | Decided | Why it's in the seed |

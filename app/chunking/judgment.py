@@ -22,9 +22,14 @@ log = logging.getLogger(__name__)
 
 BODY_MARKERS = [
     re.compile(r"Judgment\s*/\s*Order\s+of\s+the\s+Supreme\s+Court", re.I),
-    re.compile(r"\b(Judgments?|Orders?)\s+of\s+the\s+Court\s+(was|were)\s+(delivered|passed|pronounced)", re.I),
+    re.compile(r"\b(Judgments?|Orders?)\s+of\s+the\s+Court\s+(?:(?:was|were)\s+)?(delivered|passed|pronounced)", re.I),
     re.compile(r"\bfollowing\s+(Judgments?|Orders?)\s+(of\s+the\s+Court\s+)?(was|were)\s+(delivered|passed|pronounced)", re.I),
 ]
+# OCR text layers in older SCR scans: "The Judgment of the Com1 was delivered by", "Qr.der of the Court was passed".
+# Used only when no strict marker exists, and only if a judge line or numbered paragraph follows closely.
+OCR_MARKER = re.compile(r"\bof\s+the\s+\S{3,6}\s+(was|were)\s+(delivered|passed|pronounced)\b", re.I)
+COUNSEL = re.compile(r"\bAdvs?\.?\s*,?\s*for\s+the\b", re.I)
+JUDGE_START = re.compile(r"^\(?[A-Z][A-Z.\s]{2,50},\s*(?:C\.\s*)?J\s*[.,]")
 JUDGE_THEN_PARA = re.compile(r"^(?P<judge>[A-Z][\w.\s'’-]{2,60},\s*(?:C\.\s*)?J\.)\s+(?P<rest>1\.\s+\S.*)$")
 SENTENCE_END = re.compile(r"[.:;”\"?)\]]\s*$")
 END_MARKER = re.compile(r"^(Result\s+of\s+the\s+case|†?\s*Headnotes?\s+prepared\s+by)", re.I)
@@ -40,16 +45,25 @@ class JudgmentParse:
     body_start_page: int | None
 
 
-def find_body(lines: list[Line]) -> tuple[int, int]:
-    """(start, end) indices of the judgment proper."""
-    start = None
+def _marker_start(lines: list[Line], patterns: list[re.Pattern], confirm: bool = False) -> int | None:
     for i, ln in enumerate(lines):
         window = ln.text if i + 1 >= len(lines) else ln.text + " " + lines[i + 1].text
-        if any(p.search(ln.text) or p.search(window) for p in BODY_MARKERS):
-            start = i + 1
-            if not any(p.search(ln.text) for p in BODY_MARKERS):
-                start = i + 2  # marker wrapped over two lines
-            break
+        if any(p.search(ln.text) or p.search(window) for p in patterns):
+            start = i + 1 if any(p.search(ln.text) for p in patterns) else i + 2  # marker may wrap over two lines
+            if confirm and not any(JUDGE_START.match(x.text.strip()) or PARA_NUM.match(x.text.strip())
+                                   for x in lines[start:start + 3]):
+                continue
+            return start
+    return None
+
+
+def find_body(lines: list[Line]) -> tuple[int, int]:
+    """(start, end) indices of the judgment proper. Passes, most specific first: the printed marker; an
+    OCR-garbled marker confirmed by a judge line or numbered paragraph right after it; a judge line followed by
+    paragraph 1; the end of the counsel list."""
+    start = _marker_start(lines, BODY_MARKERS)
+    if start is None:
+        start = _marker_start(lines, [OCR_MARKER], confirm=True)
     if start is None:
         # Fallback: the first "1." paragraph preceded by a judge line ("X, J.") after page 1.
         for i, ln in enumerate(lines):
@@ -57,6 +71,12 @@ def find_body(lines: list[Line]) -> tuple[int, int]:
                     and any(JUDGE_LINE.match(lines[j].text.strip()) for j in range(max(0, i - 3), i)):
                 start = i
                 break
+    if start is None:
+        # Last resort: SCR prints the counsel list ("... Advs. for the Appellant.") right before the judgment.
+        cutoff = max(1, int(len(lines) * 0.5))
+        counsel = [i for i, ln in enumerate(lines[:cutoff]) if COUNSEL.search(ln.text)]
+        if counsel:
+            start = counsel[-1] + 1
     if start is None:
         raise ValueError("could not find where the judgment text begins (no 'delivered by' / 'Judgment / Order' marker)")
     end = next((j for j in range(start, len(lines)) if END_MARKER.match(lines[j].text.strip())), len(lines))
@@ -133,6 +153,14 @@ def para_label(nums: list[int]) -> tuple[int | None, int | None, str | None]:
     if opinion > 1 or hi // 1000 != lo // 1000:
         loc += f" (opinion {opinion})"
     return a, b, loc
+
+
+def clean_case_title(meta: dict) -> str:
+    """"In re" matters have no respondent; the dataset renders them as '<petitioner> versus .'. Drop the empty
+    side rather than store a placeholder party (the validator would rightly reject '.')."""
+    if not re.search(r"[A-Za-z]", meta.get("respondent") or ""):
+        return re.sub(r"\s+(?:versus|vs\.?|v\.)\s+[^A-Za-z]*$", "", meta["case_title"], flags=re.I).strip()
+    return meta["case_title"]
 
 
 def header_text(meta: dict) -> str:

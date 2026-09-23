@@ -26,13 +26,27 @@ log = logging.getLogger(__name__)
 SOURCE = "sc-judgments"
 EMPTY = {"", "none", "nan", "<na>", "-"}
 
-# Phase 1 selection rule: headnotes that name a corpus Act with its year (a bare "Registration Act" also
-# matches marriage-registration statutes and the like).
+# Selection rule: headnotes that name a corpus Act with its year (a bare "Registration Act" also matches
+# marriage-registration statutes and the like). Repealed predecessors are included on purpose: judgments under
+# them are what transition questions need, and their status comes from statutes.yaml.
 ACT_PATTERNS = {
     "registration-1908": re.compile(r"Registration\s+Act,?\s*1908", re.I),
     "tpa-1882": re.compile(r"Transfer\s+of\s+Property\s+Act,?\s*1882", re.I),
     "cpa-2019": re.compile(r"Consumer\s+Protection\s+Act,?\s*2019", re.I),
+    "cpa-1986": re.compile(r"Consumer\s+Protection\s+Act,?\s*1986", re.I),
+    "rfctlarr-2013": re.compile(r"Right\s+to\s+Fair\s+Compensation\s+and\s+Transparency|Resettlement\s+Act,?\s*2013", re.I),
+    "laa-1894": re.compile(r"Land\s+Acquisition\s+Act,?\s*1894", re.I),
+    "rera-2016": re.compile(r"Real\s+Estate\s*\(\s*Regulation\s+and\s+Development\s*\)\s*Act,?\s*2016|\bRERA\b"),
+    "limitation-1963": re.compile(r"Limitation\s+Act,?\s*1963", re.I),
+    "ica-1872": re.compile(r"Contract\s+Act,?\s*1872", re.I),
+    "sra-1963": re.compile(r"Specific\s+Relief\s+Act,?\s*1963", re.I),
+    "cpc-1908": re.compile(r"Code\s+of\s+Civil\s+Procedure,?\s*1908", re.I),
+    "crpc-1973": re.compile(r"Code\s+of\s+Criminal\s+Procedure,?\s*1973", re.I),
+    "bnss-2023": re.compile(r"Bharatiya\s+Nagarik\s+Suraksha\s+Sanhita", re.I),
 }
+# Seed landmark cases (data-sources note) are lookups against dataset records, never typed-in facts. Only those
+# inside the selected years and demo domains are looked up; constitutional ones (1967-1980) are out of scope.
+LANDMARKS = [{"year": 2020, "title_has": ["INDORE DEVELOPMENT AUTHORITY", "MANOHARLAL"]}]
 
 
 def _s3(region: str):
@@ -166,34 +180,123 @@ def select(df: pd.DataFrame, limit: int = 50, min_year: int = 2019) -> pd.DataFr
         take = hits[~hits["path"].isin(seen)].head(per_act)
         seen.update(take["path"])
         picked.append(take)
+    # Leftover slots go round-robin across Acts (newest first within each), so one prolific Act can't take them all.
     remaining = limit - sum(len(p) for p in picked)
-    if remaining > 0:
-        pool = pd.concat(pools).drop_duplicates("path").sort_values("_date", ascending=False)
-        picked.append(pool[~pool["path"].isin(seen)].head(remaining))
+    queues = [h[~h["path"].isin(seen)] for h in pools]
+    cursors = [0] * len(queues)
+    extra_rows = []
+    while remaining > 0 and any(c < len(q) for c, q in zip(cursors, queues)):
+        for i, q in enumerate(queues):
+            while cursors[i] < len(q) and q.iloc[cursors[i]]["path"] in seen:
+                cursors[i] += 1
+            if remaining > 0 and cursors[i] < len(q):
+                row = q.iloc[cursors[i]]
+                seen.add(row["path"])
+                extra_rows.append(row)
+                cursors[i] += 1
+                remaining -= 1
+    if extra_rows:
+        picked.append(pd.DataFrame(extra_rows))
+    for lm in LANDMARKS:
+        cand = df[(df["_date"].map(lambda d: d.year) == lm["year"])
+                  & df["title"].map(lambda t: all(s in t.upper() for s in lm["title_has"]))]
+        if cand.empty:
+            log.warning("landmark case not found in the dataset", extra={"landmark": lm})
+        picked.append(cand[~cand["path"].isin(seen)].assign(matched_act="landmark"))
     out = pd.concat(picked, ignore_index=True)
     out["matched_acts"] = out["_text"].map(lambda t: [a for a, p in ACT_PATTERNS.items() if p.search(t)])
     return out.drop(columns=["_text"])
 
 
+def _sidecar(rec: dict) -> dict:
+    judges, author = parse_coram(rec["raw_html"])
+    return {
+        "case_title": rec["title"].replace("  ", " ").strip(), "petitioner": rec["petitioner"],
+        "respondent": rec["respondent"], "court": rec["court"],
+        "decision_date": rec["_date"].isoformat(), "judges": judges, "author_judge": author,
+        "citation": rec["citation"], "neutral_citation": rec["case_id"], "cnr": rec["cnr"],
+        "disposal_nature": rec["disposal_nature"] or None, "available_languages": rec["available_languages"],
+        "path": rec["path"], "year": int(rec["year"]), "matched_acts": rec["matched_acts"],
+    }
+
+
+def _targets(settings: Settings, cfg: dict, rec: dict) -> tuple[str, str, Path]:
+    year = str(rec["year"])
+    name = f"{rec['path']}_EN.pdf"
+    key = f"{cfg['pdf_prefix']}/year={year}/english/{name}"
+    return name, key, settings.raw_dir / SOURCE / "pdf" / f"year={year}" / "english" / name
+
+
 def download_selected(settings: Settings, selected: pd.DataFrame) -> list[ManifestRow]:
+    """Individual objects from data/pdf/ — the dataset's path for targeted access (a few hundred files)."""
     cfg = _cfg(settings)
     s3, manifest = _s3(cfg["region"]), Manifest(settings.manifest_path, settings.data_dir)
     rows = []
     for rec in selected.to_dict("records"):
-        year = str(rec["year"])
-        key = f"{cfg['pdf_prefix']}/year={year}/english/{rec['path']}_EN.pdf"
-        dest = settings.raw_dir / SOURCE / "pdf" / f"year={year}" / "english" / f"{rec['path']}_EN.pdf"
-        judges, author = parse_coram(rec["raw_html"])
-        meta = {
-            "case_title": rec["title"].replace("  ", " ").strip(), "petitioner": rec["petitioner"],
-            "respondent": rec["respondent"], "court": rec["court"],
-            "decision_date": rec["_date"].isoformat(), "judges": judges, "author_judge": author,
-            "citation": rec["citation"], "neutral_citation": rec["case_id"], "cnr": rec["cnr"],
-            "disposal_nature": rec["disposal_nature"] or None, "available_languages": rec["available_languages"],
-            "path": rec["path"], "year": int(year), "matched_acts": rec["matched_acts"],
-        }
+        _, key, dest = _targets(settings, cfg, rec)
         row = _download(s3, cfg, key, dest, manifest, extra={"kind": "judgment_pdf", "cnr": rec["cnr"]})
-        dest.with_suffix(".json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+        dest.with_suffix(".json").write_text(json.dumps(_sidecar(rec), ensure_ascii=False, indent=2), encoding="utf-8")
         rows.append(row)
         log.info("judgment ready", extra={"cnr": rec["cnr"], "path": rec["path"]})
+    return rows
+
+
+def download_selected_via_tar(settings: Settings, selected: pd.DataFrame) -> list[ManifestRow]:
+    """Bulk path the maintainers ask for: per year, download the English tar part(s) that hold selected judgments
+    into data/scratch/, extract only those PDFs, then delete the tar (DECISIONS D18). Manifest rows keep the
+    canonical data/pdf/ key as `url` (so doc_ids match individually fetched copies) and record the tar in `via`."""
+    import tarfile
+
+    cfg = _cfg(settings)
+    s3, manifest = _s3(cfg["region"]), Manifest(settings.manifest_path, settings.data_dir)
+    scratch = settings.data_dir / "scratch"
+    scratch.mkdir(parents=True, exist_ok=True)
+    rows: list[ManifestRow] = []
+    by_year: dict[str, list[dict]] = {}
+    for rec in selected.to_dict("records"):
+        by_year.setdefault(str(rec["year"]), []).append(rec)
+    for year, recs in sorted(by_year.items()):
+        need: dict[str, tuple[dict, str, Path]] = {}
+        for rec in recs:
+            name, key, dest = _targets(settings, cfg, rec)
+            url = f"s3://{cfg['bucket']}/{key}"
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.with_suffix(".json").write_text(json.dumps(_sidecar(rec), ensure_ascii=False, indent=2), encoding="utf-8")
+            if manifest.is_current(url):
+                rows.append(manifest.get(url))
+            else:
+                need[name] = (rec, url, dest)
+        if not need:
+            continue
+        index = json.loads(s3.get_object(Bucket=cfg["bucket"], Key=f"data/tar/year={year}/english/english.index.json")["Body"].read())
+        for part in index["parts"]:
+            wanted = set(part["files"]) & set(need)
+            if not wanted:
+                continue
+            tar_key = f"data/tar/year={year}/english/{part['name']}"
+            tar_path = scratch / f"sc-{year}-{part['name']}"
+            size = s3.head_object(Bucket=cfg["bucket"], Key=tar_key)["ContentLength"]
+            log.warning("downloading tar", extra={"key": tar_key, "mb": round(size / 2**20), "wanted": len(wanted)})
+            s3.download_file(cfg["bucket"], tar_key, str(tar_path))
+            try:
+                with tarfile.open(tar_path) as tf:
+                    for member in tf:
+                        base = member.name.rsplit("/", 1)[-1]
+                        if not member.isfile() or base not in wanted:
+                            continue
+                        rec, url, dest = need[base]
+                        dest.write_bytes(tf.extractfile(member).read())
+                        row = ManifestRow(
+                            source=SOURCE, url=url, local_path=manifest.rel(dest), sha256=sha256_file(dest),
+                            bytes=dest.stat().st_size, retrieved_at=utc_now(), licence=cfg["licence"],
+                            source_page=cfg["registry_page"],
+                            extra={"kind": "judgment_pdf", "cnr": rec["cnr"], "via": f"s3://{cfg['bucket']}/{tar_key}"},
+                        )
+                        manifest.record(row)
+                        rows.append(row)
+            finally:
+                tar_path.unlink(missing_ok=True)
+        missing = [n for n, (_, url, _) in need.items() if manifest.get(url) is None]
+        if missing:
+            log.warning("selected judgments not found in the year's tar", extra={"year": year, "missing": missing[:10], "n": len(missing)})
     return rows

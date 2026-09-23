@@ -1,0 +1,769 @@
+{
+ "source_url": "s3://indian-supreme-court-judgments/data/pdf/year=2016/english/2016_3_225_227_EN.pdf",
+ "download_url": "s3://indian-supreme-court-judgments/data/pdf/year=2016/english/2016_3_225_227_EN.pdf",
+ "raw_sha256": "b473c44252914a5243be52dcc1f75deb33b085e98fb34b1e7eddc923f8fdaf21",
+ "retrieved_at": "2026-09-22T23:41:28+00:00",
+ "licence": "CC-BY-4.0",
+ "pages": [
+  1,
+  2
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": true,
+ "body_size": 10.3,
+ "page_height": 675.3,
+ "lines": [
+  {
+   "text": "[2016] 3 S.C.R. 225",
+   "page": 1,
+   "x0": 146.73,
+   "x1": 232.94506099999998,
+   "top": 58.042100000000005,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "AJAY GUPTA",
+   "page": 1,
+   "x0": 160.48,
+   "x1": 225.9643835,
+   "top": 102.15210000000002,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "v.",
+   "page": 1,
+   "x0": 190.18,
+   "x1": 196.831216,
+   "top": 121.65210000000002,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "RAJU @ RAJENDRA SINGH YADAV",
+   "page": 1,
+   "x0": 104.05,
+   "x1": 283.557553,
+   "top": 140.5421,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(Civil Appeal No. 5862of2016)",
+   "page": 1,
+   "x0": 123.77,
+   "x1": 263.6272,
+   "top": 159.74209999999994,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "JULY5,2016",
+   "page": 1,
+   "x0": 164.04,
+   "x1": 222.64067,
+   "top": 178.65209999999996,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[KURIAN JOSEPH AND ROHINTON FALi NARIMAN, JJ.]",
+   "page": 1,
+   "x0": 41.66,
+   "x1": 346.2266,
+   "top": 198.07699999999994,
+   "size": 11.0,
+   "bold_prefix": "[KURIAN JOSEPH AND ROHINTON FALi NARIMAN, JJ.]",
+   "markers": []
+  },
+  {
+   "text": "Limitation Act, 1963 - ss.4, 5 - Expiry of prescribed period",
+   "page": 1,
+   "x0": 61.61,
+   "x1": 350.21760000000006,
+   "top": 217.13039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "when court is closed - On facts, last date for filing the suit was",
+   "page": 1,
+   "x0": 38.94160000000005,
+   "x1": 349.52808000000005,
+   "top": 230.32039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "31.12.2010, which was last day of winter vacation for court - Next c",
+   "page": 1,
+   "x0": 39.18280000000004,
+   "x1": 371.966,
+   "top": 243.58049999999992,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "day-01.01.2011 was a non-working Saturday - Disposal of",
+   "page": 1,
+   "x0": 38.64,
+   "x1": 352.0781496,
+   "top": 257.32039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "application filed u/Or. 7 r. 11 on the ground that 01.01.2011 was",
+   "page": 1,
+   "x0": 39.23,
+   "x1": 349.83528,
+   "top": 270.82039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "non-working Saturday, thus, the suit filed on 03. 01.2011 is within",
+   "page": 1,
+   "x0": 39.243600000000015,
+   "x1": 349.8728,
+   "top": 284.31639999999993,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "limitation - Held: Jn terms of s. 4, in case the prescribed period for",
+   "page": 1,
+   "x0": 38.88799999999998,
+   "x1": 349.46056000000004,
+   "top": 297.81639999999993,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "any suit expires on a day when the court is closed, the suit may be",
+   "page": 1,
+   "x0": 39.22280000000006,
+   "x1": 350.2638946,
+   "top": 311.31639999999993,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "instituted when the court reopens - Further in terms of s. 5 no court",
+   "page": 1,
+   "x0": 39.76,
+   "x1": 350.48552,
+   "top": 324.82039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or tribunal can extend the period of limitation for filing a suit -",
+   "page": 1,
+   "x0": 39.51080000000002,
+   "x1": 348.3116,
+   "top": 338.31639999999993,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "01.01.2011 was not a holiday for the Registry-It was a non-working",
+   "page": 1,
+   "x0": 40.0,
+   "x1": 351.1704,
+   "top": 351.82039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Saturday for the Judges to enable them to write judgments and",
+   "page": 1,
+   "x0": 39.295199999999994,
+   "x1": 351.32984000000005,
+   "top": 365.02039999999994,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "regular hearing of cases not heard on a non-working Saturday -",
+   "page": 1,
+   "x0": 39.54,
+   "x1": 348.3132,
+   "top": 378.53039999999993,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "There is no question of any confusion, though such confusion also",
+   "page": 1,
+   "x0": 40.57,
+   "x1": 350.42872,
+   "top": 392.02039999999994,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "cannot save limitation to file a suit - Even for part of the day the",
+   "page": 1,
+   "x0": 39.801199999999994,
+   "x1": 350.35592,
+   "top": 405.52759999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "registry was not closed - Even if any cause. beyond the control of",
+   "page": 1,
+   "x0": 39.53800000000001,
+   "x1": 353.2645984,
+   "top": 416.688,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the plaintiff is shown also, the only extension is what is permitted ul",
+   "page": 1,
+   "x0": 40.07,
+   "x1": 351.97944,
+   "top": 432.82039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "s. 4 the period coming under court holiday - Thus, the impugned",
+   "page": 1,
+   "x0": 39.63,
+   "x1": 351.67752,
+   "top": 446.32039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "order is set aside - Application u/Or. 7 r 11 is allowed and suit is",
+   "page": 1,
+   "x0": 40.41719999999998,
+   "x1": 350.7631152,
+   "top": 460.12999999999994,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "dismissed.",
+   "page": 1,
+   "x0": 40.14,
+   "x1": 85.5896,
+   "top": 473.63039999999995,
+   "size": 11.2,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CIVIL APPELLATE JURISDICTION: Civil Appeal No. 5862 of",
+   "page": 1,
+   "x0": 62.88,
+   "x1": 352.324191,
+   "top": 493.05209999999994,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2016.",
+   "page": 1,
+   "x0": 40.43,
+   "x1": 63.436174,
+   "top": 506.55209999999994,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "From the Judgment and Order dated 11.04.2012 of the High Court",
+   "page": 1,
+   "x0": 63.25,
+   "x1": 351.1399599999999,
+   "top": 525.7420999999999,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of Gwalior at Madhya Pradesh in Revision Petition No. 6 of2012.",
+   "page": 1,
+   "x0": 40.39,
+   "x1": 331.0142,
+   "top": 539.2520999999999,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Harshvardhan Surana, Sameer Kumar Shrivastava, Vibhor Vardhan,",
+   "page": 1,
+   "x0": 62.9443,
+   "x1": 350.7755648,
+   "top": 558.7520999999999,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Advs. for the Appellant.",
+   "page": 1,
+   "x0": 40.78,
+   "x1": 146.49714999999998,
+   "top": 571.6420999999999,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "The Judgment of the Com1 was delivered by",
+   "page": 1,
+   "x0": 63.199200000000005,
+   "x1": 259.31563950000003,
+   "top": 591.1420999999999,
+   "size": 11.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "KURIAN, J, I. Leave granted.",
+   "page": 1,
+   "x0": 63.53,
+   "x1": 205.59722999999997,
+   "top": 610.3521,
+   "size": 11.3,
+   "bold_prefix": "KURIAN, J,",
+   "markers": []
+  },
+  {
+   "text": "226 SUPREME COURT REPORTS [2016] 3 S.C.R.",
+   "page": 2,
+   "x0": 56.34,
+   "x1": 389.2848,
+   "top": 56.72510000000011,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. The impugned judgment on limitation to file a suit gives an",
+   "page": 2,
+   "x0": 104.64,
+   "x1": 392.4137600000001,
+   "top": 99.63510000000008,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "interesting reading on reasoning:",
+   "page": 2,
+   "x0": 82.41260000000011,
+   "x1": 222.33707000000015,
+   "top": 112.83970000000011,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"Learned trial court has vide impugned order, disposed the",
+   "page": 2,
+   "x0": 110.2,
+   "x1": 392.4145,
+   "top": 132.03510000000006,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "application filed under Order 7 Rule 11 by the defendant on the",
+   "page": 2,
+   "x0": 110.58589999999998,
+   "x1": 392.7224,
+   "top": 145.2251000000001,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ground that 01.01.2011 was non-working Saturday, therefore the",
+   "page": 2,
+   "x0": 110.6157,
+   "x1": 392.41339999999997,
+   "top": 158.42970000000014,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Suit was filed on 03.01.2011 is within limitation. Although, there is",
+   "page": 2,
+   "x0": 111.11,
+   "x1": 392.78572479999997,
+   "top": 171.92510000000004,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "no bar for filing of Suit on non-working Saturday but ifthe Suit is",
+   "page": 2,
+   "x0": 111.29,
+   "x1": 392.787372,
+   "top": 185.42510000000004,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "not filed on non-working Saturday under the assumption that it is",
+   "page": 2,
+   "x0": 111.29,
+   "x1": 393.08572480000004,
+   "top": 198.63510000000002,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "non-working Saturday then the mistake ofnon-filing is a bonafide",
+   "page": 2,
+   "x0": 110.99,
+   "x1": 393.44614,
+   "top": 212.42510000000004,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "mistake, so the mistake is taken as bonafide mistake.\"",
+   "page": 2,
+   "x0": 110.981,
+   "x1": 348.0787,
+   "top": 225.92510000000004,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "c 3. It is not in dispute that the last date for filing the suit was",
+   "page": 2,
+   "x0": 60.74,
+   "x1": 393.04378,
+   "top": 243.062,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "31 .12.2010, the last day of winter vacation for court. 01.01.2011 was a",
+   "page": 2,
+   "x0": 82.99,
+   "x1": 393.25759999999997,
+   "top": 258.92510000000004,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Saturday, and even according to the High Court, it is non-working Saturday",
+   "page": 2,
+   "x0": 83.20699999999994,
+   "x1": 393.79594999999995,
+   "top": 272.12510000000003,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "for the Judges for enabling them to write judgments and regular hearing",
+   "page": 2,
+   "x0": 82.98829999999998,
+   "x1": 393.95354,
+   "top": 285.63870000000003,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of cases is not heard on a non-working Saturday. Obviously, it was not a",
+   "page": 2,
+   "x0": 83.29,
+   "x1": 393.86350000000004,
+   "top": 299.12510000000003,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "holiday forthe Registry and there is no question ofany confusion, though",
+   "page": 2,
+   "x0": 82.79320000000001,
+   "x1": 393.00495,
+   "top": 312.6351,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "such confusion also cannot save limitation to file a suit.",
+   "page": 2,
+   "x0": 82.94920000000002,
+   "x1": 323.53454000000005,
+   "top": 326.1281,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. Section 4 of The Limitation Act, 1963 (hereinafter referred to as",
+   "page": 2,
+   "x0": 105.86670000000004,
+   "x1": 393.61248000000006,
+   "top": 345.3351,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "'the Act'), dealing with \"Expiry of prescribed period when court is closed\",",
+   "page": 2,
+   "x0": 83.875,
+   "x1": 393.73935,
+   "top": 359.12510000000003,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "no doubt, applies to suits as well, and in case the prescribed period for",
+   "page": 2,
+   "x0": 83.69,
+   "x1": 393.90746,
+   "top": 372.6351,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "any suit, appeal or application expires on a day when the court is closed,",
+   "page": 2,
+   "x0": 83.3089,
+   "x1": 393.7443999999999,
+   "top": 386.12510000000003,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the suit, appeal or application may be instituted, preferred or made on",
+   "page": 2,
+   "x0": 83.37449999999995,
+   "x1": 393.70541000000003,
+   "top": 399.6351,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the day when the court reopens.",
+   "page": 2,
+   "x0": 83.36950000000002,
+   "x1": 225.00686000000002,
+   "top": 413.1281,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. The explanation under Section 4 of the Act also makes it clear",
+   "page": 2,
+   "x0": 106.66,
+   "x1": 394.6463,
+   "top": 432.3251,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "that:",
+   "page": 2,
+   "x0": 83.6687,
+   "x1": 101.43414,
+   "top": 446.12710000000004,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"Explanation.-A court shall be deemed to be closed on any day",
+   "page": 2,
+   "x0": 111.42,
+   "x1": 394.20578,
+   "top": 464.32040000000006,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "within the meaning of this section if during any part of its normal",
+   "page": 2,
+   "x0": 112.1959,
+   "x1": 393.955,
+   "top": 478.52510000000007,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "working hours it remains closed on that day.\"",
+   "page": 2,
+   "x0": 112.48689999999996,
+   "x1": 310.50156,
+   "top": 492.02510000000007,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. There is no case for anybody that even for part of the day, the",
+   "page": 2,
+   "x0": 106.97,
+   "x1": 394.8155,
+   "top": 511.52510000000007,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Registry was closed. But Section 5 of the Act which deals with",
+   "page": 2,
+   "x0": 84.84730000000002,
+   "x1": 394.8576512,
+   "top": 525.0251000000001,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "\"Extension of prescribed period in ce1tain cases\", applies only to appeals",
+   "page": 2,
+   "x0": 84.1,
+   "x1": 394.84972000000005,
+   "top": 538.5251000000001,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or applications and notto suits. Therefore, no court or tribunal can extend",
+   "page": 2,
+   "x0": 84.2,
+   "x1": 394.91844999999995,
+   "top": 552.0351,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the period oflimitation for filing a suit. Even if any cause, beyond the",
+   "page": 2,
+   "x0": 84.26529999999991,
+   "x1": 395.41079999999994,
+   "top": 565.2351000000001,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "control oft he plaintiff is shown also, the only extension is what is permitted",
+   "page": 2,
+   "x0": 84.19629999999995,
+   "x1": 395.57822,
+   "top": 578.4351,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "under Section 4 of the Act, the period coming under court holiday.",
+   "page": 2,
+   "x0": 84.3,
+   "x1": 373.57394,
+   "top": 591.9351,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. Thus, both the trial court and the High Court have gravely gone",
+   "page": 2,
+   "x0": 107.30039999999997,
+   "x1": 395.47791999999987,
+   "top": 611.124,
+   "size": 10.3,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1-1",
+   "page": 2,
+   "x0": 62.23,
+   "x1": 69.5998625,
+   "top": 619.5635000000001,
+   "size": 10.5,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ],
+ "metadata": {
+  "case_title": "AJAY GUPTA versus RAJU @ RAJENDRA SINGH YADAV",
+  "petitioner": "AJAY GUPTA",
+  "respondent": "RAJU @ RAJENDRA SINGH YADAV",
+  "court": "Supreme Court of India",
+  "decision_date": "2016-07-05",
+  "judges": [
+   "KURIAN JOSEPH",
+   "R.F. NARIMAN"
+  ],
+  "author_judge": "KURIAN JOSEPH",
+  "citation": "[2016] 3 S.C.R. 225",
+  "neutral_citation": "2016 INSC 499",
+  "cnr": "ESCR010002542016",
+  "disposal_nature": "Appeal(s) allowed",
+  "available_languages": "ENG,BEN,HIN,PUN",
+  "path": "2016_3_225_227",
+  "year": 2016,
+  "matched_acts": [
+   "limitation-1963"
+  ]
+ }
+}

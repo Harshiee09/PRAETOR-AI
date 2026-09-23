@@ -1,0 +1,7260 @@
+{
+  "split": "all",
+  "n_questions": 59,
+  "model": "qwen3.5:4b",
+  "retrieval": [
+    {
+      "mode": "dense",
+      "n": 54,
+      "recall@5": 0.8333333333333334,
+      "recall@10": 0.8703703703703703,
+      "mrr": 0.6726741622574955,
+      "statute_n": 22,
+      "statute_recall@5": 0.9090909090909091,
+      "p50_ms": 29
+    },
+    {
+      "mode": "keyword",
+      "n": 54,
+      "recall@5": 0.4444444444444444,
+      "recall@10": 0.5370370370370371,
+      "mrr": 0.3556241426611797,
+      "statute_n": 22,
+      "statute_recall@5": 0.4090909090909091,
+      "p50_ms": 32
+    },
+    {
+      "mode": "hybrid",
+      "n": 54,
+      "recall@5": 0.8518518518518519,
+      "recall@10": 0.9629629629629629,
+      "mrr": 0.715924456202234,
+      "statute_n": 22,
+      "statute_recall@5": 0.8636363636363636,
+      "p50_ms": 75
+    },
+    {
+      "mode": "hybrid_rerank",
+      "n": 54,
+      "recall@5": 0.8888888888888888,
+      "recall@10": 0.9074074074074074,
+      "mrr": 0.8264104722438056,
+      "statute_n": 22,
+      "statute_recall@5": 0.9090909090909091,
+      "p50_ms": 511
+    },
+    {
+      "mode": "full",
+      "n": 54,
+      "recall@5": 0.9074074074074074,
+      "recall@10": 0.9259259259259259,
+      "mrr": 0.8432454890788224,
+      "statute_n": 22,
+      "statute_recall@5": 0.9090909090909091,
+      "p50_ms": 624
+    }
+  ],
+  "retrieval_rows": {
+    "dense": [
+      {
+        "id": "reg-023-time-limit",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6368,
+          "threshold": 0.6
+        },
+        "ms": 15465,
+        "timings": {
+          "classify_ms": 7,
+          "dense_ms": 15426
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "reg-025-delay-unavoidable",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7189,
+          "threshold": 0.6
+        },
+        "ms": 34,
+        "timings": {
+          "classify_ms": 2,
+          "dense_ms": 19
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-017-gift-compulsory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6803,
+          "threshold": 0.6
+        },
+        "ms": 35,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "reg-049-non-registration",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7257,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-054-sale",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7055,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-105-lease",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.77,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-122-gift-donee-dies",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6484,
+          "threshold": 0.6
+        },
+        "ms": 34,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-058-mortgage",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.759,
+          "threshold": 0.6
+        },
+        "ms": 25,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-106-lease-notice",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6975,
+          "threshold": 0.6
+        },
+        "ms": 33,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-069-limitation",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6997,
+          "threshold": 0.6
+        },
+        "ms": 30,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-034-district-pecuniary",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7482,
+          "threshold": 0.6
+        },
+        "ms": 25,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-002-consumer",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7099,
+          "threshold": 0.6
+        },
+        "ms": 25,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "rera-018-refund",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6844,
+          "threshold": 0.6
+        },
+        "ms": 33,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.03571428571428571,
+        "ranks": [
+          28
+        ]
+      },
+      {
+        "id": "rera-013-advance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6458,
+          "threshold": 0.6
+        },
+        "ms": 28,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "lim-003-bar",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.693,
+          "threshold": 0.6
+        },
+        "ms": 31,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3
+        ]
+      },
+      {
+        "id": "lim-005-condonation",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6845,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "ica-010-valid-contract",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6557,
+          "threshold": 0.6
+        },
+        "ms": 28,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-073-damages",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7034,
+          "threshold": 0.6
+        },
+        "ms": 30,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "ica-025-no-consideration",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7473,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "sra-010-specific-performance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7657,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0625,
+        "ranks": [
+          16
+        ]
+      },
+      {
+        "id": "cpc-009-civil-suits",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6661,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-011-res-judicata",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6564,
+          "threshold": 0.6
+        },
+        "ms": 28,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-o39r1-injunction",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6645,
+          "threshold": 0.6
+        },
+        "ms": 35,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "cpc-o7r11-rejection",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6793,
+          "threshold": 0.6
+        },
+        "ms": 27,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "rfct-026-market-value",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6893,
+          "threshold": 0.6
+        },
+        "ms": 40,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "bnss-035-arrest-without-warrant",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7622,
+          "threshold": 0.6
+        },
+        "ms": 33,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "reg-072-refusal-appeal",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7403,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          7,
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-035-file",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7327,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-reg-032-present",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7536,
+          "threshold": 0.6
+        },
+        "ms": 23,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-173-fir",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7061,
+          "threshold": 0.6
+        },
+        "ms": 36,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-482-anticipatory",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6968,
+          "threshold": 0.6
+        },
+        "ms": 37,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "proc-rera-031-complaint",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6788,
+          "threshold": 0.6
+        },
+        "ms": 31,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "proc-cpa-038-after-admission",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6817,
+          "threshold": 0.6
+        },
+        "ms": 27,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-lim-004-court-closed",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7034,
+          "threshold": 0.6
+        },
+        "ms": 33,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-ida-24-2-lapse",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7404,
+          "threshold": 0.6
+        },
+        "ms": 31,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.08333333333333333,
+        "ranks": [
+          12
+        ]
+      },
+      {
+        "id": "cl-ncdrc-conditional-stay",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6582,
+          "threshold": 0.6
+        },
+        "ms": 38,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-anticipatory-bail",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7034,
+          "threshold": 0.6
+        },
+        "ms": 31,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1,
+          4,
+          5
+        ]
+      },
+      {
+        "id": "cl-readiness-willingness",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6988,
+          "threshold": 0.6
+        },
+        "ms": 30,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4,
+          6,
+          9,
+          10
+        ]
+      },
+      {
+        "id": "cl-part-performance",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6873,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          null,
+          1
+        ]
+      },
+      {
+        "id": "cl-res-judicata",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6972,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          6,
+          1,
+          11
+        ]
+      },
+      {
+        "id": "cl-unregistered-agreement",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6858,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          null,
+          7,
+          2
+        ]
+      },
+      {
+        "id": "tr-crpc-replaced",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5997,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "tr-ipc-in-force",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6016,
+          "threshold": 0.6
+        },
+        "ms": 27,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-pending-trial",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6307,
+          "threshold": 0.6
+        },
+        "ms": 32,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "tr-evidence-act",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5593,
+          "threshold": 0.6
+        },
+        "ms": 29,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.14285714285714285,
+        "ranks": [
+          7
+        ]
+      },
+      {
+        "id": "tr-438-anticipatory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7019,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-reg-023-time-limit",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7058,
+          "threshold": 0.6
+        },
+        "ms": 28,
+        "timings": {
+          "classify_ms": 2,
+          "dense_ms": 17
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-cpa-069-limitation",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6972,
+          "threshold": 0.6
+        },
+        "ms": 22,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "hi-tpa-054-sale",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6625,
+          "threshold": 0.6
+        },
+        "ms": 25,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-bnss-482-anticipatory",
+        "language": "hi",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5957,
+          "threshold": 0.6
+        },
+        "ms": 31,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 23
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-ica-073-damages",
+        "language": "hi",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6574,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "oos-passport",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5803,
+          "threshold": 0.6
+        },
+        "ms": 28,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        }
+      },
+      {
+        "id": "oos-income-tax",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5061,
+          "threshold": 0.6
+        },
+        "ms": 44,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 24
+        }
+      },
+      {
+        "id": "oos-visa",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.4788,
+          "threshold": 0.6
+        },
+        "ms": 30,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        }
+      },
+      {
+        "id": "oos-driving-licence",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5358,
+          "threshold": 0.6
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 14
+        }
+      },
+      {
+        "id": "oos-gst",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5043,
+          "threshold": 0.6
+        },
+        "ms": 38,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20
+        }
+      },
+      {
+        "id": "hs-arrest-grounds",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5839,
+          "threshold": 0.6
+        },
+        "ms": 30,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "hs-eviction-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5657,
+          "threshold": 0.6
+        },
+        "ms": 32,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "hs-limitation-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6724,
+          "threshold": 0.6
+        },
+        "ms": 27,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.16666666666666666,
+        "ranks": [
+          6
+        ]
+      }
+    ],
+    "keyword": [
+      {
+        "id": "reg-023-time-limit",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 543,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 541
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "reg-025-delay-unavoidable",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 60,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 58
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-017-gift-compulsory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 66,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 64
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "reg-049-non-registration",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 136,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 134
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "tpa-054-sale",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 19,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 17
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "tpa-105-lease",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 17,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 15
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "tpa-122-gift-donee-dies",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 17,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 15
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-058-mortgage",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 125,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 124
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-106-lease-notice",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 46,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 44
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "cpa-069-limitation",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 62,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 60
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3
+        ]
+      },
+      {
+        "id": "cpa-034-district-pecuniary",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 40,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 38
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "cpa-002-consumer",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 50,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 49
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "rera-018-refund",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 43,
+        "timings": {
+          "classify_ms": 1,
+          "keyword_ms": 40
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "rera-013-advance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 32,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 30
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "lim-003-bar",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 74,
+        "timings": {
+          "classify_ms": 1,
+          "keyword_ms": 71
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "lim-005-condonation",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 106,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 104
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "ica-010-valid-contract",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 19,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 16
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "ica-073-damages",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 24,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-025-no-consideration",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 37,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 34
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "sra-010-specific-performance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 62,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 60
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "cpc-009-civil-suits",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 22,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-011-res-judicata",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 24
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.125,
+        "ranks": [
+          8
+        ]
+      },
+      {
+        "id": "cpc-o39r1-injunction",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 78,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 75
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "cpc-o7r11-rejection",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 58,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 56
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "rfct-026-market-value",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 35,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 32
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3
+        ]
+      },
+      {
+        "id": "bnss-035-arrest-without-warrant",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 10,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 9
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.16666666666666666,
+        "ranks": [
+          6
+        ]
+      },
+      {
+        "id": "reg-072-refusal-appeal",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 17,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          11,
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-035-file",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 23,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 20
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "proc-reg-032-present",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 23,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "proc-bnss-173-fir",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 23,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 20
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "proc-bnss-482-anticipatory",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 13,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 12
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "proc-rera-031-complaint",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 32,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 29
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "proc-cpa-038-after-admission",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 17,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 14
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "proc-lim-004-court-closed",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 63,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 60
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.16666666666666666,
+        "ranks": [
+          6
+        ]
+      },
+      {
+        "id": "cl-ida-24-2-lapse",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 101,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 98
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-ncdrc-conditional-stay",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 35,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 33
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-anticipatory-bail",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 79,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 78
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2,
+          4,
+          null
+        ]
+      },
+      {
+        "id": "cl-readiness-willingness",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 24
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          7,
+          12,
+          2,
+          13
+        ]
+      },
+      {
+        "id": "cl-part-performance",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 81,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 78
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          null,
+          1
+        ]
+      },
+      {
+        "id": "cl-res-judicata",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 66,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 65
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          1,
+          null
+        ]
+      },
+      {
+        "id": "cl-unregistered-agreement",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 42,
+        "timings": {
+          "classify_ms": 1,
+          "keyword_ms": 39
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          28,
+          7,
+          1
+        ]
+      },
+      {
+        "id": "tr-crpc-replaced",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 43,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 41
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.16666666666666666,
+        "ranks": [
+          6
+        ]
+      },
+      {
+        "id": "tr-ipc-in-force",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 26,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 24
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "tr-pending-trial",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 46,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 44
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-evidence-act",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 78,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 76
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-438-anticipatory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 43,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 42
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-reg-023-time-limit",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 1,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 1
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-cpa-069-limitation",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 1,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 0
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-tpa-054-sale",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 1,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 0
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-bnss-482-anticipatory",
+        "language": "hi",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 1,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 0
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-ica-073-damages",
+        "language": "hi",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 1,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 0
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "oos-passport",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 10,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 7
+        }
+      },
+      {
+        "id": "oos-income-tax",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 16,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 13
+        }
+      },
+      {
+        "id": "oos-visa",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 17,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 14
+        }
+      },
+      {
+        "id": "oos-driving-licence",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 16,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 13
+        }
+      },
+      {
+        "id": "oos-gst",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 7,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 3
+        }
+      },
+      {
+        "id": "hs-arrest-grounds",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 21,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 18
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.037037037037037035,
+        "ranks": [
+          27
+        ]
+      },
+      {
+        "id": "hs-eviction-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 42,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 39
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hs-limitation-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "none",
+          "score": null,
+          "threshold": null
+        },
+        "ms": 23,
+        "timings": {
+          "classify_ms": 0,
+          "keyword_ms": 21
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.125,
+        "ranks": [
+          8
+        ]
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "reg-023-time-limit",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6368,
+          "threshold": 0.6
+        },
+        "ms": 95,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 38
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "reg-025-delay-unavoidable",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7189,
+          "threshold": 0.6
+        },
+        "ms": 58,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 17
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-017-gift-compulsory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6803,
+          "threshold": 0.6
+        },
+        "ms": 69,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-049-non-registration",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7257,
+          "threshold": 0.6
+        },
+        "ms": 91,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 18,
+          "keyword_ms": 34
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "tpa-054-sale",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7055,
+          "threshold": 0.6
+        },
+        "ms": 59,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 19
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.1111111111111111,
+        "ranks": [
+          9
+        ]
+      },
+      {
+        "id": "tpa-105-lease",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.77,
+          "threshold": 0.6
+        },
+        "ms": 51,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 14
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.125,
+        "ranks": [
+          8
+        ]
+      },
+      {
+        "id": "tpa-122-gift-donee-dies",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6484,
+          "threshold": 0.6
+        },
+        "ms": 31,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 3
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-058-mortgage",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.759,
+          "threshold": 0.6
+        },
+        "ms": 124,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 42,
+          "act_scoped_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-106-lease-notice",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6975,
+          "threshold": 0.6
+        },
+        "ms": 72,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 24
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-069-limitation",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6997,
+          "threshold": 0.6
+        },
+        "ms": 84,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 31
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-034-district-pecuniary",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7482,
+          "threshold": 0.6
+        },
+        "ms": 73,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 16,
+          "keyword_ms": 27
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-002-consumer",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7099,
+          "threshold": 0.6
+        },
+        "ms": 121,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 42,
+          "act_scoped_ms": 18
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "rera-018-refund",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6844,
+          "threshold": 0.6
+        },
+        "ms": 81,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 29
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.14285714285714285,
+        "ranks": [
+          7
+        ]
+      },
+      {
+        "id": "rera-013-advance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6458,
+          "threshold": 0.6
+        },
+        "ms": 78,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 28
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "lim-003-bar",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.693,
+          "threshold": 0.6
+        },
+        "ms": 139,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 22,
+          "keyword_ms": 58
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.2,
+        "ranks": [
+          5
+        ]
+      },
+      {
+        "id": "lim-005-condonation",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6845,
+          "threshold": 0.6
+        },
+        "ms": 156,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 18,
+          "keyword_ms": 71
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-010-valid-contract",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6557,
+          "threshold": 0.6
+        },
+        "ms": 57,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20,
+          "keyword_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "ica-073-damages",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7034,
+          "threshold": 0.6
+        },
+        "ms": 68,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 23
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-025-no-consideration",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7473,
+          "threshold": 0.6
+        },
+        "ms": 93,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 36
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "sra-010-specific-performance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7657,
+          "threshold": 0.6
+        },
+        "ms": 156,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 70
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.16666666666666666,
+        "ranks": [
+          6
+        ]
+      },
+      {
+        "id": "cpc-009-civil-suits",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6661,
+          "threshold": 0.6
+        },
+        "ms": 63,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 20
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-011-res-judicata",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6564,
+          "threshold": 0.6
+        },
+        "ms": 97,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 24,
+          "act_scoped_ms": 26
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-o39r1-injunction",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6645,
+          "threshold": 0.6
+        },
+        "ms": 207,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 25,
+          "keyword_ms": 83,
+          "act_scoped_ms": 23
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-o7r11-rejection",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6793,
+          "threshold": 0.6
+        },
+        "ms": 144,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 65
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "rfct-026-market-value",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6893,
+          "threshold": 0.6
+        },
+        "ms": 87,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 33
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "bnss-035-arrest-without-warrant",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7622,
+          "threshold": 0.6
+        },
+        "ms": 37,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 8
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "reg-072-refusal-appeal",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7403,
+          "threshold": 0.6
+        },
+        "ms": 54,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          5,
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-035-file",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7327,
+          "threshold": 0.6
+        },
+        "ms": 64,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "proc-reg-032-present",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7536,
+          "threshold": 0.6
+        },
+        "ms": 65,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 16,
+          "keyword_ms": 22
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-173-fir",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7061,
+          "threshold": 0.6
+        },
+        "ms": 58,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 18
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.14285714285714285,
+        "ranks": [
+          7
+        ]
+      },
+      {
+        "id": "proc-bnss-482-anticipatory",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6968,
+          "threshold": 0.6
+        },
+        "ms": 49,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 23,
+          "keyword_ms": 10
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-rera-031-complaint",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6788,
+          "threshold": 0.6
+        },
+        "ms": 97,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 28,
+          "act_scoped_ms": 22
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-038-after-admission",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6817,
+          "threshold": 0.6
+        },
+        "ms": 47,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 12
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-lim-004-court-closed",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7034,
+          "threshold": 0.6
+        },
+        "ms": 160,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20,
+          "keyword_ms": 72
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-ida-24-2-lapse",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7404,
+          "threshold": 0.6
+        },
+        "ms": 188,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 93
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.07142857142857142,
+        "ranks": [
+          14
+        ]
+      },
+      {
+        "id": "cl-ncdrc-conditional-stay",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6582,
+          "threshold": 0.6
+        },
+        "ms": 84,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 32
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.2,
+        "ranks": [
+          5
+        ]
+      },
+      {
+        "id": "cl-anticipatory-bail",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7034,
+          "threshold": 0.6
+        },
+        "ms": 169,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 22,
+          "keyword_ms": 78
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1,
+          10,
+          null
+        ]
+      },
+      {
+        "id": "cl-readiness-willingness",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6988,
+          "threshold": 0.6
+        },
+        "ms": 75,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 26
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.16666666666666666,
+        "ranks": [
+          6,
+          13,
+          11,
+          7
+        ]
+      },
+      {
+        "id": "cl-part-performance",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6873,
+          "threshold": 0.6
+        },
+        "ms": 204,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 93,
+          "act_scoped_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          10,
+          null,
+          1
+        ]
+      },
+      {
+        "id": "cl-res-judicata",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6972,
+          "threshold": 0.6
+        },
+        "ms": 163,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 17,
+          "keyword_ms": 77
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          10,
+          4,
+          1
+        ]
+      },
+      {
+        "id": "cl-unregistered-agreement",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6858,
+          "threshold": 0.6
+        },
+        "ms": 95,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 38
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2,
+          9,
+          4
+        ]
+      },
+      {
+        "id": "tr-crpc-replaced",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5997,
+          "threshold": 0.6
+        },
+        "ms": 123,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 40,
+          "act_scoped_ms": 24
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-ipc-in-force",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6016,
+          "threshold": 0.6
+        },
+        "ms": 92,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 26,
+          "act_scoped_ms": 19
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-pending-trial",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6307,
+          "threshold": 0.6
+        },
+        "ms": 145,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 27,
+          "keyword_ms": 47,
+          "act_scoped_ms": 22
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-evidence-act",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5593,
+          "threshold": 0.6
+        },
+        "ms": 197,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 85,
+          "act_scoped_ms": 16
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-438-anticipatory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7019,
+          "threshold": 0.6
+        },
+        "ms": 136,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 47,
+          "act_scoped_ms": 21
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3
+        ]
+      },
+      {
+        "id": "hi-reg-023-time-limit",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.7058,
+          "threshold": 0.6
+        },
+        "ms": 24,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 0
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-cpa-069-limitation",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6972,
+          "threshold": 0.6
+        },
+        "ms": 22,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 0
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-tpa-054-sale",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6625,
+          "threshold": 0.6
+        },
+        "ms": 23,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 0
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-bnss-482-anticipatory",
+        "language": "hi",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5957,
+          "threshold": 0.6
+        },
+        "ms": 32,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 24,
+          "keyword_ms": 0
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-ica-073-damages",
+        "language": "hi",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6574,
+          "threshold": 0.6
+        },
+        "ms": 24,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 0
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "oos-passport",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5803,
+          "threshold": 0.6
+        },
+        "ms": 37,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 7
+        }
+      },
+      {
+        "id": "oos-income-tax",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5061,
+          "threshold": 0.6
+        },
+        "ms": 50,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 12
+        }
+      },
+      {
+        "id": "oos-visa",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.4788,
+          "threshold": 0.6
+        },
+        "ms": 50,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 15
+        }
+      },
+      {
+        "id": "oos-driving-licence",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5358,
+          "threshold": 0.6
+        },
+        "ms": 47,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 13
+        }
+      },
+      {
+        "id": "oos-gst",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5043,
+          "threshold": 0.6
+        },
+        "ms": 36,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 23,
+          "keyword_ms": 3
+        }
+      },
+      {
+        "id": "hs-arrest-grounds",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5839,
+          "threshold": 0.6
+        },
+        "ms": 58,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 18
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "hs-eviction-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "dense",
+          "score": 0.5657,
+          "threshold": 0.6
+        },
+        "ms": 103,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 42
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.25,
+        "ranks": [
+          4
+        ]
+      },
+      {
+        "id": "hs-limitation-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "dense",
+          "score": 0.6724,
+          "threshold": 0.6
+        },
+        "ms": 66,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 23
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      }
+    ],
+    "hybrid_rerank": [
+      {
+        "id": "reg-023-time-limit",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.706,
+          "threshold": 0.1
+        },
+        "ms": 9799,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 38,
+          "rerank_ms": 9707
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-025-delay-unavoidable",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9804,
+          "threshold": 0.1
+        },
+        "ms": 486,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 20,
+          "keyword_ms": 18,
+          "rerank_ms": 423
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-017-gift-compulsory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9895,
+          "threshold": 0.1
+        },
+        "ms": 456,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 20,
+          "keyword_ms": 22,
+          "rerank_ms": 385
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-049-non-registration",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9922,
+          "threshold": 0.1
+        },
+        "ms": 515,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 18,
+          "keyword_ms": 36,
+          "rerank_ms": 418
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-054-sale",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9694,
+          "threshold": 0.1
+        },
+        "ms": 424,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 20,
+          "rerank_ms": 359
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3
+        ]
+      },
+      {
+        "id": "tpa-105-lease",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9994,
+          "threshold": 0.1
+        },
+        "ms": 433,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 16,
+          "rerank_ms": 376
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "tpa-122-gift-donee-dies",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9852,
+          "threshold": 0.1
+        },
+        "ms": 489,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 3,
+          "rerank_ms": 457
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-058-mortgage",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.991,
+          "threshold": 0.1
+        },
+        "ms": 485,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 46,
+          "act_scoped_ms": 19,
+          "rerank_ms": 355
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-106-lease-notice",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9308,
+          "threshold": 0.1
+        },
+        "ms": 508,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 26,
+          "rerank_ms": 430
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-069-limitation",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9798,
+          "threshold": 0.1
+        },
+        "ms": 474,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 20,
+          "keyword_ms": 33,
+          "rerank_ms": 384
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-034-district-pecuniary",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9822,
+          "threshold": 0.1
+        },
+        "ms": 475,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 28,
+          "rerank_ms": 395
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-002-consumer",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8356,
+          "threshold": 0.1
+        },
+        "ms": 454,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 24,
+          "keyword_ms": 44,
+          "act_scoped_ms": 16,
+          "rerank_ms": 323
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "rera-018-refund",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.948,
+          "threshold": 0.1
+        },
+        "ms": 570,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 31,
+          "rerank_ms": 485
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.08333333333333333,
+        "ranks": [
+          12
+        ]
+      },
+      {
+        "id": "rera-013-advance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9322,
+          "threshold": 0.1
+        },
+        "ms": 537,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 31,
+          "rerank_ms": 452
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "lim-003-bar",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9959,
+          "threshold": 0.1
+        },
+        "ms": 560,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 24,
+          "keyword_ms": 62,
+          "rerank_ms": 414
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "lim-005-condonation",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.996,
+          "threshold": 0.1
+        },
+        "ms": 619,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 21,
+          "keyword_ms": 75,
+          "rerank_ms": 454
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-010-valid-contract",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.871,
+          "threshold": 0.1
+        },
+        "ms": 458,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 17,
+          "rerank_ms": 400
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-073-damages",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9312,
+          "threshold": 0.1
+        },
+        "ms": 520,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 21,
+          "keyword_ms": 25,
+          "rerank_ms": 445
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-025-no-consideration",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9972,
+          "threshold": 0.1
+        },
+        "ms": 544,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 40,
+          "rerank_ms": 443
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "sra-010-specific-performance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9986,
+          "threshold": 0.1
+        },
+        "ms": 541,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 74,
+          "rerank_ms": 379
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.125,
+        "ranks": [
+          8
+        ]
+      },
+      {
+        "id": "cpc-009-civil-suits",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9875,
+          "threshold": 0.1
+        },
+        "ms": 454,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 22,
+          "rerank_ms": 384
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-011-res-judicata",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.992,
+          "threshold": 0.1
+        },
+        "ms": 544,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 26,
+          "act_scoped_ms": 25,
+          "rerank_ms": 443
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "cpc-o39r1-injunction",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.865,
+          "threshold": 0.1
+        },
+        "ms": 578,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 80,
+          "act_scoped_ms": 23,
+          "rerank_ms": 382
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-o7r11-rejection",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9811,
+          "threshold": 0.1
+        },
+        "ms": 514,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 18,
+          "keyword_ms": 67,
+          "rerank_ms": 364
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "rfct-026-market-value",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.97,
+          "threshold": 0.1
+        },
+        "ms": 549,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 35,
+          "rerank_ms": 456
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "bnss-035-arrest-without-warrant",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9961,
+          "threshold": 0.1
+        },
+        "ms": 395,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 9,
+          "rerank_ms": 354
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-072-refusal-appeal",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9969,
+          "threshold": 0.1
+        },
+        "ms": 458,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 17,
+          "rerank_ms": 398
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-035-file",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.872,
+          "threshold": 0.1
+        },
+        "ms": 491,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 23,
+          "rerank_ms": 421
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-reg-032-present",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9884,
+          "threshold": 0.1
+        },
+        "ms": 449,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 23,
+          "rerank_ms": 379
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-173-fir",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9702,
+          "threshold": 0.1
+        },
+        "ms": 526,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 17,
+          "keyword_ms": 20,
+          "rerank_ms": 461
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-482-anticipatory",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9774,
+          "threshold": 0.1
+        },
+        "ms": 459,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 11,
+          "rerank_ms": 412
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.08333333333333333,
+        "ranks": [
+          12
+        ]
+      },
+      {
+        "id": "proc-rera-031-complaint",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.4849,
+          "threshold": 0.1
+        },
+        "ms": 559,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 31,
+          "act_scoped_ms": 16,
+          "rerank_ms": 459
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-038-after-admission",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8795,
+          "threshold": 0.1
+        },
+        "ms": 510,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 14,
+          "rerank_ms": 458
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-lim-004-court-closed",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.966,
+          "threshold": 0.1
+        },
+        "ms": 591,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 73,
+          "rerank_ms": 427
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-ida-24-2-lapse",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9992,
+          "threshold": 0.1
+        },
+        "ms": 630,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 97,
+          "rerank_ms": 435
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.09090909090909091,
+        "ranks": [
+          11
+        ]
+      },
+      {
+        "id": "cl-ncdrc-conditional-stay",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9961,
+          "threshold": 0.1
+        },
+        "ms": 517,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 36,
+          "rerank_ms": 423
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-anticipatory-bail",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9899,
+          "threshold": 0.1
+        },
+        "ms": 629,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 81,
+          "rerank_ms": 457
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1,
+          10,
+          null
+        ]
+      },
+      {
+        "id": "cl-readiness-willingness",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9989,
+          "threshold": 0.1
+        },
+        "ms": 522,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 18,
+          "keyword_ms": 29,
+          "rerank_ms": 442
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3,
+          14,
+          8,
+          13
+        ]
+      },
+      {
+        "id": "cl-part-performance",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9445,
+          "threshold": 0.1
+        },
+        "ms": 597,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 89,
+          "act_scoped_ms": 15,
+          "rerank_ms": 400
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          null,
+          1
+        ]
+      },
+      {
+        "id": "cl-res-judicata",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9402,
+          "threshold": 0.1
+        },
+        "ms": 604,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 78,
+          "rerank_ms": 437
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          16,
+          2,
+          8
+        ]
+      },
+      {
+        "id": "cl-unregistered-agreement",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9997,
+          "threshold": 0.1
+        },
+        "ms": 521,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 18,
+          "keyword_ms": 43,
+          "rerank_ms": 415
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          6,
+          1
+        ]
+      },
+      {
+        "id": "tr-crpc-replaced",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.779,
+          "threshold": 0.1
+        },
+        "ms": 537,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 24,
+          "keyword_ms": 42,
+          "act_scoped_ms": 21,
+          "rerank_ms": 404
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-ipc-in-force",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8763,
+          "threshold": 0.1
+        },
+        "ms": 427,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 28,
+          "act_scoped_ms": 19,
+          "rerank_ms": 328
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-pending-trial",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.5063,
+          "threshold": 0.1
+        },
+        "ms": 607,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 19,
+          "keyword_ms": 48,
+          "act_scoped_ms": 25,
+          "rerank_ms": 465
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-evidence-act",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.3686,
+          "threshold": 0.1
+        },
+        "ms": 529,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 84,
+          "act_scoped_ms": 16,
+          "rerank_ms": 335
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-438-anticipatory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9925,
+          "threshold": 0.1
+        },
+        "ms": 587,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 51,
+          "act_scoped_ms": 21,
+          "rerank_ms": 446
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.07692307692307693,
+        "ranks": [
+          13
+        ]
+      },
+      {
+        "id": "hi-reg-023-time-limit",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9625,
+          "threshold": 0.1
+        },
+        "ms": 442,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 0,
+          "rerank_ms": 418
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-cpa-069-limitation",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9288,
+          "threshold": 0.1
+        },
+        "ms": 475,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 0,
+          "rerank_ms": 451
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-tpa-054-sale",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.7526,
+          "threshold": 0.1
+        },
+        "ms": 449,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 0,
+          "rerank_ms": 424
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-bnss-482-anticipatory",
+        "language": "hi",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.7573,
+          "threshold": 0.1
+        },
+        "ms": 504,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 0,
+          "rerank_ms": 480
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-ica-073-damages",
+        "language": "hi",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.159,
+          "threshold": 0.1
+        },
+        "ms": 515,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 0,
+          "rerank_ms": 488
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "oos-passport",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0268,
+          "threshold": 0.1
+        },
+        "ms": 381,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 7,
+          "rerank_ms": 341
+        }
+      },
+      {
+        "id": "oos-income-tax",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0461,
+          "threshold": 0.1
+        },
+        "ms": 470,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 17,
+          "keyword_ms": 13,
+          "rerank_ms": 419
+        }
+      },
+      {
+        "id": "oos-visa",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0007,
+          "threshold": 0.1
+        },
+        "ms": 465,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 16,
+          "rerank_ms": 410
+        }
+      },
+      {
+        "id": "oos-driving-licence",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0645,
+          "threshold": 0.1
+        },
+        "ms": 455,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 14,
+          "rerank_ms": 401
+        }
+      },
+      {
+        "id": "oos-gst",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0038,
+          "threshold": 0.1
+        },
+        "ms": 456,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 3,
+          "rerank_ms": 426
+        }
+      },
+      {
+        "id": "hs-arrest-grounds",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.1976,
+          "threshold": 0.1
+        },
+        "ms": 429,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 20,
+          "rerank_ms": 366
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "hs-eviction-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.025,
+          "threshold": 0.1
+        },
+        "ms": 579,
+        "timings": {
+          "classify_ms": 1,
+          "dense_ms": 20,
+          "keyword_ms": 48,
+          "rerank_ms": 463
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hs-limitation-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8935,
+          "threshold": 0.1
+        },
+        "ms": 511,
+        "timings": {
+          "classify_ms": 0,
+          "dense_ms": 18,
+          "keyword_ms": 25,
+          "rerank_ms": 437
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      }
+    ],
+    "full": [
+      {
+        "id": "reg-023-time-limit",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.706,
+          "threshold": 0.1
+        },
+        "ms": 1078,
+        "timings": {
+          "classify_ms": 1,
+          "exact_ms": 0,
+          "dense_ms": 23,
+          "keyword_ms": 537,
+          "rerank_ms": 444
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-025-delay-unavoidable",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9804,
+          "threshold": 0.1
+        },
+        "ms": 517,
+        "timings": {
+          "classify_ms": 1,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 15,
+          "rerank_ms": 465
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-017-gift-compulsory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9895,
+          "threshold": 0.1
+        },
+        "ms": 554,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 18,
+          "rerank_ms": 495
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-049-non-registration",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9922,
+          "threshold": 0.1
+        },
+        "ms": 616,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 30,
+          "rerank_ms": 535
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-054-sale",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9694,
+          "threshold": 0.1
+        },
+        "ms": 489,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 25,
+          "keyword_ms": 17,
+          "rerank_ms": 425
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3
+        ]
+      },
+      {
+        "id": "tpa-105-lease",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9994,
+          "threshold": 0.1
+        },
+        "ms": 477,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 13,
+          "rerank_ms": 429
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "tpa-122-gift-donee-dies",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9852,
+          "threshold": 0.1
+        },
+        "ms": 534,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 3,
+          "rerank_ms": 504
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-058-mortgage",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.991,
+          "threshold": 0.1
+        },
+        "ms": 517,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 39,
+          "act_scoped_ms": 15,
+          "rerank_ms": 407
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tpa-106-lease-notice",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9308,
+          "threshold": 0.1
+        },
+        "ms": 642,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 21,
+          "rerank_ms": 579
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-069-limitation",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9798,
+          "threshold": 0.1
+        },
+        "ms": 544,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 27,
+          "rerank_ms": 471
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-034-district-pecuniary",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9822,
+          "threshold": 0.1
+        },
+        "ms": 579,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 24,
+          "rerank_ms": 510
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpa-002-consumer",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8356,
+          "threshold": 0.1
+        },
+        "ms": 459,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 38,
+          "act_scoped_ms": 15,
+          "rerank_ms": 351
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "rera-018-refund",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.948,
+          "threshold": 0.1
+        },
+        "ms": 714,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 19,
+          "keyword_ms": 24,
+          "rerank_ms": 642
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.08333333333333333,
+        "ranks": [
+          12
+        ]
+      },
+      {
+        "id": "rera-013-advance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9322,
+          "threshold": 0.1
+        },
+        "ms": 666,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 25,
+          "rerank_ms": 593
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "lim-003-bar",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9959,
+          "threshold": 0.1
+        },
+        "ms": 629,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 51,
+          "rerank_ms": 508
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "lim-005-condonation",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.996,
+          "threshold": 0.1
+        },
+        "ms": 686,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 61,
+          "rerank_ms": 548
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-010-valid-contract",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.871,
+          "threshold": 0.1
+        },
+        "ms": 582,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 15,
+          "rerank_ms": 530
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-073-damages",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9312,
+          "threshold": 0.1
+        },
+        "ms": 662,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 19,
+          "rerank_ms": 601
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "ica-025-no-consideration",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9972,
+          "threshold": 0.1
+        },
+        "ms": 646,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 21,
+          "keyword_ms": 32,
+          "rerank_ms": 555
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "sra-010-specific-performance",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9986,
+          "threshold": 0.1
+        },
+        "ms": 607,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 65,
+          "rerank_ms": 462
+        },
+        "recall@5": 0.0,
+        "recall@10": 1.0,
+        "mrr": 0.125,
+        "ranks": [
+          8
+        ]
+      },
+      {
+        "id": "cpc-009-civil-suits",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9875,
+          "threshold": 0.1
+        },
+        "ms": 519,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 19,
+          "rerank_ms": 459
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-011-res-judicata",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.992,
+          "threshold": 0.1
+        },
+        "ms": 675,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 22,
+          "act_scoped_ms": 20,
+          "rerank_ms": 589
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "cpc-o39r1-injunction",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.865,
+          "threshold": 0.1
+        },
+        "ms": 646,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 69,
+          "act_scoped_ms": 23,
+          "rerank_ms": 472
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cpc-o7r11-rejection",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9811,
+          "threshold": 0.1
+        },
+        "ms": 569,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 14,
+          "keyword_ms": 56,
+          "rerank_ms": 437
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "rfct-026-market-value",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.97,
+          "threshold": 0.1
+        },
+        "ms": 700,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 27,
+          "rerank_ms": 623
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "bnss-035-arrest-without-warrant",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9961,
+          "threshold": 0.1
+        },
+        "ms": 516,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 8,
+          "rerank_ms": 478
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "reg-072-refusal-appeal",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9969,
+          "threshold": 0.1
+        },
+        "ms": 573,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 15,
+          "rerank_ms": 521
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-035-file",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.872,
+          "threshold": 0.1
+        },
+        "ms": 624,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 20,
+          "rerank_ms": 562
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-reg-032-present",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9884,
+          "threshold": 0.1
+        },
+        "ms": 532,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 20,
+          "rerank_ms": 471
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-173-fir",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9702,
+          "threshold": 0.1
+        },
+        "ms": 652,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 17,
+          "rerank_ms": 597
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-bnss-482-anticipatory",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9774,
+          "threshold": 0.1
+        },
+        "ms": 618,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 23,
+          "keyword_ms": 9,
+          "rerank_ms": 570
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.08333333333333333,
+        "ranks": [
+          12
+        ]
+      },
+      {
+        "id": "proc-rera-031-complaint",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.4849,
+          "threshold": 0.1
+        },
+        "ms": 699,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 25,
+          "act_scoped_ms": 14,
+          "rerank_ms": 616
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-cpa-038-after-admission",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8795,
+          "threshold": 0.1
+        },
+        "ms": 674,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 12,
+          "rerank_ms": 629
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "proc-lim-004-court-closed",
+        "language": "en",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.966,
+          "threshold": 0.1
+        },
+        "ms": 658,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 60,
+          "rerank_ms": 522
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-ida-24-2-lapse",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.9992,
+          "threshold": 0.1
+        },
+        "ms": 721,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 81,
+          "rerank_ms": 510
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-ncdrc-conditional-stay",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9961,
+          "threshold": 0.1
+        },
+        "ms": 616,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 31,
+          "rerank_ms": 534
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "cl-anticipatory-bail",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9899,
+          "threshold": 0.1
+        },
+        "ms": 704,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 66,
+          "rerank_ms": 558
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1,
+          10,
+          null
+        ]
+      },
+      {
+        "id": "cl-readiness-willingness",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9989,
+          "threshold": 0.1
+        },
+        "ms": 652,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 25,
+          "rerank_ms": 583
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ranks": [
+          3,
+          14,
+          8,
+          13
+        ]
+      },
+      {
+        "id": "cl-part-performance",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "exact",
+          "score": 0.9445,
+          "threshold": 0.1
+        },
+        "ms": 650,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 22,
+          "keyword_ms": 80,
+          "act_scoped_ms": 17,
+          "rerank_ms": 460
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          null,
+          1
+        ]
+      },
+      {
+        "id": "cl-res-judicata",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9402,
+          "threshold": 0.1
+        },
+        "ms": 669,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 64,
+          "rerank_ms": 528
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          16,
+          2,
+          8
+        ]
+      },
+      {
+        "id": "cl-unregistered-agreement",
+        "language": "en",
+        "intent": "case_law",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9997,
+          "threshold": 0.1
+        },
+        "ms": 625,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 23,
+          "keyword_ms": 35,
+          "rerank_ms": 527
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          3,
+          6,
+          1
+        ]
+      },
+      {
+        "id": "tr-crpc-replaced",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.779,
+          "threshold": 0.1
+        },
+        "ms": 598,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 35,
+          "act_scoped_ms": 19,
+          "rerank_ms": 490
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-ipc-in-force",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8763,
+          "threshold": 0.1
+        },
+        "ms": 451,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 32,
+          "keyword_ms": 24,
+          "act_scoped_ms": 18,
+          "rerank_ms": 346
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-pending-trial",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.5063,
+          "threshold": 0.1
+        },
+        "ms": 710,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 21,
+          "keyword_ms": 39,
+          "act_scoped_ms": 25,
+          "rerank_ms": 584
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-evidence-act",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.3686,
+          "threshold": 0.1
+        },
+        "ms": 570,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 75,
+          "act_scoped_ms": 16,
+          "rerank_ms": 391
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "tr-438-anticipatory",
+        "language": "en",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9925,
+          "threshold": 0.1
+        },
+        "ms": 692,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 14,
+          "keyword_ms": 41,
+          "act_scoped_ms": 18,
+          "rerank_ms": 576
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.07692307692307693,
+        "ranks": [
+          13
+        ]
+      },
+      {
+        "id": "hi-reg-023-time-limit",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9625,
+          "threshold": 0.1
+        },
+        "ms": 558,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 0,
+          "rerank_ms": 532
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-cpa-069-limitation",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.9288,
+          "threshold": 0.1
+        },
+        "ms": 631,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 0,
+          "rerank_ms": 607
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-tpa-054-sale",
+        "language": "hi",
+        "intent": "statute_lookup",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.7526,
+          "threshold": 0.1
+        },
+        "ms": 555,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 23,
+          "keyword_ms": 0,
+          "rerank_ms": 523
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hi-bnss-482-anticipatory",
+        "language": "hi",
+        "intent": "procedure",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.7573,
+          "threshold": 0.1
+        },
+        "ms": 627,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 0,
+          "rerank_ms": 605
+        },
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "ranks": [
+          null
+        ]
+      },
+      {
+        "id": "hi-ica-073-damages",
+        "language": "hi",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.159,
+          "threshold": 0.1
+        },
+        "ms": 642,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 17,
+          "keyword_ms": 0,
+          "rerank_ms": 617
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "oos-passport",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0268,
+          "threshold": 0.1
+        },
+        "ms": 434,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 14,
+          "keyword_ms": 7,
+          "rerank_ms": 399
+        }
+      },
+      {
+        "id": "oos-income-tax",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0461,
+          "threshold": 0.1
+        },
+        "ms": 612,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 11,
+          "rerank_ms": 569
+        }
+      },
+      {
+        "id": "oos-visa",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0007,
+          "threshold": 0.1
+        },
+        "ms": 560,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 14,
+          "rerank_ms": 512
+        }
+      },
+      {
+        "id": "oos-driving-licence",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0645,
+          "threshold": 0.1
+        },
+        "ms": 604,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 12,
+          "rerank_ms": 558
+        }
+      },
+      {
+        "id": "oos-gst",
+        "language": "en",
+        "intent": "out_of_scope",
+        "should_abstain": true,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.0038,
+          "threshold": 0.1
+        },
+        "ms": 634,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 15,
+          "keyword_ms": 2,
+          "rerank_ms": 607
+        }
+      },
+      {
+        "id": "hs-arrest-grounds",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.1976,
+          "threshold": 0.1
+        },
+        "ms": 517,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 18,
+          "rerank_ms": 460
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ranks": [
+          2
+        ]
+      },
+      {
+        "id": "hs-eviction-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": true,
+        "gate": {
+          "on": "rerank",
+          "score": 0.025,
+          "threshold": 0.1
+        },
+        "ms": 695,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 35,
+          "rerank_ms": 606
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      },
+      {
+        "id": "hs-limitation-tomorrow",
+        "language": "en",
+        "intent": "explain",
+        "should_abstain": false,
+        "abstained": false,
+        "gate": {
+          "on": "rerank",
+          "score": 0.8935,
+          "threshold": 0.1
+        },
+        "ms": 664,
+        "timings": {
+          "classify_ms": 0,
+          "exact_ms": 0,
+          "dense_ms": 16,
+          "keyword_ms": 22,
+          "rerank_ms": 598
+        },
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ranks": [
+          1
+        ]
+      }
+    ]
+  },
+  "abstention": {
+    "should_abstain": 5,
+    "abstained_correctly": 5,
+    "false_abstentions": 1,
+    "precision": 0.8333333333333334,
+    "recall": 1.0
+  },
+  "retrieval_by_language": {
+    "en": {
+      "n": 49,
+      "recall@5": 0.9183673469387755
+    },
+    "hi": {
+      "n": 5,
+      "recall@5": 0.8
+    }
+  },
+  "calibration": [
+    {
+      "threshold": 0.05,
+      "correct_abstentions": 4,
+      "false_abstentions": 1,
+      "missed_abstentions": 1
+    },
+    {
+      "threshold": 0.1,
+      "correct_abstentions": 5,
+      "false_abstentions": 1,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.15,
+      "correct_abstentions": 5,
+      "false_abstentions": 1,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.2,
+      "correct_abstentions": 5,
+      "false_abstentions": 3,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.25,
+      "correct_abstentions": 5,
+      "false_abstentions": 3,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.3,
+      "correct_abstentions": 5,
+      "false_abstentions": 3,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.35,
+      "correct_abstentions": 5,
+      "false_abstentions": 3,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.4,
+      "correct_abstentions": 5,
+      "false_abstentions": 4,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.45,
+      "correct_abstentions": 5,
+      "false_abstentions": 4,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.5,
+      "correct_abstentions": 5,
+      "false_abstentions": 5,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.55,
+      "correct_abstentions": 5,
+      "false_abstentions": 6,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.6,
+      "correct_abstentions": 5,
+      "false_abstentions": 6,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.65,
+      "correct_abstentions": 5,
+      "false_abstentions": 6,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.7,
+      "correct_abstentions": 5,
+      "false_abstentions": 6,
+      "missed_abstentions": 0
+    },
+    {
+      "threshold": 0.75,
+      "correct_abstentions": 5,
+      "false_abstentions": 7,
+      "missed_abstentions": 0
+    }
+  ]
+}

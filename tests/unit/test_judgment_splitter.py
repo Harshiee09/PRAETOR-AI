@@ -36,6 +36,23 @@ def test_fixture_metadata_is_the_dataset_record():
     assert fx["metadata"]["neutral_citation"] == "2021 INSC 836"
 
 
+def test_ocr_garbled_marker_is_accepted_only_when_confirmed():
+    """[2016] 3 S.C.R. 225: the scan's text layer reads 'The Judgment of the Com1 was delivered by'."""
+    doc = parsed_from_fixture("sc_2016_3_scr_225_ocr_marker")
+    start, _ = find_body(doc.lines)
+    assert "Com1 was delivered by" in doc.lines[start - 1].text
+    assert doc.lines[start].text.startswith("KURIAN, J")
+
+
+def test_in_re_titles_drop_the_empty_respondent():
+    from app.chunking.judgment import clean_case_title
+
+    meta = {"case_title": "IN RE: INTERPLAY BETWEEN ARBITRATION AGREEMENTS versus .", "respondent": "."}
+    assert clean_case_title(meta) == "IN RE: INTERPLAY BETWEEN ARBITRATION AGREEMENTS"
+    meta2 = {"case_title": "AJAY GUPTA versus RAJU @ RAJENDRA SINGH YADAV", "respondent": "RAJU @ RAJENDRA SINGH YADAV"}
+    assert clean_case_title(meta2) == meta2["case_title"]
+
+
 def test_paragraph_number_pattern():
     assert PARA_NUM.match("12. The appellant").group("num") == "12"
     assert PARA_NUM.match("7.1 Pre-deposit of").group("sub") == "1"

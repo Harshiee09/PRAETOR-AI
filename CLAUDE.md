@@ -47,12 +47,12 @@ docs/         INDEX.md  STATUS.md  DECISIONS.md  reports/  sources/  topics/
 | Task | Command |
 |---|---|
 | GPU and model smoke test | `praetor gpu-check` |
-| Download sources | `praetor ingest --source indiacode` · `praetor ingest --source sc-judgments --years 2016-2025 --limit 50` |
-| Parse, chunk, embed, index (incremental; `--force` re-processes all) | `praetor index` |
+| Download sources | `praetor ingest --source indiacode --phase 2` · `praetor ingest --source sc-judgments --years 2016-2025 --limit 1000 --via tar` (`--dry-run` to preview) |
+| Parse, chunk, embed, index (incremental; `--force` re-processes all; `--workers 2` if RAM is short) | `praetor index` |
 | Corpus data profile | `praetor profile` |
-| Ask from the terminal | `praetor ask "question" --explain` |
+| Ask from the terminal (`--mode dense|keyword|hybrid|hybrid_rerank|full`) | `praetor ask "question" --explain` |
 | Run the API | `praetor serve` |
-| Evaluation | `praetor eval` |
+| Evaluation: ablation + abstention (`--no-llm`), answers, gate sweep, model benchmark | `praetor eval [--split dev|test] [--no-llm] [--calibrate] [--model NAME]` |
 | AWS pre-flight / sync | `praetor aws-check` · `praetor s3-sync push` |
 | Tests | `pytest -m "not integration"` · `pytest -m integration` |
 | Phase 1 acceptance | `python scripts/phase1_acceptance.py` · fixtures: `python scripts/make_fixtures.py` |

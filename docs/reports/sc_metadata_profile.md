@@ -1,6 +1,6 @@
 # SC judgments metadata profile
 
-_Generated 2026-09-22T22:36:52+00:00 from `metadata/parquet/year=YYYY/metadata.parquet`, years 2016–2025._
+_Generated 2026-09-22T23:41:08+00:00 from `metadata/parquet/year=YYYY/metadata.parquet`, years 2016–2025._
 
 **Rows:** 7997 · **Columns:** 18
 

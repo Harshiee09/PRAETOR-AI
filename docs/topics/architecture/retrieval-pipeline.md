@@ -3,7 +3,7 @@ id: 20260922-retrieval-pipeline
 title: Retrieval pipeline
 tags: [retrieval, architecture, multilingual]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-24
 related: [20260922-chunk-schema, 20260922-llm-layer, 20260922-grounding-and-citations, 20260922-statute-status, 20260922-multilingual, 20260922-evaluation]
 summary: Query side from classification through hybrid search, fusion, reranking, the evidence gate and context building.
 ---
@@ -62,6 +62,14 @@ Order blocks as statute text, then Supreme Court judgments, then High Court judg
 <chunk text>
 ```
 Repealed material gets `| REPEALED from <date>, replaced by <successor>`, taken from the statute registry. Trim long chunks at sentence boundaries to stay inside `CONTEXT_MAX_TOKENS`. The `S# -> chunk_id` map stays server-side and is the only thing a citation can resolve to.
+
+### As built in Phase 2 (DECISIONS D25–D29)
+- Classification is rules only (`app/rag/classify.py`); `LLM_CLASSIFY=ollama` and LLM query rewriting are not built (cut list #2). The soft domain filter is not applied.
+- Candidate pool: dense top 50 + keyword top 50, plus a **statute quota** (top 10 statute chunks from dense and from keyword, each fused as its own list), **Act-scoped** statute search when the query names an Act, a **case-name lookup** (`X v. Y` against stored case titles, pinning the named judgment's closest passages), and a **transition pin** (for a named repealed Act: the successor's repeal section and closest provision).
+- Exact lookup covers sections (`s. 23`, `धारा 23`) and CPC rules (`Order 39 Rule 1` → `O. XXXIX r. 1`), only in the Act the query names.
+- Final order: pinned hits, then RRF over (fused rank, rerank rank). Rerank-only ordering lost statute text to judgment paraphrases.
+- Evidence gate: top rerank score < `MIN_EVIDENCE_SCORE` (0.10) abstains; exact/case lookups bypass it.
+- FTS5 uses `categories 'L* N* Co M*'` so Indic words are not split at vowel signs.
 
 ### Output
 `RetrievalResult {query, rewrites, classification, candidates[{chunk_id, ranks: {exact, dense, keyword, fused, rerank}, scores}], context_blocks, abstained, timings_ms}`, logged under the request's `trace_id`.

@@ -3,7 +3,7 @@ id: 20260922-evaluation
 title: Evaluation
 tags: [evaluation, retrieval, legal]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-24
 related: [20260922-retrieval-pipeline, 20260922-grounding-and-citations, 20260922-chunk-schema, 20260922-build-plan, 20260922-multilingual]
 summary: Gold set format, metrics, data-profile gates and how to compare configurations honestly.
 ---
@@ -28,6 +28,9 @@ summary: Gold set format, metrics, data-profile gates and how to compare configu
 - Aim for 40–60 questions by the end of Phase 2, and at least 10 in Phase 1: roughly 25 statute lookups and explanations, 8 procedures, 7 case-law questions, 5 criminal-code transition questions, at least 5 per non-English demo language, 5 out-of-corpus questions that must be abstained on, and 3 high-stakes ones.
 - A person checks every expected source and `must_mention` item against the ingested text. A model may draft candidate questions; it never writes the expected answers.
 - Freeze a `dev` split for tuning thresholds and a `test` split for reporting.
+
+### State of the gold set (2026-09-24)
+59 draft questions (54 answerable, 5 out-of-corpus), split dev/test within each category; none verified by a person yet. Expected sources and `must_mention` phrases were copied from the ingested text; case-law items list acceptable alternatives with `"match": "any"`; the 5 Hindi phrasings need a Hindi speaker. Two out-of-corpus drafts were replaced after checking that the corpus does contain related judgments (divorce, trademark). The evidence-gate threshold was set after seeing all scores (DECISIONS D27), so test-split abstention numbers are optimistic.
 
 ### Metrics (`praetor eval`, written to `evaluation/reports/<timestamp>.md` and `.json`)
 | Area | Metric |

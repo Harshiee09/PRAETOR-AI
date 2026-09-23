@@ -14,6 +14,7 @@ from pathlib import Path
 
 from app.chunking.schema import Chunk, Document, text_hash
 
+FTS_TOKENIZER = "unicode61 remove_diacritics 0 categories 'L* N* Co M*'"
 _JSON_FIELDS = {"domain_tags", "amendment_notes", "judges"}
 _INT_FIELDS = {"page_start", "page_end", "token_count", "act_year", "para_start", "para_end"}
 _REAL_FIELDS = {"ocr_confidence"}
@@ -43,8 +44,10 @@ SCHEMA = [
     _chunk_ddl(),
     "CREATE INDEX IF NOT EXISTS ix_chunks_doc ON chunks(doc_id)",
     "CREATE INDEX IF NOT EXISTS ix_chunks_act_section ON chunks(act_title, section)",
-    """CREATE VIRTUAL TABLE IF NOT EXISTS chunks_fts USING fts5(
-        embed_text, content='chunks', content_rowid='rowid', tokenize="unicode61 remove_diacritics 0")""",
+    # `categories 'L* N* Co M*'` makes combining marks token characters: the default unicode61 splits Indic words at
+    # every vowel sign (रजिस्ट्रीकरण -> र, रज, स, ट, करण), which wrecks BM25 for Hindi and Tamil (DECISIONS V22).
+    f"""CREATE VIRTUAL TABLE IF NOT EXISTS chunks_fts USING fts5(
+        embed_text, content='chunks', content_rowid='rowid', tokenize="{FTS_TOKENIZER}")""",
     """CREATE TRIGGER IF NOT EXISTS chunks_ai AFTER INSERT ON chunks BEGIN
         INSERT INTO chunks_fts(rowid, embed_text) VALUES (new.rowid, new.embed_text); END""",
     """CREATE TRIGGER IF NOT EXISTS chunks_ad AFTER DELETE ON chunks BEGIN
@@ -69,10 +72,25 @@ def connect(path: Path) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
     conn.execute("PRAGMA journal_mode = WAL")
+    _migrate_fts(conn)
     for stmt in SCHEMA:
         conn.execute(stmt)
     conn.commit()
     return conn
+
+
+def _migrate_fts(conn: sqlite3.Connection) -> None:
+    """Recreate chunks_fts (and its triggers) when it was built with a different tokenizer, then rebuild it from
+    the chunks table."""
+    row = conn.execute("SELECT sql FROM sqlite_master WHERE name = 'chunks_fts'").fetchone()
+    if row is None or "categories" in row[0]:
+        return
+    for stmt in ("DROP TRIGGER IF EXISTS chunks_ai", "DROP TRIGGER IF EXISTS chunks_ad", "DROP TABLE chunks_fts"):
+        conn.execute(stmt)
+    for stmt in SCHEMA:
+        conn.execute(stmt)
+    conn.execute("INSERT INTO chunks_fts(chunks_fts) VALUES ('rebuild')")
+    conn.commit()
 
 
 def _encode(name: str, value):

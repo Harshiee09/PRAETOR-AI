@@ -1,0 +1,867 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496430",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/fc9dad3f-97a9-4216-843b-934665693468/content",
+ "raw_sha256": "393b8848fdfc476a21cc3abf4f0d3f510557e2dff6fc6914b1f379bea1730614",
+ "retrieved_at": "2026-09-22T23:31:07+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  2,
+  4
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "LIST OF AMENDING ACTS",
+   "page": 2,
+   "x0": 233.09,
+   "x1": 378.66200000000003,
+   "top": 73.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. The Code of Civil Procedure (Amendment) Act, 1914 (1 of 1914).",
+   "page": 2,
+   "x0": 90.024,
+   "x1": 400.7345599999998,
+   "top": 93.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. The Decentralization Act, 1914 (4 of 1914).",
+   "page": 2,
+   "x0": 90.024,
+   "x1": 301.85002,
+   "top": 108.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. The Repealing and Amending Act, 1914 (10 of 1914).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.51001999999994,
+   "top": 122.52463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. The Second Repealing and Amending Act, 1914 (17 of 1914).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 381.65943999999996,
+   "top": 137.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. The Amending Act, 1916 (13 of 1916).",
+   "page": 2,
+   "x0": 90.024,
+   "x1": 281.09002,
+   "top": 151.68463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. The Repealing and Amending Act, 1917 (24 of 1917).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.51001999999994,
+   "top": 166.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. The Code of Civil Procedure (Amendment) Act, 1920 (24 of 1920).",
+   "page": 2,
+   "x0": 90.024,
+   "x1": 406.25455999999986,
+   "top": 180.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "8. The Limitation and Code of Civil Procedure (Amendment) Act, 1920 (26 of 1920).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 473.1751999999998,
+   "top": 195.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "9. The Devolution Act, 1920 (38 of 1920).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 283.54112,
+   "top": 209.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "10. The Code of Civil Procedure (Amendment) Act, 1921 (3 of 1921).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 400.2450399999999,
+   "top": 224.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "11. The Civil Procedure (Amendment) Act, 1922 (9 of 1922).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 362.20112,
+   "top": 238.95464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "12. The Repealing and Amending Act, 1923 (11 of 1923).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.40288,
+   "top": 253.47464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "13. The Criminal Law Amendment Act, 1923 (29 of 1923).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 352.37552,
+   "top": 268.11464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "14. The Legislative Members Exemption Act, 1925 (23 of 1925).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 378.16495999999995,
+   "top": 282.63464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "15. The Oudh Courts (Supplementary) Act, 1925 (32 of 1925).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 367.10288,
+   "top": 297.15464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "16. The Small Cause Courts (Attachment of Immoveable Property) Act, 1926 (1 of 1926).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 487.39471999999967,
+   "top": 311.67463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "17. The Code of Civil Procedure (Second Amendment) Act, 1926 (22 of 1926).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 440.794,
+   "top": 326.31463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "18. The Repealing and Amending Act, 1927 (10 of 1927).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.51001999999994,
+   "top": 340.83464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "19. The Repealing and Amending Act, 1928 (18 of 1928).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.51001999999994,
+   "top": 355.35463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "20. The Transfer of Property (Amendment) Supplementary Act, 1929 (21 of 1929).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 457.4652799999997,
+   "top": 369.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "21. The Code of Civil Procedure (Amendment) Act, 1932 (10 of 1932).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.78999999999996,
+   "top": 384.39464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "22. The Amending Act 1934 (35 of 1934).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 277.62752,
+   "top": 399.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "23. The Code of Civil Procedure (Amendment) Act, 1936 (21 of 1936).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.6545599999999,
+   "top": 413.57464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "24. The Code of Civil Procedure (Amendment) Act, 1937 (8 of 1937).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 400.13455999999985,
+   "top": 428.09463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "25. The Code of Civil Procedure (Second Amendment) Act, 1937 (9 of 1937).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 435.1644799999997,
+   "top": 442.61464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "26. The Code of Civil Procedure (Third Amendment) Act, 1937 (16 of 1937).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 432.7577599999998,
+   "top": 457.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "27. The Registration of Foreigners Act, 1939 (26 of 1939).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 349.35056,
+   "top": 471.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "28. The Arbitration Act, 1940 (10 of 1940).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 282.91184,
+   "top": 486.29463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "29. The Berar laws Act, 1941 (4 of 1941).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 275.85728,
+   "top": 500.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "30. The Code of Civil Procedure (Amendment) Act, 1942 (23 of 1942).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.6545599999999,
+   "top": 515.33464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "31. The Code of Civil Procedure (Second Amendment) Act, 1942 (24 of 1942).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 440.68447999999967,
+   "top": 529.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "32. The Repealing and Amending Act, 1942 (25 of 1942).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.40672000000006,
+   "top": 544.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "33. The Code of Civil Procedure (Amendment) Act, 1943 (5 of 1943).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 400.27,
+   "top": 559.04464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "34. The Code of Civil Procedure (Amendment) Act, 1948 (6 of 1948).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 400.24647999999996,
+   "top": 573.56464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "35. The Code of Civil Procedure (Amendment) Act, 1949 (32 of 1949).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.76648,
+   "top": 588.0846399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "36. The Code of Civil Procedure (Amendment) Act, 1951 (2 of 1951).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 400.24647999999996,
+   "top": 602.7246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "37. The Code of Civil Procedure (Second Amendment) Act, 1951 (19 of 1951).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 440.83002,
+   "top": 617.2446399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "38. The Code of Civil and Criminal Procedure (Amendment) Act, 1951 (24 of 1951).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 465.96607999999975,
+   "top": 631.76464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "39. The Code of Civil Procedure (Amendment) Act, 1952 (71 of 1952).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.6545599999999,
+   "top": 646.28464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "40. The Repealing and Amending Act, 1953 (42 of 1953).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.40288,
+   "top": 660.92464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "41. The Code of Civil Procedure (Amendment) Act, 1956 (66 of 1956).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.6545599999999,
+   "top": 675.4446399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "42. The Code of Civil Procedure (Amendment) Act, 1963 (26 of 1963).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.6545599999999,
+   "top": 689.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "43. The Rulers of Indian States (Abolition of Privileges) Act, 1972 (54 of 1972).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 445.1998399999997,
+   "top": 704.4846399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "44. The Code of Civil Procedure (Amendment) Act, 1973 (49 of 1963).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 405.6545599999999,
+   "top": 719.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "45. The Code of Civil Procedure (Amendment) Act, 1976 (104 of 1976).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 411.28648,
+   "top": 733.66464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "46. The Repealing and Amending Act, 1978 (38 of 1978).",
+   "page": 2,
+   "x0": 89.424,
+   "x1": 346.40288,
+   "top": 748.18464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "THE CODE OF CIVIL PROCEDURE, 1908",
+   "page": 4,
+   "x0": 200.93,
+   "x1": 411.16999999999985,
+   "top": 73.05199999999991,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "______",
+   "page": 4,
+   "x0": 288.53,
+   "x1": 323.45,
+   "top": 86.01199999999994,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ARRANGEMENT OF SECTIONS",
+   "page": 4,
+   "x0": 221.81,
+   "x1": 390.22999999999996,
+   "top": 110.49199999999996,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "______",
+   "page": 4,
+   "x0": 288.29,
+   "x1": 323.69,
+   "top": 123.21199999999999,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 4,
+   "x0": 268.13,
+   "x1": 343.76168000000007,
+   "top": 142.0519999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "SECTIONS",
+   "page": 4,
+   "x0": 72.024,
+   "x1": 116.133,
+   "top": 155.76463999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title, commencement and extent.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 270.60623999999996,
+   "top": 174.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Definitions.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 153.79664,
+   "top": 192.96464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Subordination of Courts.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 213.49135999999996,
+   "top": 211.68463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. Savings.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 139.73984,
+   "top": 230.28463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "5. Application of the Code to Revenue Courts.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 300.3276799999999,
+   "top": 249.03463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "6. Pecuniary jurisdiction.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 202.01647999999994,
+   "top": 267.63464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "7. Provincial Small Cause Courts.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 239.21455999999995,
+   "top": 286.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "8. Presidency Small Cause Courts.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 244.97743999999994,
+   "top": 304.95464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PART I",
+   "page": 4,
+   "x0": 286.13,
+   "x1": 325.41031999999996,
+   "top": 322.23464,
+   "size": 11.0,
+   "bold_prefix": "PART I",
+   "markers": []
+  },
+  {
+   "text": "SUITS IN GENERAL",
+   "page": 4,
+   "x0": 256.01,
+   "x1": 355.66808,
+   "top": 339.39464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "JURISDICTION OF THE COURTS AND Res Judicata",
+   "page": 4,
+   "x0": 198.53,
+   "x1": 413.57896,
+   "top": 351.87464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "9. Courts to try all civil suits unless barred.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 283.73456,
+   "top": 370.47463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "10. Stay of suit.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 160.30592,
+   "top": 389.19464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "11. Res judicata.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 171.99632,
+   "top": 407.81464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "12. Bar to further suit.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 190.98511999999994,
+   "top": 426.53463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "13. When foreign judgment not conclusive.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 288.11071999999996,
+   "top": 445.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "14. Presumption as to foreign judgments.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 276.97231999999997,
+   "top": 463.85463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PLACE OF SUING",
+   "page": 4,
+   "x0": 268.73,
+   "x1": 343.28499999999997,
+   "top": 482.45464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "15. Court in which suits to be instituted.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 272.22943999999995,
+   "top": 501.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "16. Suits to be instituted where subject-matter situate.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 334.32488,
+   "top": 519.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "17. Suits for immovable property situate within jurisdiction of different Courts.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 446.63935999999984,
+   "top": 538.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "18. Place of Institution of suit where local limits of jurisdiction of Courts are uncertain.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 474.29319999999996,
+   "top": 557.09464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "19. Suits for compensation for wrongs to person or movables.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 369.29887999999994,
+   "top": 575.7246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "20. Other suits to be instituted where defendants reside or cause of action arises.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 458.1872,
+   "top": 594.3246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "21. Objections to jurisdiction.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 224.32255999999995,
+   "top": 613.04464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "21A. Bar on suit to set aside decree on objection as to place of suing.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 410.7176,
+   "top": 631.64464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "22. Power to transfer suits which may be instituted in more than one Court.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 431.64128000000005,
+   "top": 650.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "23. To what Court application lies.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 244.55647999999997,
+   "top": 668.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "24. General power of transfer and withdrawal.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 295.40671999999995,
+   "top": 687.5646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "25. Power of Supreme Court to transfer suits, etc.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 308.07104,
+   "top": 706.28464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "INSTITUTION OF SUITS",
+   "page": 4,
+   "x0": 256.25,
+   "x1": 355.828,
+   "top": 724.90464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "26. Institution of suits.",
+   "page": 4,
+   "x0": 90.024,
+   "x1": 196.94047999999995,
+   "top": 743.62464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

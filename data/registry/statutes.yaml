@@ -1,7 +1,8 @@
 # Source of truth for in-force / repealed status (spec: docs/topics/legal/statute-status.md).
-# Every entry carries source_url and verified_on. Phase 1 covers only the three corpus Acts; the criminal-code
-# entries (IPC/BNS, CrPC/BNSS, IEA/BSA) and the rest of the seed list are added in Phase 2 after verification.
+# Every entry carries source_url, verified_on and the evidence it was verified from. Dates come from India Code
+# metadata or from the commencement footnote printed in the Act's own text, never from memory.
 
+# --- property and land
 - id: registration-1908
   title: The Registration Act, 1908
   short_title: Registration Act, 1908
@@ -17,7 +18,7 @@
 - id: tpa-1882
   title: The Transfer of Property Act, 1882
   short_title: Transfer of Property Act, 1882
-  aliases: [TP Act, TPA, Transfer of Property Act]
+  aliases: [TP Act, TPA, T.P. Act, Transfer of Property Act]
   act_number: 4
   act_year: 1882
   status: in_force
@@ -26,6 +27,97 @@
   verified_on: 2026-09-23
   evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=1882-07-01."
 
+- id: rfctlarr-2013
+  title: The Right to Fair Compensation and Transparency in Land Acquisition, Rehabilitation and Resettlement Act, 2013
+  short_title: Right to Fair Compensation and Transparency in Land Acquisition, Rehabilitation and Resettlement Act, 2013
+  aliases: [RFCTLARR Act, RFCTLARR, LARR Act, Land Acquisition Act 2013, Right to Fair Compensation Act]
+  act_number: 30
+  act_year: 2013
+  status: in_force
+  in_force_from: 2014-01-01
+  replaces: laa-1894
+  source_url: https://indiacode.gov.in/handle/123456789/496066
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=01-01-2014."
+
+- id: laa-1894
+  title: The Land Acquisition Act, 1894
+  short_title: Land Acquisition Act, 1894
+  aliases: [Land Acquisition Act, LA Act, L.A. Act]
+  act_number: 1
+  act_year: 1894
+  status: repealed
+  repealed_from: 2014-01-01
+  successor: rfctlarr-2013
+  source_url: https://indiacode.gov.in/handle/123456789/489153
+  verified_on: 2026-09-23
+  evidence: "India Code repeal register: 'The Land Acquisition Act, 1894,1 of 1894(Rep., Act 30 of 2013)'; Act 30 of 2013 (RFCTLARR) in force from 01-01-2014. Text not ingested."
+
+- id: rera-2016
+  title: The Real Estate (Regulation and Development) Act, 2016
+  short_title: Real Estate (Regulation and Development) Act, 2016
+  aliases: [RERA, RERA Act, Real Estate Act]
+  act_number: 16
+  act_year: 2016
+  status: in_force
+  in_force_from: 2016-05-01
+  notes: >-
+    Commenced in two stages per the footnote to s. 1(3): 1 May 2016 (S.O. 1544(E)) for s. 2, ss. 20-39, 41-58,
+    71-78, 81-92; 1 May 2017 (S.O. 1216(E)) for ss. 3-19, 40, 59-71, 79-80.
+  source_url: https://indiacode.gov.in/handle/123456789/496051
+  verified_on: 2026-09-23
+  evidence: "India Code central item: repealed=false; commencement footnote on p. 6 of A2016-16.pdf."
+
+- id: limitation-1963
+  title: The Limitation Act, 1963
+  short_title: Limitation Act, 1963
+  aliases: [Limitation Act]
+  act_number: 36
+  act_year: 1963
+  status: in_force
+  in_force_from: 1964-01-01
+  source_url: https://indiacode.gov.in/handle/123456789/496389
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=01-01-1964."
+
+# --- contract and civil
+- id: ica-1872
+  title: The Indian Contract Act, 1872
+  short_title: Indian Contract Act, 1872
+  aliases: [Contract Act, ICA, Indian Contract Act]
+  act_number: 9
+  act_year: 1872
+  status: in_force
+  in_force_from: 1872-09-01
+  source_url: https://indiacode.gov.in/handle/123456789/496413
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=1872-09-01."
+
+- id: sra-1963
+  title: The Specific Relief Act, 1963
+  short_title: Specific Relief Act, 1963
+  aliases: [Specific Relief Act, SRA, SR Act]
+  act_number: 47
+  act_year: 1963
+  status: in_force
+  in_force_from: 1964-03-01
+  source_url: https://indiacode.gov.in/handle/123456789/496392
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=01-03-1964."
+
+- id: cpc-1908
+  title: The Code of Civil Procedure, 1908
+  short_title: Code of Civil Procedure, 1908
+  aliases: [CPC, C.P.C., Civil Procedure Code, Code of Civil Procedure]
+  act_number: 5
+  act_year: 1908
+  status: in_force
+  in_force_from: 1909-01-01
+  source_url: https://indiacode.gov.in/handle/123456789/496430
+  verified_on: 2026-09-23
+  evidence: "India Code central item: dc.identifier.repealed=false, dc.date.enforcement_date=1909-01-01."
+
+# --- consumer
 - id: cpa-2019
   title: The Consumer Protection Act, 2019
   short_title: Consumer Protection Act, 2019
@@ -34,11 +126,114 @@
   act_year: 2019
   status: in_force
   in_force_from: 2020-07-20
+  replaces: cpa-1986
   notes: >-
     Commenced in two stages per the footnote to s. 1(3) in the India Code text: most provisions on 20 July 2020
     (S.O. 2351(E), 15 July 2020); s. 2 clauses (4), (13), (14), (16), (40), ss. 10-27, s. 58(1)(a)(iv), ss. 88, 89,
     92-94, 96, 97, 99, parts of s. 101 and s. 104 on 24 July 2020 (S.O. 2421(E), 23 July 2020).
-  replaces: cpa-1986
   source_url: https://indiacode.gov.in/handle/123456789/496115
   verified_on: 2026-09-23
   evidence: "India Code central item: dc.identifier.repealed=false; commencement footnote on p. 6 of A2019-35.pdf."
+
+- id: cpa-1986
+  title: The Consumer Protection Act, 1986
+  short_title: Consumer Protection Act, 1986
+  aliases: [CPA 1986, Consumer Protection Act 1986]
+  act_number: 68
+  act_year: 1986
+  status: repealed
+  repealed_from: 2020-07-20
+  successor: cpa-2019
+  source_url: https://indiacode.gov.in/handle/123456789/491618
+  verified_on: 2026-09-23
+  evidence: "India Code repeal register: 'The Consumer Protection Act, 1986, 68 of 1986 (Rep., Act 35 of 2019)'; the repealing s. 107 of Act 35 of 2019 commenced 20 July 2020 (footnote to s. 1(3)). Text not ingested."
+
+# --- criminal law: the 2024 transition (temporal rule in docs/topics/legal/statute-status.md)
+- id: bnss-2023
+  title: The Bharatiya Nagarik Suraksha Sanhita, 2023
+  short_title: Bharatiya Nagarik Suraksha Sanhita, 2023
+  aliases: [BNSS, BNSS 2023]
+  act_number: 46
+  act_year: 2023
+  status: in_force
+  in_force_from: 2024-07-01
+  replaces: crpc-1973
+  notes: >-
+    In force 1 July 2024 except the entry relating to s. 106(2) of the BNS in the First Schedule (S.O. 848(E),
+    23 February 2024). s. 531 repeals the CrPC and continues pending appeals, trials, inquiries and investigations
+    under it.
+  source_url: https://indiacode.gov.in/handle/123456789/496550
+  verified_on: 2026-09-23
+  evidence: "India Code central item: repealed=false, enforcement_date=01-07-2024; footnote to s. 1 (p. 18 of A2023-46.pdf); s. 531 of the text."
+
+- id: crpc-1973
+  title: The Code of Criminal Procedure, 1973
+  short_title: Code of Criminal Procedure, 1973
+  aliases: [CrPC, Cr.P.C., Criminal Procedure Code, Code of Criminal Procedure]
+  act_number: 2
+  act_year: 1974
+  status: repealed
+  repealed_from: 2024-07-01
+  successor: bnss-2023
+  notes: >-
+    Repealed by s. 531(1) of the BNSS (Act 46 of 2023); s. 531(2) keeps proceedings pending before 1 July 2024 under
+    the old Code. Text not ingested: India Code holds only a scanned as-enacted 1974 print (DECISIONS V23).
+  source_url: https://indiacode.gov.in/handle/123456789/620185
+  verified_on: 2026-09-23
+  evidence: "India Code repeal register: 'The Code of Criminal Procedure 1973, 02 of 1974 (Rep., Act 46 of 2023)'; BNSS s. 531 and commencement 1 July 2024."
+
+- id: bns-2023
+  title: The Bharatiya Nyaya Sanhita, 2023
+  short_title: Bharatiya Nyaya Sanhita, 2023
+  aliases: [BNS, BNS 2023]
+  act_number: 45
+  act_year: 2023
+  status: in_force
+  not_in_force: ["106(2)"]  # chunks of s. 106 get status partially_in_force
+  in_force_from: 2024-07-01
+  replaces: ipc-1860
+  notes: >-
+    In force 1 July 2024 except s. 106(2) (S.O. 850(E), 23 February 2024). s. 358 repeals the IPC.
+  source_url: https://indiacode.gov.in/handle/123456789/496548
+  verified_on: 2026-09-23
+  evidence: "India Code central item: repealed=false, enforcement_date=1-7-2024; footnote to s. 1 (p. 16 of a2023-45.pdf); s. 358 of the text."
+
+- id: ipc-1860
+  title: The Indian Penal Code, 1860
+  short_title: Indian Penal Code, 1860
+  aliases: [IPC, I.P.C., Indian Penal Code, Penal Code]
+  act_number: 45
+  act_year: 1860
+  status: repealed
+  repealed_from: 2024-07-01
+  successor: bns-2023
+  source_url: https://indiacode.gov.in/handle/123456789/488475
+  verified_on: 2026-09-23
+  evidence: "India Code repeal register: 'The Indian Penal Code, 45 of 1860 (Rep., Act 45 of 2023)'; BNS s. 358 and commencement 1 July 2024. Text not ingested."
+
+- id: bsa-2023
+  title: The Bharatiya Sakshya Adhiniyam, 2023
+  short_title: Bharatiya Sakshya Adhiniyam, 2023
+  aliases: [BSA, BSA 2023]
+  act_number: 47
+  act_year: 2023
+  status: in_force
+  in_force_from: 2024-07-01
+  replaces: iea-1872
+  notes: "In force 1 July 2024 (S.O. 849(E), 23 February 2024). s. 170 repeals the Indian Evidence Act, 1872."
+  source_url: https://indiacode.gov.in/handle/123456789/496549
+  verified_on: 2026-09-23
+  evidence: "India Code central item: repealed=false, enforcement_date=1-7-2024; footnote to s. 1 (p. 10 of a2023-47.pdf); s. 170 of the text."
+
+- id: iea-1872
+  title: The Indian Evidence Act, 1872
+  short_title: Indian Evidence Act, 1872
+  aliases: [Evidence Act, IEA, Indian Evidence Act]
+  act_number: 1
+  act_year: 1872
+  status: repealed
+  repealed_from: 2024-07-01
+  successor: bsa-2023
+  source_url: https://indiacode.gov.in/handle/123456789/488783
+  verified_on: 2026-09-23
+  evidence: "India Code repeal register: 'The Indian Evidence Act, 1872, 1 of 1872 (Rep., Act 47 of 2023)'; BSA s. 170 and commencement 1 July 2024. Text not ingested."

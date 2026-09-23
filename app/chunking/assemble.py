@@ -44,6 +44,11 @@ def statute_chunks(doc: Document, sp: StatuteParse, act: dict, jurisdictions: di
     """act: the statutes.yaml entry (status, short_title, act_year, act_number, successor)."""
     act_title = act["short_title"]
     out: list[Chunk] = []
+    # provisions not yet in force, e.g. BNS "106(2)": the whole section is marked partially in force
+    partial_sections = {re.match(r"\w+", p).group(0) for p in act.get("not_in_force") or []}
+
+    def status_for(sec: SectionDraft) -> str:
+        return "partially_in_force" if sec.kind == "section" and sec.num in partial_sections else act["status"]
 
     def notes_for(sec: SectionDraft) -> list[dict] | None:
         notes = [{"page": pg, "marker": m, "text": sp.footnotes[pg][m]}
@@ -65,7 +70,7 @@ def statute_chunks(doc: Document, sp: StatuteParse, act: dict, jurisdictions: di
             out.append(Chunk(
                 chunk_id=make_chunk_id(doc.doc_id, locator, text), **base,
                 locator=locator, page_start=piece[0].page_start, page_end=piece[-1].page_end,
-                text=text, embed_text=embed_text, token_count=count(text), status=act["status"],
+                text=text, embed_text=embed_text, token_count=count(text), status=status_for(sec),
                 domain_tags=domain_tags, text_source="layer",
                 act_title=act_title, act_year=act["act_year"], act_number=str(act.get("act_number") or "") or None,
                 part=_tidy_label(sec.part), chapter=_tidy_label(sec.chapter),
@@ -76,6 +81,9 @@ def statute_chunks(doc: Document, sp: StatuteParse, act: dict, jurisdictions: di
     for sec in sp.sections:
         if sec.kind == "section":
             loc, tail = f"s. {sec.num}", f"s. {sec.num} — {sec.heading}"
+        elif sec.kind == "rule":  # e.g. CPC First Schedule, "O. XXXIX r. 1"
+            rule_no = sec.num.split(" r. ")[-1]
+            loc, tail = sec.num, f"r. {rule_no} — {sec.heading}"
         elif sec.kind == "schedule":
             loc, tail = sec.num, sec.num
         else:

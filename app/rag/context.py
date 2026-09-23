@@ -1,15 +1,18 @@
 """Context builder: [S#] blocks whose headers are rendered from metadata (retrieval-pipeline note, step 8).
 
-Order: statutes, then Supreme Court judgments; relevance order within each. The S# -> chunk map stays
-server-side and is the only thing a citation can resolve to.
+Order: statutes, then Supreme Court judgments; relevance order within each, with the parts of one section (or one
+judgment's neighbouring paragraphs) kept together. Repealed material is labelled with its repeal date and successor
+from statutes.yaml. The S# -> chunk map stays server-side and is the only thing a citation can resolve to.
 """
 
 from __future__ import annotations
 
+import re
 from collections.abc import Callable
 
-STATUS_LABEL = {"in_force": "in force", "repealed": "REPEALED", "partially_in_force": "partially in force",
-                "unknown": "status unknown", "n/a": None}
+from app.retrieval.registry import Registry
+
+STATUS_LABEL = {"in_force": "in force", "partially_in_force": "partially in force", "unknown": "status unknown", "n/a": None}
 TYPE_ORDER = {"statute": 0, "judgment": 1, "procedure": 2, "form": 3}
 
 
@@ -24,14 +27,20 @@ def block_label(c: dict) -> str:
     return f"{c['title']} — {c['locator']}"
 
 
-def block_header(sid: str, c: dict, statutes: dict[str, dict]) -> str:
-    parts = [f"[{sid}] {block_label(c)}"]
-    status = STATUS_LABEL.get(c["status"])
+def status_text(c: dict, registry: Registry | None) -> str | None:
     if c["status"] == "repealed":
-        succ = statutes.get(c.get("successor") or "", {}).get("short_title") or c.get("successor") or "a successor law"
-        status = f"REPEALED, replaced by {succ}"
-    if status:
-        parts.append(status)
+        act = registry.by_short_title(c.get("act_title") or "") if registry else None
+        succ = registry.short_title(act["successor"]) if act and act.get("successor") else (c.get("successor") or "a successor law")
+        when = f" from {act['repealed_from']}" if act and act.get("repealed_from") else ""
+        return f"REPEALED{when}, replaced by {succ}"
+    return STATUS_LABEL.get(c["status"])
+
+
+def block_header(sid: str, c: dict, registry: Registry | None) -> str:
+    parts = [f"[{sid}] {block_label(c)}"]
+    st = status_text(c, registry)
+    if st:
+        parts.append(st)
     if c["doc_type"] == "judgment":
         parts.append(f"{c['court']}, decided {c['decision_date']}")
         if c.get("citation"):
@@ -42,7 +51,18 @@ def block_header(sid: str, c: dict, statutes: dict[str, dict]) -> str:
     return " | ".join(parts)
 
 
-def build_context(chunks: list[dict], statutes: dict[str, dict], count: Callable[[str], int],
+def _group_key(c: dict) -> tuple:
+    if c["doc_type"] == "statute":
+        return (c["doc_id"], c.get("section"), c["jurisdiction"])
+    return (c["doc_id"],)
+
+
+def _part_no(c: dict) -> int:
+    m = re.search(r"part (\d+) of", c.get("locator") or "")
+    return int(m.group(1)) if m else (c.get("para_start") or 0)
+
+
+def build_context(chunks: list[dict], registry: Registry | None, count: Callable[[str], int],
                   max_chunks: int, max_tokens: int) -> tuple[list[dict], dict[str, dict]]:
     """chunks: relevance-ordered. Returns (blocks, S# -> chunk)."""
     chosen, used = [], 0
@@ -54,13 +74,16 @@ def build_context(chunks: list[dict], statutes: dict[str, dict], count: Callable
             continue
         chosen.append(c)
         used += n
-    ordered = sorted(enumerate(chosen), key=lambda ic: (TYPE_ORDER.get(ic[1]["doc_type"], 9), ic[0]))
+    first_seen: dict[tuple, int] = {}
+    for i, c in enumerate(chosen):
+        first_seen.setdefault(_group_key(c), i)
+    ordered = sorted(chosen, key=lambda c: (TYPE_ORDER.get(c["doc_type"], 9), first_seen[_group_key(c)], _part_no(c)))
     blocks, id_map = [], {}
-    for i, (_, c) in enumerate(ordered, 1):
+    for i, c in enumerate(ordered, 1):
         sid = f"S{i}"
         id_map[sid] = c
         blocks.append({"sid": sid, "chunk_id": c["chunk_id"], "label": block_label(c),
-                       "header": block_header(sid, c, statutes), "text": c["text"]})
+                       "header": block_header(sid, c, registry), "text": c["text"]})
     return blocks, id_map
 
 

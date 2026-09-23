@@ -3,7 +3,7 @@ id: 20260922-statute-status
 title: Statute status and repeal
 tags: [legal, data]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-24
 related: [20260922-grounding-and-citations, 20260922-retrieval-pipeline, 20260922-data-sources, 20260922-chunk-schema]
 summary: Registry of in-force and repealed Acts, the 2024 criminal-law transition, authoritative texts and amendment notes.
 ---
@@ -78,6 +78,9 @@ Seed entries below. The dates are well established, but confirm each against the
   status: in_force
   in_force_from: 2014-01-01
 ```
+
+### State of the registry (2026-09-24)
+`statutes.yaml` holds 18 entries, each with `source_url`, `verified_on` and `evidence`: the 12 ingested Acts and 6 status-only entries (IPC, CrPC, Indian Evidence Act, CPA 1986, LA Act 1894 as repealed; their texts are not ingested). Commencement dates and exceptions come from the Acts' own footnotes (DECISIONS V17, V24): BNS s. 106(2) is excepted, so BNS s. 106 chunks carry `partially_in_force` via `not_in_force`. The CrPC text is not available in current form from India Code (V23); questions naming it get the BNSS repeal section (s. 531) and the closest BNSS provision in context, and the answer names the successor but never maps section numbers.
 
 ### Aliases (`data/registry/aliases.yaml`)
 Aliases point at registry IDs rather than repeating titles, so a rename happens in one place:

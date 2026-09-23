@@ -74,6 +74,29 @@ def test_section_23_paragraphs():
     assert paras[1].text.startswith("Provided that")
 
 
+def test_toc_ignores_numbered_list_of_amending_acts():
+    """CPC p. 2 lists amending Acts ('21. The Code of Civil Procedure (Amendment) Act, 1932 ...') before the
+    Arrangement of Sections; taking those numbers first once pushed inserted sections like 21A out of order."""
+    from app.chunking.statute import parse_toc
+
+    doc = parsed_from_fixture("cpc_1908_toc_after_amending_acts_list")
+    toc = parse_toc(doc.lines)
+    nums = [t.num for t in toc]
+    heading = {t.num: t.heading for t in toc}
+    assert heading["21"].startswith("Objections to jurisdiction")
+    assert nums.index("21A") == nums.index("21") + 1
+
+
+def test_cpc_order_heading_and_rule_start():
+    from app.chunking.statute import ORDER_RE
+
+    doc = parsed_from_fixture("cpc_1908_order39_rule1")
+    order = next(ln for ln in doc.lines if ORDER_RE.match(ln.text.strip()))
+    assert ORDER_RE.match(order.text.strip()).group("num") == "XXXIX" and order.x0 > 150
+    rule = next(ln for ln in doc.lines if ln.text.startswith("1. Cases in which temporary injunction"))
+    assert rule.bold_prefix and SECTION_START.match(rule.text).group("num") == "1"
+
+
 def test_section_start_pattern():
     for text, num in [("23. Time for presenting documents.—Subject", "23"), ("[53A. Part performance.—Where", "53A"),
                       ("16A. Keeping of books in computer floppies", "16A")]:

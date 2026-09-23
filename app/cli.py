@@ -50,7 +50,12 @@ def _cmd_ingest(args: argparse.Namespace) -> int:
             (reports / "sc_metadata_profile.md").write_text(sc.profile_markdown(df, years), encoding="utf-8")
             print(f"metadata: {len(df)} rows for {years[0]}-{years[-1]}; profile -> docs/reports/sc_metadata_profile.md")
             selected = sc.select(df, limit=args.limit, min_year=years[0])
-            rows = sc.download_selected(settings, selected)
+            if args.dry_run:
+                print(f"would select {len(selected)}: {selected['matched_act'].value_counts().to_dict()}; "
+                      f"by year {selected['year'].value_counts().sort_index().to_dict()}")
+                return 0
+            fetch = sc.download_selected_via_tar if args.via == "tar" else sc.download_selected
+            rows = fetch(settings, selected)
             lines = ["# SC judgments selected for the corpus", "",
                      f"_Rule: newest first, English available, decided {years[0]} or later, headnote names a corpus Act "
                      f"with its year; up to {math.ceil(args.limit / len(sc.ACT_PATTERNS))} per Act, leftover slots to the "
@@ -70,7 +75,7 @@ def _cmd_ingest(args: argparse.Namespace) -> int:
 def _cmd_index(args: argparse.Namespace) -> int:
     from app.ingestion.build import build
 
-    r = build(get_settings(), embed=not args.no_embed, force=args.force)
+    r = build(get_settings(), embed=not args.no_embed, force=args.force, workers=args.workers)
     print(f"run {r['run_id']}: docs seen {r['docs_seen']}, changed {r['docs_changed']}, skipped {r['docs_skipped']}, "
           f"failed {r['docs_failed']}, removed {r['docs_removed']}")
     print(f"chunks: added {r['chunks_added']}, removed {r['chunks_removed']}, rejected {r['chunks_rejected']}, "
@@ -101,13 +106,29 @@ def _cmd_profile(args: argparse.Namespace) -> int:
     return 0 if all_green else 1
 
 
+def _cmd_eval(args: argparse.Namespace) -> int:
+    from app.rag.evaluate import run
+
+    payload, path = run(get_settings(), split=args.split, modes=args.modes.split(",") if args.modes else None,
+                        with_answers=not args.no_llm, model=args.model, calibrate_gate=args.calibrate)
+    print(f"report -> {path.relative_to(REPO_ROOT)}")
+    for t in payload["retrieval"]:
+        print(f"  {t['mode']:<14} n={t['n']:<3} R@5 {t['recall@5']:.2f}  R@10 {t['recall@10']:.2f}  MRR {t['mrr']:.2f}  "
+              f"statute R@5 {t['statute_recall@5']:.2f} (n={t['statute_n']})")
+    print(f"  abstention: {payload['abstention']}")
+    if "answers" in payload:
+        for k, v in payload["answers"].items():
+            print(f"  {k}: {v}")
+    return 0
+
+
 def _cmd_ask(args: argparse.Namespace) -> int:
     import json
 
     from app.rag.pipeline import Engine, answer
 
     settings = get_settings()
-    out = answer(Engine.load(settings), args.question, explain=args.explain)
+    out = answer(Engine.load(settings), args.question, explain=args.explain, mode=args.mode)
     if args.json:
         print(json.dumps(out, ensure_ascii=False, indent=2))
         return 0
@@ -123,13 +144,21 @@ def _cmd_ask(args: argparse.Namespace) -> int:
     print(f"\nConfidence: {out['confidence']} · {out['disclaimer']}")
     if args.explain:
         e = out["explain"]
-        print(f"\n--- explain (trace {out['trace_id']}) ---")
-        print(f"top dense score {e['top_dense_score']} (gate {e['min_dense_score']}), timings {e['timings_ms']}")
+        c0 = e["classification"]
+        print(f"\n--- explain (trace {out['trace_id']}, mode {args.mode}) ---")
+        print(f"classified: domain {c0['domain']}, intent {c0['intent']}, high_stakes {c0['high_stakes']}, "
+              f"acts {c0['acts']}, section refs {c0['section_refs']}, dates {c0['event_dates']}")
+        print(f"gate: {e['gate']} · timings {e['timings_ms']}")
+        print(f"keyword query: {e['keyword_match']}")
+        print("  ctx  exact dense  kw  fused rerank(score)  source")
         for c in e["candidates"]:
             used = next((sid for sid, cid in e.get("context_ids", {}).items() if cid == c["chunk_id"]), "")
-            print(f"  #{c['rank']:<3} dense {c['dense']:.3f} {used:<4} {c['title'][:45]:<45} {c['locator']}")
+            r, s = c["ranks"], c["scores"]
+            rr = f"{r.get('rerank', '-')}({s['rerank']:.3f})" if "rerank" in s else "-"
+            print(f"  {used:<4} {str(r.get('exact', '-')):>5} {str(r.get('dense', '-')):>5} {str(r.get('keyword', '-')):>3} "
+                  f"{r.get('fused', '-'):>5} {rr:>13}  {c['title'][:42]} — {c['locator']}")
         if "llm" in e:
-            print(f"llm: {e['llm']} prompt {e['prompt_version']}")
+            print(f"llm: {e['llm']} prompt {e['prompt_version']} attempts {e['attempts']}")
             print(f"validator: {e['validator']}")
     return 0
 
@@ -148,20 +177,34 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--lang", action="append", default=None, choices=["en", "hi"], help="indiacode: PDF language(s)")
     p.add_argument("--years", default="2019-2025", help="sc-judgments: metadata years, e.g. 2019-2025")
     p.add_argument("--limit", type=int, default=50, help="sc-judgments: about how many judgments to select")
+    p.add_argument("--via", choices=["pdf", "tar"], default="pdf",
+                   help="sc-judgments: individual PDFs (targeted, a few hundred) or year tars (bulk, as the maintainers ask)")
+    p.add_argument("--dry-run", action="store_true", help="sc-judgments: show the selection without downloading")
     p.set_defaults(func=_cmd_ingest)
 
     p = sub.add_parser("index", help="parse, chunk, validate, store and embed everything in the manifest (incremental)")
     p.add_argument("--no-embed", action="store_true", help="update SQLite only, skip FAISS")
     p.add_argument("--force", action="store_true", help="re-process every document even if unchanged")
+    p.add_argument("--workers", type=int, default=4, help="parallel parse processes (lower it if RAM is short)")
     p.set_defaults(func=_cmd_index)
 
     p = sub.add_parser("profile", help="data profile of the chunk store -> docs/reports/corpus_profile.md")
     p.set_defaults(func=_cmd_profile)
 
+    p = sub.add_parser("eval", help="retrieval ablation, abstention and answer metrics on evaluation/gold.jsonl")
+    p.add_argument("--split", default="all", choices=["all", "dev", "test"])
+    p.add_argument("--modes", default=None, help="comma-separated subset of dense,keyword,hybrid,hybrid_rerank,full")
+    p.add_argument("--no-llm", action="store_true", help="retrieval and abstention only")
+    p.add_argument("--model", default=None, help="Ollama model to answer with (default OLLAMA_MODEL)")
+    p.add_argument("--calibrate", action="store_true", help="sweep the rerank evidence-gate threshold")
+    p.set_defaults(func=_cmd_eval)
+
     p = sub.add_parser("ask", help="answer a question from the indexed sources, with citations")
     p.add_argument("question")
     p.add_argument("--explain", action="store_true", help="show per-stage ranks, scores, timings and tokens")
     p.add_argument("--json", action="store_true", help="print the full response object")
+    p.add_argument("--mode", default="full", choices=["dense", "keyword", "hybrid", "hybrid_rerank", "full"],
+                   help="retrieval configuration (default: full = exact + dense + keyword + RRF + rerank)")
     p.set_defaults(func=_cmd_ask)
 
     return parser

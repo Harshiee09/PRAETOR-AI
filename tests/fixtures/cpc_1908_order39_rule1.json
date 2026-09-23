@@ -1,0 +1,476 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496430",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/fc9dad3f-97a9-4216-843b-934665693468/content",
+ "raw_sha256": "393b8848fdfc476a21cc3abf4f0d3f510557e2dff6fc6914b1f379bea1730614",
+ "retrieved_at": "2026-09-22T23:31:07+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  214
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "10. Attachment before judgment not to affect rights of strangers, nor bar decree-holder from",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 540.02944,
+   "top": 73.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "10. Attachment before judgment not to affect rights of strangers, nor bar decree-holder from",
+   "markers": []
+  },
+  {
+   "text": "applying for sale.—Attachment before judgment shall not affect the rights, existing prior to the",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6470399999996,
+   "top": 86.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "applying for sale.",
+   "markers": []
+  },
+  {
+   "text": "attachment, of persons not parties to the suit, nor bar any person holding a decree against the defendant",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6894399999998,
+   "top": 98.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "from applying for the sale of the property under attachment in execution of such decree.",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 458.9428799999999,
+   "top": 111.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "11. Property attached before judgment not to be re-attached in execution of decree.—Where",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 540.08704,
+   "top": 131.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "11. Property attached before judgment not to be re-attached in execution of decree.—",
+   "markers": []
+  },
+  {
+   "text": "property is under attachment by virtue of the provisions of this order decree is subsequently passed in",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.7004799999997,
+   "top": 143.76463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "favour of the plaintiff, it shall not be necessary upon an application for execution of such decree to apply",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6342399999996,
+   "top": 156.48464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "for a re-attachment of the property.",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 226.62847999999997,
+   "top": 169.08464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[11A. Provisions applicable to attachment.—(1) The provisions of this Code applicable to an",
+   "page": 214,
+   "x0": 93.504,
+   "x1": 539.89096,
+   "top": 188.76463999999999,
+   "size": 11.0,
+   "bold_prefix": "[11A. Provisions applicable to attachment.—",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "attachment made in execution of a decree shall, so far as may be, apply to an attachment made before",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.8909600000001,
+   "top": 201.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "judgment which continues after the judgment by virtue of the provisions of rule 11.",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 438.3422399999998,
+   "top": 214.08464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) An attachment made before judgment in a suit which is dismissed for default shall not become",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 539.6652799999995,
+   "top": 233.79463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "revived merely by reason of the fact that the order for the dismissal of the suit for default has been set",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.5900799999996,
+   "top": 246.39463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "aside and the suit has been restored.]",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 233.61647999999997,
+   "top": 258.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "12. Agricultural produce not attachable before judgment.—Nothing in this Order shall be deemed",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 539.9528799999999,
+   "top": 278.67463999999995,
+   "size": 11.0,
+   "bold_prefix": "12. Agricultural produce not attachable before judgment.—",
+   "markers": []
+  },
+  {
+   "text": "to authorise the plaintiff to apply for the attachment of any agricultural produce in the possession of an",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6121599999994,
+   "top": 291.27464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "agriculturist, or to empower the Court to order the attachment or production of such produce.",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 481.25471999999957,
+   "top": 303.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[13. Small Cause Court not to attach immovable property.—Nothing in this Order shall be",
+   "page": 214,
+   "x0": 93.504,
+   "x1": 539.96344,
+   "top": 323.67463999999995,
+   "size": 11.0,
+   "bold_prefix": "[13. Small Cause Court not to attach immovable property.—",
+   "markers": [
+    "2"
+   ]
+  },
+  {
+   "text": "deemed to empower any Court of Small Causes to make an order for the attachment of immovable",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6563199999996,
+   "top": 336.27464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "property.]",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 115.75344000000001,
+   "top": 348.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ORDER XXXIX",
+   "page": 214,
+   "x0": 268.25,
+   "x1": 343.63112,
+   "top": 368.67464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "TEMPORARY INJUNCTIONS AND INTERLOCUTORY ORDERS",
+   "page": 214,
+   "x0": 176.66,
+   "x1": 435.247,
+   "top": 388.23464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Temporary injunctions",
+   "page": 214,
+   "x0": 255.65,
+   "x1": 356.2685599999999,
+   "top": 407.93464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Cases in which temporary injunction may be granted.—Where in any suit it is proved by",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 539.9644000000001,
+   "top": 427.61464,
+   "size": 11.0,
+   "bold_prefix": "1. Cases in which temporary injunction may be granted.—",
+   "markers": []
+  },
+  {
+   "text": "affidavit or otherwise—",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 177.85999999999999,
+   "top": 440.21464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) that any property in dispute in a suit is in danger of being wasted, damaged or alienated by",
+   "page": 214,
+   "x0": 108.02,
+   "x1": 539.7055999999999,
+   "top": 459.89464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "any party to the suit, or wrongfully sold in execution of a decree, or",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 387.17664,
+   "top": 472.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) that the defendant threatens, or intends, to remove or dispose of his property with a view to",
+   "page": 214,
+   "x0": 108.02,
+   "x1": 539.6724799999996,
+   "top": 492.17464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[defrauding] his creditors,",
+   "page": 214,
+   "x0": 93.504,
+   "x1": 208.13232,
+   "top": 504.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "3"
+   ]
+  },
+  {
+   "text": "[(c) that the defendant threatens to dispossess, the plaintiff or otherwise cause injury to the",
+   "page": 214,
+   "x0": 111.5,
+   "x1": 539.6719999999997,
+   "top": 524.4546399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "4"
+   ]
+  },
+  {
+   "text": "plaintiff in relation to any property in dispute in the suit,]",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 341.48207999999994,
+   "top": 537.0546400000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the Court may by order grant a temporary injunction to restrain such act, or make such other order for the",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 540.0311199999999,
+   "top": 559.76464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "purpose of staying and preventing the wasting, damaging, alienation, sale, removal or disposition of the",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6673599999995,
+   "top": 572.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "property [or dispossession of the plaintiff, or otherwise causing injury to the plaintiff in relation to any",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.5942399999994,
+   "top": 585.08464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "4"
+   ]
+  },
+  {
+   "text": "property in dispute in the suit] as the Court thinks fit, until the disposal of the suit or until further orders.",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 530.8684799999994,
+   "top": 597.68464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Injunction to restrain repetition or continuance of breach.—(1) In any suit for restraining the",
+   "page": 214,
+   "x0": 90.024,
+   "x1": 539.87752,
+   "top": 620.36464,
+   "size": 11.0,
+   "bold_prefix": "2. Injunction to restrain repetition or continuance of breach.—",
+   "markers": []
+  },
+  {
+   "text": "defendant from committing a breach of contract or other injury of any kind, whether compensation is",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6121599999994,
+   "top": 632.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "claimed in the suit or not, the plaintiff may, at any time after the commencement of the suit, and either",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.6011199999997,
+   "top": 645.68464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "before or after judgment, apply to the Court for a temporary injunction to restrain the defendant from",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.68376,
+   "top": 658.28464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "committing the breach of contract or injury complained, of, or any breach of contract or injury of a like",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 539.5238399999996,
+   "top": 671.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "kind arising out of the same contract or relating to the same property or right.",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 411.9345599999997,
+   "top": 683.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Ins. by Act 104 of 1976, s. 85 (w.e.f. 1-2-1977).",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 270.932,
+   "top": 729.9839999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Ins. by Act 1 of 1926, s. 4.",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 187.39399999999998,
+   "top": 740.424,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "3. Subs. by Act 104 of 1976, s. 86, for “defraud” (w.e.f. 1-2-1977).",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 338.884,
+   "top": 750.7439999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "4. Ins. by s. 86, ibid. (w.e.f. 1-2-1977).",
+   "page": 214,
+   "x0": 72.024,
+   "x1": 212.03900000000002,
+   "top": 761.064,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

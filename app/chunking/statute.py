@@ -31,6 +31,11 @@ PART_RE = re.compile(r"^(?P<kind>PART|CHAPTER)\s+(?P<num>[IVXLC]+[A-Z]?)\b\.?\s*
 SCHEDULE_RE = re.compile(r"^THE\s+(?:(?P<ord>FIRST|SECOND|THIRD|FOURTH|FIFTH|SIXTH|SEVENTH|EIGHTH|NINTH|TENTH)\s+)?SCHEDULE\b", re.I)
 STATE_AMENDMENT_RE = re.compile(r"^STATE\s+AMENDMENTS?\b", re.I)
 SUBPART_RE = re.compile(r"^\([A-Z]\)\s+\S")
+ARRANGEMENT_RE = re.compile(r"^ARRANGEMENT\s+OF\s+SECTIONS\b", re.I)
+ORDER_RE = re.compile(r"^ORDER\s+(?P<num>[IVXLC]+[A-Z]?)\b\.?\s*(?P<title>.*)$")
+APPENDIX_RE = re.compile(r"^APPENDIX\s+(?P<letter>[A-Z])\b")
+# Some India Code PDFs append the Bill's Statement of Objects and Reasons after the last section: not law, dropped.
+OBJECTS_RE = re.compile(r"^STATEMENT\s+OF\s+OBJECTS\s+AND\s+REASONS\b", re.I)
 FOOTNOTE_START = re.compile(r"^(?P<m>\d{1,3}|\*{1,3})\s*\.\s*(?P<text>.*)$")
 BODY_START = re.compile(r"^ACT\s+NO\.", re.I)
 AMENDMENT_VERB = re.compile(r"^(Amendment|Insertion|Substitution|Omission|Repeal|Addition)s?\b", re.I)
@@ -52,7 +57,7 @@ class StateBlock:
 
 @dataclass
 class SectionDraft:
-    kind: str  # section | preamble | schedule
+    kind: str  # section | preamble | schedule | rule (a rule inside an Order of a schedule, e.g. CPC O. XXXIX r. 1)
     num: str
     heading: str
     part: str | None
@@ -110,8 +115,15 @@ def split_footnotes(doc: ParsedPdf) -> tuple[list[Line], dict[int, dict[str, str
 
 
 def parse_toc(lines: list[Line]) -> list[TocEntry]:
+    """Section entries between "ARRANGEMENT OF SECTIONS" (when present; the CPC prints a numbered list of amending
+    Acts before it) and the first schedule / Order heading (the CPC's arrangement also lists the rules of each
+    Order, whose numbers are not section numbers)."""
+    start = next((i + 1 for i, ln in enumerate(lines) if ARRANGEMENT_RE.match(ln.text.strip())), 0)
     toc, seen = [], set()
-    for ln in lines:
+    for ln in lines[start:]:
+        text = ln.text.strip()
+        if SCHEDULE_RE.match(text) or ORDER_RE.match(text):
+            break
         m = TOC_ENTRY.match(ln.text)
         if m and m.group("num") not in seen:
             seen.add(m.group("num"))
@@ -138,6 +150,8 @@ def _is_state_name(ln: Line, known: set[str]) -> bool:
     name = ln.text.strip().rstrip(".:").strip()
     if not ln.bold_prefix or ln.x0 > 100 or AMENDMENT_VERB.match(name) or SECTION_START.match(name):
         return False
+    if not re.search(r"[A-Za-z]{3}", name):  # "* * * * *" omission marks
+        return False
     return name in known or (len(name.split()) <= 5 and ln.bold_prefix.strip().rstrip(".:") == name)
 
 
@@ -158,15 +172,20 @@ def split_statute(doc: ParsedPdf, known_states: set[str]) -> StatuteParse:
     state_mode = False
     expected = 0
     found: set[str] = set()
+    schedule_name: str | None = None   # inside a schedule / appendix
+    order: str | None = None           # inside an Order of a schedule (CPC First Schedule)
+    order_label: str | None = None
+    rules_seen: set[str] = set()
 
     for ln in body_lines[start + 1:]:
         text = ln.text.strip()
         if title_for and _is_centred(ln) and not SECTION_START.match(text) and not STATE_AMENDMENT_RE.match(text):
-            label = f"{part if title_for == 'part' else chapter} — {text.title()}"
-            if title_for == "part":
-                part = label
+            if title_for == "order":
+                order_label = f"{order_label} — {text}"
+            elif title_for == "part":
+                part = f"{part} — {text.title()}"
             else:
-                chapter = label
+                chapter = f"{chapter} — {text.title()}"
             title_for = None
             continue
         title_for = None
@@ -186,10 +205,29 @@ def split_statute(doc: ParsedPdf, known_states: set[str]) -> StatuteParse:
             state_mode = False
             continue
         sm = SCHEDULE_RE.match(text)
-        if sm and _is_centred(ln) and len(found) > 0:
-            name = f"{sm.group('ord').title()} Schedule" if sm.group("ord") else "Schedule"
+        am = APPENDIX_RE.match(text)
+        if (sm or (am and schedule_name)) and _is_centred(ln) and len(found) > 0:
+            if sm:
+                name = f"{sm.group('ord').title()} Schedule" if sm.group("ord") else "Schedule"
+            else:
+                name = f"Appendix {am.group('letter')}"
+            schedule_name, order, order_label = name, None, None
             current = SectionDraft("schedule", name, text.strip(), part, chapter, [ln])
             sections.append(current)
+            state_mode = False
+            continue
+        if OBJECTS_RE.match(text):
+            current = SectionDraft("discard", "SOR", "Statement of Objects and Reasons", part, chapter)
+            schedule_name, order, state_mode = "Statement of Objects and Reasons", None, False
+            continue
+        om = ORDER_RE.match(text)
+        if om and schedule_name and _is_centred(ln):
+            order, rules_seen = om.group("num"), set()
+            order_label = f"Order {order}"
+            if om.group("title").strip():
+                order_label += f" — {om.group('title').strip()}"
+            else:
+                title_for = "order"
             state_mode = False
             continue
         if STATE_AMENDMENT_RE.match(text) and ln.bold_prefix:
@@ -199,7 +237,15 @@ def split_statute(doc: ParsedPdf, known_states: set[str]) -> StatuteParse:
             continue  # sub-part headings like "(C) Special duties of Sub-Registrar"
 
         m = SECTION_START.match(text)
-        if m and text[:1] not in QUOTES and current.kind != "schedule" and (ln.bold_prefix or "—" in text[:200]):
+        if order and m and text[:1] not in QUOTES and ln.bold_prefix and m.group("num") not in rules_seen:
+            n = m.group("num")
+            rules_seen.add(n)
+            current = SectionDraft("rule", f"O. {order} r. {n}", _heading_from(ln, n), schedule_name, order_label, [ln])
+            sections.append(current)
+            state_mode = False
+            continue
+        if m and text[:1] not in QUOTES and current.kind not in ("schedule", "rule") and schedule_name is None \
+                and (ln.bold_prefix or "—" in text[:200]):
             num = m.group("num")
             window = toc_nums[expected:expected + WINDOW] if toc_nums else [num]
             if num in window and num not in found:

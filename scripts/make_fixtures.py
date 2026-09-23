@@ -23,6 +23,9 @@ FIXTURES = [
     ("tpa_1882_ss1-3_nested_footnotes", "raw/indiacode/tpa-1882/a1882-04.pdf", [1, 7, 8], False),
     ("tpa_1882_s53A-55_state_amendment", "raw/indiacode/tpa-1882/a1882-04.pdf", [20], False),
     ("cpa_2019_s69", "raw/indiacode/cpa-2019/A2019-35.pdf", [30], False),
+    ("cpc_1908_toc_after_amending_acts_list", "raw/indiacode/cpc-1908/a1908-05.pdf", [2, 4], False),
+    ("cpc_1908_order39_rule1", "raw/indiacode/cpc-1908/a1908-05.pdf", [214], False),
+    ("sc_2016_3_scr_225_ocr_marker", "raw/sc-judgments/pdf/year=2016/english/2016_3_225_227_EN.pdf", [1, 2], True),
     ("sc_2021_11_scr_1181_old_layout", "raw/sc-judgments/pdf/year=2021/english/2021_11_1181_1194_EN.pdf", [3, 4, 14], True),
     ("sc_2025_1_scr_62_digital_layout", "raw/sc-judgments/pdf/year=2025/english/2025_1_62_80_EN.pdf", [4, 5, 19], True),
 ]

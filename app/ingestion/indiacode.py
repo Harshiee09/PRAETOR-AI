@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import re
 from pathlib import Path
 
 from app.config import Settings
@@ -26,20 +27,40 @@ def _meta(item: dict, key: str) -> str | None:
     return values[0]["value"] if values else None
 
 
+ENGLISH_NAME = re.compile(r"^a\d{4}-\d+\.pdf$", re.I)
+
+
 def _pick_pdf(bitstreams: list[dict], language: str) -> dict:
-    """Bitstreams carry no language field; names seen so far are `a1908-16.pdf` / `A2019-35.pdf` for English and
-    `H1908-16.pdf` / `hindi201935.pdf` for Hindi. The parser confirms the language from the text's script."""
+    """Bitstreams carry no language field. English files follow `A<year>-<no>.pdf` (`a1908-16.pdf`, `A2019-35.pdf`,
+    `A2023-46.pdf`); Hindi ones vary (`H1908-16.pdf`, `hindi201935.pdf`, `202346.pdf`). The downloaded file's text
+    script is checked afterwards (`_check_language`), so a wrong pick fails loudly."""
     pdfs = [b for b in bitstreams if b["name"].lower().endswith(".pdf")]
+    english = [b for b in pdfs if ENGLISH_NAME.match(b["name"])]
     if language == "en":
-        picked = [b for b in pdfs if not b["name"].lower().startswith("h")]
+        picked = english if english else [b for b in pdfs if not b["name"].lower().startswith("h")]
     elif language == "hi":
-        picked = [b for b in pdfs if b["name"].lower().startswith("h")]
+        picked = [b for b in pdfs if b not in english]
     else:
         raise ValueError(f"unsupported India Code language {language!r}")
     if len(picked) != 1:
         names = [b["name"] for b in pdfs]
         raise RuntimeError(f"expected exactly one {language} PDF in the ORIGINAL bundle, found {names}")
     return picked[0]
+
+
+def _check_language(body: bytes, language: str, name: str) -> None:
+    """The first pages' letters must be mostly in the language's script (Latin for en, Devanagari for hi)."""
+    import io
+
+    import pdfplumber
+
+    from app.multilingual.script import primary_script, script_share
+
+    with pdfplumber.open(io.BytesIO(body)) as pdf:
+        text = " ".join((p.extract_text() or "") for p in pdf.pages[:3])
+    share = script_share(text, primary_script(language))
+    if share < 0.5:
+        raise RuntimeError(f"{name}: expected {language} text, but only {share:.0%} of letters are {primary_script(language)}")
 
 
 def ingest(settings: Settings, act_ids: list[str] | None = None, phase: int | None = 1,
@@ -84,6 +105,7 @@ def ingest(settings: Settings, act_ids: list[str] | None = None, phase: int | No
                 if not body.startswith(b"%PDF") or b"%%EOF" not in body[-1024:]:
                     raise RuntimeError(f"{act['id']}: {bs['name']} is not a complete PDF "
                                        f"(content-type {resp.headers.get('content-type')}, {len(body)} bytes)")
+                _check_language(body, lang, bs["name"])
                 md5 = hashlib.md5(body).hexdigest()
                 path: Path = act_dir / bs["name"]
                 path.write_bytes(body)

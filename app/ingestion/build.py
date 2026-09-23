@@ -15,7 +15,7 @@ from functools import partial
 import yaml
 
 from app.chunking.assemble import judgment_chunks, statute_chunks
-from app.chunking.judgment import split_judgment
+from app.chunking.judgment import clean_case_title, split_judgment
 from app.chunking.schema import Chunk, Document, doc_id_for, validate_chunk
 from app.chunking.statute import split_statute
 from app.config import Settings
@@ -27,7 +27,7 @@ from app.parsing.pdf import PARSER_VERSION, parse_pdf
 from app.store.db import connect, get_document, replace_document
 
 log = logging.getLogger(__name__)
-STATUTE_VERSION = f"{PARSER_VERSION}+statute-1"
+STATUTE_VERSION = f"{PARSER_VERSION}+statute-2"
 JUDGMENT_VERSION = f"{PARSER_VERSION}+judgment-3"
 SC_HTTPS = "https://{bucket}.s3.{region}.amazonaws.com/{key}"
 
@@ -72,6 +72,7 @@ def _statute_doc(settings, row: ManifestRow, act: dict, reg: dict) -> tuple[Docu
 def _judgment_doc(settings, row: ManifestRow, reg: dict, act_tags: dict[str, list[str]]) -> tuple[Document, list[Chunk]]:
     path = settings.data_dir / row.local_path
     meta = json.loads(path.with_suffix(".json").read_text(encoding="utf-8"))
+    meta["case_title"] = clean_case_title(meta)
     key = row.url.split("/", 3)[3]
     parsed = parse_pdf(path, "Latn", drop_margin_letters=True, strip_running_headers=True, drop_small_text=True)
     jp = split_judgment(parsed)
@@ -90,7 +91,17 @@ def _judgment_doc(settings, row: ManifestRow, reg: dict, act_tags: dict[str, lis
     return doc, judgment_chunks(doc, jp, meta, tags, count, settings.max_chunk_tokens)
 
 
-def build(settings: Settings, embed: bool = True, force: bool = False) -> dict:
+def _process(settings: Settings, kind: str, row: ManifestRow, sources: dict, statutes: dict, act_tags: dict):
+    """Parse and chunk one document (runs in a worker process). Returns (doc, chunks)."""
+    if kind == "statute":
+        act = statutes.get(row.extra["act"])
+        if act is None:
+            raise ValueError(f"act {row.extra['act']!r} has no entry in statutes.yaml (status unknown)")
+        return _statute_doc(settings, row, act, sources["indiacode"])
+    return _judgment_doc(settings, row, sources["sc-judgments"], act_tags)
+
+
+def build(settings: Settings, embed: bool = True, force: bool = False, workers: int = 4) -> dict:
     run_id = uuid.uuid4().hex[:12]
     started = utc_now()
     conn = connect(settings.sqlite_path)
@@ -102,6 +113,7 @@ def build(settings: Settings, embed: bool = True, force: bool = False) -> dict:
     failures, reject_reasons = [], {}
     input_doc_ids = set()
 
+    todo = []
     for kind, row in _inputs(settings):
         stats["docs_seen"] += 1
         version = STATUTE_VERSION if kind == "statute" else JUDGMENT_VERSION
@@ -112,19 +124,27 @@ def build(settings: Settings, embed: bool = True, force: bool = False) -> dict:
         if not force and existing and existing["raw_sha256"] == row.sha256 and existing["parser_version"] == version:
             stats["docs_skipped"] += 1
             continue
-        try:
-            if kind == "statute":
-                act = statutes.get(row.extra["act"])
-                if act is None:
-                    raise ValueError(f"act {row.extra['act']!r} has no entry in statutes.yaml (status unknown)")
-                doc, chunks = _statute_doc(settings, row, act, sources["indiacode"])
-            else:
-                doc, chunks = _judgment_doc(settings, row, sources["sc-judgments"], act_tags)
-        except Exception as exc:  # noqa: BLE001 — one bad document must not stop the run; it is reported
-            stats["docs_failed"] += 1
-            failures.append({"file": row.local_path, "error": str(exc)})
-            log.error("document failed", extra={"file": row.local_path, "error": str(exc)})
-            continue
+        todo.append((kind, row))
+
+    # Parsing is CPU-bound and per-document, so it runs in worker processes; this process stays the only writer.
+    from concurrent.futures import ProcessPoolExecutor, as_completed
+
+    results = []
+    if todo:
+        with ProcessPoolExecutor(max_workers=max(1, min(workers, len(todo)))) as ex:
+            futures = {ex.submit(_process, settings, kind, row, sources, statutes, act_tags): row for kind, row in todo}
+            for i, fut in enumerate(as_completed(futures), 1):
+                row = futures[fut]
+                try:
+                    results.append(fut.result())
+                except Exception as exc:  # noqa: BLE001 — one bad document must not stop the run; it is reported
+                    stats["docs_failed"] += 1
+                    failures.append({"file": row.local_path, "error": str(exc)})
+                    log.error("document failed", extra={"file": row.local_path, "error": str(exc)})
+                if i % 50 == 0:
+                    log.warning("parse progress", extra={"done": i, "of": len(todo)})
+
+    for doc, chunks in results:
         good = []
         for c in chunks:
             problems = validate_chunk(c)

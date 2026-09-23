@@ -145,11 +145,14 @@ def parse_pdf(path: Path, expected_script: str = "Latn", *, drop_margin_letters:
     treating it as footnote markers."""
     pdf = pdfplumber.open(path)
     try:
+        # pdfplumber caches every page's objects until the file closes; a 300-page judgment then holds several GB.
+        # Each page's cache is released as soon as it has been read (page.close()).
         sizes: Counter = Counter()
         for p in pdf.pages:
             for ch in p.chars:
                 if not _is_watermark(ch) and ch["text"].strip():
                     sizes[round(ch["size"], 1)] += 1
+            p.close()
         body_size = sizes.most_common(1)[0][0] if sizes else 0.0
         marker_max = body_size - 2.4  # 11pt body -> markers <= 8.6pt; 9pt footnote text is kept
 
@@ -185,6 +188,7 @@ def parse_pdf(path: Path, expected_script: str = "Latn", *, drop_margin_letters:
                     info.reason += "; OCR needed but Tesseract is not installed"
                 log.warning("page unusable", extra={"file": str(path), "page": page_no, "reason": info.reason})
                 pages.append(info)
+                page.close()
                 continue
             pages.append(info)
 
@@ -196,6 +200,7 @@ def parse_pdf(path: Path, expected_script: str = "Latn", *, drop_margin_letters:
                 own = [m for m, x0, top in markers if ln["top"] - 6 <= top <= ln["bottom"] and ln["x0"] - 12 <= x0 <= ln["x1"] + 4]
                 page_lines.append(_line_from(ln, page_no, own))
             lines.extend(page_lines)
+            page.close()
 
         lines = _strip_page_furniture(lines, len(pdf.pages), page_height, strip_running_headers)
         return ParsedPdf(path=path, pages=pages, lines=lines, body_size=body_size, page_height=page_height)

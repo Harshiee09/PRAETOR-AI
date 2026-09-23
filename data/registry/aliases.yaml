@@ -1,0 +1,45 @@
+# Alias -> statute registry IDs (spec: docs/topics/legal/statute-status.md, "Aliases").
+# The FIRST id is the Act the alias literally names: exact section lookup uses only that one, because section
+# numbers do not carry over between an old code and its successor (s. 438 CrPC is not s. 438 BNSS). The rest are
+# added for search expansion, so a question about a repealed Act also retrieves its successor.
+# Matching is case-insensitive on word boundaries; full titles and short titles come from statutes.yaml.
+
+- {alias: CrPC, expands_to: [crpc-1973, bnss-2023]}
+- {alias: Cr.P.C., expands_to: [crpc-1973, bnss-2023]}
+- {alias: Criminal Procedure Code, expands_to: [crpc-1973, bnss-2023]}
+- {alias: Code of Criminal Procedure, expands_to: [crpc-1973, bnss-2023]}
+- {alias: BNSS, expands_to: [bnss-2023, crpc-1973]}
+- {alias: IPC, expands_to: [ipc-1860, bns-2023]}
+- {alias: I.P.C., expands_to: [ipc-1860, bns-2023]}
+- {alias: Indian Penal Code, expands_to: [ipc-1860, bns-2023]}
+- {alias: Penal Code, expands_to: [ipc-1860, bns-2023]}
+- {alias: BNS, expands_to: [bns-2023, ipc-1860]}
+- {alias: Evidence Act, expands_to: [iea-1872, bsa-2023]}
+- {alias: Indian Evidence Act, expands_to: [iea-1872, bsa-2023]}
+- {alias: IEA, expands_to: [iea-1872, bsa-2023]}
+- {alias: BSA, expands_to: [bsa-2023, iea-1872]}
+- {alias: CPC, expands_to: [cpc-1908]}
+- {alias: C.P.C., expands_to: [cpc-1908]}
+- {alias: Civil Procedure Code, expands_to: [cpc-1908]}
+- {alias: Code of Civil Procedure, expands_to: [cpc-1908]}
+- {alias: TP Act, expands_to: [tpa-1882]}
+- {alias: T.P. Act, expands_to: [tpa-1882]}
+- {alias: TPA, expands_to: [tpa-1882]}
+- {alias: Transfer of Property Act, expands_to: [tpa-1882]}
+- {alias: Registration Act, expands_to: [registration-1908]}
+- {alias: Indian Registration Act, expands_to: [registration-1908]}
+- {alias: Consumer Protection Act, expands_to: [cpa-2019, cpa-1986]}
+- {alias: CPA, expands_to: [cpa-2019, cpa-1986]}
+- {alias: CPA 2019, expands_to: [cpa-2019]}
+- {alias: CPA 1986, expands_to: [cpa-1986, cpa-2019]}
+- {alias: RERA, expands_to: [rera-2016]}
+- {alias: Real Estate Act, expands_to: [rera-2016]}
+- {alias: Limitation Act, expands_to: [limitation-1963]}
+- {alias: Contract Act, expands_to: [ica-1872]}
+- {alias: Indian Contract Act, expands_to: [ica-1872]}
+- {alias: Specific Relief Act, expands_to: [sra-1963]}
+- {alias: RFCTLARR, expands_to: [rfctlarr-2013, laa-1894]}
+- {alias: RFCTLARR Act, expands_to: [rfctlarr-2013, laa-1894]}
+- {alias: LARR Act, expands_to: [rfctlarr-2013, laa-1894]}
+- {alias: Right to Fair Compensation Act, expands_to: [rfctlarr-2013, laa-1894]}
+- {alias: Land Acquisition Act, expands_to: [laa-1894, rfctlarr-2013]}

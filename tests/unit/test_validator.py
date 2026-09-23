@@ -52,6 +52,40 @@ def test_repealed_source_adds_a_warning():
     assert any("repealed" in w and "Consumer Protection Act, 2019" in w for w in v.warnings)
 
 
+def test_unverified_section_is_removed():
+    ans = "The Act commenced on the first day of January, 1909 [S1]. Section 88 exempts government officers [S1]."
+    v = validate(ans, _id_map())
+    assert "Section 88" not in v.text and "first day of January, 1909 [S1]" in v.text
+    assert v.unverified_authority == ["section 88"]
+
+
+def test_section_of_the_cited_chunk_is_accepted():
+    ans = "Section 1 says the Act may be called the Registration Act, 1908 [S1]."
+    v = validate(ans, _id_map())
+    assert v.text == ans and not v.changed
+
+
+def test_case_name_and_reporter_citation_not_in_context_are_removed():
+    ans = ("Registration is governed by the Act [S1]. As held in Kesavananda Bharati v. State of Kerala, this is settled [S1]. "
+           "See (2020) 8 SCC 129 [S2]. Definitions are in section 2 [S2].")
+    v = validate(ans, _id_map())
+    assert "Kesavananda" not in v.text and "SCC" not in v.text
+    assert "Registration is governed by the Act [S1]." in v.text and "Definitions are in section 2 [S2]." in v.text
+    assert len(v.unverified_authority) == 2
+
+
+def test_act_with_year_not_in_context_is_removed():
+    v = validate("Stamp duty is payable under the Indian Stamp Act, 1899 [S1].", _id_map())
+    assert v.text == "" and v.unverified_authority
+
+
+def test_unsupported_sentences_are_counted():
+    ans = ("**What the sources say:**\n- The Act extends to the whole of India [S1].\n"
+           "- Registration offices are established in every district of the country.\n\n**Uncertain:** none.")
+    v = validate(ans, _id_map())
+    assert v.unsupported == 1 and v.unsupported_share == 0.5
+
+
 def test_citation_card_is_metadata_and_verbatim_quote():
     s1 = _id_map()["S1"]
     card = citation_card("S1", s1)

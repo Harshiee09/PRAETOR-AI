@@ -3,7 +3,7 @@ id: 20260922-chunk-schema
 title: Chunk schema and provenance
 tags: [schema, data, architecture]
 created: 2026-09-22
-updated: 2026-09-23
+updated: 2026-09-24
 related: [20260922-minimum-viable-architecture, 20260922-retrieval-pipeline, 20260922-grounding-and-citations, 20260922-statute-status, 20260922-multilingual, 20260922-evaluation]
 summary: Storage layout, required provenance fields, parsing and legal-aware chunking rules, and ingestion validation.
 ---
@@ -65,6 +65,7 @@ Procedure and form chunks also require `issuing_body` and `valid_as_of`; optiona
 - **Statutes (India Code bare acts).** One chunk per section, including its sub-sections, provisos, Explanations and Illustrations. Section starts look like `23. Time for presenting documents.—`, and inserted sections carry a footnote marker and bracket, like `1[23A. ...`. Build the detector against real India Code PDFs rather than from memory, and cover it with fixture tests. When a section exceeds `MAX_CHUNK_TOKENS`, split at sub-section and then clause boundaries, never mid-sentence, repeating the header in each piece (`... s. 17 (part 2 of 3)`).
 - **State amendments.** India Code prints `STATE AMENDMENT(S)` blocks after the section they amend. They become their own chunks, located `s. 3, State amendment (Uttarakhand)`, with the state's ISO 3166-2 code as `jurisdiction`; central section text never includes them (DECISIONS D14).
 - **Watermark.** India Code PDFs are watermarked on download; the parser drops the rotated glyphs (DECISIONS V16).
+- **Schedules with Orders and rules (CPC).** Inside a schedule, `ORDER <roman>` headings start an Order and bold numbered lines start rules: one chunk per rule, `section = "O. XXXIX r. 1"`, `chapter = "Order XXXIX — ..."`. Appendices are their own blocks. The table of contents is read only from "ARRANGEMENT OF SECTIONS" to the first schedule/Order heading (DECISIONS D23).
 - **Amendment footnotes.** India Code PDFs record amendment history in small-font footnotes (`Subs. by Act ...`, `Ins. by ...`, `Omitted by ...`). Capture them per page — pdfplumber exposes font size — into `amendment_notes`. Best effort only; don't block Phase 1 on linking footnotes to sections.
 - **Judgments.** The first chunk is the case header: parties, bench, date. Split on numbered paragraphs (lines starting `12.`), group consecutive paragraphs up to `MAX_CHUNK_TOKENS`, and record `para_start` and `para_end`. Never split a paragraph unless it alone is too long. Index from the "delivered by" / "Judgment / Order of the Supreme Court" marker: SCR headnotes and counsel lists are not indexed (DECISIONS D13). Paragraphs are found by number sequence, not position, and a paragraph that would span more than 3 chunks is located by pages instead (D15).
 - **Procedures and forms.** Split by headings and numbered steps.
