@@ -14,6 +14,37 @@ from app.retrieval.registry import Registry
 
 STATUS_LABEL = {"in_force": "in force", "partially_in_force": "partially in force", "unknown": "status unknown", "n/a": None}
 TYPE_ORDER = {"statute": 0, "judgment": 1, "procedure": 2, "form": 3}
+STATUTE_SLOTS = 2           # context places kept for the statute text the fusion ranked highest
+STATUTE_SLOT_MAX_FUSED = 10  # ...if the fusion ranked it this high
+
+
+def reserve_statute_slots(cands: list[dict], max_chunks: int, slots: int = STATUTE_SLOTS,
+                          max_fused: int = STATUTE_SLOT_MAX_FUSED) -> list[dict]:
+    """Final order, except that the `slots` statute chunks with the best fused rank (<= max_fused) are moved into the
+    first `max_chunks` places, displacing the lowest-ranked non-statute passages.
+
+    Why: the cross-encoder prefers judgment paragraphs that paraphrase a provision over the provision itself. RERA
+    s. 18 was the top statute hit (fused 7) and BNSS s. 482 the top fused hit overall (fused 1), yet both ended 12th
+    after reranking and missed the 8 context places (DECISIONS D35). The answer must be able to cite primary text."""
+    head = list(cands[:max_chunks])
+    best = sorted((c for c in cands if c["doc_type"] == "statute" and c.get("ranks", {}).get("fused", 10**9) <= max_fused),
+                  key=lambda c: c["ranks"]["fused"])[:slots]
+    moved = False
+    for c in best:
+        if any(c is h for h in head):
+            continue
+        for i in range(len(head) - 1, -1, -1):
+            if head[i]["doc_type"] != "statute":
+                del head[i]
+                break
+        else:
+            break  # the head is all statute text already
+        c.setdefault("ranks", {})["context_slot"] = "statute"
+        head.append(c)
+        moved = True
+    if not moved:
+        return list(cands)
+    return head + [c for c in cands if not any(c is h for h in head)]
 
 
 def block_label(c: dict) -> str:

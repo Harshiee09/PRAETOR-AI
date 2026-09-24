@@ -1,0 +1,1432 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496051",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/71c2a162-a610-4f69-afae-1150c8e3ffb7/content",
+ "raw_sha256": "128c22b4061a92f4b8da8dc4ec5f6baf232dd173437c41901a01a5e3b01906f2",
+ "retrieved_at": "2026-09-22T23:30:51+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  6,
+  19,
+  20
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 841.92,
+ "lines": [
+  {
+   "text": "THE REAL ESTATE (REGULATION AND DEVELOPMENT) ACT, 2016",
+   "page": 6,
+   "x0": 120.26,
+   "x1": 491.728,
+   "top": 73.75199999999995,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ACT NO. 16 OF 2016",
+   "page": 6,
+   "x0": 255.65,
+   "x1": 356.23,
+   "top": 92.61199999999997,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[25th March, 2016.]",
+   "page": 6,
+   "x0": 450.82,
+   "x1": 540.05344,
+   "top": 111.24464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "An Act to establish the Real Estate Regulatory Authority for regulation and promotion of the real",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.7839999999999,
+   "top": 128.97199999999998,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "estate sector and to ensure sale of plot, apartment or building, as the case may be, or sale of real",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.7239999999999,
+   "top": 142.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "estate project, in an efficient and transparent manner and to protect the interest of consumers in",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.5440000000001,
+   "top": 156.5719999999999,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the real estate sector and to establish an adjudicating mechanism for speedy dispute redressal and",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.6399999999999,
+   "top": 170.37199999999996,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "also to establish the Appellate Tribunal to hear appeals from the decisions, directions or orders of",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.7599999999999,
+   "top": 184.1719999999999,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the Real Estate Regulatory Authority and the adjudicating officer and for matters connected",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.7719999999997,
+   "top": 197.97199999999998,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "therewith or incidental thereto.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 219.81600000000003,
+   "top": 211.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "BE it enacted by Parliament in the Sixty-seventh Year of the Republic of India as follows:—",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 496.78000000000003,
+   "top": 230.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER I",
+   "page": 6,
+   "x0": 277.73,
+   "x1": 334.1996,
+   "top": 248.04463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 6,
+   "x0": 274.73,
+   "x1": 337.37,
+   "top": 265.71464000000003,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title, extent and commencement.—(1) This Act may be called the Real Estate (Regulation",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 540.2118399999999,
+   "top": 283.47464,
+   "size": 11.0,
+   "bold_prefix": "1. Short title, extent and commencement",
+   "markers": []
+  },
+  {
+   "text": "and Development) Act, 2016.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 202.41743999999994,
+   "top": 296.07463999999993,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) It extends to the whole of India except the State of Jammu and Kashmir*.",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 429.55,
+   "top": 313.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) It shall come into force on such date as the Central Government may, by notification in the",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 540.1936,
+   "top": 331.35463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "Official Gazette, appoint:",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 184.11311999999998,
+   "top": 343.95464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that different dates may be appointed for different provisions of this Act and any reference",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7935999999997,
+   "top": 361.71464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "in any such provision to the commencement of this Act shall be construed as a reference to the coming",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.7556799999996,
+   "top": 374.31464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "into force of that provision.",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 192.75743999999997,
+   "top": 386.91463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Definitions.—In this Act, unless the context otherwise requires,—",
+   "page": 6,
+   "x0": 92.784,
+   "x1": 397.39000000000004,
+   "top": 404.55464,
+   "size": 11.0,
+   "bold_prefix": "2. Definitions",
+   "markers": []
+  },
+  {
+   "text": "(a) “adjudicating officer” means the adjudicating officer appointed under sub-section (1) of",
+   "page": 6,
+   "x0": 108.02,
+   "x1": 540.1628800000001,
+   "top": 422.31464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "section 71;",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 138.07008,
+   "top": 434.91463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) “advertisement” means any document described or issued as advertisement through any",
+   "page": 6,
+   "x0": 108.02,
+   "x1": 539.9491999999998,
+   "top": 452.57464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "medium and includes any notice, circular or other documents or publicity in any form, informing",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.6721599999993,
+   "top": 465.17464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "persons about a real estate project, or offering for sale of a plot, building or apartment or inviting",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7052799999992,
+   "top": 477.89464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "persons to purchase in any manner such plot, building or apartment or to make advances or deposits",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7273600000001,
+   "top": 490.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "for such purposes;",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 170.6712,
+   "top": 503.09463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(c) “agreement for sale” means an agreement entered into between the promoter and the allottee;",
+   "page": 6,
+   "x0": 108.02,
+   "x1": 533.1432799999999,
+   "top": 520.85464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(d) “allottee” in relation to a real estate project, means the person to whom a plot, apartment or",
+   "page": 6,
+   "x0": 108.02,
+   "x1": 539.7756799999997,
+   "top": 538.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "building, as the case may be, has been allotted, sold (whether as freehold or leasehold) or otherwise",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7494399999998,
+   "top": 551.09464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "transferred by the promoter, and includes the person who subsequently acquires the said allotment",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7604799999997,
+   "top": 563.6946399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "through sale, transfer or otherwise but does not include a person to whom such plot, apartment or",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7494399999996,
+   "top": 576.41464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "building, as the case may be, is given on rent;",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 290.76432,
+   "top": 589.01464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(e) “apartment” whether called block, chamber, dwelling unit, flat, office, showroom, shop,",
+   "page": 6,
+   "x0": 108.02,
+   "x1": 539.8839199999999,
+   "top": 606.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "godown, premises, suit, tenement, unit or by any other name, means a separate and self-contained part",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 540.15616,
+   "top": 619.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of any immovable property, including one or more rooms or enclosed spaces, located on one or more",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7604799999997,
+   "top": 631.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "floors or any part thereof, in a building or on a plot of land, used or intended to be used for any",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.6721599999996,
+   "top": 644.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "residential or commercial use such as residence, office, shop, showroom or godown or for carrying on",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.8708799999996,
+   "top": 657.3246399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "any business, occupation, profession or trade, or for any other type of use ancillary to the purpose",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 539.7163199999993,
+   "top": 669.92464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "specified;",
+   "page": 6,
+   "x0": 90.024,
+   "x1": 132.79296,
+   "top": 682.64464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. 1st May, 2016.—vide Notifn. No. S.O. 1544(E), Section 2, Sections 20 to 39, Sections 41 to 58, Sections 71 to 78, Sections 81",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.858,
+   "top": 709.324,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to 92 dated 26th April, 2016, see Gazette of India, Extraordinary, Part II, sec. 3(ii).",
+   "page": 6,
+   "x0": 81.024,
+   "x1": 379.24,
+   "top": 719.644,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1st May 2017.—vide Notifn. No. S.O. 1216(E), Section 3 to 19, Sections 40, Sections 59 to 71, Sections 79 to 80, dated 19th",
+   "page": 6,
+   "x0": 81.024,
+   "x1": 539.6509999999998,
+   "top": 729.9639999999999,
+   "size": 9.0,
+   "bold_prefix": "1st May 2017",
+   "markers": []
+  },
+  {
+   "text": "April, 2016, see Gazette of India, Extraordinary, Part II, sec. 3(ii).",
+   "page": 6,
+   "x0": 81.024,
+   "x1": 318.76,
+   "top": 740.4,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "*. Vide notification No. S.O. 3912(E), dated 30th October, 2019, this Act is made applicable to the Union territory of Jammu and",
+   "page": 6,
+   "x0": 72.024,
+   "x1": 539.7859999999998,
+   "top": 750.7199999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Kashmir and the Union territory of Ladakh.",
+   "page": 6,
+   "x0": 81.024,
+   "x1": 238.18200000000002,
+   "top": 761.04,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "promoter shall be liable to the consequences of breach or delay, as the case may be, as provided under this",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.7667199999999,
+   "top": 73.54463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Act or the rules and regulations made thereunder.",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 289.47887999999995,
+   "top": 86.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "16. Obligations of promoter regarding insurance of real estate project.—(1) The promoter shall",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 540.0952,
+   "top": 102.96464000000003,
+   "size": 11.0,
+   "bold_prefix": "16. Obligations of promoter regarding insurance of real estate project",
+   "markers": []
+  },
+  {
+   "text": "obtain all such insurances as may be notified by the appropriate Government, including but not limited to",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 540.2075199999999,
+   "top": 115.56463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "insurance in respect of —",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 185.17999999999998,
+   "top": 128.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(i) title of the land and building as a part of the real estate project; and",
+   "page": 19,
+   "x0": 108.02,
+   "x1": 415.73431999999997,
+   "top": 144.84464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(ii) construction of the real estate project.",
+   "page": 19,
+   "x0": 108.02,
+   "x1": 289.808,
+   "top": 161.52463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The promoter shall be liable to pay the premium and charges in respect of the insurance specified",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.7489599999998,
+   "top": 178.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "in sub-section (1) and shall pay the same before transferring the insurance to the association of the",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.79968,
+   "top": 190.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "allottees.",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 111.45888,
+   "top": 203.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) The insurance as specified under sub-section (1) shall stand transferred to the benefit of the",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 540.00664,
+   "top": 220.08464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "allottee or the association of allottees, as the case may be, at the time of promoter entering into an",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.8219199999996,
+   "top": 232.68463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "agreement for sale with the allottee.",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 229.74143999999998,
+   "top": 245.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(4) On formation of the association of the allottees, all documents relating to the insurance specified",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.7379199999997,
+   "top": 262.08464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "under sub-section (1) shall be handed over to the association of the allottees.",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 408.35695999999996,
+   "top": 274.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "17. Transfer of title.—(1) The promoter shall execute a registered conveyance deed in favour of the",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.8599199999996,
+   "top": 291.39464,
+   "size": 11.0,
+   "bold_prefix": "17. Transfer of title",
+   "markers": []
+  },
+  {
+   "text": "allottee along with the undivided proportionate title in the common areas to the association of the allottees",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.8771199999999,
+   "top": 303.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or the competent authority, as the case may be, and hand over the physical possession of the plot,",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.8108799999995,
+   "top": 316.59464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "apartment of building, as the case may be, to the allottees and the common areas to the association of the",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.7446399999995,
+   "top": 329.31463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "allottees or the competent authority, as the case may be, in a real estate project, and the other title",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.8992000000001,
+   "top": 341.91463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "documents pertaining thereto within specified period as per sanctioned plans as provided under the local",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 540.0856,
+   "top": 354.51464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "laws:",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 95.3736,
+   "top": 367.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that, in the absence of any local law, conveyance deed in favour of the allottee or the",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.7935999999997,
+   "top": 383.91463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "association of the allottees or the competent authority, as the case may be, under this section shall be",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.6894399999996,
+   "top": 396.51464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "carried out by the promoter within three months from date of issue of occupancy certificate.",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 476.15031999999997,
+   "top": 409.11464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) After obtaining the occupancy certificate and handing over physical possession to the allottees in",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.7931199999998,
+   "top": 425.91463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "terms of sub-section (1), it shall be the responsibility of the promoter to handover the necessary",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.86424,
+   "top": 438.51464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "documents and plans, including common areas, to the association of the allottees or the competent",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.7777599999998,
+   "top": 451.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "authority, as the case may be, as per the local laws:",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 296.78,
+   "top": 463.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that, in the absence of any local law, the promoter shall handover the necessary documents",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.7715199999998,
+   "top": 480.53463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and plans, including common areas, to the association of the allottees or the competent authority, as the",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 540.00488,
+   "top": 493.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "case may be, within thirty days after obtaining the [completion] certificate.",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 404.89336,
+   "top": 505.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "18. Return of amount and compensation.—(1) If the promoter fails to complete or is unable to give",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.8320799999999,
+   "top": 522.41464,
+   "size": 11.0,
+   "bold_prefix": "18. Return of amount and compensation",
+   "markers": []
+  },
+  {
+   "text": "possession of an apartment, plot or building,—",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 278.69,
+   "top": 535.01464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) in accordance with the terms of the agreement for sale or, as the case may be, duly completed",
+   "page": 19,
+   "x0": 108.02,
+   "x1": 539.7387199999997,
+   "top": 551.6946399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "by the date specified therein; or",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 229.11295999999996,
+   "top": 564.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) due to discontinuance of his business as a developer on account of suspension or revocation of",
+   "page": 19,
+   "x0": 108.02,
+   "x1": 539.7828799999996,
+   "top": 580.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the registration under this Act or for any other reason,",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 327.1852,
+   "top": 593.5746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "he shall be liable on demand to the allottees, in case the allottee wishes to withdraw from the project,",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.8219199999997,
+   "top": 610.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "without prejudice to any other remedy available, to return the amount received by him in respect of that",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.6783999999999,
+   "top": 622.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "apartment, plot, building, as the case may be, with interest at such rate as may be prescribed in this behalf",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.7667199999999,
+   "top": 635.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "including compensation in the manner as provided under this Act:",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 362.5882399999999,
+   "top": 648.2046399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that where an allottee does not intend to withdraw from the project, he shall be paid, by the",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 539.7825599999996,
+   "top": 665.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "promoter, interest for every month of delay, till the handing over of the possession, at such rate as may be",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 540.1460799999999,
+   "top": 677.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "prescribed.",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 120.7104,
+   "top": 690.2046399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The promoter shall compensate the allottees in case of any loss caused to him due to defective title",
+   "page": 19,
+   "x0": 90.024,
+   "x1": 540.0028799999997,
+   "top": 708.80464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of the land, on which the project is being developed or has been developed, in the manner as provided",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 539.7777599999997,
+   "top": 721.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Subs. by the Real Estate (Regulation and Development) Removal of Difficulties Order, 2016 [S.O. 3347(E)], for “occupancy”",
+   "page": 19,
+   "x0": 72.024,
+   "x1": 540.187,
+   "top": 750.7199999999999,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(w.e.f. 28-10-2016).",
+   "page": 19,
+   "x0": 85.584,
+   "x1": 158.36899999999997,
+   "top": 761.04,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "under this Act, and the claim for compensation under this sub-section shall not be barred by limitation",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 540.07528,
+   "top": 73.54463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "provided under any law for the time being in force.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 296.93088,
+   "top": 86.16463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) If the promoter fails to discharge any other obligations imposed on him under this Act or the rules",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.7599999999995,
+   "top": 104.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or regulations made thereunder or in accordance with the terms and conditions of the agreement for sale,",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7446399999998,
+   "top": 117.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "he shall be liable to pay such compensation to the allottees, in the manner as provided under this Act.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 517.4438399999997,
+   "top": 130.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER IV",
+   "page": 20,
+   "x0": 273.77,
+   "x1": 338.1332,
+   "top": 148.80463999999995,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "RIGHTS AND DUTIES OF ALLOTTEES",
+   "page": 20,
+   "x0": 227.57,
+   "x1": 384.398,
+   "top": 167.40463999999997,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "19. Rights and duties of allottees.—(1) The allottee shall be entitled to obtain the information",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.97224,
+   "top": 186.12464,
+   "size": 11.0,
+   "bold_prefix": "19. Rights and duties of allottees",
+   "markers": []
+  },
+  {
+   "text": "relating to sanctioned plans, layout plans along with the specifications, approved by the competent",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7998399999999,
+   "top": 198.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "authority and such other information as provided in this Act or the rules and regulations made thereunder",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7556799999998,
+   "top": 211.44463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or the agreement for sale signed with the promoter.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 297.22159999999997,
+   "top": 224.04463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The allottee shall be entitled to know stage-wise time schedule of completion of the project,",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.8794399999999,
+   "top": 242.64463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "including the provisions for water, sanitation, electricity and other amenities and services as agreed to",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7335999999997,
+   "top": 255.36464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "between the promoter and the allottee in accordance with the terms and conditions of the agreement for",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 540.05656,
+   "top": 267.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "sale.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 91.92912,
+   "top": 280.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) The allottee shall be entitled to claim the possession of apartment, plot or building, as the case",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.7820799999995,
+   "top": 299.31463999999994,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "may be, and the association of allottees shall be entitled to claim the possession of the common areas, as",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.6894399999998,
+   "top": 312.03463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "per the declaration given by the promoter under sub-clause (C) of clause (l) of sub-section (2) of",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 540.15472,
+   "top": 324.63464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "section 4.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 114.24096,
+   "top": 337.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(4) The allottee shall be entitled to claim the refund of amount paid along with interest at such rate as",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.7710399999997,
+   "top": 355.95464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "may be prescribed and compensation in the manner as provided under this Act, from the promoter, if the",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7225599999995,
+   "top": 368.55464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "promoter fails to comply or is unable to give possession of the apartment, plot or building, as the case",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7667199999995,
+   "top": 381.27464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "may be, in accordance with the terms of agreement for sale or due to discontinuance of his business as a",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7446399999997,
+   "top": 393.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "developer on account of suspension or revocation of his registration under the provisions of this Act or",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 540.12832,
+   "top": 406.47463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the rules or regulations made thereunder.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 252.20431999999994,
+   "top": 419.19464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(5) The allottee shall be entitled to have the necessary documents and plans, including that of",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.8703999999997,
+   "top": 437.79463999999996,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "common areas, after handing over the physical possession of the apartment or plot or building as the case",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 540.1768,
+   "top": 450.53463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "may be, by the promoter.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 182.74415999999997,
+   "top": 463.13464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(6) Every allottee, who has entered into an agreement for sale to take an apartment, plot or building as",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.8924799999998,
+   "top": 481.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the case may be, under section 13, shall be responsible to make necessary payments in the manner and",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7998399999998,
+   "top": 494.45464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "within the time as specified in the said agreement for sale and shall pay at the proper time and place, the",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.6121599999999,
+   "top": 507.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "share of the registration charges, municipal taxes, water and electricity charges, maintenance charges,",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 539.7998399999999,
+   "top": 519.77464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ground rent, and other charges, if any.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 239.75119999999998,
+   "top": 532.37464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(7) The allottee shall be liable to pay interest, at such rate as may be prescribed, for any delay in",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.7158399999996,
+   "top": 550.9746399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "payment towards any amount or charges to be paid under sub-section (6).",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 395.35002,
+   "top": 563.6946399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(8) The obligations of the allottee under sub-section (6) and the liability towards interest under",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 540.00232,
+   "top": 582.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "sub-section (7) may be reduced when mutually agreed to between the promoter and such allottee.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 500.0634399999999,
+   "top": 595.01464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(9) Every allottee of the apartment, plot or building as the case may be, shall participate towards the",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.7158399999997,
+   "top": 613.61464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "formation of an association or society or cooperative society of the allottees, or a federation of the same.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 530.9678399999997,
+   "top": 626.2146399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(10) Every allottee shall take physical possession of the apartment, plot or building as the case may",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.7559999999995,
+   "top": 644.9646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "be, within a period of two months of the occupancy certificate issued for the said apartment, plot or",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 540.17632,
+   "top": 657.5646399999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "building, as the case may be.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 198.79631999999995,
+   "top": 670.28464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(11) Every allottee shall participate towards registration of the conveyance deed of the apartment, plot",
+   "page": 20,
+   "x0": 90.024,
+   "x1": 539.8332799999998,
+   "top": 688.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "or building, as the case may be, as provided under sub-section (1) of section 17 of this Act.",
+   "page": 20,
+   "x0": 72.024,
+   "x1": 472.31656,
+   "top": 701.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

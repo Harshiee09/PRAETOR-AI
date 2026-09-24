@@ -37,6 +37,15 @@ def test_placeholders_and_impossible_values_reject():
     assert any("https://" in p for p in validate_chunk(dataclasses.replace(j, source_url="http://example.org/x.pdf")))
 
 
+def test_pdf_text_needs_pages_and_ocr_needs_confidence():
+    c = statute_fixture_chunks("registration_1908_ss1-8", "registration-1908")[1]
+    assert any("page_start" in p for p in validate_chunk(dataclasses.replace(c, page_start=None)))
+    assert any("ocr_confidence" in p for p in validate_chunk(dataclasses.replace(c, text_source="ocr")))
+    assert validate_chunk(dataclasses.replace(c, text_source="ocr", ocr_confidence=0.91)) == []
+    header = judgment_fixture_chunks("sc_2021_11_scr_1181_old_layout")[0]
+    assert header.text_source == "metadata" and validate_chunk(dataclasses.replace(header, page_start=None, page_end=None)) == []
+
+
 def test_unmapped_state_is_rejected_not_guessed():
     c = statute_fixture_chunks("registration_1908_ss1-8", "registration-1908")[1]
     assert "missing jurisdiction" in validate_chunk(dataclasses.replace(c, jurisdiction=""))

@@ -50,7 +50,12 @@ class Settings(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = ""
     ollama_timeout_s: float = 180.0
+    # Answer decoding. Temperature 0 (greedy) with a fixed seed makes repeated runs comparable; the model's own
+    # defaults (gemma4: temperature 1, top_k 64, top_p 0.95) sampled differently each run (DECISIONS D37).
+    llm_temperature: float = 0.0
+    llm_seed: int = 42
     privacy_mode: Literal["standard", "strict"] = "standard"
+    # Not implemented yet: nothing reads or writes the `cache` table (audit 2026-09-24); kept for the Phase 4 API cache.
     cache_enabled: bool = True
     cache_ttl_hours: int = 72
 

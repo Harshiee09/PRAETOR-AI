@@ -54,6 +54,18 @@ Judgments come from the SC dataset, selected through the per-year metadata parqu
 
 **As ingested (2026-09-24, DECISIONS D18):** 12 Acts (Registration, TPA, CPA 2019, RFCTLARR, RERA, Limitation, Contract, Specific Relief, CPC, BNSS, BNS, BSA; the CrPC is not available in current form, V23; the Constitution was skipped as optional) and 1,000 judgments 2016–2025, selected by headnote Act mentions round-robin across Acts (including judgments under repealed Acts), extracted from the English year tars. Hindi Act texts and regional-language judgments are not yet ingested (Phase 4 multilingual demo).
 
+**Source comparison, 2026-09-24 audit (DECISIONS D42, V29–V36).** Nothing new was ingested:
+| Text | Compared | Outcome |
+|---|---|---|
+| BNSS ss. 482, 531 | indexed India Code copy vs Gazette of India CG-DL-E-25122023-250884 (MHA copy); legacy nic.in copies returned 504 | identical apart from marginal headings: keep |
+| TPA s. 106 | indexed copy vs legacy nic.in `A1882-04.pdf` (same MD5) vs legacy `tpa.pdf` | `tpa.pdf` prints the pre-2003 section: rejected as stale |
+| RERA s. 18 | indexed copy vs legacy nic.in `A201616.pdf` | identical; both include the 2026 amendment of s. 68: keep |
+| CrPC 1973 | India Code central repeal-register scan (as enacted), Chandigarh and Punjab items, SCLSC copy; legacy nic.in copy returned 504; Legislative Department page rendered nothing | none is the text as in force on 30 June 2024 (no s. 438(4), which the Supreme Court describes in 2024): not ingested |
+| Hindi TPA, Hindi BNSS | India Code `H1882-04.pdf`, `202346.pdf` | broken font mapping / no text layer; needs OCR (Tesseract not installed): not ingested |
+| State rent law | — | the eviction question names no state; not guessed |
+
+Legacy `indiacode.nic.in` handle numbers do not resolve on `indiacode.gov.in`; find items through the new API rather than the old URLs.
+
 Landmark cases to locate in the dataset. These are lookups, not facts: every field shown to a user comes from the dataset record, and if a case can't be found, report that rather than inventing it.
 | Case | Decided | Why it's in the seed |
 |---|---|---|

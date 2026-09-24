@@ -3,7 +3,7 @@ id: 20260922-multilingual
 title: Multilingual strategy
 tags: [multilingual, data]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-24
 related: [20260922-retrieval-pipeline, 20260922-chunk-schema, 20260922-statute-status, 20260922-evaluation]
 summary: "One pipeline for all 22 scheduled languages: registry, detection, normalisation, retrieval and translation."
 ---
@@ -60,7 +60,7 @@ Tesseract with the needed traineddata at 300 DPI, recording confidence per page.
 
 ### Retrieval and generation
 - bge-m3 is cross-lingual, so a Hindi query can retrieve English statute text and the reverse.
-- Keyword search needs same-language terms, so non-English queries get an English rewrite.
+- Keyword search needs same-language terms, so non-English queries get an English rewrite. As built (2026-09-24), the only rewrite is the rules-based term list in `data/registry/legal_terms.yaml` (e.g. अग्रिम जमानत → anticipatory bail wording); its Hindi entries are marked unverified until a Hindi speaker checks them, and no Hindi source text is indexed yet (the official Hindi TPA and BNSS PDFs need OCR; DECISIONS V35).
 - Generate the answer in the user's language when the configured model handles it acceptably; check this on the eval set, since hosted models are usually stronger than small local ones for Indic languages. Quotes stay in the source language, and translations are labelled unofficial.
 - The upgrade path to all 22 languages is AI4Bharat IndicTrans2, which covers every scheduled language, run locally for query and answer translation. Check its licence and VRAM needs first.
 

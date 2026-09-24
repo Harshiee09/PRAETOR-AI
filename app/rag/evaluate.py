@@ -19,6 +19,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from app.config import REPO_ROOT, Settings
+from app.rag.context import reserve_statute_slots
 from app.rag.pipeline import Engine, answer
 from app.retrieval.hybrid import MODES
 from app.store.db import connect
@@ -29,7 +30,51 @@ MARKER_RE = r"\[S(\d{1,3})\]"
 
 def load_gold(split: str = "all", path: Path = GOLD) -> list[dict]:
     rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    check_groups(rows)
     return [r for r in rows if split == "all" or r.get("split") == split]
+
+
+def check_groups(rows: list[dict]) -> None:
+    """Paraphrases of one question share a `group` and must sit in one split, or tuning on dev leaks into test."""
+    splits: dict[str, set] = {}
+    for r in rows:
+        splits.setdefault(r.get("group") or r["id"], set()).add(r.get("split"))
+    bad = sorted(g for g, s in splits.items() if len(s) > 1)
+    if bad:
+        raise ValueError(f"paraphrase groups split across dev and test: {bad}")
+
+
+def run_metadata(settings: Settings, engine: Engine, model: str | None) -> dict:
+    """What a run depends on, so two reports can be compared: gold and registry hashes, index, prompt, model digest,
+    decoding and retrieval settings, and the git commit (plus whether the tree had local changes)."""
+    import hashlib
+    import subprocess
+
+    from app.embeddings.index import read_manifest
+    from app.llm.ollama import OllamaClient
+
+    def sha(p: Path) -> str:
+        return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
+
+    def git(*args: str) -> str:
+        try:
+            return subprocess.run(["git", *args], cwd=REPO_ROOT, capture_output=True, text=True, timeout=10,
+                                  check=False).stdout.strip()
+        except (OSError, subprocess.SubprocessError):
+            return "?"
+
+    idx = read_manifest(settings) or {}
+    name = model or settings.ollama_model
+    return {"git_commit": git("rev-parse", "--short", "HEAD"), "git_dirty": bool(git("status", "--porcelain")),
+            "gold_sha256": sha(GOLD),
+            "registry_sha256": {p.name: sha(p) for p in sorted(settings.registry_dir.glob("*.yaml"))},
+            "index": {k: idx.get(k) for k in ("corpus_hash", "chunk_count", "faiss_ntotal", "embed_model", "created_at")},
+            "prompt_version": engine.prompt_version,
+            "llm": {"model": name, "digest": OllamaClient(settings.ollama_base_url, name).digest() if name else None,
+                    "temperature": settings.llm_temperature, "seed": settings.llm_seed},
+            "retrieval": {k: getattr(settings, k) for k in ("top_k_dense", "top_k_keyword", "rrf_k", "rerank_top_n",
+                                                            "context_max_chunks", "min_evidence_score")},
+            "rerank_model": settings.rerank_model}
 
 
 def is_hit(chunk: dict, src: dict) -> bool:
@@ -78,6 +123,11 @@ def run_retrieval(engine: Engine, gold: list[dict], modes: list[str]) -> dict:
                        "timings": r.timings_ms}
                 if g["expected_sources"]:
                     row.update(retrieval_metrics(r.candidates, g["expected_sources"], g.get("match", "all")))
+                    if m in ("hybrid_rerank", "full"):
+                        # what the model would actually see: the context places after the statute slots
+                        ctx = reserve_statute_slots(r.candidates, engine.settings.context_max_chunks)
+                        row["in_context"] = retrieval_metrics(ctx[: engine.settings.context_max_chunks],
+                                                              g["expected_sources"], g.get("match", "all"))["recall@10"]
                 out[m].append(row)
     finally:
         conn.close()
@@ -94,6 +144,8 @@ def summarise_retrieval(res: dict) -> list[dict]:
                       "recall@10": _mean([r["recall@10"] for r in answerable]),
                       "mrr": _mean([r["mrr"] for r in answerable]),
                       "statute_n": len(statute), "statute_recall@5": _mean([r["recall@5"] for r in statute]),
+                      "in_context": (_mean([r["in_context"] for r in answerable])
+                                     if answerable and all("in_context" in r for r in answerable) else None),
                       "p50_ms": statistics.median([r["ms"] for r in rows]) if rows else 0})
     return table
 
@@ -142,7 +194,7 @@ def run_answers(engine: Engine, gold: list[dict], model: str | None) -> list[dic
         row.update(invalid_removed=len(v.get("invalid_ids", [])), unverified_authority=len(v.get("unverified_authority", [])),
                    unverified_quotes=len(v.get("unverified_quotes", [])), unsupported=v.get("unsupported", 0),
                    removed_sentences=v.get("removed_sentences", []), llm=e.get("llm"), attempts=e.get("attempts"),
-                   warnings=out["warnings"])
+                   warnings=out["warnings"], context_ids=ctx, statute_slots=e.get("statute_slots", []))
         if g["must_mention"] and not out["abstained"]:
             low = text.lower()
             row["must_mention_hit"] = all(m.lower() in low for m in g["must_mention"])
@@ -192,13 +244,19 @@ def write_report(settings: Settings, payload: dict) -> Path:
     lines = [f"# Evaluation {ts}", "", f"Split: **{payload['split']}** · questions: {payload['n_questions']} · "
              f"model: {payload.get('model') or '—'} · MIN_EVIDENCE_SCORE {settings.min_evidence_score}", "",
              "_Small-sample caveat: with this few questions, differences of a few points between configurations are "
-             "not meaningful. Gold questions are drafts until a person verifies them (`verified_by`)._", ""]
+             "not meaningful. Gold questions are drafts until a person verifies them (`verified_by`); every question "
+             "and the evidence threshold have been seen during development, so these numbers are exploratory, not a "
+             "validated accuracy estimate._", ""]
+    if "run" in payload:
+        lines += ["Run: `" + json.dumps(payload["run"], ensure_ascii=False, default=str) + "`", ""]
     if "retrieval" in payload:
-        lines += ["## Retrieval ablation", "", "| configuration | n | Recall@5 | Recall@10 | MRR | statute Recall@5 (n) | p50 ms |",
-                  "|---|---|---|---|---|---|---|"]
+        lines += ["## Retrieval ablation", "",
+                  "| configuration | n | Recall@5 | Recall@10 | MRR | statute Recall@5 (n) | in context (8) | p50 ms |",
+                  "|---|---|---|---|---|---|---|---|"]
         for t in payload["retrieval"]:
+            ic = f"{t['in_context']:.2f}" if t.get("in_context") is not None else "—"
             lines.append(f"| {t['mode']} | {t['n']} | {t['recall@5']:.2f} | {t['recall@10']:.2f} | {t['mrr']:.2f} | "
-                         f"{t['statute_recall@5']:.2f} ({t['statute_n']}) | {t['p50_ms']:.0f} |")
+                         f"{t['statute_recall@5']:.2f} ({t['statute_n']}) | {ic} | {t['p50_ms']:.0f} |")
         lines += ["", "### Abstention (evidence gate, full configuration)", "", f"`{payload['abstention']}`", ""]
         for lang, t in payload.get("retrieval_by_language", {}).items():
             lines.append(f"- language `{lang}`: full Recall@5 {t['recall@5']:.2f} (n={t['n']})")
@@ -210,6 +268,8 @@ def write_report(settings: Settings, payload: dict) -> Path:
     if "answers" in payload:
         a = payload["answers"]
         lines += ["", "## Answers (full pipeline)", ""] + [f"- **{k}**: {v}" for k, v in a.items()]
+        for name, sub in payload.get("answers_by_slice", {}).items():
+            lines += ["", f"### Slice: {name}", ""] + [f"- **{k}**: {v}" for k, v in sub.items() if k != "abstention"]
     path = out_dir / f"{ts}.md"
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
@@ -220,7 +280,8 @@ def run(settings: Settings, split: str = "all", modes: list[str] | None = None, 
     gold = load_gold(split)
     engine = Engine.load(settings)
     modes = modes or list(MODES)
-    payload: dict = {"split": split, "n_questions": len(gold), "model": model or settings.ollama_model}
+    payload: dict = {"split": split, "n_questions": len(gold), "model": model or settings.ollama_model,
+                     "run": run_metadata(settings, engine, model)}
     res = run_retrieval(engine, gold, modes)
     payload["retrieval"] = summarise_retrieval(res)
     payload["retrieval_rows"] = res
@@ -237,5 +298,9 @@ def run(settings: Settings, split: str = "all", modes: list[str] | None = None, 
     if with_answers:
         rows = run_answers(engine, gold, model)
         payload["answers"] = summarise_answers(rows)
+        split_of = {g["id"]: g["split"] for g in gold}
+        slices = {f"split {sp}": [r for r in rows if split_of[r["id"]] == sp] for sp in ("dev", "test")}
+        slices["language hi"] = [r for r in rows if r["language"] == "hi"]
+        payload["answers_by_slice"] = {k: summarise_answers(v) for k, v in slices.items() if v and len(v) < len(rows)}
         payload["answer_rows"] = rows
     return payload, write_report(settings, payload)

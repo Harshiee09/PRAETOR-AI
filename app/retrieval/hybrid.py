@@ -37,6 +37,7 @@ class RetrievalResult:
     notes: list[str] = field(default_factory=list)
     timings_ms: dict = field(default_factory=dict)
     keyword_match: str | None = None
+    rewrites: list[str] = field(default_factory=list)  # the expanded query used by dense/act-scoped/rerank, if any
 
 
 class HybridRetriever:
@@ -69,22 +70,32 @@ class HybridRetriever:
             t["exact_ms"] = round((time.perf_counter() - t0) * 1000)
 
         fused_modes = ("hybrid", "hybrid_rerank", "full")
+        # Rewrite (retrieval-pipeline note, step 3): lay terms add the statutes' own wording (legal_terms.yaml), e.g.
+        # "anticipatory bail" -> "bail to person apprehending arrest", the BNSS s. 482 heading, which the reranker
+        # otherwise scored 0.025 for "How do I apply for anticipatory bail?" (DECISIONS D35). Fused modes only, so the
+        # single-retriever ablation rows stay comparable with earlier runs.
+        expand = bool(cls.expansions) and mode in fused_modes
+        xq = f"{query} ({'; '.join(cls.expansions)})" if expand else query
+        dense_queries = [("dense", query)] + ([("dense_expanded", xq)] if expand else [])
         if mode in ("dense", *fused_modes):
-            hits, dt = self.dense.search(query, s.top_k_dense * 4)
-            meta = {r["rowid"]: r for r in chunks_by_rowids(conn, [h[0] for h in hits])}
-            hits = [h for h in hits if h[0] in meta and meta[h[0]]["jurisdiction"] in allowed_juris]
-            lists["dense"] = [h[0] for h in hits[: s.top_k_dense]]
-            scores["dense"] = dict(hits[: s.top_k_dense])
-            if mode in fused_modes:
-                # Statute quota: judgments outnumber statute chunks ~8:1, so the best statute hits get their own
-                # list in the fusion and always reach the reranker (retrieval-pipeline note, step 4, doc_type).
-                st = [h for h in hits if meta[h[0]]["doc_type"] == "statute"][:STATUTE_QUOTA]
-                lists["dense_statute"] = [h[0] for h in st]
-                scores["dense"].update(dict(st))
-            t["dense_ms"] = dt["embed_ms"] + dt["search_ms"]
+            dt_total = 0
+            for name, dq in dense_queries:
+                hits, dt = self.dense.search(dq, s.top_k_dense * 4)
+                meta = {r["rowid"]: r for r in chunks_by_rowids(conn, [h[0] for h in hits])}
+                hits = [h for h in hits if h[0] in meta and meta[h[0]]["jurisdiction"] in allowed_juris]
+                lists[name] = [h[0] for h in hits[: s.top_k_dense]]
+                scores.setdefault("dense", {}).update({r: v for r, v in hits[: s.top_k_dense] if r not in scores.get("dense", {})})
+                if mode in fused_modes:
+                    # Statute quota: judgments outnumber statute chunks ~8:1, so the best statute hits get their own
+                    # list in the fusion and always reach the reranker (retrieval-pipeline note, step 4, doc_type).
+                    st = [h for h in hits if meta[h[0]]["doc_type"] == "statute"][:STATUTE_QUOTA]
+                    lists[f"{name}_statute"] = [h[0] for h in st]
+                    scores["dense"].update({r: v for r, v in st if r not in scores["dense"]})
+                dt_total += dt["embed_ms"] + dt["search_ms"]
+            t["dense_ms"] = dt_total
 
         if mode in ("keyword", *fused_modes):
-            phrases = [self.registry.short_title(a) for a in cls.search_acts]
+            phrases = [self.registry.short_title(a) for a in cls.search_acts] + (list(cls.expansions) if expand else [])
             placeholders = ",".join("?" for _ in allowed_juris)
             kw = KeywordRetriever(conn)
             hits, dt = kw.search(query, s.top_k_keyword, extra_phrases=phrases,
@@ -105,7 +116,7 @@ class HybridRetriever:
             # ranks that Act's own sections by similarity, so "s. 438 CrPC" can reach BNSS s. 482.
             t0 = time.perf_counter()
             titles = [self.registry.short_title(a) for a in cls.search_acts]
-            lists["act_scoped"] = act_scoped(conn, query, titles, self.dense, STATUTE_QUOTA)
+            lists["act_scoped"] = act_scoped(conn, xq, titles, self.dense, STATUTE_QUOTA)
             t["act_scoped_ms"] = round((time.perf_counter() - t0) * 1000)
 
         if mode == "full":
@@ -125,7 +136,7 @@ class HybridRetriever:
                     repeal = conn.execute(
                         "SELECT rowid FROM chunks WHERE act_title = ? AND jurisdiction = 'IN' AND section_heading LIKE 'Repeal%' "
                         "AND text LIKE ? ORDER BY rowid LIMIT 1", (succ_title, f"%{old_name}%")).fetchall()
-                    succ = [r[0] for r in repeal] + act_scoped(conn, query, [succ_title], self.dense, 1)
+                    succ = [r[0] for r in repeal] + act_scoped(conn, xq, [succ_title], self.dense, 1)
                     pinned += [r for r in succ if r not in pinned]
 
         if len(lists) == 1 and not pinned:
@@ -150,7 +161,7 @@ class HybridRetriever:
         gate = {"on": "none", "score": None, "threshold": None}
         if mode in ("hybrid_rerank", "full") and self.reranker is not None and cands:
             t0 = time.perf_counter()
-            rr = self.reranker.score(query, [c["embed_text"] for c in cands])
+            rr = self.reranker.score(xq, [c["embed_text"] for c in cands])
             t["rerank_ms"] = round((time.perf_counter() - t0) * 1000)
             for c, sc in zip(cands, rr):
                 c["scores"]["rerank"] = round(sc, 4)
@@ -174,4 +185,5 @@ class HybridRetriever:
             gate = {"on": "dense", "score": round(top, 4), "threshold": s.min_dense_score}
         abstained = not cands or (gate["on"] in ("rerank", "dense") and gate["score"] < gate["threshold"])
         return RetrievalResult(query=query, mode=mode, classification=cls, candidates=cands, abstained=abstained,
-                               gate=gate, notes=notes, timings_ms=t, keyword_match=match)
+                               gate=gate, notes=notes, timings_ms=t, keyword_match=match,
+                               rewrites=[xq] if expand else [])

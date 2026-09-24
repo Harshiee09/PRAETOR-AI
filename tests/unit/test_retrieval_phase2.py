@@ -67,6 +67,19 @@ def test_fts_query_is_sanitised():
     assert fts_query("the of and") is None
 
 
+def test_act_title_phrase_keeps_stop_words_and_matches(tmp_path):
+    """An Act-title phrase must match the title as printed; dropping "of" made the phrase unmatchable (2026-09-24)."""
+    q = fts_query("", ["Transfer of Property Act, 1882"])
+    assert q == '"transfer of property act 1882"'
+    conn = connect(tmp_path / "t.sqlite")
+    # the TPA s. 106 header as stored in embed_text
+    header = ("Transfer of Property Act, 1882 > Chapter V — Of Leases of Immoveable Property > s. 106 — Duration of "
+              "certain leases in absence of written contract or local usage")
+    conn.execute("INSERT INTO chunks_fts(rowid, embed_text) VALUES (1, ?)", (header,))
+    hits = conn.execute("SELECT rowid FROM chunks_fts WHERE chunks_fts MATCH ?", (q,)).fetchall()
+    assert [tuple(h) for h in hits] == [(1,)]
+
+
 def test_hindi_and_tamil_terms_are_searchable(tmp_path):
     """Real strings: India Code's Hindi title of the Consumer Protection Act, 2019
     (https://indiacode.gov.in/handle/123456789/554492, dc.title.regional) and the Tamil language label in the SC
@@ -89,3 +102,12 @@ def test_rrf_pins_exact_hits_first():
     assert fused[0][2]["exact"] == 1
     top = {r: s for r, s, _ in fused}
     assert top[1] == pytest.approx(1 / 62 + 1 / 61) and top[3] == pytest.approx(1 / 61 + 1 / 62)
+
+
+def test_gold_paraphrase_groups_sit_in_one_split():
+    from app.rag.evaluate import check_groups, load_gold
+
+    rows = load_gold("all")  # raises if a group straddles dev and test
+    assert all(r.get("group") for r in rows)
+    with pytest.raises(ValueError, match="g-x"):
+        check_groups([{"id": "a", "group": "g-x", "split": "dev"}, {"id": "b", "group": "g-x", "split": "test"}])

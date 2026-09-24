@@ -65,6 +65,8 @@ class Classification:
     search_acts: list[str] = field(default_factory=list)    # ids to search (names + successors/predecessors)
     section_refs: list[dict] = field(default_factory=list)  # [{"act": id|None, "section": "438", "sub": "(1)"}]
     reasons: list[str] = field(default_factory=list)
+    expansions: list[str] = field(default_factory=list)      # statutory wording for matched lay terms (legal_terms.yaml)
+    expansion_ids: list[str] = field(default_factory=list)
 
     def as_dict(self) -> dict:
         return asdict(self)
@@ -76,6 +78,30 @@ def _states(registry_dir: str) -> dict[str, str]:
     names = {n: c for n, c in jur["codes"].items()}
     names.update({a: jur["codes"][t] for a, t in jur["aliases"].items()})
     return names
+
+
+@lru_cache(maxsize=2)
+def _legal_terms(registry_dir: str) -> list[tuple[str, regex.Pattern, tuple[str, ...]]]:
+    path = Path(registry_dir) / "legal_terms.yaml"
+    if not path.exists():
+        return []
+    out = []
+    for e in yaml.safe_load(path.read_text(encoding="utf-8")) or []:
+        # English terms on word boundaries; Devanagari terms as substrings (\b is unreliable next to vowel signs)
+        alts = [r"\b" + r"[\s-]+".join(regex.escape(w) for w in t.split()) + r"\b" for t in e.get("terms", [])]
+        alts += [regex.escape(t) for t in e.get("terms_hi", [])]
+        out.append((e["id"], regex.compile("|".join(alts), regex.I), tuple(e["statutory"])))
+    return out
+
+
+def expand_terms(query: str, registry_dir: Path) -> tuple[list[str], list[str]]:
+    """(entry ids, statutory phrases) for the lay terms a query uses. Search expansion only (legal_terms.yaml)."""
+    ids, phrases = [], []
+    for eid, pattern, statutory in _legal_terms(str(registry_dir)):
+        if pattern.search(query):
+            ids.append(eid)
+            phrases += [p for p in statutory if p not in phrases]
+    return ids, phrases
 
 
 def roman(n: int) -> str:
@@ -145,5 +171,7 @@ def classify(query: str, registry: Registry, registry_dir: Path) -> Classificati
     for m in sorted(mentions, key=lambda m: -m.start):
         masked = masked[:m.start] + " " * (m.end - m.start) + masked[m.end:]
     dates = sorted(set(YEAR.findall(masked)) | {f"{d[2]}{d[3]}-{int(d[1]):02d}-{int(d[0]):02d}" for d in DATE.findall(masked)})
+    exp_ids, expansions = expand_terms(q, registry_dir)
     return Classification(domain=domain, intent=intent, high_stakes=high, jurisdiction_hint=juris, event_dates=dates,
-                          acts=acts, search_acts=search_acts, section_refs=refs, reasons=reasons)
+                          acts=acts, search_acts=search_acts, section_refs=refs, reasons=reasons,
+                          expansions=expansions, expansion_ids=exp_ids)

@@ -27,7 +27,9 @@ def fts_query(text: str, extra_phrases: list[str] | None = None) -> str | None:
             continue
         terms.append(f'"{tok}"')
     for p in extra_phrases or []:
-        words = [w for w in TOKEN.findall(p.lower()) if w not in STOPWORDS]
+        # A phrase keeps its stop-words: FTS5 phrases match adjacent tokens and the index keeps every token, so
+        # "transfer property act" can never match "Transfer of Property Act" (found 2026-09-24: 0 hits vs 260).
+        words = TOKEN.findall(p.lower())
         if words:
             terms.append('"' + " ".join(words) + '"')
     terms = list(dict.fromkeys(terms))

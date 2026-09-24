@@ -41,13 +41,13 @@ Required for every chunk:
 | `authority`, `jurisdiction` | who issued it, and where it applies |
 | `language`, `script` | BCP-47 primary tag (`en`, `hi`, `ta`, `brx`, `sat`) and ISO 15924 script (`Latn`, `Deva`, `Taml`, `Olck`) |
 | `locator` | human-readable position: `s. 23`, `s. 17(1)(b)`, `paras 12-15`, `p. 4` |
-| `page_start`, `page_end` | PDF pages; null for HTML |
+| `page_start`, `page_end` | PDF pages; required when `text_source` is `layer` or `ocr`; null only for HTML and metadata-rendered chunks (checked since 2026-09-24, DECISIONS D41) |
 | `text` | cleaned text shown to users and quoted in citations |
 | `embed_text` | metadata header plus text; this is what gets embedded and keyword-indexed |
 | `token_count` | measured with the embedding model's tokenizer |
 | `status` | statutes: `in_force`, `repealed`, `partially_in_force` or `unknown`, from `data/registry/statutes.yaml`; other types: `n/a` |
 | `domain_tags` | JSON list, for example `["property_land", "registration"]` |
-| `text_source`, `ocr_confidence` | `layer`, `ocr`, or `metadata` (a judgment's case-header chunk, rendered from the dataset record; DECISIONS D13), and the mean OCR confidence when OCR was used |
+| `text_source`, `ocr_confidence` | `layer`, `ocr`, or `metadata` (a judgment's case-header chunk, rendered from the dataset record; DECISIONS D13), and the mean OCR confidence, which is required when `text_source` is `ocr` |
 
 Statute chunks also require `act_title`, `act_year`, `section` and `section_heading`; optionally `act_number`, `part`, `chapter`, `subsection`, `amendment_notes` (a JSON list parsed from footnotes) and `successor`.
 
@@ -76,7 +76,8 @@ Procedure and form chunks also require `issuing_body` and `valid_as_of`; optiona
 - A required field that is null or empty rejects the chunk; log the `doc_id` and the field.
 - Placeholder or impossible values reject the chunk: `...`, `TBD`, `N/A`, `example`, a party name of `...`, future dates, or a Supreme Court `decision_date` before 28 January 1950. Enumerated fields (`status`, `doc_type`, `text_source`) are checked against their allowed sets instead, since `n/a` is a valid `status`.
 - `source_url` must start with `https://` or `s3://`.
-- Duplicate `(doc_id, sha1(text))` pairs keep one row.
+- Duplicate `(doc_id, sha1(text))` pairs keep one row. The dropped chunk is written to `rejects` with the locator that kept the text, so identical text at two legal locators is visible rather than silently lost (risk noted 2026-09-24; statute text starts with its section number, so no statute collision exists in the current corpus, and one judgment duplicate was dropped in Phase 2).
+- The `vectors` table records the sha1 of the `embed_text` each FAISS vector was embedded from; `praetor index` re-embeds a chunk whose hash differs, because SQLite can reuse a deleted rowid (the FAISS id) for new text (DECISIONS D41).
 - Re-running ingestion over unchanged sources must add zero rows. Cover this with an idempotency test.
 
 ### Corpus profile (`praetor profile`, written to `docs/reports/corpus_profile.md`)

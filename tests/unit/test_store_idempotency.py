@@ -1,5 +1,7 @@
 """Replacing a document with the same chunks keeps the row count constant; duplicates keep one row."""
 
+import dataclasses
+
 from app.chunking.schema import Document
 from app.store.db import connect, replace_document
 from tests.unit.helpers import statute_fixture_chunks
@@ -24,12 +26,14 @@ def test_replace_twice_adds_no_rows(tmp_path):
     assert added1 == n1 == n2 == len(chunks) and len(removed) == n1
 
 
-def test_duplicate_text_keeps_one_row(tmp_path):
+def test_duplicate_text_keeps_one_row_and_reports_the_dropped_locator(tmp_path):
     chunks = statute_fixture_chunks("registration_1908_ss1-8", "registration-1908")
     conn = connect(tmp_path / "t.sqlite")
+    # same text at a different locator: the (doc_id, sha1(text)) key keeps one row, and the drop is named
+    twin = dataclasses.replace(chunks[1], locator="s. 99", chunk_id=chunks[1].chunk_id + "-twin")
     with conn:
-        _, added, dups = replace_document(conn, _doc(chunks[0]), chunks + [chunks[0]], "2026-09-23")
-    assert added == len(chunks) and dups == 1
+        _, added, dups = replace_document(conn, _doc(chunks[0]), chunks + [twin], "2026-09-23")
+    assert added == len(chunks) and dups == [("s. 99", chunks[1].locator)]
 
 
 def test_fts_is_populated_and_searchable(tmp_path):

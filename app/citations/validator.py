@@ -5,10 +5,15 @@
 2. Authority scan: section references (`Section 23`, `s. 23`, `ss. 24 to 26`, `धारा 23`, `Order XXXIX`), Act titles with
    years, case names (`X v. Y`), and reporter citations (`(2020) 8 SCC 129`, `AIR 1956 SC 35`, `[2021] 11 S.C.R. 1181`,
    `2021 INSC 836`) must appear in the text or metadata of the chunks the sentence cites (all context chunks when it
-   cites none). Otherwise the sentence is removed (`unverified_authority`).
-3. Quotations (15+ characters in double quotes) must be verbatim in a cited chunk; otherwise the sentence is removed.
-4. Sentences under "What the sources say" without a marker are flagged (`unsupported`); the pipeline regenerates once
-   when more than 20% are flagged, then falls back to the extractive answer.
+   cites none). A section named together with an Act ("s. 482 CrPC") must be attested for THAT Act: a cited statute
+   chunk of that Act and section, or a cited passage that names the same section of the same Act. Section numbers are
+   not shared between Acts (s. 482 CrPC is the High Court's inherent power; s. 482 BNSS is anticipatory bail).
+   Otherwise the sentence is removed (`unverified_authority`).
+3. Quotations (15+ characters in double quotes) must be verbatim in a cited chunk; a quotation cut with an ellipsis
+   ("a lease ... shall be deemed") must match piece by piece, in order. Otherwise the sentence is removed.
+4. Sentences that state law ("Short answer", "What the sources say", "How it may apply") without a marker are flagged
+   (`unsupported`), except statements that the sources do not cover something; the pipeline regenerates once when
+   more than 20% are flagged, then falls back to the extractive answer.
 5. A cited chunk that is repealed adds a deterministic warning naming the successor.
 6. Citation cards are built from metadata only; each card's `quote` is cut from the chunk text in code.
 """
@@ -49,6 +54,13 @@ REPORTER = [regex.compile(p, regex.I) for p in (
     r"\b\d{4}\s*INSC\s*\d+", r"\b\d{4}\s*SCC\s*OnLine\s*\w+\s*\d+")]
 ACT_WITH_YEAR = regex.compile(r"\b(?P<name>(?:[A-Z][\w()]*\s+){1,9}(?:Act|Code|Sanhita|Adhiniyam)),?\s*(?P<year>1[89]\d\d|20[0-4]\d)\b")
 STOP_PARTY = {"the", "state", "union", "of", "and", "ors", "anr", "others", "another", "india", "m/s", "mr", "smt", "shri"}
+# how an Act name attaches to a section reference: "s. 482 of the CrPC", "Section 438 Cr.P.C.", "BNSS s. 482"
+ATTACH_AFTER = regex.compile(r"\s*,?\s*(?:respectively\s+)?(?:(?:of|under|in)\s+)?(?:the\s+)?")
+ATTACH_BEFORE = regex.compile(r"(?:'s|’s)?\s*,?\s*")
+ELLIPSIS = re.compile(r"\s*(?:\.\s?\.\s?\.|…)\s*")
+CLAIM_SECTIONS = ("short answer", "what the sources say", "how it may apply")
+NOT_COVERED = re.compile(r"\bsources?\b[^.]{0,80}\b(?:do|does|did)\s+not\b|\bnot (?:covered|addressed|stated|specified|say)\b"
+                         r"|\bno source\b", re.I)
 
 
 @dataclass
@@ -109,11 +121,48 @@ def _section_ok(num: str, ev: str, sections: set[str]) -> bool:
     return re.match(r"\d{1,3}[A-Z]{0,2}", num.upper()).group(0) in sections
 
 
-def _authority_problems(sentence: str, ev: str, sections: set[str], registry) -> list[str]:
+def _attached_act(text: str, start: int, end: int, registry) -> str | None:
+    """The registry id of the Act named right after ("s. 482 of the CrPC") or right before ("BNSS s. 482") a section
+    reference, or None when the reference names no Act ("section 23 of the Act")."""
+    after = text[end:end + 80]
+    for m in registry.find_acts(after):
+        if ATTACH_AFTER.fullmatch(after[:m.start]):
+            return m.names
+        break
+    before = text[max(0, start - 80):start]
+    found = registry.find_acts(before)
+    if found and ATTACH_BEFORE.fullmatch(before[found[-1].end:]):
+        return found[-1].names
+    return None
+
+
+def _attested(c: dict, registry) -> set[tuple[str, str]]:
+    """(Act id, section) pairs a chunk can vouch for: its own section if it is statute text, and every section its
+    text names together with an Act."""
+    pairs = set()
+    if c.get("doc_type") == "statute" and c.get("section") and c.get("act_title"):
+        act = registry.by_short_title(c["act_title"])
+        m = re.match(r"\d{1,3}[A-Z]{0,2}", str(c["section"]).upper())
+        if act and m:
+            pairs.add((act["id"], m.group(0)))
+    text = c.get("text") or ""
+    for m in SECTION_MENTION.finditer(text):
+        act_id = _attached_act(text, m.start(), m.end(), registry)
+        if act_id:
+            pairs.update((act_id, n.upper()) for n in re.findall(r"\d{1,3}[A-Z]{0,2}", m.group("nums")))
+    return pairs
+
+
+def _authority_problems(sentence: str, ev: str, sections: set[str], registry,
+                        attested: set[tuple[str, str]] | None = None) -> list[str]:
     problems = []
     for m in SECTION_MENTION.finditer(sentence):
+        act_id = _attached_act(sentence, m.start(), m.end(), registry) if registry is not None else None
         for num in re.findall(r"\d{1,3}[A-Z]{0,2}", m.group("nums")):
-            if not _section_ok(num, ev, sections):
+            if act_id and attested is not None:
+                if (act_id, num.upper()) not in attested:
+                    problems.append(f"section {num} of the {registry.short_title(act_id)}")
+            elif not _section_ok(num, ev, sections):
                 problems.append(f"section {num}")
     for m in ORDER_MENTION.finditer(sentence):
         if f"order {m.group('order').lower()}" not in ev and f"o. {m.group('order').lower()}" not in ev:
@@ -152,14 +201,38 @@ def _split(text: str) -> list[tuple[str, str]]:
     return pieces
 
 
+def _sections_of(text: str) -> dict[str, str]:
+    """Answer body by bold heading ("**Short answer:** ..." -> {"short answer": "..."}), lower-cased headings."""
+    out: dict[str, str] = {}
+    parts = re.split(r"(?m)^\s*\*\*([^*\n]{2,60}?):?\*\*:?", text)
+    for i in range(1, len(parts) - 1, 2):
+        out[parts[i].strip().lower()] = parts[i + 1]
+    return out
+
+
 def _unsupported(text: str) -> tuple[int, int]:
-    """(flagged, total) sentences under the "What the sources say" heading that carry no [S#] marker."""
-    block = re.search(r"What the sources say[^\n]*\n(.*?)(?=\n\s*\*\*|\Z)", text, re.S | re.I)
-    if not block:
-        return 0, 0
-    sentences = [s for s, _ in _split(block.group(1)) if len(re.findall(r"\w+", s)) >= 5]
+    """(flagged, total) sentences that state law ("Short answer", "What the sources say", "How it may apply") and carry
+    no [S#] marker. Saying that the sources do not cover something is not a claim and is not counted."""
+    sentences = []
+    for head, body in _sections_of(text).items():
+        if head in CLAIM_SECTIONS:
+            sentences += [s for s, _ in _split(body) if len(re.findall(r"\w+", s)) >= 5 and not NOT_COVERED.search(s)]
     flagged = [s for s in sentences if not MARKER.search(s)]
     return len(flagged), len(sentences)
+
+
+def _quote_ok(quote: str, source: str) -> bool:
+    """Verbatim after normalising quote marks and spaces; an ellipsis may join pieces that appear in order."""
+    pieces = [p for p in (_norm(x).strip(" .,;:") for x in ELLIPSIS.split(quote)) if p]
+    if len(pieces) > 1 and any(len(p.split()) < 2 for p in pieces):
+        return False  # one-word fragments between ellipses would match almost anywhere
+    pos = 0
+    for p in pieces:
+        i = source.find(p, pos)
+        if i < 0:
+            return False
+        pos = i + len(p)
+    return bool(pieces)
 
 
 def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | None = None, registry=None) -> ValidationResult:
@@ -178,26 +251,29 @@ def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | N
     for sid in invalid:
         log.warning("invalid_citation", extra={"sid": sid})
 
-    all_chunks = list(id_map.values())
+    attested = {sid: _attested(c, registry) for sid, c in id_map.items()} if registry is not None else None
     unverified_q, unverified_a, kept, removed = [], [], [], []
     for sentence, sep in _split(text):
-        cited = [id_map[f"S{int(n)}"] for n in MARKER.findall(sentence) if f"S{int(n)}" in id_map]
-        pool = cited or all_chunks
+        sids = [f"S{int(n)}" for n in MARKER.findall(sentence) if f"S{int(n)}" in id_map] or list(id_map)
+        pool = [id_map[s] for s in dict.fromkeys(sids)]
         ev, sections = _evidence(pool)
         heading = HEADING.match(sentence)  # "**Short answer:** ..." keeps its heading if the sentence goes
-        bad_q = [q for q in QUOTE.findall(sentence) if _norm(q) not in _norm(" ".join(c["text"] for c in pool))]
+        source = _norm(" ".join(c["text"] for c in pool))
+        bad_q = [q for q in QUOTE.findall(sentence) if not _quote_ok(q, source)]
         if bad_q:
             unverified_q += bad_q
             removed.append(sentence.strip())
-            log.warning("unverified_quote", extra={"quote": bad_q[0][:80]})
+            # model text can echo what the user typed, so logs get counts, never the text (LOG_QUERIES=hash)
+            log.warning("unverified_quote", extra={"count": len(bad_q)})
             if heading:
                 kept.append(heading.group(1) + sep)
             continue
-        bad_a = _authority_problems(sentence, ev, sections, registry)
+        pairs = set().union(*(attested[s] for s in sids)) if attested is not None else None
+        bad_a = _authority_problems(sentence, ev, sections, registry, pairs)
         if bad_a:
             unverified_a += bad_a
             removed.append(sentence.strip())
-            log.warning("unverified_authority", extra={"items": bad_a[:3]})
+            log.warning("unverified_authority", extra={"count": len(bad_a)})
             if heading:
                 kept.append(heading.group(1) + sep)
             continue

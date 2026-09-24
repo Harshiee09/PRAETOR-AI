@@ -63,6 +63,9 @@ SCHEMA = [
     """CREATE TABLE IF NOT EXISTS spend (
         ts TEXT NOT NULL, day TEXT NOT NULL, provider TEXT NOT NULL, model TEXT NOT NULL,
         input_tokens INTEGER NOT NULL, output_tokens INTEGER NOT NULL, cost_usd REAL NOT NULL, trace_id TEXT)""",
+    # What each FAISS vector was embedded from. chunks.rowid can be reused after a delete (no AUTOINCREMENT), so an id
+    # match alone does not prove the vector belongs to the current text; sync_index compares these hashes.
+    """CREATE TABLE IF NOT EXISTS vectors (rowid INTEGER PRIMARY KEY, embed_sha1 TEXT NOT NULL)""",
 ]
 
 
@@ -109,8 +112,10 @@ def get_document(conn: sqlite3.Connection, doc_id: str) -> sqlite3.Row | None:
     return conn.execute("SELECT * FROM documents WHERE doc_id = ?", (doc_id,)).fetchone()
 
 
-def replace_document(conn: sqlite3.Connection, doc: Document, chunks: list[Chunk], indexed_at: str) -> tuple[list[int], int, int]:
-    """Replace a document's chunks in one transaction. Returns (removed rowids, added count, duplicates dropped)."""
+def replace_document(conn: sqlite3.Connection, doc: Document, chunks: list[Chunk],
+                     indexed_at: str) -> tuple[list[int], int, list[tuple[str, str]]]:
+    """Replace a document's chunks in one transaction. Returns (removed rowids, added count, dropped duplicates as
+    (locator, locator of the row that kept the same text)) so a dropped chunk is never silent."""
     removed = [r[0] for r in conn.execute("SELECT rowid FROM chunks WHERE doc_id = ?", (doc.doc_id,))]
     conn.execute("DELETE FROM chunks WHERE doc_id = ?", (doc.doc_id,))
     conn.execute(
@@ -124,12 +129,16 @@ def replace_document(conn: sqlite3.Connection, doc: Document, chunks: list[Chunk
     )
     cols = CHUNK_FIELDS + ["text_sha1"]
     sql = f"INSERT OR IGNORE INTO chunks ({', '.join(cols)}) VALUES ({', '.join('?' for _ in cols)})"
-    added = 0
+    added, dropped = 0, []
     for c in chunks:
         d = c.as_dict()
-        cur = conn.execute(sql, [_encode(n, d[n]) for n in CHUNK_FIELDS] + [text_hash(c.text)])
+        h = text_hash(c.text)
+        cur = conn.execute(sql, [_encode(n, d[n]) for n in CHUNK_FIELDS] + [h])
         added += cur.rowcount
-    return removed, added, len(chunks) - added
+        if not cur.rowcount:
+            kept = conn.execute("SELECT locator FROM chunks WHERE doc_id = ? AND text_sha1 = ?", (doc.doc_id, h)).fetchone()
+            dropped.append((c.locator, kept[0] if kept else "?"))
+    return removed, added, dropped
 
 
 def chunk_rowids(conn: sqlite3.Connection) -> list[int]:

@@ -148,6 +148,12 @@ def validate_chunk(c: Chunk, today: date | None = None) -> list[str]:
         problems.append(f"text_source {c.text_source!r} not allowed")
     if c.token_count is not None and c.token_count <= 0:
         problems.append("token_count must be positive")
+    # Pages are the locator of last resort for PDF text; only metadata-rendered chunks (a judgment's case header,
+    # DECISIONS D13) and HTML have none. OCR text must say how confident the OCR was.
+    if c.text_source in {"layer", "ocr"} and (c.page_start is None or c.page_end is None):
+        problems.append("missing page_start/page_end for text taken from a PDF")
+    if c.text_source == "ocr" and c.ocr_confidence is None:
+        problems.append("missing ocr_confidence for OCR text")
     if c.doc_type == "judgment":
         for party in re.split(r"\s+(?:v\.|vs\.?|versus)\s+", c.case_title or "", flags=re.I):
             if party.strip(" .").lower() in PLACEHOLDERS or not party.strip(" ."):

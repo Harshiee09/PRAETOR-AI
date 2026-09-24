@@ -20,7 +20,7 @@ import numpy as np
 from app.config import Settings
 from app.embeddings.embedder import EMBED_DIM, Embedder
 from app.ingestion.manifest import utc_now
-from app.store.db import chunk_rowids, chunks_by_rowids
+from app.store.db import chunks_by_rowids
 
 log = logging.getLogger(__name__)
 
@@ -44,7 +44,13 @@ def corpus_hash(conn: sqlite3.Connection) -> str:
     return h.hexdigest()
 
 
+def _sha1(text: str) -> str:
+    return hashlib.sha1(text.encode("utf-8")).hexdigest()
+
+
 def sync_index(settings: Settings, conn: sqlite3.Connection, embedder: Embedder | None = None) -> dict:
+    """A vector is kept only when its id still exists and the `vectors` table says it was embedded from the chunk's
+    current embed_text. SQLite reuses the highest rowids after a delete, so an id match alone is not enough."""
     settings.index_dir.mkdir(parents=True, exist_ok=True)
     manifest = read_manifest(settings)
     index = load_index(settings.faiss_path)
@@ -52,10 +58,19 @@ def sync_index(settings: Settings, conn: sqlite3.Connection, embedder: Embedder 
         if index is not None:
             log.warning("embedding model or dim changed; rebuilding the FAISS index from scratch")
         index = new_index()
+        conn.execute("DELETE FROM vectors")
     have = index_ids(index)
-    want = set(chunk_rowids(conn))
-    stale = sorted(have - want)
-    missing = sorted(want - have)
+    want = {r[0]: _sha1(r[1]) for r in conn.execute("SELECT rowid, embed_text FROM chunks")}
+    embedded = dict(conn.execute("SELECT rowid, embed_sha1 FROM vectors").fetchall())
+    bootstrapped = False
+    if have and not embedded:
+        # An index built before the vectors table existed: its vectors are taken to match the current text. For the
+        # 2026-09-24 index this was checked by re-embedding all 27,560 chunks (DECISIONS V33); anything else rebuilds.
+        embedded = {r: want[r] for r in have if r in want}
+        bootstrapped = True
+    stale = sorted(r for r in have if r not in want or embedded.get(r) != want[r])
+    stale_set = set(stale)
+    missing = sorted(r for r in want if r not in have or r in stale_set)
     if stale:
         index.remove_ids(np.array(stale, dtype=np.int64))
     embed_s = 0.0
@@ -68,14 +83,21 @@ def sync_index(settings: Settings, conn: sqlite3.Connection, embedder: Embedder 
             vecs = embedder.encode([r["embed_text"] for r in rows], show_progress=False)
             index.add_with_ids(vecs, np.array([r["rowid"] for r in rows], dtype=np.int64))
         embed_s = time.perf_counter() - t0
+    # Write the index before the map: after a crash in between, the map is behind the index and the next run re-embeds
+    # those ids (harmless); the other order could record a hash for a vector that was never written.
     faiss.write_index(index, str(settings.faiss_path))
+    with conn:
+        conn.executemany("DELETE FROM vectors WHERE rowid = ?", [(r,) for r in stale if r not in want])
+        conn.executemany("INSERT OR REPLACE INTO vectors (rowid, embed_sha1) VALUES (?, ?)",
+                         [(r, want[r]) for r in (want if bootstrapped else missing)])
     info = {
         "embed_model": settings.embed_model, "dim": EMBED_DIM, "normalized": True,
         "index_type": "IndexIDMap2(IndexFlatIP)", "chunk_count": len(want), "faiss_ntotal": int(index.ntotal),
         "corpus_hash": corpus_hash(conn), "created_at": utc_now(),
     }
     settings.index_manifest_path.write_text(json.dumps(info, indent=2), encoding="utf-8")
-    return {**info, "added": len(missing), "removed": len(stale), "embed_seconds": round(embed_s, 1)}
+    return {**info, "added": len(missing), "removed": len(stale), "embed_seconds": round(embed_s, 1),
+            "vector_map_bootstrapped": bootstrapped}
 
 
 def read_manifest(settings: Settings) -> dict | None:

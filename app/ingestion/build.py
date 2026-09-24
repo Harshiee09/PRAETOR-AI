@@ -159,10 +159,14 @@ def build(settings: Settings, embed: bool = True, force: bool = False, workers: 
                 good.append(c)
         with conn:
             removed, added, dups = replace_document(conn, doc, good, utc_now())
+            # (doc_id, sha1(text)) keeps one row; record which locator lost its row so the drop is auditable
+            for loc, kept in dups:
+                conn.execute("INSERT INTO rejects (run_id, doc_id, locator, problems) VALUES (?,?,?,?)",
+                             (run_id, doc.doc_id, loc, json.dumps([f"duplicate text of {kept}"])))
         stats["docs_changed"] += 1
         stats["chunks_added"] += added
         stats["chunks_removed"] += len(removed)
-        stats["duplicates_dropped"] += dups
+        stats["duplicates_dropped"] += len(dups)
 
     stale_docs = [r[0] for r in conn.execute("SELECT doc_id FROM documents")]
     with conn:

@@ -147,9 +147,17 @@ def _cmd_ask(args: argparse.Namespace) -> int:
         c0 = e["classification"]
         print(f"\n--- explain (trace {out['trace_id']}, mode {args.mode}) ---")
         print(f"classified: domain {c0['domain']}, intent {c0['intent']}, high_stakes {c0['high_stakes']}, "
-              f"acts {c0['acts']}, section refs {c0['section_refs']}, dates {c0['event_dates']}")
+              f"acts {c0['acts']}, section refs {c0['section_refs']}, dates {c0['event_dates']}, "
+              f"term expansions {c0.get('expansion_ids', [])}")
+        if e.get("refused"):
+            print("refused before retrieval (harmful-request rule); no retrieval or model call")
+            return 0
         print(f"gate: {e['gate']} · timings {e['timings_ms']}")
         print(f"keyword query: {e['keyword_match']}")
+        if e.get("rewrites"):
+            print(f"rewrite (dense/act-scoped/rerank): {e['rewrites'][0]}")
+        if e.get("statute_slots"):
+            print(f"statute slots: {e['statute_slots']}")
         print("  ctx  exact dense  kw  fused rerank(score)  source")
         for c in e["candidates"]:
             used = next((sid for sid, cid in e.get("context_ids", {}).items() if cid == c["chunk_id"]), "")

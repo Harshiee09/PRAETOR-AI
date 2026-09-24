@@ -1,0 +1,1260 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496550",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/73f93470-5f6a-4f0f-bc23-1309e32b9554/content",
+ "raw_sha256": "572c79880b9f8effc8fa6e39b864101835a0fb5d85b194b90a99d170121a0562",
+ "retrieved_at": "2026-09-22T23:32:04+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  18,
+  163,
+  164
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 792,
+ "lines": [
+  {
+   "text": "THE BHARATIYA NAGARIK SURAKSHA SANHITA, 2023",
+   "page": 18,
+   "x0": 151.7,
+   "x1": 460.1239999999998,
+   "top": 73.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ACT NO. 46 OF 2023",
+   "page": 18,
+   "x0": 256.85,
+   "x1": 355.15,
+   "top": 93.572,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[25th December, 2023.]",
+   "page": 18,
+   "x0": 434.98,
+   "x1": 540.19632,
+   "top": 113.16464000000008,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "An Act to consolidate and amend the law relating to Criminal Procedure.",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 440.38,
+   "top": 131.97199999999998,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "BE it enacted by Parliament in the Seventy-fourth Year of the Republic of India as follows:—",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 502.90000000000003,
+   "top": 151.56464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER I",
+   "page": 18,
+   "x0": 277.73,
+   "x1": 334.1996,
+   "top": 170.28464000000008,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 18,
+   "x0": 274.73,
+   "x1": 337.37,
+   "top": 188.88464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title, extent and commencement.—(1) This Act may be called the Bharatiya Nagarik",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 540.0176799999999,
+   "top": 207.63464,
+   "size": 11.0,
+   "bold_prefix": "1. Short title, extent and commencement.",
+   "markers": []
+  },
+  {
+   "text": "Suraksha Sanhita, 2023.",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 178.44959999999998,
+   "top": 220.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The provisions of this Sanhita, other than those relating to Chapters IX, XI and XII thereof, shall",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.71584,
+   "top": 238.83464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "not apply—",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 124.34,
+   "top": 251.55464000000006,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) to the State of Nagaland;",
+   "page": 18,
+   "x0": 112.58,
+   "x1": 237.53023999999996,
+   "top": 270.15464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) to the tribal areas,",
+   "page": 18,
+   "x0": 112.58,
+   "x1": 207.07088,
+   "top": 288.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "but the concerned State Government may, by notification, apply such provisions or any of them",
+   "page": 18,
+   "x0": 112.58,
+   "x1": 539.7507199999998,
+   "top": 307.47464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to the whole or part of the State of Nagaland or such tribal areas, as the case may be, with such",
+   "page": 18,
+   "x0": 94.584,
+   "x1": 539.7499199999997,
+   "top": 320.07464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "supplemental, incidental or consequential modifications, as may be specified in the notification.",
+   "page": 18,
+   "x0": 94.584,
+   "x1": 516.11752,
+   "top": 332.79464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Explanation.—In this section, “tribal areas” means the territories which immediately before",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.9068,
+   "top": 351.41464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the 21st day of January, 1972, were included in the tribal areas of Assam, as referred to in paragraph 20 of",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 540.0316799999997,
+   "top": 364.13464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the Sixth Schedule to the Constitution, other than those within the local limits of the municipality of",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 539.7115199999995,
+   "top": 376.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Shillong.",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 112.22064,
+   "top": 389.33464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) It shall come into force on such date as the Central Government may, by notification in the Official",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.99384,
+   "top": 408.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "Gazette, appoint.",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 146.98559999999998,
+   "top": 420.65464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Definitions.—(1) In this Sanhita, unless the context otherwise",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 375.17192000000006,
+   "top": 439.37464,
+   "size": 11.0,
+   "bold_prefix": "2. Definitions.",
+   "markers": []
+  },
+  {
+   "text": "requires,—",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 121.34,
+   "top": 451.97464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) “audio-video electronic” means shall include use of any communication device for the",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 503.80231999999995,
+   "top": 470.69464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "purposes of video conferencing, recording of processes of identification, search and seizure or",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 504.0129599999998,
+   "top": 483.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "evidence, transmission of electronic communication and for such other purposes and by such other",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 524.2823999999997,
+   "top": 495.92464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "means as the State Government may, by rules provide;",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 330.37472,
+   "top": 508.64464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) “bail” means release of a person accused of or suspected of commission of an offence from the",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 539.8687999999996,
+   "top": 527.24464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "custody of law upon certain conditions imposed by an officer or Court on execution by such person of",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.8819199999996,
+   "top": 539.96464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "a bond or a bail bond;",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 186.31488,
+   "top": 552.56464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(c) “bailable offence” means an offence which is shown as bailable in the First Schedule, or which",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 540.0528799999998,
+   "top": 571.16464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "is made bailable by any other law for the time being in force; and “non-bailable offence” means any",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 540.19264,
+   "top": 583.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "other offence;",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 151.49471999999997,
+   "top": 596.48464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(d) “bail bond” means an undertaking for release with surety;",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 377.77495999999996,
+   "top": 615.20464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(e) “bond” means a personal bond or an undertaking for release without surety;",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 456.1788799999998,
+   "top": 633.82464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(f) “charge” includes any head of charge when the charge contains more heads than one;",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 496.48735999999997,
+   "top": 652.42464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. 1st July, 2024, [except the provisions of the entry relation to Section 106(2) in the first Schedule], vide notification No. S.O.",
+   "page": 18,
+   "x0": 74.304,
+   "x1": 530.29,
+   "top": 700.824,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "848(E), dated, 23rd day of February, 2024, see Gazette of India, Extraordinary, Part II, sec. 3(ii).",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 420.66700000000003,
+   "top": 711.144,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) that such person shall not commit an offence similar to the offence of which he is accused, or",
+   "page": 163,
+   "x0": 108.02,
+   "x1": 539.74976,
+   "top": 73.56464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "suspected, of the commission of which he is suspected; and",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 351.6278399999999,
+   "top": 86.16464000000008,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(c) that such person shall not directly or indirectly make any inducement, threat or promise to any",
+   "page": 163,
+   "x0": 108.02,
+   "x1": 539.8342399999998,
+   "top": 104.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "person acquainted with the facts of the case so as to dissuade him from disclosing such facts to the",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 539.7273599999994,
+   "top": 117.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Court or to any police officer or tamper with the evidence,",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 346.97176,
+   "top": 130.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and may also impose, in the interests of justice, such other conditions as it considers necessary.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 490.41792,
+   "top": 148.80464000000006,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(4) An officer or a Court releasing any person on bail under sub-section (1) or sub-section (2), shall",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 540.1456,
+   "top": 167.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "record in writing his or its reasons or special reasons for so doing.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 361.85711999999984,
+   "top": 180.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(5) Any Court which has released a person on bail under sub-section (1) or sub-section (2), may, if it",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 540.23968,
+   "top": 198.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "considers it necessary so to do, direct that such person be arrested and commit him to custody.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 486.84095999999965,
+   "top": 211.47464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(6) If, in any case triable by a Magistrate, the trial of a person accused of any non-bailable offence is",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 540.11728,
+   "top": 230.07464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "not concluded within a period of sixty days from the first date fixed for taking evidence in the case, such",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.7556799999999,
+   "top": 242.67464000000007,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "person shall, if he is in custody during the whole of the said period, be released on bail to the satisfaction",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.9295199999999,
+   "top": 255.39463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "of the Magistrate, unless for reasons to be recorded in writing, the Magistrate otherwise directs.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 491.97455999999977,
+   "top": 267.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(7) If, at any time, after the conclusion of the trial of a person accused of a non-bailable offence and",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 540.12304,
+   "top": 286.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "before judgment is delivered, the Court is of opinion that there are reasonable grounds for believing that",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.7335999999997,
+   "top": 299.31464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the accused is not guilty of any such offence, it shall release the accused, if he is in custody, on the execution",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 540.0562399999999,
+   "top": 312.03464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "by him of a bond for his appearance to hear judgment delivered.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 354.34991999999994,
+   "top": 324.63464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "481. Bail to require accused to appear before next Appellate Court.—(1) Before conclusion of the",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 540.1311999999999,
+   "top": 343.25464000000005,
+   "size": 11.0,
+   "bold_prefix": "481. Bail to require accused to appear before next Appellate Court.",
+   "markers": []
+  },
+  {
+   "text": "trial and before disposal of the appeal, the Court trying the offence or the Appellate Court, as the case may",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.9433599999998,
+   "top": 355.97464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "be, shall require the accused to execute a bond or bail bond, to appear before the higher Court as and when",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.9875199999999,
+   "top": 368.57464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "such Court issues notice in respect of any appeal or petition filed against the judgment of the respective",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.7089599999997,
+   "top": 381.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Court and such bond shall be in force for six months.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 305.64143999999993,
+   "top": 393.89464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) If such accused fails to appear, the bond stand forfeited and the procedure under section 491 shall",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 539.7820799999997,
+   "top": 412.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "apply.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 99.37008,
+   "top": 425.21464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "482. Direction for grant of bail to person apprehending arrest.—(1) When any person has reason",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 540.13264,
+   "top": 443.81464000000005,
+   "size": 11.0,
+   "bold_prefix": "482. Direction for grant of bail to person apprehending arrest.",
+   "markers": []
+  },
+  {
+   "text": "to believe that he may be arrested on an accusation of having committed a non-bailable offence, he may",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 540.1508799999999,
+   "top": 456.53464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "apply to the High Court or the Court of Session for a direction under this section; and that Court may, if it",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.7446399999995,
+   "top": 469.13464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "thinks fit, direct that in the event of such arrest, he shall be released on bail.",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 404.2779199999999,
+   "top": 481.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) When the High Court or the Court of Session makes a direction under sub-section (1), it may include",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 540.17104,
+   "top": 500.48464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "such conditions in such directions in the light of the facts of the particular case, as it may think fit,",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.7667199999996,
+   "top": 513.08464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "including—",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 125.66,
+   "top": 526.012,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(i) a condition that the person shall make himself available for interrogation by a police officer as",
+   "page": 163,
+   "x0": 108.02,
+   "x1": 539.7675199999995,
+   "top": 545.60464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "and when required;",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 175.02095999999995,
+   "top": 558.20464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(ii) a condition that the person shall not, directly or indirectly, make any inducement, threat or",
+   "page": 163,
+   "x0": 108.02,
+   "x1": 539.8971199999997,
+   "top": 576.8046400000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "promise to any person acquainted with the facts of the case so as to dissuade him from disclosing such",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 539.9150399999996,
+   "top": 589.52464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "facts to the Court or to any police officer;",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 272.736,
+   "top": 602.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(iii) a condition that the person shall not leave India without the previous permission of the Court;",
+   "page": 163,
+   "x0": 108.02,
+   "x1": 538.8454399999995,
+   "top": 620.84464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(iv) such other condition as may be imposed under sub-section (3) of section 480, as if the bail were",
+   "page": 163,
+   "x0": 108.02,
+   "x1": 540.1252,
+   "top": 639.46464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "granted under that section.",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 206.72783999999996,
+   "top": 652.06464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) If such person is thereafter arrested without warrant by an officer in charge of a police station on",
+   "page": 163,
+   "x0": 90.024,
+   "x1": 539.6495999999999,
+   "top": 670.78464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "such accusation, and is prepared either at the time of arrest or at any time while in the custody of such",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.7667199999996,
+   "top": 683.38464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "officer to give bail, he shall be released on bail; and if a Magistrate taking cognizance of such offence",
+   "page": 163,
+   "x0": 72.024,
+   "x1": 539.9563999999999,
+   "top": 696.10464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "decides that a warrant should be issued in the first instance against that person, he shall issue a bailable",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.7004799999997,
+   "top": 73.56464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "warrant in conformity with the direction of the Court under sub-section (1).",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 403.87001999999995,
+   "top": 86.16464000000008,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(4) Nothing in this section shall apply to any case involving the arrest of any person on accusation of",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.7931199999998,
+   "top": 104.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "having committed an offence under section 65 and sub-section (2) of section 70 of the Bharatiya Nyaya",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.98984,
+   "top": 117.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sanhita, 2023.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 135.38255999999998,
+   "top": 130.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "483. Special powers of High Court or Court of Session regarding bail.—(1) A High Court or Court",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 540.13216,
+   "top": 148.80464000000006,
+   "size": 11.0,
+   "bold_prefix": "483. Special powers of High Court or Court of Session regarding bail.",
+   "markers": []
+  },
+  {
+   "text": "of Session may direct,—",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 180.89,
+   "top": 161.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) that any person accused of an offence and in custody be released on bail, and if the offence is of the",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.8814399999995,
+   "top": 180.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "nature specified in sub-section (3) of section 480, may impose any condition which it considers necessary",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 540.0048800000002,
+   "top": 192.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "for the purposes mentioned in that sub-section;",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 278.62712,
+   "top": 205.47464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) that any condition imposed by a Magistrate when releasing any person on bail be set aside or",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.7489599999996,
+   "top": 224.07464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "modified:",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 114.79296,
+   "top": 236.67464000000007,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided that the High Court or the Court of Session shall, before granting bail to a person who is",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.7383999999995,
+   "top": 255.39463999999998,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "accused of an offence which is triable exclusively by the Court of Session or which, though not so triable,",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.8219199999995,
+   "top": 267.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "is punishable with imprisonment for life, give notice of the application for bail to the Public Prosecutor",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.9476,
+   "top": 280.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "unless it is, for reasons to be recorded in writing, of opinion that it is not practicable to give such notice:",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 529.4995199999996,
+   "top": 293.31464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Provided further that the High Court or the Court of Session shall, before granting bail to a person who",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.9591999999993,
+   "top": 312.03464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "is accused of an offence triable under section 65 or sub-section (2) of section 70 of the Bharatiya Nyaya",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 540.1412799999999,
+   "top": 324.63464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sanhita, 2023, give notice of the application for bail to the Public Prosecutor within a period of fifteen days",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.8991999999996,
+   "top": 337.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "from the date of receipt of the notice of such application.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 322.09104,
+   "top": 349.97464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The presence of the informant or any person authorised by him shall be obligatory at the time of",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.5391999999997,
+   "top": 368.57464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "hearing of the application for bail to the person under section 65 or sub-section (2) of section 70 of the",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 540.17536,
+   "top": 381.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Bharatiya Nyaya Sanhita, 2023.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 212.27615999999998,
+   "top": 393.89464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) A High Court or Court of Session may direct that any person who has been released on bail under",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.7379199999998,
+   "top": 412.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "this Chapter be arrested and commit him to custody.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 302.10864000000004,
+   "top": 425.21464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "484. Amount of bond and reduction thereof.—(1) The amount of every bond executed under this",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.9941600000001,
+   "top": 443.81464000000005,
+   "size": 11.0,
+   "bold_prefix": "484. Amount of bond and reduction thereof.",
+   "markers": []
+  },
+  {
+   "text": "Chapter shall be fixed with due regard to the circumstances of the case and shall not be excessive.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 502.7495999999999,
+   "top": 456.53464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The High Court or the Court of Session may direct that the bail required by a police officer or",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.9035199999997,
+   "top": 475.13464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Magistrate be reduced.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 172.54319999999996,
+   "top": 487.76464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "485. Bond of accused and sureties.—(1) Before any person is released on bond or bail bond, a bond",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.9674400000001,
+   "top": 506.48464,
+   "size": 11.0,
+   "bold_prefix": "485. Bond of accused and sureties.",
+   "markers": []
+  },
+  {
+   "text": "for such sum of money as the police officer or Court, as the case may be, thinks sufficient shall be executed",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.8881599999997,
+   "top": 519.08464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "by such person, and, when he is released on bond or bail bond, by one or more sufficient sureties conditioned",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 540.1777599999999,
+   "top": 531.8046400000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "that such person shall attend at the time and place mentioned in the bond, and shall continue so to attend",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.7335999999998,
+   "top": 544.40464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "until otherwise directed by the police officer or Court, as the case may be.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 397.25136,
+   "top": 557.00464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) Where any condition is imposed for the release of any person on bail, the bond or bail bond shall",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.6937599999997,
+   "top": 575.72464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "also contain that condition.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 191.24495999999994,
+   "top": 588.32464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) If the case so requires, the bond or bail bond shall also bind the person released on bail to appear",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.6716799999999,
+   "top": 607.04464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "when called upon at the High Court, Court of Session or other Court to answer the charge.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 469.04447999999985,
+   "top": 619.64464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(4) For the purpose of determining whether the sureties are fit or sufficient, the Court may accept",
+   "page": 164,
+   "x0": 90.024,
+   "x1": 539.7047999999996,
+   "top": 638.26464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "affidavits in proof of the facts contained therein relating to the sufficiency or fitness of the sureties, or, if it",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.7225599999996,
+   "top": 650.98464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "considers necessary, may either hold an enquiry itself or cause an inquiry to be made by a Magistrate",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 539.9223199999999,
+   "top": 663.58464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "subordinate to the Court, as to such sufficiency or fitness.",
+   "page": 164,
+   "x0": 72.024,
+   "x1": 325.32576,
+   "top": 676.30464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

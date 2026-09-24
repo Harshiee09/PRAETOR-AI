@@ -28,14 +28,17 @@ summary: Gold set format, metrics, data-profile gates and how to compare configu
 - Aim for 40–60 questions by the end of Phase 2, and at least 10 in Phase 1: roughly 25 statute lookups and explanations, 8 procedures, 7 case-law questions, 5 criminal-code transition questions, at least 5 per non-English demo language, 5 out-of-corpus questions that must be abstained on, and 3 high-stakes ones.
 - A person checks every expected source and `must_mention` item against the ingested text. A model may draft candidate questions; it never writes the expected answers.
 - Freeze a `dev` split for tuning thresholds and a `test` split for reporting.
+- Paraphrases of one question share a `group` and sit in one split; `load_gold` refuses a group split across dev and test (DECISIONS D38). A question traced by hand to design a fix moves to `dev`.
+- Verification: `scripts/make_verification_sheet.py` writes `evaluation/verification_sheet.csv` (question, proposed expected sources, verbatim source excerpts and URLs, known uncertainties, blank reviewer columns). Only a person sets `verified_by` / `verified_on`.
 
-### State of the gold set (2026-09-24)
-59 draft questions (54 answerable, 5 out-of-corpus), split dev/test within each category; none verified by a person yet. Expected sources and `must_mention` phrases were copied from the ingested text; case-law items list acceptable alternatives with `"match": "any"`; the 5 Hindi phrasings need a Hindi speaker. Two out-of-corpus drafts were replaced after checking that the corpus does contain related judgments (divorce, trademark). The evidence-gate threshold was set after seeing all scores (DECISIONS D27), so test-split abstention numbers are optimistic.
+### State of the gold set (2026-09-24, after the audit)
+59 draft questions (54 answerable, 5 out-of-corpus), 30 dev / 29 test, 10 paraphrase groups; none verified by a person. Expected sources and `must_mention` phrases were copied from the ingested text; case-law items list acceptable alternatives with `"match": "any"`; the 5 Hindi phrasings need a Hindi speaker. Every question and the evidence threshold (DECISIONS D27) have been seen during development, and the D36 term expansions were chosen after seeing failures, so **all results on this set are exploratory**: a regression check, not a validated accuracy estimate. A validated number needs a fresh, frozen holdout written and verified by a person before it is run.
 
 ### Metrics (`praetor eval`, written to `evaluation/reports/<timestamp>.md` and `.json`)
 | Area | Metric |
 |---|---|
-| Retrieval | Recall@5, Recall@10 and MRR for expected sources, as an ablation: dense, keyword, hybrid, hybrid plus rerank, plus exact lookup |
+| Retrieval | Recall@5, Recall@10 and MRR for expected sources, as an ablation: dense, keyword, hybrid, hybrid plus rerank, plus exact lookup; "in context": expected sources among the `CONTEXT_MAX_CHUNKS` blocks the model sees (after the statute slots) |
+| Reproducibility | each report's `run` block: git commit (and dirty flag), gold and registry hashes, index corpus hash, prompt version, model digest, decoding, retrieval settings; `scripts/repeat_answers.py` for run-to-run variation |
 | Citations | invalid citations after validation, which must be 0; share of answers with at least one citation; unverified-authority removals; unsupported-sentence flags |
 | Abstention | precision and recall against `should_abstain` |
 | Legal currency | share of transition questions carrying a correct regime note |

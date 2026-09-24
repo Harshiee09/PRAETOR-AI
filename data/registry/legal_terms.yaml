@@ -1,0 +1,50 @@
+# Lay or alternative legal terms -> the wording the statutes themselves use (retrieval-pipeline note, step 3 "Rewrite").
+#
+# Search expansion only. A matched entry adds its `statutory` wording to keyword search, to a second dense query and to
+# the reranker's query. It never adds a section or an Act, never maps a section number, and is never shown to users or
+# cited: answers still cite only retrieved text.
+#
+# Every entry records where the equivalence is attested. Hindi terms (`terms_hi`) without an official source are marked
+# `verified: {hi: false}` and are listed in docs/STATUS.md "Needs you" for a Hindi speaker.
+# Added 2026-09-24 (DECISIONS D36) after tracing the failures in D35; the entries were chosen after seeing those
+# failures, so gold-set gains that depend on them are a regression check, not an unbiased estimate.
+
+- id: anticipatory-bail
+  terms: [anticipatory bail, pre-arrest bail]
+  terms_hi: [अग्रिम जमानत]
+  statutory: [bail to person apprehending arrest, reason to believe that he may be arrested]
+  evidence:
+    - "BNSS s. 482 heading: 'Direction for grant of bail to person apprehending arrest' (India Code, handle 123456789/496550)"
+    - "Nathu Singh v. State of U.P., SC 2021-05-28, para 17 quotes CrPC s. 438 under the same heading in an anticipatory-bail case (chunk b0a421bb30d4:para-17:02f647b3)"
+    - "Dhanraj Aswani v. Amar S. Mulchandani, [2024] 9 S.C.R. 257, para 7 calls s. 438 CrPC 'pre-arrest bail' (chunk fad3381b8be4:para-7-part-2-of-3:92e7f45b)"
+  hindi_evidence: "secondary sources only (hindi.nyaaya.org/legal-explainer/anticipatory-bail/, hindi.livelaw.in), checked 2026-09-24; no official glossary found"
+  verified: {en: true, hi: false}
+
+- id: home-buyer
+  terms: [home buyer, homebuyer, home-buyer, flat buyer, apartment buyer, buyer of a flat, buyer of an apartment]
+  statutory: [allottee, promoter, possession of an apartment, plot or building]
+  evidence:
+    - "RERA s. 2(d): 'allottee' ... means the person to whom a plot, apartment or building ... has been allotted, sold ... by the promoter"
+    - "RERA s. 2(zk): 'promoter' means a person who constructs ... a building consisting of apartments ... for the purpose of selling"
+  verified: {en: true}
+
+- id: eviction
+  terms: [evict, eviction, evicted, evicting, throw me out, thrown out, throw out, throwing me out, throw us out]
+  terms_hi: [बेदखल, बेदखली]
+  statutory: [determination of lease, notice to quit, lease terminable by notice]
+  evidence:
+    - "TPA s. 111(h): a lease determines 'on the expiration of a notice to determine the lease, or to quit'"
+    - "TPA s. 106(1): a lease 'terminable, on the part of either lessor or lessee, by fifteen days' notice'"
+    - "EIH Ltd v. Nadiavirji, SC 2022-08-01, p. 9: 'a suit for eviction under Section 106 of the TP Act' (chunk 8e762b5551e4:p-9:13533eca)"
+  hindi_evidence: "none located; Hindi speaker to confirm"
+  verified: {en: true, hi: false}
+
+- id: landlord-tenant
+  terms: [landlord, tenant, tenancy, rented house, rent agreement]
+  terms_hi: [मकान मालिक, किरायेदार]
+  statutory: [lessor, lessee, lease of immoveable property]
+  evidence:
+    - "TPA s. 105: 'The transferor is called the lessor, the transferee is called the lessee'"
+    - "Subhash Chander v. Bharat Petroleum, SC 2022-01-28, para 19 uses 'landlord' for the lessor and 'tenant lessee' (chunk 12c9b128adc2:para-19-part-1-of-2:c8dd00d0)"
+  hindi_evidence: "none located; Hindi speaker to confirm"
+  verified: {en: true, hi: false}

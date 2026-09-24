@@ -1,6 +1,6 @@
 # Corpus profile
 
-_Generated 2026-09-23T23:30:57+00:00 by `praetor profile` from `data/processed/praetor.sqlite`._
+_Generated 2026-09-24T03:58:58+00:00 by `praetor profile` from `data/processed/praetor.sqlite`._
 
 **Documents:** 1012 · **Chunks:** 27560
 

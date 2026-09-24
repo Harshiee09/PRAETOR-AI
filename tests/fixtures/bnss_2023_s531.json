@@ -1,0 +1,739 @@
+{
+ "source_url": "https://indiacode.gov.in/handle/123456789/496550",
+ "download_url": "https://indiacode.gov.in/server/api/core/bitstreams/73f93470-5f6a-4f0f-bc23-1309e32b9554/content",
+ "raw_sha256": "572c79880b9f8effc8fa6e39b864101835a0fb5d85b194b90a99d170121a0562",
+ "retrieved_at": "2026-09-22T23:32:04+00:00",
+ "licence": "Government of India legislative text published on India Code. Reproduction of Acts is governed by Copyright Act 1957 s. 52(1)(q); the migrated site's terms of use were not located on 2026-09-23 (CHECK).",
+ "pages": [
+  18,
+  174
+ ],
+ "parser": "app.parsing.pdf.parse_pdf",
+ "judgment_layout": false,
+ "body_size": 11.0,
+ "page_height": 792,
+ "lines": [
+  {
+   "text": "THE BHARATIYA NAGARIK SURAKSHA SANHITA, 2023",
+   "page": 18,
+   "x0": 151.7,
+   "x1": 460.1239999999998,
+   "top": 73.77199999999993,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "ACT NO. 46 OF 2023",
+   "page": 18,
+   "x0": 256.85,
+   "x1": 355.15,
+   "top": 93.572,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "[25th December, 2023.]",
+   "page": 18,
+   "x0": 434.98,
+   "x1": 540.19632,
+   "top": 113.16464000000008,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "An Act to consolidate and amend the law relating to Criminal Procedure.",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 440.38,
+   "top": 131.97199999999998,
+   "size": 12.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "BE it enacted by Parliament in the Seventy-fourth Year of the Republic of India as follows:—",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 502.90000000000003,
+   "top": 151.56464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "CHAPTER I",
+   "page": 18,
+   "x0": 277.73,
+   "x1": 334.1996,
+   "top": 170.28464000000008,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "PRELIMINARY",
+   "page": 18,
+   "x0": 274.73,
+   "x1": 337.37,
+   "top": 188.88464,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. Short title, extent and commencement.—(1) This Act may be called the Bharatiya Nagarik",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 540.0176799999999,
+   "top": 207.63464,
+   "size": 11.0,
+   "bold_prefix": "1. Short title, extent and commencement.",
+   "markers": []
+  },
+  {
+   "text": "Suraksha Sanhita, 2023.",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 178.44959999999998,
+   "top": 220.23464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(2) The provisions of this Sanhita, other than those relating to Chapters IX, XI and XII thereof, shall",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.71584,
+   "top": 238.83464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "not apply—",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 124.34,
+   "top": 251.55464000000006,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) to the State of Nagaland;",
+   "page": 18,
+   "x0": 112.58,
+   "x1": 237.53023999999996,
+   "top": 270.15464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) to the tribal areas,",
+   "page": 18,
+   "x0": 112.58,
+   "x1": 207.07088,
+   "top": 288.87464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "but the concerned State Government may, by notification, apply such provisions or any of them",
+   "page": 18,
+   "x0": 112.58,
+   "x1": 539.7507199999998,
+   "top": 307.47464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "to the whole or part of the State of Nagaland or such tribal areas, as the case may be, with such",
+   "page": 18,
+   "x0": 94.584,
+   "x1": 539.7499199999997,
+   "top": 320.07464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "supplemental, incidental or consequential modifications, as may be specified in the notification.",
+   "page": 18,
+   "x0": 94.584,
+   "x1": 516.11752,
+   "top": 332.79464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Explanation.—In this section, “tribal areas” means the territories which immediately before",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.9068,
+   "top": 351.41464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the 21st day of January, 1972, were included in the tribal areas of Assam, as referred to in paragraph 20 of",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 540.0316799999997,
+   "top": 364.13464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the Sixth Schedule to the Constitution, other than those within the local limits of the municipality of",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 539.7115199999995,
+   "top": 376.73464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Shillong.",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 112.22064,
+   "top": 389.33464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) It shall come into force on such date as the Central Government may, by notification in the Official",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.99384,
+   "top": 408.05464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": [
+    "1"
+   ]
+  },
+  {
+   "text": "Gazette, appoint.",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 146.98559999999998,
+   "top": 420.65464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "2. Definitions.—(1) In this Sanhita, unless the context otherwise",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 375.17192000000006,
+   "top": 439.37464,
+   "size": 11.0,
+   "bold_prefix": "2. Definitions.",
+   "markers": []
+  },
+  {
+   "text": "requires,—",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 121.34,
+   "top": 451.97464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) “audio-video electronic” means shall include use of any communication device for the",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 503.80231999999995,
+   "top": 470.69464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "purposes of video conferencing, recording of processes of identification, search and seizure or",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 504.0129599999998,
+   "top": 483.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "evidence, transmission of electronic communication and for such other purposes and by such other",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 524.2823999999997,
+   "top": 495.92464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "means as the State Government may, by rules provide;",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 330.37472,
+   "top": 508.64464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) “bail” means release of a person accused of or suspected of commission of an offence from the",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 539.8687999999996,
+   "top": 527.24464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "custody of law upon certain conditions imposed by an officer or Court on execution by such person of",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 539.8819199999996,
+   "top": 539.96464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "a bond or a bail bond;",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 186.31488,
+   "top": 552.56464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(c) “bailable offence” means an offence which is shown as bailable in the First Schedule, or which",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 540.0528799999998,
+   "top": 571.16464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "is made bailable by any other law for the time being in force; and “non-bailable offence” means any",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 540.19264,
+   "top": 583.88464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "other offence;",
+   "page": 18,
+   "x0": 90.024,
+   "x1": 151.49471999999997,
+   "top": 596.48464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(d) “bail bond” means an undertaking for release with surety;",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 377.77495999999996,
+   "top": 615.20464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(e) “bond” means a personal bond or an undertaking for release without surety;",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 456.1788799999998,
+   "top": 633.82464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(f) “charge” includes any head of charge when the charge contains more heads than one;",
+   "page": 18,
+   "x0": 108.02,
+   "x1": 496.48735999999997,
+   "top": 652.42464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "1. 1st July, 2024, [except the provisions of the entry relation to Section 106(2) in the first Schedule], vide notification No. S.O.",
+   "page": 18,
+   "x0": 74.304,
+   "x1": 530.29,
+   "top": 700.824,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "848(E), dated, 23rd day of February, 2024, see Gazette of India, Extraordinary, Part II, sec. 3(ii).",
+   "page": 18,
+   "x0": 72.024,
+   "x1": 420.66700000000003,
+   "top": 711.144,
+   "size": 9.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "529. Duty of High Court to exercise continuous superintendence over Courts.—Every High Court",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 540.14896,
+   "top": 73.56464000000005,
+   "size": 11.0,
+   "bold_prefix": "529. Duty of High Court to exercise continuous superintendence over Courts.",
+   "markers": []
+  },
+  {
+   "text": "shall so exercise its superintendence over the Courts of Session and Courts of Judicial Magistrates",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 539.7556799999998,
+   "top": 86.16464000000008,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "subordinate to it as to ensure that there is an expeditious and proper disposal of cases by the Judges and",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 539.7888,
+   "top": 98.88463999999999,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Magistrates.",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 126.23039999999999,
+   "top": 111.48464000000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "530. Trial and proceedings to be held in electronic mode.—All trials, inquires and proceedings under",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 540.1084000000001,
+   "top": 130.20464000000004,
+   "size": 11.0,
+   "bold_prefix": "530. Trial and proceedings to be held in electronic mode",
+   "markers": []
+  },
+  {
+   "text": "this Sanhita, including—",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 181.85,
+   "top": 142.80464000000006,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(i) issuance, service and execution of summons and warrant;",
+   "page": 174,
+   "x0": 108.02,
+   "x1": 374.00192000000004,
+   "top": 161.40463999999997,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(ii) examination of complainant and witnesses;",
+   "page": 174,
+   "x0": 108.02,
+   "x1": 314.2616,
+   "top": 180.12464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(iii) recording of evidence in inquiries and trials; and",
+   "page": 174,
+   "x0": 108.02,
+   "x1": 340.83199999999994,
+   "top": 198.72464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(iv) all appellate proceedings or any other proceeding,",
+   "page": 174,
+   "x0": 108.02,
+   "x1": 345.61568,
+   "top": 217.47464000000002,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "may be held in electronic mode, by use of electronic communication or use of audio-video electronic means.",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 540.1432,
+   "top": 236.07464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "531. Repeal and savings.—(1) The Code of Criminal Procedure, 1973 (2 of 1974) is hereby repealed.",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 540.0461600000001,
+   "top": 254.67464000000007,
+   "size": 11.0,
+   "bold_prefix": "531. Repeal and savings.",
+   "markers": []
+  },
+  {
+   "text": "(2) Notwithstanding such repeal—",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 242.57,
+   "top": 273.39464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(a) if, immediately before the date on which this Sanhita comes into force, there is any appeal,",
+   "page": 174,
+   "x0": 108.02,
+   "x1": 539.7939199999997,
+   "top": 291.99464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "application, trial, inquiry or investigation pending, then, such appeal, application, trial, inquiry or",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 539.8156799999999,
+   "top": 304.71464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "investigation shall be disposed of, continued, held or made, as the case may be, in accordance with the",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 540.11032,
+   "top": 317.31464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "provisions of the Code of Criminal Procedure, 1973 (2 of 1974), as in force immediately before such",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 539.8046399999998,
+   "top": 330.03464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "commencement (hereinafter referred to as the said Code), as if this Sanhita had not come into force;",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 529.4380799999997,
+   "top": 342.63464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(b) all notifications published, proclamations issued, powers conferred, forms provided by rules,",
+   "page": 174,
+   "x0": 108.02,
+   "x1": 539.8491199999996,
+   "top": 361.25464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "local jurisdictions defined, sentences passed and orders, rules and appointments, not being",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 539.8929599999997,
+   "top": 373.97464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "appointments as Special Magistrates, made under the said Code and which are in force immediately",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 540.0241599999999,
+   "top": 386.57464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "before the commencement of this Sanhita, shall be deemed, respectively, to have been published,",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 539.8487999999998,
+   "top": 399.29464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "issued, conferred, specified, defined, passed or made under the corresponding provisions of this",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 539.8156799999995,
+   "top": 411.89464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "Sanhita;",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 126.09168,
+   "top": 424.49464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(c) any sanction accorded or consent given under the said Code in pursuance of which no",
+   "page": 174,
+   "x0": 108.02,
+   "x1": 539.8563199999999,
+   "top": 443.21464000000003,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "proceeding was commenced under that Code, shall be deemed to have been accorded or given under",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 539.8046400000001,
+   "top": 455.81464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "the corresponding provisions of this Sanhita and proceedings may be commenced under this Sanhita in",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 540.208,
+   "top": 468.53464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "pursuance of such sanction or consent.",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 259.85231999999996,
+   "top": 481.13464000000005,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "(3) Where the period specified for an application or other proceeding under the said Code had expired",
+   "page": 174,
+   "x0": 90.024,
+   "x1": 539.7489599999999,
+   "top": 499.76464000000004,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "on or before the commencement of this Sanhita, nothing in this Sanhita shall be construed as enabling any",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 539.844,
+   "top": 512.48464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "such application to be made or proceeding to be commenced under this Sanhita by reason only of the fact",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 539.96872,
+   "top": 525.08464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "that a longer period therefor is specified by this Sanhita or provisions are made in this Sanhita for the",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 539.8439999999995,
+   "top": 537.8046400000001,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  },
+  {
+   "text": "extension of time.",
+   "page": 174,
+   "x0": 72.024,
+   "x1": 151.16976,
+   "top": 550.40464,
+   "size": 11.0,
+   "bold_prefix": "",
+   "markers": []
+  }
+ ]
+}

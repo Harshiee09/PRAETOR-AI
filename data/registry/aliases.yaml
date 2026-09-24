@@ -9,6 +9,10 @@
 - {alias: Criminal Procedure Code, expands_to: [crpc-1973, bnss-2023]}
 - {alias: Code of Criminal Procedure, expands_to: [crpc-1973, bnss-2023]}
 - {alias: BNSS, expands_to: [bnss-2023, crpc-1973]}
+- {alias: Bharatiya Nagarik Suraksha Sanhita, expands_to: [bnss-2023, crpc-1973]}
+- {alias: Bharatiya Nyaya Sanhita, expands_to: [bns-2023, ipc-1860]}
+- {alias: Bharatiya Sakshya Adhiniyam, expands_to: [bsa-2023, iea-1872]}
+- {alias: Real Estate (Regulation and Development) Act, expands_to: [rera-2016]}
 - {alias: IPC, expands_to: [ipc-1860, bns-2023]}
 - {alias: I.P.C., expands_to: [ipc-1860, bns-2023]}
 - {alias: Indian Penal Code, expands_to: [ipc-1860, bns-2023]}
