@@ -13,6 +13,9 @@ _Last updated: 2026-09-24 · Phases 0–2 done · **post-Phase 2 audit: repairs 
 3. Then commit on the audit branch and merge only if the numbers hold.
 Uncommitted local-only file: `.env` (gitignored; `OLLAMA_MODEL=gemma4:latest`, `MIN_EVIDENCE_SCORE=0.10`; new settings `LLM_TEMPERATURE` / `LLM_SEED` default to 0 / 42).
 
+## AWS setup (you, in parallel; DECISIONS D43)
+Run `infra\aws_setup.cmd` from CMD in the repo and follow the menu in order: 1 profile → 2 pre-flight → 3 choose model → 4 budget → 5 bucket and policy → 7 `.env` lines (6 only if the profile is an IAM user). Steps 4–6 need you to type YES; nothing invokes Bedrock. Send me `data\scratch\aws\setup_*.log` afterwards so I can record the account checks, the chosen model and its prices in DECISIONS.md and `app/config/prices.yaml`. Remove everything later with `infra\aws_teardown.cmd`. The Bedrock client, cost meter and `s3-sync` are Phase 3 code and wait for your "go".
+
 ## What works (with the command that proves it)
 All commands run from `C:\dev\praetor-ai` as `uv run <command>`.
 

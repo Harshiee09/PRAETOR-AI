@@ -1,0 +1,49 @@
+# PRAETOR AI — monthly AWS budget with email alerts (docs/topics/ops/aws-cost-plan.md, "Guardrails" 2).
+# Deploy in us-east-1 (the AWS Budgets home region) with infra\aws_setup.cmd (menu step 3).
+#
+# IncludeCredit is false on purpose: with promotional credits the default budget measures cost AFTER credits, stays
+# near $0 and never alerts until the credits are gone. Measuring usage before credits makes the 50/80/100% alerts
+# track what is actually being consumed. AWS Budgets pricing: check the pricing page before deploying (a small
+# number of budgets has historically been free).
+AWSTemplateFormatVersion: "2010-09-09"
+Description: PRAETOR AI monthly cost budget and alerts
+
+Parameters:
+  MonthlyLimitUSD:
+    Type: Number
+    Default: 20
+    MinValue: 1
+    Description: monthly limit in USD, well under the credit balance
+  AlertEmail:
+    Type: String
+    AllowedPattern: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    ConstraintDescription: an email address
+    Description: who receives the alerts
+
+Resources:
+  MonthlyBudget:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: praetor-monthly
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit:
+          Amount: !Ref MonthlyLimitUSD
+          Unit: USD
+        CostTypes:
+          IncludeCredit: false
+          IncludeRefund: false
+      NotificationsWithSubscribers:
+        - Notification: {NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 50, ThresholdType: PERCENTAGE}
+          Subscribers: [{SubscriptionType: EMAIL, Address: !Ref AlertEmail}]
+        - Notification: {NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 80, ThresholdType: PERCENTAGE}
+          Subscribers: [{SubscriptionType: EMAIL, Address: !Ref AlertEmail}]
+        - Notification: {NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 100, ThresholdType: PERCENTAGE}
+          Subscribers: [{SubscriptionType: EMAIL, Address: !Ref AlertEmail}]
+        - Notification: {NotificationType: FORECASTED, ComparisonOperator: GREATER_THAN, Threshold: 100, ThresholdType: PERCENTAGE}
+          Subscribers: [{SubscriptionType: EMAIL, Address: !Ref AlertEmail}]
+
+Outputs:
+  BudgetName:
+    Value: praetor-monthly

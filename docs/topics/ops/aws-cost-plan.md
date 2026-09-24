@@ -3,7 +3,7 @@ id: 20260922-aws-cost-plan
 title: AWS plan and cost controls
 tags: [aws, cost]
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-24
 related: [20260922-minimum-viable-architecture, 20260922-llm-layer, 20260922-build-plan, 20260922-report-validation]
 summary: Which AWS services are used and why, their cost drivers, guardrails, pre-flight checks and deployment steps.
 ---
@@ -47,6 +47,12 @@ OpenSearch in either form, Kendra, RDS or Aurora, DocumentDB, MemoryDB and Elast
 
 ### Infrastructure as code, deliberately small
 `infra/cloudformation.yaml` holds the S3 bucket (public access blocked, default encryption, a lifecycle rule expiring noncurrent versions after 7 days), the IAM policy (`s3:GetObject`, `s3:PutObject` and `s3:ListBucket` on that bucket, and `bedrock:InvokeModel` on the chosen model or profile ARNs), and the budget with its alert subscribers. `infra/deploy.sh` and `infra/teardown.sh` wrap it, and teardown asks before emptying the bucket. No CDK bootstrap, and no VPC.
+
+**As built (2026-09-24, DECISIONS D43), for Windows CMD:**
+- `infra\aws_setup.cmd` — a menu the user runs: 1 CLI v2 check and the `praetor` profile (SSO recommended; credentials are typed into the AWS CLI's own prompts); 2 read-only pre-flight (identity, region, on-demand text models and system inference profiles in ap-south-1, existing budgets, plus the console checks for credits, model access and prices); 3 choose the model or inference profile, which resolves the exact ARNs for the policy; 4 budget stack; 5 app stack; 6 attach the policy to an IAM user; 7 outputs and the `.env` lines. Steps 4–6 run only after typing YES. It never invokes Bedrock, never calls Cost Explorer and never edits `.env`; logs go to `data\scratch\aws\`.
+- `infra\cloudformation.yaml` (stack `praetor-app`, ap-south-1): bucket as above plus BucketOwnerEnforced, a TLS-only bucket policy and `DeletionPolicy: Retain`; the managed policy `praetor-app` (no Bedrock statement until `BedrockResourceArns` is set).
+- `infra\budget.yaml` (stack `praetor-budget`, us-east-1, the Budgets home region): `praetor-monthly`, alerts at 50/80/100% actual and 100% forecast, and **`IncludeCredit: false`** — with credits, the default budget measures cost after credits and would never alert.
+- `infra\aws_teardown.cmd`: after typing DELETE, detaches the policy from IAM users, deletes both stacks and prints how to back up, empty and delete the retained bucket.
 
 ### Deployment steps (Phase 3)
 1. Ask me, then run pre-flight.

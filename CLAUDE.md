@@ -35,7 +35,7 @@ app/          api/ ingestion/ parsing/ ocr/ chunking/ embeddings/ retrieval/ rer
 data/         raw/ processed/ indexes/   (gitignored)
               registry/                  (committed: statutes.yaml, aliases.yaml, sources.yaml, jurisdictions.yaml)
 evaluation/   gold.jsonl  reports/
-infra/        cloudformation.yaml  deploy.sh  teardown.sh
+infra/        aws_setup.cmd  aws_teardown.cmd  cloudformation.yaml (S3 + app policy, ap-south-1)  budget.yaml (us-east-1)
 scripts/      one-off utilities only; real entry points live in app/cli.py
 tests/        unit/  integration/ (marked; may need GPU or network)  fixtures/ (real excerpts + source URL)
 docs/         INDEX.md  STATUS.md  DECISIONS.md  reports/  sources/  topics/
@@ -53,7 +53,7 @@ docs/         INDEX.md  STATUS.md  DECISIONS.md  reports/  sources/  topics/
 | Ask from the terminal (`--mode dense|keyword|hybrid|hybrid_rerank|full`) | `praetor ask "question" --explain` |
 | Run the API | `praetor serve` |
 | Evaluation: ablation + abstention (`--no-llm`), answers, gate sweep, model benchmark | `praetor eval [--split dev|test] [--no-llm] [--calibrate] [--model NAME]` |
-| AWS pre-flight / sync | `praetor aws-check` · `praetor s3-sync push` |
+| AWS setup (you run it; menu, read-only until you type YES) | `infra\aws_setup.cmd` (pre-flight is step 2) · remove: `infra\aws_teardown.cmd` · `praetor aws-check` / `s3-sync` are Phase 3, not built yet |
 | Tests | `pytest -m "not integration"` · `pytest -m integration` |
 | Phase 1 acceptance | `python scripts/phase1_acceptance.py` · fixtures: `python scripts/make_fixtures.py [NAME ...]` |
 | Diagnostics | stage ranks: `python scripts/trace_stages.py OUT.json` · run-to-run variation: `python scripts/repeat_answers.py ID --runs 5` · gold review sheet: `python scripts/make_verification_sheet.py` |

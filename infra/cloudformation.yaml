@@ -1,0 +1,111 @@
+# PRAETOR AI — the only AWS resources the app needs (docs/topics/ops/aws-cost-plan.md, "Infrastructure as code").
+# Deploy in ap-south-1 with infra\aws_setup.cmd (menu step 4). Creates:
+#   - an S3 bucket for the processed database, FAISS index, manifests and eval reports: private, encrypted, TLS-only,
+#     versioned with noncurrent versions expiring after 7 days; RETAINED if the stack is deleted, so data is never lost
+#     by accident (empty and delete it yourself in the S3 console when you are done)
+#   - one IAM managed policy for the app: list/get/put on that bucket only, and invoke on the Bedrock model or
+#     inference profile you choose (none until you pass BedrockResourceArns)
+# No VPC, no compute, nothing that bills while idle.
+AWSTemplateFormatVersion: "2010-09-09"
+Description: PRAETOR AI data bucket and least-privilege app policy
+
+Parameters:
+  BedrockResourceArns:
+    Type: CommaDelimitedList
+    Default: none
+    Description: >-
+      ARNs the app may invoke: the chosen foundation model, or an inference profile plus the foundation-model ARNs it
+      routes to. "none" grants no Bedrock access. infra\aws_setup.cmd builds this list from BEDROCK_MODEL_ID.
+
+Conditions:
+  HasBedrock: !Not [!Equals [!Join ["", !Ref BedrockResourceArns], "none"]]
+
+Resources:
+  DataBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-noncurrent-versions
+            Status: Enabled
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 7
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 1
+      Tags:
+        - Key: project
+          Value: praetor-ai
+
+  DataBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref DataBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource:
+              - !GetAtt DataBucket.Arn
+              - !Sub "${DataBucket.Arn}/*"
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+
+  AppPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: praetor-app
+      Description: PRAETOR AI app - its own S3 bucket and the chosen Bedrock model only
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: ListDataBucket
+            Effect: Allow
+            Action: s3:ListBucket
+            Resource: !GetAtt DataBucket.Arn
+          - Sid: ReadWriteDataObjects
+            Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+            Resource: !Sub "${DataBucket.Arn}/*"
+          - !If
+            - HasBedrock
+            - Sid: InvokeChosenModel
+              Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+                - bedrock:InvokeModelWithResponseStream
+              Resource: !Ref BedrockResourceArns
+            - !Ref AWS::NoValue
+
+Outputs:
+  BucketName:
+    Description: put this in .env as S3_BUCKET
+    Value: !Ref DataBucket
+  BucketArn:
+    Value: !GetAtt DataBucket.Arn
+  AppPolicyArn:
+    Description: attach to the identity behind the "praetor" profile (IAM user or IAM Identity Center permission set)
+    Value: !Ref AppPolicy
+  BedrockAccess:
+    Value: !If [HasBedrock, !Join [", ", !Ref BedrockResourceArns], "none - rerun menu step 4 after choosing a model"]
