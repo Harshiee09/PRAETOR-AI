@@ -63,6 +63,12 @@ Key: sha256 over task, provider, model, prompt version, normalised input, contex
 ### Cost meter (`app/llm/cost.py`)
 Cost equals input tokens times the input price plus output tokens times the output price, with prices read from `app/config/prices.yaml`, filled in by hand from the Bedrock pricing page and carrying a `verified_on` date. Daily spend is stored in the `spend` table, and a call that would exceed `BEDROCK_DAILY_BUDGET_USD` is skipped so the router falls back. AWS billing data lags, so this meter — not AWS Budgets — is the real-time guard.
 
+Requirements added by the 2026-09-24 audit (not built yet; Phase 3):
+- **Reserve before the call:** book the worst case (counted input tokens + `max_tokens` output, at the listed price) in one SQLite transaction before calling, and refuse if today's spent + reserved would pass the cap. Concurrent requests see each other's reservations.
+- **Reconcile after the call:** replace the reservation with the usage block's actual tokens; a failed or timed-out call releases its reservation, and every retry books its own.
+- **Unknown or stale price = no paid call:** a model id missing from `prices.yaml`, or a price without `verified_on`, disables the Bedrock provider (fall back, log why).
+- **Privacy before any cloud call:** the regex redaction in the retrieval note (Aadhaar-like numbers, PAN, mobile, email) does not cover names or addresses in the question, and the context sent with it contains judgment text with party names. Decide in Phase 3 whether such questions stay local (`PRIVACY_MODE=strict` or a per-request rule) before Bedrock is enabled.
+
 ## Related
 - [Minimum viable architecture](minimum-viable-architecture.md) — context: fallback behaviour and the env contract.
 - [Retrieval pipeline](retrieval-pipeline.md) — prerequisite: produces the context an answer is built from.
