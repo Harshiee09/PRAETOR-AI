@@ -60,3 +60,31 @@ def test_named_case_is_pinned(engine, conn):
 def test_out_of_corpus_question_abstains(engine, conn):
     r = engine.retriever.retrieve(conn, "What documents do I need to apply for a Schengen visa?", mode="full")
     assert r.abstained
+
+
+def test_guessed_successor_provision_is_not_pinned(engine, conn):
+    """Only the successor's repeal section is pinned. The "closest provision" is a similarity guess and must earn its
+    place through the reranker: pinned, it put BNSS s. 442 (revision) first for a question about s. 482 CrPC, whose
+    BNSS counterpart is the inherent power in s. 528 (DECISIONS D44)."""
+    r = engine.retriever.retrieve(conn, "Can the High Court quash an FIR under section 482 CrPC?", mode="full")
+    pinned = [(c["act_title"], c["section"]) for c in r.candidates if "exact" in c["ranks"]]
+    assert pinned == [("Bharatiya Nagarik Suraksha Sanhita, 2023", "531")]
+
+
+@pytest.mark.parametrize("question, act, section", [
+    ("How do I apply for anticipatory bail?", "Bharatiya Nagarik Suraksha Sanhita, 2023", "482"),
+    ("Is anticipatory bail under section 438 CrPC still available?", "Bharatiya Nagarik Suraksha Sanhita, 2023", "482"),
+    ("What can a home buyer claim if the builder fails to hand over the flat on the agreed date?",
+     "Real Estate (Regulation and Development) Act, 2016", "18"),
+    ("My landlord says he will throw me out of the house tomorrow without any notice. What does the law say?",
+     "Transfer of Property Act, 1882", "106"),
+])
+def test_reported_failures_reach_the_context(engine, conn, question, act, section):
+    """The four failures of the 2026-09-24 audit (DECISIONS D35): the provision must be among the 8 context blocks and
+    the question must not abstain. Regression checks on questions that were used to design the fix."""
+    from app.rag.context import reserve_statute_slots
+
+    r = engine.retriever.retrieve(conn, question, mode="full")
+    ctx = reserve_statute_slots(r.candidates, engine.settings.context_max_chunks)[: engine.settings.context_max_chunks]
+    assert not r.abstained
+    assert (act, section) in [(c["act_title"], c["section"]) for c in ctx]

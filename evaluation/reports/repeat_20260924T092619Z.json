@@ -1,0 +1,512 @@
+{
+ "run": {
+  "git_commit": "f6e23da",
+  "git_dirty": true,
+  "gold_sha256": "7d3ecff0bba191d8",
+  "registry_sha256": {
+   "aliases.yaml": "70eaab8f15232a8c",
+   "jurisdictions.yaml": "1810377c793d0dfb",
+   "legal_terms.yaml": "b41a2d74c64f42a4",
+   "sources.yaml": "305ffd81e32aefd2",
+   "statutes.yaml": "6c8287333a79b305"
+  },
+  "index": {
+   "corpus_hash": "2b0c169e0fb44bd694a663221eedf8fe9ca1c4af2d5c3630ce19ca1f2f39138a",
+   "chunk_count": 27560,
+   "faiss_ntotal": 27560,
+   "embed_model": "BAAI/bge-m3",
+   "created_at": "2026-09-24T09:16:09+00:00"
+  },
+  "prompt_version": "answer-v3",
+  "llm": {
+   "model": "gemma4:latest",
+   "digest": "c6eb396dbd5992bbe3f5cdb947e8bbc0ee413d7c17e2beaae69f5d569cf982eb",
+   "temperature": 0.1,
+   "seed": null
+  },
+  "retrieval": {
+   "top_k_dense": 50,
+   "top_k_keyword": 50,
+   "rrf_k": 60,
+   "rerank_top_n": 30,
+   "context_max_chunks": 8,
+   "min_evidence_score": 0.1
+  },
+  "rerank_model": "BAAI/bge-reranker-v2-m3"
+ },
+ "runs_per_question": 5,
+ "questions": {
+  "tpa-106-lease-notice": {
+   "rows": [
+    {
+     "run": 1,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "low",
+     "context": "3b72aa5759ef",
+     "raw": "93e5540f17d6",
+     "final": "3c6fa99a9b25",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1915e99dae6b:s-106:1ea13bcf"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 2,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "low",
+     "context": "3b72aa5759ef",
+     "raw": "d99b489d875b",
+     "final": "65ee33342fcd",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1915e99dae6b:s-106:1ea13bcf"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 3,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "low",
+     "context": "3b72aa5759ef",
+     "raw": "2477cdca4f8f",
+     "final": "0eb7c7b26aaf",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1915e99dae6b:s-106:1ea13bcf"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 4,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "low",
+     "context": "3b72aa5759ef",
+     "raw": "283ad20fc8c9",
+     "final": "332adab0ee2f",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1915e99dae6b:s-106:1ea13bcf"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 5,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "low",
+     "context": "3b72aa5759ef",
+     "raw": "127af00f80f0",
+     "final": "a643e6430592",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1915e99dae6b:s-106:1ea13bcf"
+     ],
+     "must_mention": true
+    }
+   ],
+   "distinct": {
+    "context": {
+     "3b72aa5759ef": 5
+    },
+    "raw": {
+     "93e5540f17d6": 1,
+     "d99b489d875b": 1,
+     "2477cdca4f8f": 1,
+     "283ad20fc8c9": 1,
+     "127af00f80f0": 1
+    },
+    "final": {
+     "3c6fa99a9b25": 1,
+     "65ee33342fcd": 1,
+     "0eb7c7b26aaf": 1,
+     "332adab0ee2f": 1,
+     "a643e6430592": 1
+    },
+    "must_mention": {
+     "True": 5
+    },
+    "confidence": {
+     "low": 5
+    }
+   }
+  },
+  "rera-018-refund": {
+   "rows": [
+    {
+     "run": 1,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "3c22122d4365",
+     "raw": "6efc756d62a4",
+     "final": "9c7689dd1d03",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "8e20e3ad80b7:para-58:9a5b5932",
+      "8e20e3ad80b7:paras-20-23:2307fc56",
+      "8e8f6ae9c9be:s-18:362778f4",
+      "8e8f6ae9c9be:s-19-part-1-of-2:567bece4"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 2,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "3c22122d4365",
+     "raw": "2125bc3e79e7",
+     "final": "dcda4c0a5fc0",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "8e20e3ad80b7:para-58:9a5b5932",
+      "8e20e3ad80b7:paras-20-23:2307fc56",
+      "8e8f6ae9c9be:s-18:362778f4",
+      "8e8f6ae9c9be:s-19-part-1-of-2:567bece4"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 3,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "3c22122d4365",
+     "raw": "db1d27f7a531",
+     "final": "6a1950ed91df",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "8e20e3ad80b7:para-58:9a5b5932",
+      "8e20e3ad80b7:paras-20-23:2307fc56",
+      "8e8f6ae9c9be:s-18:362778f4",
+      "8e8f6ae9c9be:s-19-part-1-of-2:567bece4"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 4,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "3c22122d4365",
+     "raw": "0b4ed300890a",
+     "final": "ed96af5ae468",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "8e20e3ad80b7:para-58:9a5b5932",
+      "8e20e3ad80b7:paras-20-23:2307fc56",
+      "8e8f6ae9c9be:s-14-part-2-of-2:75329391",
+      "8e8f6ae9c9be:s-18:362778f4",
+      "8e8f6ae9c9be:s-19-part-1-of-2:567bece4",
+      "a0083d795bbf:pp-16-17:2194d10d"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 5,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "3c22122d4365",
+     "raw": "8557975f0b49",
+     "final": "df3413e77d23",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "8e20e3ad80b7:para-58:9a5b5932",
+      "8e20e3ad80b7:paras-20-23:2307fc56",
+      "8e8f6ae9c9be:s-18:362778f4",
+      "8e8f6ae9c9be:s-19-part-1-of-2:567bece4"
+     ],
+     "must_mention": true
+    }
+   ],
+   "distinct": {
+    "context": {
+     "3c22122d4365": 5
+    },
+    "raw": {
+     "6efc756d62a4": 1,
+     "2125bc3e79e7": 1,
+     "db1d27f7a531": 1,
+     "0b4ed300890a": 1,
+     "8557975f0b49": 1
+    },
+    "final": {
+     "9c7689dd1d03": 1,
+     "dcda4c0a5fc0": 1,
+     "6a1950ed91df": 1,
+     "ed96af5ae468": 1,
+     "df3413e77d23": 1
+    },
+    "must_mention": {
+     "True": 5
+    },
+    "confidence": {
+     "high": 5
+    }
+   }
+  },
+  "proc-bnss-482-anticipatory": {
+   "rows": [
+    {
+     "run": 1,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "0ecba5243f99",
+     "raw": "73151fd0f495",
+     "final": "896baee23a9b",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1f7f87fdaddc:s-482:6e6eb2d5",
+      "5e97c188b294:pp-8-9:1a33918e",
+      "ca28ec4585d3:p-20:3a173703",
+      "ca28ec4585d3:pp-29-30:9fc8f277",
+      "fad3381b8be4:para-24-part-1-of-3:13dd2297"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 2,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "low",
+     "context": "0ecba5243f99",
+     "raw": "7981a0a05979",
+     "final": "ed295764ae5a",
+     "removed": 1,
+     "unsupported": 2,
+     "cited": [
+      "1f7f87fdaddc:s-482:6e6eb2d5",
+      "5e97c188b294:pp-8-9:1a33918e",
+      "ca28ec4585d3:p-20:3a173703",
+      "ca28ec4585d3:pp-29-30:9fc8f277",
+      "fad3381b8be4:para-24-part-1-of-3:13dd2297"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 3,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "0ecba5243f99",
+     "raw": "4eaa0c265716",
+     "final": "44b913fc38a9",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1f7f87fdaddc:s-482:6e6eb2d5",
+      "5e97c188b294:pp-8-9:1a33918e",
+      "ca28ec4585d3:p-20:3a173703",
+      "ca28ec4585d3:pp-29-30:9fc8f277",
+      "fad3381b8be4:para-24-part-1-of-3:13dd2297"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 4,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "0ecba5243f99",
+     "raw": "1fad14c77794",
+     "final": "ec0653df7ae4",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1f7f87fdaddc:s-482:6e6eb2d5",
+      "5e97c188b294:pp-8-9:1a33918e",
+      "ca28ec4585d3:p-20:3a173703",
+      "ca28ec4585d3:pp-29-30:9fc8f277",
+      "fad3381b8be4:para-24-part-1-of-3:13dd2297"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 5,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "low",
+     "context": "0ecba5243f99",
+     "raw": "9813d8118c5e",
+     "final": "12269f80bb9c",
+     "removed": 2,
+     "unsupported": 0,
+     "cited": [
+      "1f7f87fdaddc:s-482:6e6eb2d5",
+      "5e97c188b294:pp-8-9:1a33918e",
+      "ca28ec4585d3:p-20:3a173703",
+      "ca28ec4585d3:pp-29-30:9fc8f277",
+      "fad3381b8be4:para-24-part-1-of-3:13dd2297"
+     ],
+     "must_mention": true
+    }
+   ],
+   "distinct": {
+    "context": {
+     "0ecba5243f99": 5
+    },
+    "raw": {
+     "73151fd0f495": 1,
+     "7981a0a05979": 1,
+     "4eaa0c265716": 1,
+     "1fad14c77794": 1,
+     "9813d8118c5e": 1
+    },
+    "final": {
+     "896baee23a9b": 1,
+     "ed295764ae5a": 1,
+     "44b913fc38a9": 1,
+     "ec0653df7ae4": 1,
+     "12269f80bb9c": 1
+    },
+    "must_mention": {
+     "True": 5
+    },
+    "confidence": {
+     "high": 3,
+     "low": 2
+    }
+   }
+  },
+  "hs-eviction-tomorrow": {
+   "rows": [
+    {
+     "run": 1,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "deff0890ca36",
+     "raw": "0e80f3e36210",
+     "final": "10acd7c4e71a",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "12c9b128adc2:para-19-part-1-of-2:c8dd00d0",
+      "1915e99dae6b:s-106:1ea13bcf",
+      "1915e99dae6b:s-110:e26fc7e0",
+      "1915e99dae6b:s-111:e2d070a9",
+      "1915e99dae6b:s-113:f870e347"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 2,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "deff0890ca36",
+     "raw": "e93ecc8be9e8",
+     "final": "16a857e99744",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "12c9b128adc2:para-19-part-1-of-2:c8dd00d0",
+      "1915e99dae6b:s-105:93653992",
+      "1915e99dae6b:s-106:1ea13bcf",
+      "1915e99dae6b:s-108-part-1-of-4:a38b509b",
+      "1915e99dae6b:s-110:e26fc7e0",
+      "1915e99dae6b:s-111:e2d070a9",
+      "1915e99dae6b:s-113:f870e347",
+      "1915e99dae6b:s-114a:46a4ed0b"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 3,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "deff0890ca36",
+     "raw": "89e6f1d89eae",
+     "final": "103efd49fe21",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1915e99dae6b:s-106:1ea13bcf",
+      "1915e99dae6b:s-111:e2d070a9"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 4,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "deff0890ca36",
+     "raw": "541a9bdf40a2",
+     "final": "a8b9227e616f",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "12c9b128adc2:para-19-part-1-of-2:c8dd00d0",
+      "1915e99dae6b:s-106:1ea13bcf",
+      "1915e99dae6b:s-110:e26fc7e0",
+      "1915e99dae6b:s-111:e2d070a9",
+      "1915e99dae6b:s-113:f870e347"
+     ],
+     "must_mention": true
+    },
+    {
+     "run": 5,
+     "abstained": false,
+     "provider": "ollama",
+     "confidence": "high",
+     "context": "deff0890ca36",
+     "raw": "be9be8cf1bde",
+     "final": "41744aaf9b4c",
+     "removed": 0,
+     "unsupported": 0,
+     "cited": [
+      "1915e99dae6b:s-106:1ea13bcf",
+      "1915e99dae6b:s-111:e2d070a9",
+      "1915e99dae6b:s-114a:46a4ed0b"
+     ],
+     "must_mention": true
+    }
+   ],
+   "distinct": {
+    "context": {
+     "deff0890ca36": 5
+    },
+    "raw": {
+     "0e80f3e36210": 1,
+     "e93ecc8be9e8": 1,
+     "89e6f1d89eae": 1,
+     "541a9bdf40a2": 1,
+     "be9be8cf1bde": 1
+    },
+    "final": {
+     "10acd7c4e71a": 1,
+     "16a857e99744": 1,
+     "103efd49fe21": 1,
+     "a8b9227e616f": 1,
+     "41744aaf9b4c": 1
+    },
+    "must_mention": {
+     "True": 5
+    },
+    "confidence": {
+     "high": 5
+    }
+   }
+  }
+ }
+}

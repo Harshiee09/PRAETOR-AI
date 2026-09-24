@@ -1,0 +1,1179 @@
+[
+ {
+  "label": "gold:proc-bnss-482-anticipatory",
+  "query": "How do I apply for anticipatory bail?",
+  "classification": {
+   "domain": "criminal_procedure",
+   "intent": "procedure",
+   "high_stakes": true,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.9975,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [
+   "How do I apply for anticipatory bail? (bail to person apprehending arrest; reason to believe that he may be arrested)"
+  ],
+  "top5": [
+   [
+    1,
+    "DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR.",
+    "para 24 (part 1 of 3)",
+    0.9975
+   ],
+   [
+    2,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 482",
+    0.9895
+   ],
+   [
+    3,
+    "PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. ETC.",
+    "pp. 29-30",
+    0.9956
+   ],
+   [
+    4,
+    "PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. ETC.",
+    "p. 20",
+    0.9965
+   ],
+   [
+    5,
+    "PREM SHANKAR PRASAD versus THE STATE OF BIHAR & ANR.",
+    "pp. 8-9",
+    0.9969
+   ]
+  ],
+  "context": [
+   "S1 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 482",
+   "S2 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 488",
+   "S3 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. pp. 51-52",
+   "S4 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. para 24 (part 1 of 3)",
+   "S5 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. para 21 (part 1 of 2)",
+   "S6 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E pp. 29-30",
+   "S7 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E p. 20",
+   "S8 PREM SHANKAR PRASAD versus THE STATE OF BIHAR & AN pp. 8-9"
+  ],
+  "targets": {
+   "bnss482": {
+    "dense_rank": 178,
+    "dense_score": 0.578,
+    "keyword_rank": 240,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense_statute": 1,
+     "dense_expanded_statute": 1,
+     "keyword": 6,
+     "keyword_statute": 1,
+     "fused": 1,
+     "rerank": 6,
+     "final": 2
+    },
+    "rerank_score": 0.9895,
+    "rerank_direct": 0.0251,
+    "in_context": "S1"
+   }
+  }
+ },
+ {
+  "label": "gold:hi-bnss-482-anticipatory",
+  "query": "अग्रिम जमानत के लिए आवेदन कहाँ किया जा सकता है?",
+  "classification": {
+   "domain": "criminal_procedure",
+   "intent": "explain",
+   "high_stakes": true,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.9955,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [
+   "अग्रिम जमानत के लिए आवेदन कहाँ किया जा सकता है? (bail to person apprehending arrest; reason to believe that he may be arrested)"
+  ],
+  "top5": [
+   [
+    1,
+    "PREM SHANKAR PRASAD versus THE STATE OF BIHAR & ANR.",
+    "pp. 8-9",
+    0.9955
+   ],
+   [
+    2,
+    "DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR.",
+    "para 24 (part 1 of 3)",
+    0.9951
+   ],
+   [
+    3,
+    "PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. ETC.",
+    "p. 20",
+    0.9948
+   ],
+   [
+    4,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 482",
+    0.9677
+   ],
+   [
+    5,
+    "PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. ETC.",
+    "pp. 29-30",
+    0.9826
+   ]
+  ],
+  "context": [
+   "S1 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 482",
+   "S2 Code of Civil Procedure, 1908 O. XXXVIII r. 1",
+   "S3 PREM SHANKAR PRASAD versus THE STATE OF BIHAR & AN pp. 8-9",
+   "S4 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. para 24 (part 1 of 3)",
+   "S5 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. paras 38-39",
+   "S6 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E p. 20",
+   "S7 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E pp. 29-30",
+   "S8 NATHU SINGH versus STATE OF UTTAR PRADESH & ORS. para 17"
+  ],
+  "targets": {
+   "bnss482": {
+    "dense_rank": 715,
+    "dense_score": 0.4913,
+    "keyword_rank": null,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense_expanded": 29,
+     "dense_expanded_statute": 2,
+     "keyword": 3,
+     "keyword_statute": 1,
+     "fused": 1,
+     "rerank": 9,
+     "final": 4
+    },
+    "rerank_score": 0.9677,
+    "rerank_direct": 0.0051,
+    "in_context": "S1"
+   }
+  }
+ },
+ {
+  "label": "gold:tr-438-anticipatory",
+  "query": "Is anticipatory bail under section 438 CrPC still available?",
+  "classification": {
+   "domain": "criminal_procedure",
+   "intent": "statute_lookup",
+   "high_stakes": true,
+   "acts": [
+    "crpc-1973"
+   ],
+   "search_acts": [
+    "crpc-1973",
+    "bnss-2023"
+   ],
+   "section_refs": [
+    {
+     "act": "crpc-1973",
+     "section": "438",
+     "sub": null
+    }
+   ],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "exact",
+   "score": 0.9986,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [
+   "The text of the Code of Criminal Procedure, 1973 is not in the corpus; it was replaced by the Bharatiya Nagarik Suraksha Sanhita, 2023, whose section numbers differ."
+  ],
+  "rewrites": [
+   "Is anticipatory bail under section 438 CrPC still available? (bail to person apprehending arrest; reason to believe that he may be arrested)"
+  ],
+  "top5": [
+   [
+    1,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 482",
+    0.9195
+   ],
+   [
+    2,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 531",
+    0.0015
+   ],
+   [
+    3,
+    "DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR.",
+    "pp. 51-52",
+    0.9955
+   ],
+   [
+    4,
+    "DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR.",
+    "para 3 (part 2 of 3)",
+    0.9969
+   ],
+   [
+    5,
+    "PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. ETC.",
+    "pp. 29-30",
+    0.9929
+   ]
+  ],
+  "context": [
+   "S1 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 482",
+   "S2 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 531",
+   "S3 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. pp. 51-52",
+   "S4 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. para 3 (part 2 of 3)",
+   "S5 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. paras 53-54",
+   "S6 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E pp. 29-30",
+   "S7 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E p. 56",
+   "S8 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E paras 10-11"
+  ],
+  "targets": {
+   "bnss482": {
+    "dense_rank": 510,
+    "dense_score": 0.5256,
+    "keyword_rank": 453,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense_expanded_statute": 1,
+     "keyword": 10,
+     "keyword_statute": 1,
+     "act_scoped": 1,
+     "exact": 2,
+     "fused": 2,
+     "rerank": 22,
+     "final": 1
+    },
+    "rerank_score": 0.9195,
+    "rerank_direct": 0.0023,
+    "in_context": "S1"
+   },
+   "bnss531": {
+    "dense_rank": 1597,
+    "dense_score": 0.4828,
+    "keyword_rank": null,
+    "in_pool": true,
+    "stage_ranks": {
+     "exact": 1,
+     "fused": 1,
+     "rerank": 30,
+     "final": 2
+    },
+    "rerank_score": 0.0015,
+    "rerank_direct": 0.001,
+    "in_context": "S2"
+   }
+  }
+ },
+ {
+  "label": "diag:bail-paraphrase",
+  "query": "Where can a person who fears arrest for a non-bailable offence apply for bail before being arrested?",
+  "classification": {
+   "domain": "criminal_procedure",
+   "intent": "procedure",
+   "high_stakes": true,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.9744,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [],
+  "top5": [
+   [
+    1,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 482",
+    0.9665
+   ],
+   [
+    2,
+    "DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR.",
+    "para 24 (part 1 of 3)",
+    0.9744
+   ],
+   [
+    3,
+    "PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. ETC.",
+    "p. 20",
+    0.9722
+   ],
+   [
+    4,
+    "PREM SHANKAR PRASAD versus THE STATE OF BIHAR & ANR.",
+    "pp. 8-9",
+    0.9694
+   ],
+   [
+    5,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 480 (part 1 of 3)",
+    0.7909
+   ]
+  ],
+  "context": [
+   "S1 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 482",
+   "S2 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 480 (part 1 of 3)",
+   "S3 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 47",
+   "S4 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. para 24 (part 1 of 3)",
+   "S5 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E p. 20",
+   "S6 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E pp. 29-30",
+   "S7 PREM SHANKAR PRASAD versus THE STATE OF BIHAR & AN pp. 8-9",
+   "S8 NATHU SINGH versus STATE OF UTTAR PRADESH & ORS. para 17"
+  ],
+  "targets": {
+   "bnss482": {
+    "dense_rank": 12,
+    "dense_score": 0.6348,
+    "keyword_rank": 3,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 12,
+     "dense_statute": 2,
+     "keyword": 3,
+     "keyword_statute": 2,
+     "fused": 1,
+     "rerank": 5,
+     "final": 1
+    },
+    "rerank_score": 0.9665,
+    "rerank_direct": 0.9663,
+    "in_context": "S1"
+   }
+  }
+ },
+ {
+  "label": "diag:bnss-482-explicit",
+  "query": "What does section 482 of the Bharatiya Nagarik Suraksha Sanhita provide?",
+  "classification": {
+   "domain": "criminal_procedure",
+   "intent": "statute_lookup",
+   "high_stakes": false,
+   "acts": [
+    "bnss-2023"
+   ],
+   "search_acts": [
+    "bnss-2023",
+    "crpc-1973"
+   ],
+   "section_refs": [
+    {
+     "act": "bnss-2023",
+     "section": "482",
+     "sub": null
+    }
+   ],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "exact",
+   "score": 0.9785,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [],
+  "top5": [
+   [
+    1,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 482",
+    0.9785
+   ],
+   [
+    2,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "Second Schedule (part 42 of 50)",
+    0.6781
+   ],
+   [
+    3,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 1",
+    0.2482
+   ],
+   [
+    4,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 473 (part 2 of 2)",
+    0.3846
+   ],
+   [
+    5,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "Second Schedule (part 45 of 50)",
+    0.1397
+   ]
+  ],
+  "context": [
+   "S1 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 482",
+   "S2 Bharatiya Nagarik Suraksha Sanhita, 2023 Second Schedule (part 42 of 50)",
+   "S3 Bharatiya Nagarik Suraksha Sanhita, 2023 Second Schedule (part 45 of 50)",
+   "S4 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 1",
+   "S5 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 473 (part 2 of 2)",
+   "S6 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 492",
+   "S7 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 404 (part 2 of 2)",
+   "S8 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 234 (part 2 of 2)"
+  ],
+  "targets": {
+   "bnss482": {
+    "dense_rank": 1,
+    "dense_score": 0.571,
+    "keyword_rank": 173,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 1,
+     "dense_statute": 1,
+     "act_scoped": 1,
+     "exact": 1,
+     "fused": 1,
+     "rerank": 1,
+     "final": 1
+    },
+    "rerank_score": 0.9785,
+    "rerank_direct": 0.9785,
+    "in_context": "S1"
+   }
+  }
+ },
+ {
+  "label": "diag:pending-438",
+  "query": "My anticipatory bail application under section 438 CrPC was filed in 2023 and is still pending. Which law applies to it?",
+  "classification": {
+   "domain": "criminal_procedure",
+   "intent": "statute_lookup",
+   "high_stakes": true,
+   "acts": [
+    "crpc-1973"
+   ],
+   "search_acts": [
+    "crpc-1973",
+    "bnss-2023"
+   ],
+   "section_refs": [
+    {
+     "act": "crpc-1973",
+     "section": "438",
+     "sub": null
+    }
+   ],
+   "event_dates": [
+    "2023"
+   ],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "exact",
+   "score": 0.952,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [
+   "The text of the Code of Criminal Procedure, 1973 is not in the corpus; it was replaced by the Bharatiya Nagarik Suraksha Sanhita, 2023, whose section numbers differ."
+  ],
+  "rewrites": [
+   "My anticipatory bail application under section 438 CrPC was filed in 2023 and is still pending. Which law applies to it? (bail to person apprehending arrest; reason to believe that he may be arrested)"
+  ],
+  "top5": [
+   [
+    1,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 482",
+    0.9063
+   ],
+   [
+    2,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 531",
+    0.0077
+   ],
+   [
+    3,
+    "PREM SHANKAR PRASAD versus THE STATE OF BIHAR & ANR.",
+    "pp. 8-9",
+    0.952
+   ],
+   [
+    4,
+    "PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. ETC.",
+    "pp. 29-30",
+    0.8838
+   ],
+   [
+    5,
+    "DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR.",
+    "pp. 51-52",
+    0.8341
+   ]
+  ],
+  "context": [
+   "S1 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 482",
+   "S2 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 531",
+   "S3 PREM SHANKAR PRASAD versus THE STATE OF BIHAR & AN pp. 8-9",
+   "S4 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E pp. 29-30",
+   "S5 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E pp. 22-23",
+   "S6 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E p. 56",
+   "S7 PRIYA INDORIA versus STATE OF KARNATAKA AND ORS. E paras 10-11",
+   "S8 DHANRAJ ASWANI versus AMAR S. MULCHANDANI & ANR. pp. 51-52"
+  ],
+  "targets": {
+   "bnss531": {
+    "dense_rank": 387,
+    "dense_score": 0.5338,
+    "keyword_rank": 2085,
+    "in_pool": true,
+    "stage_ranks": {
+     "keyword_statute": 4,
+     "exact": 1,
+     "fused": 1,
+     "rerank": 30,
+     "final": 2
+    },
+    "rerank_score": 0.0077,
+    "rerank_direct": 0.0151,
+    "in_context": "S2"
+   },
+   "bnss482": {
+    "dense_rank": 309,
+    "dense_score": 0.5389,
+    "keyword_rank": 1374,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense_expanded": 32,
+     "dense_expanded_statute": 1,
+     "keyword": 27,
+     "keyword_statute": 1,
+     "act_scoped": 1,
+     "exact": 2,
+     "fused": 2,
+     "rerank": 2,
+     "final": 1
+    },
+    "rerank_score": 0.9063,
+    "rerank_direct": 0.0198,
+    "in_context": "S1"
+   }
+  }
+ },
+ {
+  "label": "diag:crpc-482-quash",
+  "query": "Can the High Court quash an FIR under section 482 CrPC?",
+  "classification": {
+   "domain": "criminal_procedure",
+   "intent": "statute_lookup",
+   "high_stakes": false,
+   "acts": [
+    "crpc-1973"
+   ],
+   "search_acts": [
+    "crpc-1973",
+    "bnss-2023"
+   ],
+   "section_refs": [
+    {
+     "act": "crpc-1973",
+     "section": "482",
+     "sub": null
+    }
+   ],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "exact",
+   "score": 0.9997,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [
+   "The text of the Code of Criminal Procedure, 1973 is not in the corpus; it was replaced by the Bharatiya Nagarik Suraksha Sanhita, 2023, whose section numbers differ."
+  ],
+  "rewrites": [],
+  "top5": [
+   [
+    1,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 442",
+    0.0114
+   ],
+   [
+    2,
+    "Bharatiya Nagarik Suraksha Sanhita, 2023",
+    "s. 531",
+    0.0027
+   ],
+   [
+    3,
+    "DAXABEN versus THE STATE OF GUJARAT & ORS.",
+    "paras 37-38",
+    0.9997
+   ],
+   [
+    4,
+    "MAHENDRA K C versus THE STATE OF KARNATAKA & ANR.",
+    "paras 19-20",
+    0.999
+   ],
+   [
+    5,
+    "MUSKAN versus ISHAAN KHAN (SATANIYA) AND OTHERS",
+    "para 21",
+    0.9991
+   ]
+  ],
+  "context": [
+   "S1 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 442",
+   "S2 Bharatiya Nagarik Suraksha Sanhita, 2023 s. 531",
+   "S3 DAXABEN versus THE STATE OF GUJARAT & ORS. paras 37-38",
+   "S4 MAHENDRA K C versus THE STATE OF KARNATAKA & ANR. paras 19-20",
+   "S5 MUSKAN versus ISHAAN KHAN (SATANIYA) AND OTHERS para 21",
+   "S6 MUSKAN versus ISHAAN KHAN (SATANIYA) AND OTHERS paras 22-24",
+   "S7 SALIMBHAI HAMIDBHAI MEMON versus NITESHKUMAR MAGAN paras 29-30",
+   "S8 ACHIN GUPTA versus STATE OF HARYANA & ANR. paras 35-36"
+  ],
+  "targets": {}
+ },
+ {
+  "label": "gold:rera-018-refund",
+  "query": "What can a home buyer claim if the builder fails to hand over the flat on the agreed date?",
+  "classification": {
+   "domain": "property_land",
+   "intent": "explain",
+   "high_stakes": false,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.9813,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [
+   "What can a home buyer claim if the builder fails to hand over the flat on the agreed date? (allottee; promoter; possession of an apartment; plot or building)"
+  ],
+  "top5": [
+   [
+    1,
+    "Real Estate (Regulation and Development) Act, 2016",
+    "s. 19 (part 1 of 2)",
+    0.9782
+   ],
+   [
+    2,
+    "Real Estate (Regulation and Development) Act, 2016",
+    "s. 18",
+    0.9645
+   ],
+   [
+    3,
+    "M/S. NEWTECH PROMOTERS AND DEVELOPERS PVT. LTD. versus STATE",
+    "para 58",
+    0.9638
+   ],
+   [
+    4,
+    "WG. CDR. ARIFUR RAHMAN KHAN AND ALEYA SULTANA AND ORS. versu",
+    "para 32 (part 1 of 2)",
+    0.9684
+   ],
+   [
+    5,
+    "Real Estate (Regulation and Development) Act, 2016",
+    "s. 14 (part 2 of 2)",
+    0.5095
+   ]
+  ],
+  "context": [
+   "S1 Real Estate (Regulation and Development) Act, 2016 s. 19 (part 1 of 2)",
+   "S2 Real Estate (Regulation and Development) Act, 2016 s. 18",
+   "S3 Real Estate (Regulation and Development) Act, 2016 s. 14 (part 2 of 2)",
+   "S4 M/S. NEWTECH PROMOTERS AND DEVELOPERS PVT. LTD. ve paras 20-23",
+   "S5 M/S. NEWTECH PROMOTERS AND DEVELOPERS PVT. LTD. ve para 58",
+   "S6 WG. CDR. ARIFUR RAHMAN KHAN AND ALEYA SULTANA AND  pp. 28-29",
+   "S7 WG. CDR. ARIFUR RAHMAN KHAN AND ALEYA SULTANA AND  para 32 (part 1 of 2)",
+   "S8 ALPHA G184 OWNERS ASSOCIATION versus MAGNUM INTERN pp. 16-17"
+  ],
+  "targets": {
+   "rera18": {
+    "dense_rank": 28,
+    "dense_score": 0.6143,
+    "keyword_rank": 273,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 28,
+     "dense_statute": 1,
+     "dense_expanded": 2,
+     "dense_expanded_statute": 1,
+     "keyword": 7,
+     "keyword_statute": 2,
+     "fused": 1,
+     "rerank": 7,
+     "final": 2
+    },
+    "rerank_score": 0.9645,
+    "rerank_direct": 0.3749,
+    "in_context": "S2"
+   }
+  }
+ },
+ {
+  "label": "diag:rera-withdraw",
+  "query": "The builder has not given possession on time and I want to withdraw from the project. Can I get my money back with interest?",
+  "classification": {
+   "domain": "property_land",
+   "intent": "explain",
+   "high_stakes": false,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.969,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [],
+  "top5": [
+   [
+    1,
+    "Real Estate (Regulation and Development) Act, 2016",
+    "s. 18",
+    0.9554
+   ],
+   [
+    2,
+    "M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND ANOTHER",
+    "paras 23-24",
+    0.9604
+   ],
+   [
+    3,
+    "M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND ANOTHER",
+    "pp. 24-26",
+    0.9594
+   ],
+   [
+    4,
+    "PIONEER URBAN LAND & INFRASTRUCTURE LTD. versus GOVINDAN RAG",
+    "pp. 6-7",
+    0.9369
+   ],
+   [
+    5,
+    "EXPERION DEVELOPERS PVT. LTD versus SUSHMA ASHOK SHIROOR",
+    "p. 20",
+    0.9597
+   ]
+  ],
+  "context": [
+   "S1 Real Estate (Regulation and Development) Act, 2016 s. 18",
+   "S2 Indian Contract Act, 1872 s. 73 (part 5 of 7)",
+   "S3 Transfer of Property Act, 1882 s. 60 (part 1 of 2)",
+   "S4 M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND pp. 24-26",
+   "S5 M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND paras 23-24",
+   "S6 PIONEER URBAN LAND & INFRASTRUCTURE LTD. versus GO pp. 6-7",
+   "S7 EXPERION DEVELOPERS PVT. LTD versus SUSHMA ASHOK S p. 20",
+   "S8 M/S. NEWTECH PROMOTERS AND DEVELOPERS PVT. LTD. ve para 78"
+  ],
+  "targets": {
+   "rera18": {
+    "dense_rank": 1,
+    "dense_score": 0.6813,
+    "keyword_rank": 17,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 1,
+     "dense_statute": 1,
+     "keyword": 17,
+     "keyword_statute": 1,
+     "fused": 1,
+     "rerank": 5,
+     "final": 1
+    },
+    "rerank_score": 0.9554,
+    "rerank_direct": 0.9556,
+    "in_context": "S1"
+   }
+  }
+ },
+ {
+  "label": "diag:rera-stay",
+  "query": "If I do not want to withdraw from a delayed housing project, what does the law give me for the delay?",
+  "classification": {
+   "domain": "other",
+   "intent": "explain",
+   "high_stakes": false,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.7828,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [],
+  "top5": [
+   [
+    1,
+    "Real Estate (Regulation and Development) Act, 2016",
+    "s. 18",
+    0.5875
+   ],
+   [
+    2,
+    "M/S. NEWTECH PROMOTERS AND DEVELOPERS PVT. LTD. versus STATE",
+    "para 58",
+    0.6023
+   ],
+   [
+    3,
+    "M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND ANOTHER",
+    "paras 23-24",
+    0.6251
+   ],
+   [
+    4,
+    "EXPERION DEVELOPERS PVT. LTD versus SUSHMA ASHOK SHIROOR",
+    "pp. 13-16",
+    0.6603
+   ],
+   [
+    5,
+    "M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND ANOTHER",
+    "pp. 24-26",
+    0.5305
+   ]
+  ],
+  "context": [
+   "S1 Real Estate (Regulation and Development) Act, 2016 s. 18",
+   "S2 Real Estate (Regulation and Development) Act, 2016 s. 8",
+   "S3 Real Estate (Regulation and Development) Act, 2016 s. 6",
+   "S4 M/S. NEWTECH PROMOTERS AND DEVELOPERS PVT. LTD. ve para 58",
+   "S5 M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND pp. 24-26",
+   "S6 M/S. IMPERIA STRUCTURES LTD. versus ANIL PATNI AND paras 23-24",
+   "S7 EXPERION DEVELOPERS PVT. LTD versus SUSHMA ASHOK S pp. 13-16",
+   "S8 GODREJ PROJECTS DEVELOPMENT LIMITED versus ANIL KA para 22 (part 1 of 2)"
+  ],
+  "targets": {
+   "rera18": {
+    "dense_rank": 1,
+    "dense_score": 0.6354,
+    "keyword_rank": 7,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 1,
+     "dense_statute": 1,
+     "keyword": 7,
+     "keyword_statute": 1,
+     "fused": 1,
+     "rerank": 5,
+     "final": 1
+    },
+    "rerank_score": 0.5875,
+    "rerank_direct": 0.5868,
+    "in_context": "S1"
+   }
+  }
+ },
+ {
+  "label": "gold:hs-eviction-tomorrow",
+  "query": "My landlord says he will throw me out of the house tomorrow without any notice. What does the law say?",
+  "classification": {
+   "domain": "property_land",
+   "intent": "explain",
+   "high_stakes": true,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.8166,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [
+   "My landlord says he will throw me out of the house tomorrow without any notice. What does the law say? (determination of lease; notice to quit; lease terminable by notice; lessor; lessee; lease of immoveable property)"
+  ],
+  "top5": [
+   [
+    1,
+    "Transfer of Property Act, 1882",
+    "s. 113",
+    0.5003
+   ],
+   [
+    2,
+    "Transfer of Property Act, 1882",
+    "s. 111",
+    0.4964
+   ],
+   [
+    3,
+    "Transfer of Property Act, 1882",
+    "s. 106",
+    0.6289
+   ],
+   [
+    4,
+    "SUBHASH CHANDER & ORS. versus M/S BHARAT PETROLEUM CORPORATI",
+    "para 19 (part 1 of 2)",
+    0.8166
+   ],
+   [
+    5,
+    "Transfer of Property Act, 1882",
+    "s. 110",
+    0.2971
+   ]
+  ],
+  "context": [
+   "S1 Transfer of Property Act, 1882 s. 113",
+   "S2 Transfer of Property Act, 1882 s. 111",
+   "S3 Transfer of Property Act, 1882 s. 106",
+   "S4 Transfer of Property Act, 1882 s. 110",
+   "S5 Transfer of Property Act, 1882 s. 114A",
+   "S6 Transfer of Property Act, 1882 s. 105",
+   "S7 Transfer of Property Act, 1882 s. 108 (part 1 of 4)",
+   "S8 SUBHASH CHANDER & ORS. versus M/S BHARAT PETROLEUM para 19 (part 1 of 2)"
+  ],
+  "targets": {
+   "tpa106": {
+    "dense_rank": 4,
+    "dense_score": 0.5567,
+    "keyword_rank": 715,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 4,
+     "dense_statute": 4,
+     "dense_expanded": 3,
+     "dense_expanded_statute": 3,
+     "keyword": 34,
+     "fused": 6,
+     "rerank": 2,
+     "final": 3
+    },
+    "rerank_score": 0.6289,
+    "rerank_direct": 0.025,
+    "in_context": "S3"
+   }
+  }
+ },
+ {
+  "label": "diag:eviction-notice",
+  "query": "Can a landlord evict a tenant without giving notice?",
+  "classification": {
+   "domain": "property_land",
+   "intent": "explain",
+   "high_stakes": true,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.9534,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [
+   "Can a landlord evict a tenant without giving notice? (determination of lease; notice to quit; lease terminable by notice; lessor; lessee; lease of immoveable property)"
+  ],
+  "top5": [
+   [
+    1,
+    "Transfer of Property Act, 1882",
+    "s. 113",
+    0.7936
+   ],
+   [
+    2,
+    "Transfer of Property Act, 1882",
+    "s. 114A",
+    0.8351
+   ],
+   [
+    3,
+    "SUBHASH CHANDER & ORS. versus M/S BHARAT PETROLEUM CORPORATI",
+    "para 19 (part 1 of 2)",
+    0.9534
+   ],
+   [
+    4,
+    "Transfer of Property Act, 1882",
+    "s. 106",
+    0.8046
+   ],
+   [
+    5,
+    "Transfer of Property Act, 1882",
+    "s. 111",
+    0.6888
+   ]
+  ],
+  "context": [
+   "S1 Transfer of Property Act, 1882 s. 113",
+   "S2 Transfer of Property Act, 1882 s. 114A",
+   "S3 Transfer of Property Act, 1882 s. 106",
+   "S4 Transfer of Property Act, 1882 s. 111",
+   "S5 Transfer of Property Act, 1882 s. 108 (part 3 of 4)",
+   "S6 SUBHASH CHANDER & ORS. versus M/S BHARAT PETROLEUM para 19 (part 1 of 2)",
+   "S7 SUBHASH CHANDER & ORS. versus M/S BHARAT PETROLEUM para 19 (part 2 of 2)",
+   "S8 SURESH SHAH versus HIPAD TECHNOLOGY INDIA PRIVATE  para 11 (part 2 of 2)"
+  ],
+  "targets": {
+   "tpa106": {
+    "dense_rank": 21,
+    "dense_score": 0.5662,
+    "keyword_rank": 230,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 21,
+     "dense_statute": 3,
+     "dense_expanded": 2,
+     "dense_expanded_statute": 2,
+     "keyword": 43,
+     "fused": 6,
+     "rerank": 4,
+     "final": 4
+    },
+    "rerank_score": 0.8046,
+    "rerank_direct": 0.0401,
+    "in_context": "S3"
+   }
+  }
+ },
+ {
+  "label": "gold:tpa-106-lease-notice",
+  "query": "How much notice is needed to end a monthly residential lease when there is no written contract?",
+  "classification": {
+   "domain": "property_land",
+   "intent": "procedure",
+   "high_stakes": false,
+   "acts": [],
+   "search_acts": [],
+   "section_refs": [],
+   "event_dates": [],
+   "jurisdiction_hint": []
+  },
+  "gate": {
+   "on": "rerank",
+   "score": 0.9308,
+   "threshold": 0.1
+  },
+  "abstained": false,
+  "notes": [],
+  "rewrites": [],
+  "top5": [
+   [
+    1,
+    "Transfer of Property Act, 1882",
+    "s. 106",
+    0.9308
+   ],
+   [
+    2,
+    "SUBHASH CHANDER & ORS. versus M/S BHARAT PETROLEUM CORPORATI",
+    "para 19 (part 1 of 2)",
+    0.0644
+   ],
+   [
+    3,
+    "SIRI CHAND (DECEASED) THR. LRS. versus SURINDER SINGH",
+    "para 14",
+    0.1829
+   ],
+   [
+    4,
+    "Transfer of Property Act, 1882",
+    "s. 113",
+    0.0209
+   ],
+   [
+    5,
+    "SIRI CHAND (DECEASED) THR. LRS. versus SURINDER SINGH",
+    "para 19",
+    0.0543
+   ]
+  ],
+  "context": [
+   "S1 Transfer of Property Act, 1882 s. 106",
+   "S2 Transfer of Property Act, 1882 s. 113",
+   "S3 Transfer of Property Act, 1882 s. 116",
+   "S4 SUBHASH CHANDER & ORS. versus M/S BHARAT PETROLEUM para 19 (part 1 of 2)",
+   "S5 SIRI CHAND (DECEASED) THR. LRS. versus SURINDER SI para 14",
+   "S6 SIRI CHAND (DECEASED) THR. LRS. versus SURINDER SI para 19",
+   "S7 KARAN KAPOOR versus MADHURI KUMAR para 19 (part 1 of 2)",
+   "S8 NAND RAM (D) THROUGH LRS. & ORS. versus JAGDISH PR paras 6-7"
+  ],
+  "targets": {
+   "tpa106": {
+    "dense_rank": 1,
+    "dense_score": 0.6975,
+    "keyword_rank": 2,
+    "in_pool": true,
+    "stage_ranks": {
+     "dense": 1,
+     "dense_statute": 1,
+     "keyword": 2,
+     "keyword_statute": 1,
+     "fused": 1,
+     "rerank": 1,
+     "final": 1
+    },
+    "rerank_score": 0.9308,
+    "rerank_direct": 0.9307,
+    "in_context": "S1"
+   }
+  }
+ }
+]

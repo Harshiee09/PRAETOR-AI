@@ -75,6 +75,7 @@ Repealed material gets `| REPEALED from <date>, replaced by <successor>`, taken 
 - **Rewrite (step 3), rules only:** `data/registry/legal_terms.yaml` maps lay terms to the statutes' own wording ("anticipatory bail" → "bail to person apprehending arrest"). In fused modes the wording feeds keyword phrases, a second dense list (`dense_expanded`, with its own statute quota), the Act-scoped and transition-pin ranking, and the reranker's query. It never adds a section or an Act. Each entry cites where the equivalence is attested; Hindi terms are unverified until a Hindi speaker checks them. This is also the only English rewrite for Hindi queries so far (step 3.2 otherwise unbuilt).
 - **Act-title keyword phrases keep their stop-words** ("transfer of property act 1882"); without them the phrase never matched.
 - **Context (step 8) has statute slots:** the two statute chunks with the best fused rank (≤ 10) always get context places, because the cross-encoder ranks judgment paraphrases above the provision itself (BNSS s. 482 and RERA s. 18 both fell to final rank 12).
+- **Transition (D44):** a question naming a repealed Act pins only the successor's repeal section (a sourced fact). The successor's closest provisions are a similarity guess and enter the fusion as `transition_closest`, so the reranker can reject a wrong guess (it had pinned BNSS s. 442 for a s. 482 CrPC question).
 - `praetor ask --explain` prints the rewrite and the statute slots; `scripts/trace_stages.py` gives a target's rank at every stage.
 
 ### Output

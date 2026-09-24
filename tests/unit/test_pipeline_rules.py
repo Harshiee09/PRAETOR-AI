@@ -85,3 +85,17 @@ def test_high_stakes_tenancy_question_lists_the_facts_that_matter(registry):
     assert "which state" in text and "written lease" in text and "notice" in text
     q2 = "The police arrested my brother. Can he get bail?"
     assert "2024-07-01" in depends_on(classify(q2, registry, REG), registry, q2)
+
+
+def test_repeal_source_is_found_only_for_a_named_repealed_act(registry):
+    from app.rag.pipeline import repeal_sources
+
+    s531 = {"chunk_id": "bnss:s-531", "section_heading": "Repeal and savings", "ranks": {"exact": 1, "fused": 1}}
+    s482 = {"chunk_id": "bnss:s-482", "section_heading": "Direction for grant of bail to person apprehending arrest",
+            "ranks": {"fused": 2}}
+    id_map = {"S1": s531, "S2": s482}
+    q = "Is anticipatory bail under section 438 CrPC still available?"
+    sids, note = repeal_sources([s531, s482], id_map, classify(q, registry, REG), registry)
+    assert sids == ["S1"] and "Code of Criminal Procedure, 1973" in note and "Bharatiya Nagarik Suraksha Sanhita" in note
+    q2 = "How do I apply for anticipatory bail?"  # names no repealed Act
+    assert repeal_sources([s531, s482], id_map, classify(q2, registry, REG), registry) == ([], "")

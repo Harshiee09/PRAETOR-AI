@@ -136,20 +136,36 @@ def _attached_act(text: str, start: int, end: int, registry) -> str | None:
     return None
 
 
+def _section_numbers(nums: str) -> list[str]:
+    """"17(1)(b)" -> ["17"]; "24, 25 and 26" -> ["24", "25", "26"]. Sub-section and clause markers are not sections."""
+    return [n.upper() for n in re.findall(r"\d{1,3}[A-Z]{0,2}", re.sub(r"\([^)]*\)", "", nums))]
+
+
 def _attested(c: dict, registry) -> set[tuple[str, str]]:
-    """(Act id, section) pairs a chunk can vouch for: its own section if it is statute text, and every section its
-    text names together with an Act."""
+    """(Act id, section) pairs a chunk can vouch for: its own section if it is statute text; every section its text
+    names together with an Act; and sections it names without an Act ("Section 3 of the Act") when that can only mean
+    one Act — for statute text its own Act, for other text the single Act the passage names. A passage that names
+    two or more Acts vouches for no unnamed section, so it cannot carry a number across Acts."""
     pairs = set()
-    if c.get("doc_type") == "statute" and c.get("section") and c.get("act_title"):
+    own = None
+    if c.get("doc_type") == "statute" and c.get("act_title"):
         act = registry.by_short_title(c["act_title"])
-        m = re.match(r"\d{1,3}[A-Z]{0,2}", str(c["section"]).upper())
-        if act and m:
-            pairs.add((act["id"], m.group(0)))
+        own = act["id"] if act else None
+        m = re.match(r"\d{1,3}[A-Z]{0,2}", str(c.get("section") or "").upper())
+        if own and m:
+            pairs.add((own, m.group(0)))
     text = c.get("text") or ""
+    unattached: list[str] = []
     for m in SECTION_MENTION.finditer(text):
         act_id = _attached_act(text, m.start(), m.end(), registry)
         if act_id:
-            pairs.update((act_id, n.upper()) for n in re.findall(r"\d{1,3}[A-Z]{0,2}", m.group("nums")))
+            pairs.update((act_id, n) for n in _section_numbers(m.group("nums")))
+        else:
+            unattached += _section_numbers(m.group("nums"))
+    if unattached:
+        named = {own} if own else {x.names for x in registry.find_acts(text)}
+        if len(named) == 1:
+            pairs.update((next(iter(named)), n) for n in unattached)
     return pairs
 
 
@@ -158,9 +174,9 @@ def _authority_problems(sentence: str, ev: str, sections: set[str], registry,
     problems = []
     for m in SECTION_MENTION.finditer(sentence):
         act_id = _attached_act(sentence, m.start(), m.end(), registry) if registry is not None else None
-        for num in re.findall(r"\d{1,3}[A-Z]{0,2}", m.group("nums")):
+        for num in _section_numbers(m.group("nums")):
             if act_id and attested is not None:
-                if (act_id, num.upper()) not in attested:
+                if (act_id, num) not in attested:
                     problems.append(f"section {num} of the {registry.short_title(act_id)}")
             elif not _section_ok(num, ev, sections):
                 problems.append(f"section {num}")

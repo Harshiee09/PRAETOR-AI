@@ -45,6 +45,10 @@ SAFETY = ("> **If anyone is in immediate danger, call 112.** If this involves ar
 STRICTER = ("\n\nYour previous answer had sentences without source IDs. Every sentence under 'Short answer', 'What the "
             "sources say' and 'How it may apply' MUST end with a source ID like [S1]. Leave out anything you cannot "
             "support from the sources.")
+REPEAL_FIRST = ("\n\nThe sources include {sids}, the provision that repealed the {old}. The question names the {old}, so "
+                "start the short answer by saying that it was repealed and replaced by the {new}, citing {sids}; then "
+                "answer from the {new} provisions in the sources that deal with the question, and describe judgments "
+                "under the {old} as the earlier law.")
 CLOUD_PROVIDERS = {"bedrock"}
 CRIMINAL = ("crpc-1973", "bnss-2023", "ipc-1860", "bns-2023", "iea-1872", "bsa-2023")
 UNSUPPORTED_LIMIT = 0.20
@@ -186,14 +190,29 @@ def depends_on(cls, registry: Registry, query: str) -> str:
     return DEPENDS_ON[key].format(bnss_from=registry.get("bnss-2023")["in_force_from"])
 
 
+def repeal_sources(candidates: list[dict], id_map: dict[str, dict], cls, registry: Registry) -> tuple[list[str], str]:
+    """S# of the pinned repeal sections in the context (the successor's "... is hereby repealed" for an Act the
+    question names), plus the stricter instruction to use when the answer leaves them uncited (DECISIONS D45)."""
+    pinned = {c["chunk_id"] for c in candidates if "exact" in c.get("ranks", {})
+              and (c.get("section_heading") or "").startswith("Repeal")}
+    sids = [sid for sid, c in id_map.items() if c["chunk_id"] in pinned]
+    old = [registry.get(a) for a in cls.acts]
+    old = [a for a in old if a and a["status"] == "repealed" and a.get("successor")]
+    if not sids or not old:
+        return [], ""
+    return sids, REPEAL_FIRST.format(sids="".join(f"[{s}]" for s in sids), old=old[0]["short_title"],
+                                     new=registry.short_title(old[0]["successor"]))
+
+
 def _system_owned_removed(text: str) -> str:
     """Drop a "Jurisdiction and date" section the model wrote anyway: the system renders that line from metadata."""
     return MODEL_JURISDICTION.sub("", text).rstrip()
 
 
-def _generate(engine: Engine, provider: str, user: str, model: str | None, stricter: bool, blocks: list[dict]):
+def _generate(engine: Engine, provider: str, user: str, model: str | None, stricter: bool, blocks: list[dict],
+              extra: str = ""):
     s = engine.settings
-    system = engine.system_prompt + (STRICTER if stricter else "")
+    system = engine.system_prompt + (STRICTER if stricter else "") + extra
     if provider == "ollama":
         client = OllamaClient(s.ollama_base_url, model or s.ollama_model, s.ollama_timeout_s)
         return client.generate([Message("user", user)], system=system, max_tokens=900, temperature=s.llm_temperature,
@@ -278,16 +297,26 @@ def answer(engine: Engine, query: str, *, explain: bool = False, mode: str = "fu
             v = validate(_system_owned_removed(result.text), id_map, engine.registry.statutes, engine.registry)
             attempts.append({"provider": name, "unsupported_share": round(v.unsupported_share, 3), "used": len(v.used_ids),
                              "raw": result.text})
-            if provider != "extractive" and (v.unsupported_share > UNSUPPORTED_LIMIT or not v.used_ids):
-                result = _generate(engine, name, user, model, True, blocks)
+            grounded = not (v.unsupported_share > UNSUPPORTED_LIMIT or not v.used_ids)
+            # A question naming a repealed Act, with the successor's repeal section in context but uncited: the answer
+            # describes old law without saying so (D45). One stricter retry, the same one ungrounded answers get.
+            repeal_sids, repeal_note = repeal_sources(r.candidates, id_map, cls, engine.registry)
+            repeal_missed = bool(repeal_sids) and not set(repeal_sids) & set(v.used_ids)
+            if provider != "extractive" and (not grounded or repeal_missed):
+                first = (result, v)
+                result = _generate(engine, name, user, model, True, blocks, repeal_note if repeal_missed else "")
                 v = validate(_system_owned_removed(result.text), id_map, engine.registry.statutes, engine.registry)
-                attempts.append({"provider": name, "stricter": True, "unsupported_share": round(v.unsupported_share, 3),
-                                 "used": len(v.used_ids), "raw": result.text})
+                attempts.append({"provider": name, "stricter": True, "repeal_note": repeal_missed,
+                                 "unsupported_share": round(v.unsupported_share, 3), "used": len(v.used_ids),
+                                 "raw": result.text})
                 if v.unsupported_share > UNSUPPORTED_LIMIT or not v.used_ids:
-                    warnings.append("The generated answer was not grounded well enough in the sources, so the "
-                                    "verbatim passages are shown instead.")
-                    result, provider = ExtractiveClient().answer_from_blocks(blocks), "extractive"
-                    v = validate(result.text, id_map, engine.registry.statutes, engine.registry)
+                    if grounded:
+                        result, v = first  # the retry was only for the repeal and came back worse: keep the first
+                    else:
+                        warnings.append("The generated answer was not grounded well enough in the sources, so the "
+                                        "verbatim passages are shown instead.")
+                        result, provider = ExtractiveClient().answer_from_blocks(blocks), "extractive"
+                        v = validate(result.text, id_map, engine.registry.statutes, engine.registry)
             break
 
         warnings += v.warnings + notes

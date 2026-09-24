@@ -173,3 +173,35 @@ def test_short_answer_and_how_it_may_apply_need_markers():
 def test_saying_the_sources_are_silent_is_not_an_unsupported_claim():
     ans = "**Short answer:** The sources do not say how to file the application.\n\n**What the sources say:**\n- x [S1]."
     assert validate(ans, {"S1": _tpa_106()}).unsupported == 0
+
+
+# Pathapati Subba Reddy v. Special Deputy Collector (LA), [2024] 4 S.C.R. 241; 2024 INSC 286, paras 11-12 (verbatim)
+PATHAPATI = {
+    "chunk_id": "d5b16c37f5e6:paras-11-12:95137881", "doc_type": "judgment", "status": "n/a",
+    "title": "PATHAPATI SUBBA REDDY (DIED) BY L.RS. & ORS. versus THE SPECIAL DEPUTY COLLECTOR (LA)",
+    "case_title": "PATHAPATI SUBBA REDDY (DIED) BY L.RS. & ORS. versus THE SPECIAL DEPUTY COLLECTOR (LA)",
+    "locator": "paras 11-12", "citation": "[2024] 4 S.C.R. 241; 2024 INSC 286",
+    "source_url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_4_241_254_EN.pdf",
+    "text": ("The exceptions are carved out under Sections 4 to 24 (inclusive) of the Limitation Act but we are concerned "
+             "only with the exception contained in Section 5 which empowers the courts to admit an appeal even if it is "
+             "preferred after the prescribed period. Section 3 of the Act is peremptory and had to be given effect to "
+             "even though no objection regarding limitation is taken by the other side or referred to in the pleadings."),
+}
+
+
+def test_sub_section_digits_are_not_section_numbers(registry):
+    s17 = as_row(next(c for c in statute_fixture_chunks("registration_1908_ss1-8", "registration-1908") if c.locator == "s. 1"))
+    v = validate("Section 1(1) of the Registration Act, 1908 gives its short title [S1].", {"S1": s17}, registry=registry)
+    assert not v.unverified_authority  # "1(1)" is section 1, not sections 1 and 1
+
+
+def test_unnamed_section_counts_for_the_only_act_the_passage_names(registry):
+    ans = "Section 3 of the Limitation Act is peremptory, so a late appeal must be dismissed unless an exception applies [S1]."
+    v = validate(ans, {"S1": PATHAPATI}, registry=registry)
+    assert not v.unverified_authority and "Section 3" in v.text
+
+
+def test_unnamed_section_in_a_passage_naming_two_acts_vouches_for_neither(registry):
+    # Dhanraj names both the CrPC and the IPC; its bare "Section 438" cannot be carried over to the IPC
+    v = validate("Section 438 of the IPC governs anticipatory bail [S1].", {"S1": DHANRAJ}, registry=registry)
+    assert v.unverified_authority == ["section 438 of the Indian Penal Code, 1860"]

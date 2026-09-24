@@ -123,11 +123,13 @@ class HybridRetriever:
             # Case-name lookup: "Indore Development Authority v. Manoharlal" pins that judgment's closest passages.
             case_rows = case_lookup(conn, query, self.dense)
             pinned += [r for r in case_rows if r not in pinned]
-            # Transition pin: a question naming a repealed Act gets the successor's closest provision in context, so
-            # the answer can state the law now in force (statute-status note). The reranker alone misses these:
-            # "anticipatory bail" scored 0.002 against BNSS s. 482 "bail to person apprehending arrest".
-            # The successor's own repeal section ("The Code of Criminal Procedure, 1973 ... is hereby repealed") is
-            # pinned too: it is the citable source for the repeal itself.
+            # Transition: a question naming a repealed Act pins the successor's own repeal section ("The Code of
+            # Criminal Procedure, 1973 ... is hereby repealed"), the citable source for the repeal itself. The
+            # successor's closest provisions are only a similarity guess, so they join the fusion as their own list
+            # and must pass the reranker like any other candidate: pinned, the guess bypassed relevance and put BNSS
+            # s. 442 (revision) first for "quash an FIR under section 482 CrPC", where s. 528 is the inherent power
+            # (audit 2026-09-24, DECISIONS D44).
+            closest: list[int] = []
             for a in cls.acts:
                 act = self.registry.get(a)
                 if act and act["status"] == "repealed" and act.get("successor"):
@@ -136,8 +138,10 @@ class HybridRetriever:
                     repeal = conn.execute(
                         "SELECT rowid FROM chunks WHERE act_title = ? AND jurisdiction = 'IN' AND section_heading LIKE 'Repeal%' "
                         "AND text LIKE ? ORDER BY rowid LIMIT 1", (succ_title, f"%{old_name}%")).fetchall()
-                    succ = [r[0] for r in repeal] + act_scoped(conn, xq, [succ_title], self.dense, 1)
-                    pinned += [r for r in succ if r not in pinned]
+                    pinned += [r[0] for r in repeal if r[0] not in pinned]
+                    closest += [r for r in act_scoped(conn, xq, [succ_title], self.dense, 3) if r not in closest]
+            if closest:
+                lists["transition_closest"] = closest
 
         if len(lists) == 1 and not pinned:
             name = next(iter(lists))
