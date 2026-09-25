@@ -283,3 +283,15 @@ Append-only, newest last. Each entry: what was decided or verified, and the evid
 |---|---|---|
 | V52 | Bedrock from this account: `apac.amazon.nova-pro-v1:0` and `apac.amazon.nova-lite-v1:0` answer (0.6 s); the plain model IDs need an inference profile; Claude 3 Haiku refused (INVALID_PAYMENT_INSTRUMENT). Cloud API healthy over HTTPS 90 s after start (engine, index, answer model, documents ok). `scripts/demo.py --url https://3-111-113-83.sslip.io --fresh`: 7/7 OK (22–30 s each, provider bedrock). `scripts/demo_documents.py` on the two RERA agreements: 6/6 OK (5–40 s). Uploads to the cloud: a 10-page scan read with Tesseract in 8.3 s, a JPEG photo in 1.6 s, a Word .docx in 0.1 s; "Can I cancel, and what do I lose?" answered from each with the ten percent forfeiture cited. Unit tests 127 (Bedrock via botocore Stubber, Tesseract TSV parsing, engine choice) | scripted checks, 2026-09-26 |
 | V53 | **Public site end to end without the laptop** (2026-09-26): Vercel variables `PRAETOR_API_URL=https://3-111-113-83.sslip.io` (plain) and `PRAETOR_API_KEY` (sensitive, added by the user, production); production redeployed. Through https://praetor-ai.vercel.app: health ok on every check; `/`, `/document`, `/about` 200; library question answered in 26 s by Bedrock citing TPA s. 106 (fifteen days); a JPEG photo uploaded and read with Tesseract in 4.8 s; summary in points in 28 s with all four sections and every marker matched to a card; delete 204 | scripted check, 2026-09-26 |
+
+## 2026-09-26 — Efficiency on the CPU server
+
+### Decisions
+| # | Decision | Why / source |
+|---|---|---|
+| D59 | **Profile first, then only lossless speed-ups by default.** On the cloud server the cross-encoder reranker is 90% of an answer (V54). Kept: an in-process LRU of document-mode law lookups keyed by the query (every task on one document asks the same law question), on top of the existing answer cache, lazy model loading, index loaded once, one question at a time on shared hardware, and animations that pause off-screen. Not adopted without the owner's decision: int8 dynamic quantization of the reranker (2.0x faster but the top passage changed for 1 of 6 real questions and one score moved by 0.44), fewer reranked candidates, or a larger instance (lossless, costs more) | user message 2026-09-26: efficiency scored 85/100 by the hackathon's AI evaluator |
+
+### Verifications
+| # | Fact | Evidence |
+|---|---|---|
+| V54 | Cloud stage timings (`explain`): dense 0.13–0.16 s, keyword 0.01–0.03 s, **rerank 20–24 s**, Bedrock Nova Pro 2.1 s. Reranker on 20 real candidates for 6 questions (m6i.xlarge, 2 physical cores): fp32 124 s, int8 62 s (x2.01; top-1 same 5/6, top-8 overlap 6–8/8, evidence-gate decision same 6/6, max score change 0.44); length-sorted batches and 4 threads: no gain, identical scores. Law-lookup cache on the server: summary 35.2 s, then checklist 4.9 s and risks 4.4 s on the same document | scripted checks on the server, 2026-09-26 |

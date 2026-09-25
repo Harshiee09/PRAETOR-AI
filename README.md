@@ -69,6 +69,14 @@ Uploads stay in server memory for 60 minutes and are never indexed, cached or wr
   [`docs/topics/ops/deployment.md`](docs/topics/ops/deployment.md).
 - Expect about 13 s per answer (one question at a time on the GPU); repeated questions come from the cache.
 
+## Performance (measured, DECISIONS V54)
+| Where | Search | Rerank | Answer model | Typical answer |
+|---|---|---|---|---|
+| Laptop (RTX 5070 GPU, gemma4 via Ollama) | 0.2 s | 0.4 s | 10-12 s | 12-15 s |
+| Cloud (AWS m6i.xlarge CPU, Bedrock Nova Pro) | 0.2 s | 20-24 s | 2 s | 22-30 s |
+
+Built-in savings: repeated questions come from the answer cache in milliseconds; every task after the first on the same uploaded document reuses the law lookup (35 s, then about 5 s); models and the index load once; a Word file is read in 0.1 s and a scanned page with OCR in about 0.5-0.8 s. The reranker dominates on CPU: int8 quantization would halve it with small ranking changes, and a larger instance would halve it losslessly (D59).
+
 ## Tests and evaluation
 ```bat
 uv run pytest -m "not integration"
