@@ -51,7 +51,7 @@ The demo asks seven questions (statute lookup, procedure, case law, the 2024 cri
 out-of-corpus question that must be refused, and a high-stakes question) and checks that every `[S#]` in an answer has
 a source card. Interactive API docs: http://127.0.0.1:8000/docs.
 
-**Your own documents** (works even when the library search cannot load): upload a PDF with a text layer and ask about
+**Your own documents** (works even when the library search cannot load): upload a PDF (typed or scanned: scanned pages are read with Windows OCR) and ask about
 it, summarise it, list its key clauses, obligations, risks and inconsistencies, turn it into a checklist, prepare
 questions for a lawyer, or compare two agreements. With the server running:
 ```bat
