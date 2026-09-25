@@ -122,6 +122,35 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_serve(args: argparse.Namespace) -> int:
+    import uvicorn
+
+    from app.api.app import LOCAL_HOSTS, create_app
+
+    settings = get_settings()
+    host, port = args.host or settings.api_host, args.port or settings.api_port
+    if host not in LOCAL_HOSTS and not settings.api_key:
+        print(f"refusing to listen on {host} without API_KEY: set API_KEY in .env (see docs/topics/architecture/api.md)")
+        return 2
+    print(f"PRAETOR API on http://{host}:{port}  (docs: http://{host}:{port}/docs; one question at a time on the GPU)")
+    uvicorn.run(create_app(settings, warm_up=not args.no_warmup), host=host, port=port, workers=1,
+                log_level="warning", access_log=False)
+    return 0
+
+
+def _cmd_openapi(args: argparse.Namespace) -> int:
+    import json
+
+    from app.api.app import create_app
+
+    spec = create_app(get_settings(), load_engine=False).openapi()
+    out = REPO_ROOT / args.out
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(spec, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"OpenAPI {spec['info']['version']} with {len(spec['paths'])} paths -> {out.relative_to(REPO_ROOT)}")
+    return 0
+
+
 def _cmd_ask(args: argparse.Namespace) -> int:
     import json
 
@@ -207,6 +236,16 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--model", default=None, help="Ollama model to answer with (default OLLAMA_MODEL)")
     p.add_argument("--calibrate", action="store_true", help="sweep the rerank evidence-gate threshold")
     p.set_defaults(func=_cmd_eval)
+
+    p = sub.add_parser("serve", help="run the HTTP API locally (FastAPI; see docs/topics/architecture/api.md)")
+    p.add_argument("--host", default=None, help="default API_HOST (127.0.0.1); anything else needs API_KEY")
+    p.add_argument("--port", type=int, default=None, help="default API_PORT (8000)")
+    p.add_argument("--no-warmup", action="store_true", help="skip loading the encoders before the first request")
+    p.set_defaults(func=_cmd_serve)
+
+    p = sub.add_parser("openapi", help="write the API contract (OpenAPI JSON) for the frontend")
+    p.add_argument("--out", default="docs/api/openapi.json")
+    p.set_defaults(func=_cmd_openapi)
 
     p = sub.add_parser("ask", help="answer a question from the indexed sources, with citations")
     p.add_argument("question")

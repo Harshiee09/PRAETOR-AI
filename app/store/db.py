@@ -1,4 +1,4 @@
-"""SQLite store: documents, chunks (+ FTS5 external-content index), ingest runs, rejects, cache and spend.
+"""SQLite store: documents, chunks (+ FTS5 external-content index), ingest runs, rejects, the answer cache and the vector map.
 
 `chunks.rowid` is the FAISS id (IndexIDMap2), so a chunk and its vector share one integer key.
 Columns are generated from the Chunk dataclass so the table can't drift from the schema; list/dict fields are
@@ -60,9 +60,6 @@ SCHEMA = [
         run_id TEXT NOT NULL, doc_id TEXT, locator TEXT, problems TEXT NOT NULL)""",
     """CREATE TABLE IF NOT EXISTS cache (
         key TEXT PRIMARY KEY, task TEXT, value TEXT NOT NULL, created_at TEXT NOT NULL, expires_at TEXT NOT NULL)""",
-    """CREATE TABLE IF NOT EXISTS spend (
-        ts TEXT NOT NULL, day TEXT NOT NULL, provider TEXT NOT NULL, model TEXT NOT NULL,
-        input_tokens INTEGER NOT NULL, output_tokens INTEGER NOT NULL, cost_usd REAL NOT NULL, trace_id TEXT)""",
     # What each FAISS vector was embedded from. chunks.rowid can be reused after a delete (no AUTOINCREMENT), so an id
     # match alone does not prove the vector belongs to the current text; sync_index compares these hashes.
     """CREATE TABLE IF NOT EXISTS vectors (rowid INTEGER PRIMARY KEY, embed_sha1 TEXT NOT NULL)""",

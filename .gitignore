@@ -39,3 +39,6 @@ Thumbs.db
 .DS_Store
 .vscode/
 .idea/
+
+# full eval dumps (~400 KB each): their .md summaries are committed instead (DECISIONS D49)
+evaluation/reports/2*.json

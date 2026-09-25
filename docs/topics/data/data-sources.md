@@ -4,7 +4,7 @@ title: Data sources
 tags: [data, licensing]
 created: 2026-09-22
 updated: 2026-09-24
-related: [20260922-report-validation, 20260922-chunk-schema, 20260922-statute-status, 20260922-multilingual, 20260922-aws-cost-plan]
+related: [20260922-report-validation, 20260922-chunk-schema, 20260922-statute-status, 20260922-multilingual]
 summary: Verified source registry, licences and terms, the MVP seed corpus and download etiquette.
 ---
 
@@ -82,4 +82,3 @@ Identify the client through `HTTP_USER_AGENT` with a contact address, keep to ab
 - [Chunk schema and provenance](../architecture/chunk-schema.md) — the manifest and provenance fields each source must fill.
 - [Statute status and repeal](../legal/statute-status.md) — status for the seed Acts.
 - [Multilingual strategy](multilingual.md) — regional-language versions and OCR.
-- [AWS plan and cost controls](../ops/aws-cost-plan.md) — reading the open-data bucket costs nothing.

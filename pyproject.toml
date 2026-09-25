@@ -20,6 +20,8 @@ dependencies = [
     "regex>=2024.5",
     "pyyaml>=6.0",
     "beautifulsoup4>=4.12",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
 ]
 
 [project.scripts]
@@ -48,3 +50,5 @@ explicit = true
 testpaths = ["tests"]
 markers = ["integration: needs the GPU, network, downloaded models or corpora"]
 addopts = "-ra"
+# FastAPI's TestClient still wraps httpx; the notice is about a future Starlette change, not this code
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient` is deprecated"]

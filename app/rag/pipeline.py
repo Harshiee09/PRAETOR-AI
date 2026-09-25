@@ -49,7 +49,6 @@ REPEAL_FIRST = ("\n\nThe sources include {sids}, the provision that repealed the
                 "start the short answer by saying that it was repealed and replaced by the {new}, citing {sids}; then "
                 "answer from the {new} provisions in the sources that deal with the question, and describe judgments "
                 "under the {old} as the earlier law.")
-CLOUD_PROVIDERS = {"bedrock"}
 CRIMINAL = ("crpc-1973", "bnss-2023", "ipc-1860", "bns-2023", "iea-1872", "bsa-2023")
 UNSUPPORTED_LIMIT = 0.20
 TENANCY = {"eviction", "landlord-tenant"}
@@ -105,8 +104,6 @@ class Engine:
 
 def _providers(settings: Settings) -> list[str]:
     chain = [settings.llm_answer] + [p.strip() for p in settings.llm_fallback.split(",") if p.strip()]
-    if settings.privacy_mode == "strict":
-        chain = [p for p in chain if p not in CLOUD_PROVIDERS]
     if "extractive" not in chain:
         chain.append("extractive")  # always ends in the honest no-model mode
     return list(dict.fromkeys(chain))
@@ -219,12 +216,13 @@ def _generate(engine: Engine, provider: str, user: str, model: str | None, stric
                                seed=s.llm_seed)
     if provider == "extractive":
         return ExtractiveClient().answer_from_blocks(blocks)
-    raise LLMError(f"provider {provider!r} is not available until Phase 3")
+    raise LLMError(f"unknown provider {provider!r}")
 
 
-def answer(engine: Engine, query: str, *, explain: bool = False, mode: str = "full", model: str | None = None) -> dict:
+def answer(engine: Engine, query: str, *, explain: bool = False, mode: str = "full", model: str | None = None,
+           trace_id: str | None = None) -> dict:
     s = engine.settings
-    trace_id = uuid.uuid4().hex[:16]
+    trace_id = trace_id or uuid.uuid4().hex[:16]
     t_start = time.perf_counter()
     q = re.sub(r"\s+", " ", nfc(query)).strip()
     conn = connect(s.sqlite_path)

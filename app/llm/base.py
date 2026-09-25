@@ -19,7 +19,6 @@ class LLMResult:
     input_tokens: int
     output_tokens: int
     latency_ms: int
-    cost_usd: float | None  # None for local providers
 
 
 class LLMError(RuntimeError):

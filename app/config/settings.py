@@ -45,7 +45,7 @@ class Settings(BaseSettings):
     # --- LLM routing
     llm_classify: Literal["rules", "ollama"] = "rules"
     llm_rewrite: Literal["aliases", "ollama"] = "aliases"
-    llm_answer: Literal["ollama", "bedrock", "extractive"] = "ollama"
+    llm_answer: Literal["ollama", "extractive"] = "ollama"
     llm_fallback: str = "extractive"
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = ""
@@ -54,27 +54,25 @@ class Settings(BaseSettings):
     # defaults (gemma4: temperature 1, top_k 64, top_p 0.95) sampled differently each run (DECISIONS D37).
     llm_temperature: float = 0.0
     llm_seed: int = 42
-    privacy_mode: Literal["standard", "strict"] = "standard"
-    # Not implemented yet: nothing reads or writes the `cache` table (audit 2026-09-24); kept for the Phase 4 API cache.
+    # Answer cache (SQLite `cache` table), used by the API for non-explain answers; the key includes the prompt,
+    # model, decoding and index versions, so any change misses the cache.
     cache_enabled: bool = True
     cache_ttl_hours: int = 72
 
-    # --- AWS
-    aws_profile: str = "praetor"
-    aws_region: str = "ap-south-1"
-    s3_bucket: str = ""
-    bedrock_model_id: str = ""
-    bedrock_daily_budget_usd: float = 2.00
-    prices_file: Path = Field(default=REPO_ROOT / "app" / "config" / "prices.yaml")
-
-    # --- API and ops
+    # --- API (local only; the Vercel frontend reaches it through a tunnel, DECISIONS D47)
+    # Required for any request that is not a direct localhost call (tunnels arrive as localhost with forwarding
+    # headers, so those need the key too). `praetor serve` refuses a non-localhost bind without it.
     api_key: str = ""
+    api_host: str = "127.0.0.1"
+    api_port: int = 8000
+    # comma-separated origins allowed to call the API from a browser, e.g. your Vercel URL
+    cors_origins: str = "http://localhost:3000,http://localhost:5173"
     log_level: str = "INFO"
     log_queries: Literal["hash", "full"] = "hash"
     http_user_agent: str = "PRAETOR-AI-MVP/0.1 (informational legal RAG research prototype)"
     hf_token: str = ""
 
-    @field_validator("data_dir", "prices_file", mode="after")
+    @field_validator("data_dir", mode="after")
     @classmethod
     def _absolute(cls, v: Path) -> Path:
         return v if v.is_absolute() else (REPO_ROOT / v).resolve()

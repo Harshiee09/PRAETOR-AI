@@ -1,7 +1,7 @@
 # Operations
 
-How we build, measure and minimally deploy within 3 days and about $50.
+How we build, measure and deploy: everything local, the frontend on Vercel, no cloud spend.
 
-- [AWS plan and cost controls](aws-cost-plan.md) — services, cost drivers, guardrails, deploy steps.
+- [Deployment](deployment.md) — local server, Vercel frontend, tunnel, secrets.
 - [Evaluation](evaluation.md) — gold set, metrics, gates.
 - [3-day build plan](build-plan.md) — phases, acceptance criteria, session protocol.

@@ -4,7 +4,7 @@ title: Validation of the research reports
 tags: [data, legal, architecture]
 created: 2026-09-22
 updated: 2026-09-22
-related: [20260922-data-sources, 20260922-minimum-viable-architecture, 20260922-chunk-schema, 20260922-statute-status, 20260922-aws-cost-plan]
+related: [20260922-data-sources, 20260922-minimum-viable-architecture, 20260922-chunk-schema, 20260922-statute-status, 20260925-deployment]
 summary: Errors found in the two input reports and the correction adopted for each; read before reusing anything from them.
 ---
 
@@ -63,4 +63,4 @@ The direction is sound — India Code as the statute source, hybrid RAG, FAISS, 
 - [Minimum viable architecture](../architecture/minimum-viable-architecture.md) — replacement for the blueprint.
 - [Chunk schema and provenance](../architecture/chunk-schema.md) — replacement for the chunking and indexing samples.
 - [Statute status and repeal](../legal/statute-status.md) — fix for the repealed-law issue.
-- [AWS plan and cost controls](../ops/aws-cost-plan.md) — fix for the budget mismatch.
+- [Deployment](../ops/deployment.md) — AWS was dropped altogether on 2026-09-25 (DECISIONS D47).

@@ -47,7 +47,7 @@ class OllamaClient:
             raise LLMError("Ollama returned an empty answer")
         return LLMResult(text=text, model=self.model, input_tokens=int(data.get("prompt_eval_count") or 0),
                          output_tokens=int(data.get("eval_count") or 0),
-                         latency_ms=int((time.perf_counter() - t0) * 1000), cost_usd=None)
+                         latency_ms=int((time.perf_counter() - t0) * 1000))
 
     def digest(self) -> str | None:
         """The local model's content digest from /api/tags, so a run can record exactly which weights answered."""

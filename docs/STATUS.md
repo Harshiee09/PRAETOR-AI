@@ -9,8 +9,9 @@ _Last updated: 2026-09-24 · Phases 0–2 done · **post-Phase 2 audit done and 
 Windows Smart App Control blocked torch and the `praetor.exe` launcher from 09:18 until the afternoon of 2026-09-24 (V37); torch loads again. If it recurs, `uv run python -m app.cli <cmd>` avoids the launcher, but torch itself needs the Windows setting.
 Uncommitted local-only file: `.env` (gitignored; `OLLAMA_MODEL=gemma4:latest`, `MIN_EVIDENCE_SCORE=0.10`; `LLM_TEMPERATURE` / `LLM_SEED` default to 0 / 42).
 
-## AWS setup (you, in parallel; DECISIONS D43)
-Runbook with checklists and tables to fill: [infra/AWS_SETUP.md](../infra/AWS_SETUP.md). In short: run `infra\aws_setup.cmd` from CMD in the repo and follow the menu in order: 1 profile → 2 pre-flight → 3 choose model → 4 budget → 5 bucket and policy → 7 `.env` lines (6 only if the profile is an IAM user). Steps 4–6 need you to type YES; nothing invokes Bedrock. Send me `data\scratch\aws\setup_*.log` afterwards so I can record the account checks, the chosen model and its prices in DECISIONS.md and `app/config/prices.yaml`. Remove everything later with `infra\aws_teardown.cmd`. The Bedrock client, cost meter and `s3-sync` are Phase 3 code and wait for your "go".
+## Phase 3 — local API (2026-09-25; DECISIONS D47–D49)
+AWS dropped (nothing had been created); `infra/` deleted. `praetor serve` runs the FastAPI server: `POST /v1/ask`, `GET /v1/sources/{chunk_id}`, `GET /v1/healthz`, `GET /v1/stats`, API key, CORS, request ids, one question at a time, answer cache. Contract: `docs/api/openapi.json` (`praetor openapi`) and [API note](topics/architecture/api.md); Vercel frontend setup: [deployment note](topics/ops/deployment.md).
+Verified: 104 unit tests, including 12 HTTP-layer tests with a stubbed engine and the repo-size guard. **Not yet verified:** `tests/integration/test_api.py` against the real engine — Windows Smart App Control blocks `sentence_transformers` again (V45).
 
 ## What works (with the command that proves it)
 All commands run from `C:\dev\praetor-ai` as `uv run <command>`.

@@ -30,7 +30,7 @@ class ExtractiveClient:
         for b in blocks[:max_blocks]:
             lines.append(f"- {b['label']}: “{excerpt(b['text'])}” [{b['sid']}]")
         return LLMResult(text="\n".join(lines), model=self.model, input_tokens=0, output_tokens=0,
-                         latency_ms=int((time.perf_counter() - t0) * 1000), cost_usd=None)
+                         latency_ms=int((time.perf_counter() - t0) * 1000))
 
     def generate(self, messages: list[Message], *, system: str, max_tokens: int,
                  temperature: float = 0.1, json_schema: dict | None = None) -> LLMResult:

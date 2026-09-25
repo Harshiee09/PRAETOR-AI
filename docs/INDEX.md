@@ -13,15 +13,16 @@
 - Living logs sit outside the registry: `docs/STATUS.md` (current state, rewritten freely) and `docs/DECISIONS.md` (append-only, dated).
 
 ## Controlled tags
-`architecture`, `schema`, `retrieval`, `llm`, `legal`, `safety`, `data`, `licensing`, `multilingual`, `aws`, `cost`, `evaluation`, `plan`
+`architecture`, `schema`, `retrieval`, `llm`, `legal`, `safety`, `data`, `licensing`, `multilingual`, `aws` (historical), `cost`, `evaluation`, `plan`
 
 ## Registry
 
 ### architecture
-- `20260922-minimum-viable-architecture` — **Minimum viable architecture** — `docs/topics/architecture/minimum-viable-architecture.md` — What runs locally vs on AWS, the request flow, the env contract, and what was cut from the AWS blueprint and why.
+- `20260922-minimum-viable-architecture` — **Minimum viable architecture** — `docs/topics/architecture/minimum-viable-architecture.md` — Everything runs locally (a Vercel frontend calls the local API), the request flow, the env contract, and what was cut from the AWS blueprint and why.
 - `20260922-chunk-schema` — **Chunk schema and provenance** — `docs/topics/architecture/chunk-schema.md` — Storage layout, required provenance fields, parsing and legal-aware chunking rules, and ingestion validation.
 - `20260922-retrieval-pipeline` — **Retrieval pipeline** — `docs/topics/architecture/retrieval-pipeline.md` — Query side from classification through hybrid search, fusion, reranking, the evidence gate and context building.
-- `20260922-llm-layer` — **LLM layer** — `docs/topics/architecture/llm-layer.md` — Provider interface, task routing, local model selection, Bedrock usage, caching and the cost meter.
+- `20260922-llm-layer` — **LLM layer** — `docs/topics/architecture/llm-layer.md` — Provider interface, task routing, local model selection and the answer cache (local models only).
+- `20260925-api` — **API contract** — `docs/topics/architecture/api.md` — The local HTTP API the frontend builds against: endpoints, fields, auth, errors, cache, latency and rendering.
 
 ### legal
 - `20260922-grounding-and-citations` — **Grounding and citations** — `docs/topics/legal/grounding-and-citations.md` — Answer contract, deterministic citation validator, abstention and high-stakes handling.
@@ -33,6 +34,6 @@
 - `20260922-multilingual` — **Multilingual strategy** — `docs/topics/data/multilingual.md` — One pipeline for all 22 scheduled languages: registry, detection, normalisation, retrieval and translation.
 
 ### ops
-- `20260922-aws-cost-plan` — **AWS plan and cost controls** — `docs/topics/ops/aws-cost-plan.md` — Which AWS services are used and why, their cost drivers, guardrails, pre-flight checks and deployment steps.
+- `20260925-deployment` — **Deployment** — `docs/topics/ops/deployment.md` — Local-only backend, Vercel-hosted frontend, the tunnel between them, secrets, limits and cost (AWS dropped, DECISIONS D47).
 - `20260922-evaluation` — **Evaluation** — `docs/topics/ops/evaluation.md` — Gold set format, metrics, data-profile gates and how to compare configurations honestly.
 - `20260922-build-plan` — **3-day build plan** — `docs/topics/ops/build-plan.md` — Phases with acceptance criteria, the session protocol, the cut list and the final report format.
