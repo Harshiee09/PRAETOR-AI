@@ -64,17 +64,18 @@ Answer in this format:
 **What the law says:** only if a LAW passage covers the question, each bullet ending with its [S#]; otherwise leave this heading out.
 
 **What to check:** facts or parts of the document the answer depends on, or that the document does not settle."""},
-    "summary": {"query": None, "claims": ("in short", "key terms", "obligations", "worth a closer look"), "format": """\
-Summarise the document in this format:
-**In short:** two or three sentences: what kind of document it is, between whom, and what it is for, each ending with its [S#].
+    "summary": {"query": None, "claims": ("in short", "key points", "not shown or left blank"), "format": """\
+Summarise the document briefly, in points, in this format:
+**In short:** one or two sentences: what kind of document this is (for example a certificate, an agreement, a notice, an order or a receipt), who issued it or who the parties are, and what it is for, each ending with its [S#].
 
-**Key terms:**
-- parties, subject or property, duration and dates, money (amounts, due dates, deposits, penalties), ending or renewal, and any other main term, one per bullet, each ending with its [S#]
+**Key points:**
+- at most eight short points: names, ID or reference numbers, dates (issue, validity, expiry, deadlines), amounts, places, conditions and obligations, each exactly as the document states it and each ending with its [S#]
 
-**Obligations:**
-- who must do what, and by when, each ending with its [S#]
+**Not shown or left blank:**
+- things the document itself mentions or has a place for but that are missing or blank in it (signatures, seals or stamps, dates, annexures or attachments, filled-in details), each ending with its [S#]; if nothing is missing, say so
 
-**Worth a closer look:** terms that are unusual, one-sided, unclear or left blank, each ending with its [S#]."""},
+**Worth confirming with a lawyer:**
+- two or three specific questions about this document, each tied to a point above and ending with its [S#]"""},
     "risks": {"query": RISK_TERMS, "claims": ("important clauses", "obligations", "risks", "inconsistencies and gaps",
                                               "compared with the law"), "format": """\
 Review the document in this format:

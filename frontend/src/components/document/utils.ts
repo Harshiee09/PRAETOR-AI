@@ -6,7 +6,7 @@ export const DOCUMENT_SESSION_KEY = "praetor-documents";
 export type SavedDocument = Pick<DocumentInfo, "document_id" | "filename" | "expires_at">;
 export const TASKS: { id: DocumentTask; label: string; title: string; description: string }[] = [
   { id: "ask", label: "Ask about this document", title: "Your document question", description: "Find a specific answer in the text." },
-  { id: "summary", label: "Summarise in plain language", title: "Plain-language summary", description: "Understand the document's main points." },
+  { id: "summary", label: "Summary in points", title: "Summary in points", description: "What it is, the key facts, and what is missing." },
   { id: "risks", label: "Key clauses, obligations and risks", title: "Key clauses, obligations and risks", description: "Review commitments, gaps and points to check." },
   { id: "checklist", label: "Make a checklist", title: "Checklist", description: "Turn the document into a practical reading list." },
   { id: "lawyer_questions", label: "Questions for a lawyer", title: "Questions for a lawyer", description: "Prepare questions grounded in the document." },

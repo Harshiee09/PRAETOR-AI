@@ -32,6 +32,7 @@ log = logging.getLogger(__name__)
 
 MARKER = re.compile(r"\[\s*[Ss]\s*(\d{1,3})\s*\]")
 GROUP = re.compile(r"\[\s*[Ss]\s*\d{1,3}(?:\s*(?:,|;|-|–|and)\s*[Ss]?\s*\d{1,3})+\s*\]")
+EMPTY_MARKER = re.compile(r"[ \t]*\[(?:\s*(?:none|n/?a|nil)\s*)?\](?!\()", re.I)
 QUOTE = re.compile(r"[“\"]([^”\"]{15,})[”\"]")
 # Sentence boundary, but never right after legal abbreviations ("X v. State", "s. 23", "No. 5", "Ltd.", initials),
 # or a case name would be cut in two and escape the authority scan.
@@ -255,7 +256,8 @@ def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | N
              claim_sections: tuple[str, ...] = CLAIM_SECTIONS) -> ValidationResult:
     """id_map: "S1" -> chunk dict (the only thing a citation can resolve to). claim_sections: the lower-cased headings
     whose sentences must carry a marker (document analyses use their own headings, D50)."""
-    text = GROUP.sub(_expand_group, answer)
+    text = EMPTY_MARKER.sub("", answer)  # "[None]", "[N/A]", "[]": the model's way of citing nothing (D56)
+    text = GROUP.sub(_expand_group, text)
     invalid: list[str] = []
 
     def keep_or_strip(m: re.Match) -> str:

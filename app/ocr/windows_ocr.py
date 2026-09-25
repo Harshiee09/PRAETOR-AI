@@ -89,11 +89,19 @@ def render_pages(data: bytes, page_numbers: list[int], dpi: int = RENDER_DPI) ->
 
 def ocr_pages(data: bytes, page_numbers: list[int], language: str, timeout_s: float = 240,
               dpi: int = RENDER_DPI) -> dict[int, list[OcrLine]]:
-    """Recognised lines per page (1-based page numbers), positions in PDF points like pdfplumber's."""
+    """Recognised lines per PDF page (1-based page numbers), positions in PDF points like pdfplumber's."""
     if not page_numbers:
         return {}
+    return ocr_images(render_pages(data, page_numbers, dpi), language, timeout_s, dpi)
+
+
+def ocr_images(images: dict[int, bytes], language: str, timeout_s: float = 240,
+               dpi: int = RENDER_DPI) -> dict[int, list[OcrLine]]:
+    """Recognised lines per PNG image; `dpi` converts pixel positions to points."""
+    if not images:
+        return {}
     t0 = time.perf_counter()
-    images = render_pages(data, page_numbers, dpi)
+    page_numbers = list(images)
     payload = "".join(json.dumps({"page": n, "png": base64.b64encode(png).decode("ascii")}) + "\n"
                       for n, png in images.items())
     try:

@@ -46,7 +46,7 @@ describe("document upload guards", () => {
   it("accepts PDF at 4 MB but rejects non-PDF and larger files", () => {
     expect(validatePdfFile({ type: "application/pdf", size: MAX_PDF_BYTES })).toBeNull();
     expect(validatePdfFile({ type: "application/pdf", size: MAX_PDF_BYTES + 1 })).toMatch(/4 MB/);
-    expect(validatePdfFile({ type: "text/plain", size: 100 })).toBe("Only PDF files can be uploaded");
+    expect(validatePdfFile({ type: "text/plain", size: 100 })).toBe("Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF).");
   });
   it("rejects a 5 MB selection and non-PDF drop before a network call", async () => {
     const { container } = await workspace();
@@ -54,7 +54,7 @@ describe("document upload guards", () => {
     fireEvent.change(screen.getByLabelText("Upload Document A"), { target: { files: [large] } });
     expect(screen.getByRole("alert")).toHaveTextContent("4 MB");
     fireEvent.drop(container.querySelector(".document-dropzone")!, { dataTransfer: { files: [new File(["text"], "fake.pdf", { type: "text/plain" })] } });
-    expect(screen.getByRole("alert")).toHaveTextContent("Only PDF files can be uploaded");
+    expect(screen.getByRole("alert")).toHaveTextContent("Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF).");
     expect(uploadDocument).not.toHaveBeenCalled();
   });
 });
@@ -137,10 +137,10 @@ describe("document workflow", () => {
   });
   it("sends each task and optional focus, then cancels an analysis without showing its late result", async () => {
     await workspace(); await uploadA();
-    fireEvent.click(screen.getByRole("button", { name: /Summarise in plain language/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Summary in points/ }));
     fireEvent.change(screen.getByLabelText("Anything to focus on? (optional)"), { target: { value: " payments " } });
     fireEvent.click(screen.getByRole("button", { name: "Read my document" }));
-    await screen.findByRole("heading", { name: "Plain-language summary" });
+    await screen.findByRole("heading", { name: "Summary in points" });
     expect(analyzeDocuments).toHaveBeenCalledWith({ document_ids: ["test-a"], task: "summary", question: "payments" }, { signal: expect.any(AbortSignal) });
     expect(screen.getAllByText(DOCUMENT_DISCLAIMER)).toHaveLength(1);
     let resolve!: (value: ApiResult<DocumentAnalysis>) => void;
@@ -161,7 +161,7 @@ describe("document workflow", () => {
     await screen.findByRole("button", { name: "View text of Document A" });
     expect(getDocument).toHaveBeenCalledTimes(1);
     vi.mocked(analyzeDocuments).mockRejectedValueOnce(new ApiClientError("not_found", "Not found", "expired-request", 404));
-    fireEvent.click(screen.getByRole("button", { name: /Summarise in plain language/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Summary in points/ }));
     fireEvent.click(screen.getByRole("button", { name: "Read my document" }));
     await waitFor(() => expect(screen.getByLabelText("Upload Document A")).toBeInTheDocument());
     expect(screen.getAllByText(EXPIRED_MESSAGE).length).toBeGreaterThan(0);

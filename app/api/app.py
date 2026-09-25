@@ -34,7 +34,7 @@ from fastapi.responses import JSONResponse
 from app.api.schemas import (AnalyzeRequest, AnalyzeResponse, AskRequest, AskResponse, DocumentDetail, DocumentInfo,
                              Error, Health, Source, Stats)
 from app.config import Settings
-from app.documents.parse import UploadError, parse_upload
+from app.documents.parse import UploadError, parse_document
 from app.documents.store import DocumentStore
 from app.store import cache
 from app.store.db import chunk_by_id, connect
@@ -214,18 +214,19 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
         return doc
 
     @app.post("/v1/documents", status_code=201, response_model=DocumentInfo, responses=UPLOAD_RESPONSES,
-              dependencies=[Depends(require_key)], summary="Upload a PDF to ask about, summarise, review or compare")
-    def upload(file: UploadFile = File(description="A PDF with a text layer (scanned PDFs need OCR, not installed).")) -> dict:
+              dependencies=[Depends(require_key)], summary="Upload a PDF, Word document or image to ask about, summarise, review or compare")
+    def upload(file: UploadFile = File(description="A PDF (typed or scanned), a Word .docx, or a photo/scan image "
+                                                        "(JPG, PNG, WebP, TIFF); scans and images are read with OCR.")) -> dict:
         limit = int(settings.doc_max_mb * 1024 * 1024)
         data = file.file.read(limit + 1)
         if len(data) > limit:
             raise HTTPException(413, f"the file is larger than {settings.doc_max_mb:g} MB (DOC_MAX_MB)")
         try:
-            parsed = parse_upload(data, settings.doc_max_pages, settings.doc_ocr_max_pages)
+            parsed = parse_document(data, settings.doc_max_pages, settings.doc_ocr_max_pages)
         except UploadError as exc:
             raise HTTPException(exc.status, exc.message) from None
         base = re.split(r"[\\/]", file.filename or "document.pdf")[-1]
-        return state.documents.put(re.sub(r"[^\w .()-]", "_", base)[:120] or "document.pdf", parsed).info()
+        return state.documents.put(re.sub(r"[^\w .()-]", "_", base)[:120] or "document", parsed).info()
 
     @app.get("/v1/documents/{document_id}", response_model=DocumentDetail, responses=ERROR_RESPONSES,
              dependencies=[Depends(require_key)], summary="An uploaded document's passages (the text behind [D#] cards)")

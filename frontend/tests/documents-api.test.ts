@@ -40,7 +40,7 @@ describe("PDF validation in browser and upload route", () => {
     expect(validatePdfFile(pdf(MAX_PDF_BYTES + 1))).toContain("4 MB");
   });
   it("rejects a non-PDF MIME type despite a .pdf filename", () => {
-    expect(validatePdfFile(pdf(32, "text/plain"))).toBe("Only PDF files can be uploaded");
+    expect(validatePdfFile(pdf(32, "text/plain"))).toBe("Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF).");
   });
   it("rejects a 5 MB file in the browser without issuing any request", async () => {
     await expect(uploadDocument(pdf(5 * 1024 * 1024))).rejects.toMatchObject({ code: "too_large", status: 413 });
@@ -92,7 +92,7 @@ describe("document proxy", () => {
     expect(await response.text()).not.toContain(secret);
     expect(uploadDuration).toBeGreaterThanOrEqual(60);
   });
-  it.each([[413, "too_large", "The PDF has more than 80 pages."], [415, "unsupported_media_type", "Only PDF files can be uploaded"], [422, "unreadable_document", "This PDF is scanned or password-protected."]])("preserves actionable document upload errors %s", async (status, code, message) => {
+  it.each([[413, "too_large", "The PDF has more than 80 pages."], [415, "unsupported_media_type", "Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF)."], [422, "unreadable_document", "This PDF is scanned or password-protected."]])("preserves actionable document upload errors %s", async (status, code, message) => {
     fetchMock.mockResolvedValueOnce(Response.json({ error: { code, message, request_id: "document-test-id" } }, { status: Number(status) }));
     const response = await upload(uploadRequest());
     expect(response.status).toBe(status);
@@ -188,5 +188,18 @@ describe("document sample boundary", () => {
     const response = await upload(uploadRequest());
     expect(fetchMock).toHaveBeenCalledOnce();
     expect(response.headers.has("X-Praetor-Sample")).toBe(false);
+  });
+});
+
+describe("accepted upload formats", () => {
+  it.each([
+    ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "notice.docx"],
+    ["image/jpeg", "certificate.jpg"], ["image/png", "page.png"], ["image/webp", "photo.webp"], ["image/tiff", "scan.tif"],
+    ["", "agreement.docx"], ["application/octet-stream", "photo.jpeg"],
+  ])("accepts %s (%s)", (type, name) => {
+    expect(validatePdfFile({ type, name, size: 1024 })).toBeNull();
+  });
+  it.each([["application/msword", "old.doc"], ["text/plain", "notes.txt"], ["", "photo.heic"]])("refuses %s (%s)", (type, name) => {
+    expect(validatePdfFile({ type, name, size: 1024 })).toBe("Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF).");
   });
 });

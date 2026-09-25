@@ -39,3 +39,24 @@ def test_a_scanned_statute_page_is_read_with_ocr():
     assert doc.ocr_pages == [1] and doc.unreadable_pages == []
     assert "fifteen days" in text and "month to month" in text.replace("-", " ")
     assert all(p["locator"].endswith("· OCR") for p in doc.passages)
+
+
+def test_a_photo_of_a_statute_page_is_read_with_ocr():
+    """A JPEG like a phone photo (rendered from the real India Code page), read by the real Windows OCR engine."""
+    if not TPA.exists():
+        pytest.skip("run the India Code ingest first")
+    if ocr_language("Latn") is None:
+        pytest.skip("no English Windows OCR language installed")
+    import pdfplumber
+    import pypdfium2 as pdfium
+
+    from app.documents.parse import parse_document
+
+    source = TPA.read_bytes()
+    with pdfplumber.open(io.BytesIO(source)) as pdf:
+        index = next(i for i, p in enumerate(pdf.pages) if "fifteen days" in (p.extract_text() or ""))
+    photo = io.BytesIO()
+    pdfium.PdfDocument(source)[index].render(scale=220 / 72).to_pil().convert("RGB").save(photo, format="JPEG", quality=80)
+    doc = parse_document(photo.getvalue(), 10)
+    text = " ".join(" ".join(p["text"] for p in doc.passages).split()).lower()
+    assert doc.ocr_pages == [1] and "fifteen days" in text

@@ -205,3 +205,23 @@ def test_unnamed_section_in_a_passage_naming_two_acts_vouches_for_neither(regist
     # Dhanraj names both the CrPC and the IPC; its bare "Section 438" cannot be carried over to the IPC
     v = validate("Section 438 of the IPC governs anticipatory bail [S1].", {"S1": DHANRAJ}, registry=registry)
     assert v.unverified_authority == ["section 438 of the Indian Penal Code, 1860"]
+
+
+def test_placeholder_markers_are_removed():
+    from app.citations.validator import validate
+
+    chunk = {"chunk_id": "c1", "text": "A lease from month to month is terminable by fifteen days notice.", "title": "t",
+             "locator": "s. 106", "doc_type": "statute", "status": "in_force"}
+    v = validate("**Short answer:** Fifteen days notice applies [S1]. Nothing else is missing [None]. "
+                 "No stamp is shown []. Also [N/A].", {"S1": chunk})
+    assert "[None]" not in v.text and "[]" not in v.text and "[N/A]" not in v.text and "[S1]" in v.text
+
+
+def test_checklist_boxes_survive_placeholder_cleanup():
+    from app.citations.validator import validate
+
+    chunk = {"chunk_id": "c1", "text": "The rent is payable on the fifth day of every month.", "title": "t",
+             "locator": "cl. 3", "doc_type": "user_document", "status": "n/a"}
+    v = validate("**Checklist:**\n- [ ] Pay the rent by the fifth day of every month [S1]\n- [x] Keep receipts [S1]",
+                 {"S1": chunk}, claim_sections=("checklist",))
+    assert "- [ ] Pay the rent" in v.text and "- [x] Keep receipts" in v.text

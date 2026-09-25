@@ -22,9 +22,9 @@ export function errorMessage(error: unknown): string {
     case "invalid_request":
       return error.message || "Check your question and try again.";
     case "too_large":
-      return error.message || "Upload a PDF up to 4 MB.";
+      return error.message || "Upload a file up to 4 MB.";
     case "unsupported_media_type":
-      return "Only PDF files can be uploaded";
+      return error.message || "Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF).";
     case "unreadable_document":
       return error.message || "This PDF could not be read. Remove any password, or rescan it clearly (300 dpi, straight, good contrast).";
     case "unauthorized":

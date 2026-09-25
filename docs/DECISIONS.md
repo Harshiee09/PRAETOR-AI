@@ -251,3 +251,15 @@ Append-only, newest last. Each entry: what was decided or verified, and the evid
 | # | Fact | Evidence |
 |---|---|---|
 | V50 | Windows OCR languages on this laptop: en-GB, en-US. Image-only PDF made from the 24-page Punjab RERA agreement (pages rendered at 150 dpi): parsed in 5.9 s, 24 pages read with OCR, 51 passages, 7,956 words (text layer: 7,704), clause numbers recognised ("7.4 Possession by the Allottee"). Through the public one-link site: a 10-page scan (2.2 MB) uploaded in 3.8 s (25 passages, OCR warning); "Can I cancel, and what do I lose?" answered in 15 s citing [D9] "clauses 7.4-7.5 · p. 4 · OCR" (ten percent forfeited, balance within ninety days). Integration test `tests/integration/test_ocr.py` (a real India Code page scanned to an image) passes; unit tests 117, frontend 119 | scripted checks, 2026-09-26 |
+
+## 2026-09-26 — Word and image uploads; summary in points
+
+### Decisions
+| # | Decision | Why / source |
+|---|---|---|
+| D56 | **Uploads accept Word (.docx) and images (JPG, PNG, WebP, TIFF, BMP) besides PDF**, detected by content (`app/documents/formats.py`). Word: text read straight from `word/document.xml` (paragraphs, tables row by row, Word headings kept); page numbers follow the page breaks Word recorded, cross-checked with Word's own page count (`docProps/app.xml`) and flagged as approximate when they disagree; Word's generated list numbers are not invented. Images: EXIF-upright, grayscale, at most 4000 px, read with the Windows OCR of D55 and marked "· OCR". Old `.doc` and iPhone HEIC get a clear 415 with what to do. The **summary task becomes a summary in points** (In short / Key points / Not shown or left blank / Worth confirming with a lawyer), so a user knows what they hold before they see a lawyer; prompt `document-v3`. The validator removes placeholder markers the model writes for "no source" (`[None]`, `[N/A]`, `[]`) but keeps Markdown checkboxes (`[ ]`, `[x]`). The website accepts the same types (and offers the camera on phones through `image/*`); tunnels now run hidden so closing a window cannot take the demo down | user message 2026-09-26 |
+
+### Verifications
+| # | Fact | Evidence |
+|---|---|---|
+| V51 | Through the public website: a .docx made by Word 16 from the Punjab agreement uploaded in 0.2 s (47 passages; Word records 3 pages, matching the file's page breaks), summary in points in 28 s noting the blank amounts; a phone-style JPEG of page 13 read with OCR in 1.6 s, summary in points in 14 s with all four sections, a law passage cited and every marker matched to a card; checklist from the photo with 3 checkboxes and no placeholder markers; old `.doc`, text and HEIC files refused with 415 and a reason. Tests: backend unit 123, OCR integration 2 (scanned page, JPEG photo), frontend 129 | scripted checks, 2026-09-26 |

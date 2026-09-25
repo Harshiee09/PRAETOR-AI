@@ -230,3 +230,83 @@ def _no_text_layer():
     return ParsedPdf(path=_P("scan.pdf"), pages=[PageInfo(number=1, text_source="none", usable=False,
                                                           reason="only 0 text-layer characters on an image page")],
                      lines=[], body_size=0.0, page_height=842.0)
+
+
+def _docx(paragraphs: list[str], heading: str | None = None) -> bytes:
+    """A minimal Word .docx (the parts Word needs) whose paragraphs are the given real text."""
+    import io
+    import zipfile
+    from xml.sax.saxutils import escape
+
+    body = ""
+    if heading:
+        body += f'<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>{escape(heading)}</w:t></w:r></w:p>'
+    body += "".join(f"<w:p><w:r><w:t xml:space=\"preserve\">{escape(t)}</w:t></w:r></w:p>" for t in paragraphs)
+    body += '<w:p><w:r><w:br w:type="page"/></w:r></w:p><w:p><w:r><w:t>End of document.</w:t></w:r></w:p>'
+    parts = {
+        "[Content_Types].xml": '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+                               '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+                               '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>',
+        "_rels/.rels": '<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                       '<Relationship Id="r1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>',
+        "word/document.xml": '<?xml version="1.0"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+                             f"<w:body>{body}</w:body></w:document>",
+    }
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w") as z:
+        for name, xml in parts.items():
+            z.writestr(name, xml)
+    return buffer.getvalue()
+
+
+def test_file_kinds_are_detected_by_content_not_name():
+    from app.documents.formats import detect_kind
+
+    assert detect_kind(_pdf(_s106_lines())) == "pdf"
+    assert detect_kind(_docx(["x"])) == "docx"
+    assert detect_kind(b"\x89PNG\r\n\x1a\n" + b"\0" * 20) == "image" and detect_kind(b"\xff\xd8\xff\xe0" + b"\0" * 20) == "image"
+    assert detect_kind(b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1" + b"\0" * 20) == "doc"
+    assert detect_kind(b"\0\0\0\x18ftypheic" + b"\0" * 20) == "heic"
+    assert detect_kind(b"PK\x03\x04 not a docx") is None and detect_kind(b"plain text") is None
+
+
+def test_word_documents_are_read_in_order_with_headings_and_page_breaks():
+    from app.documents.parse import parse_document
+
+    lines = _s106_lines()
+    doc = parse_document(_docx(lines, heading="LEASE TERMS"), 10)
+    text = " ".join(" ".join(p["text"] for p in doc.passages).split())
+    assert "fifteen days" in text and text.index("LEASE TERMS") < text.index("fifteen days")
+    assert doc.pages == 2 and doc.ocr_pages == [] and doc.passages[-1]["page_end"] == 2
+    assert any(w.startswith("Word document") for w in doc.warnings)
+
+
+def test_images_are_read_with_ocr(monkeypatch):
+    import io
+
+    from PIL import Image
+
+    import app.documents.parse as parse
+    from app.ocr.windows_ocr import OcrLine
+
+    lines = _s106_lines()
+    monkeypatch.setattr(parse, "ocr_language", lambda script: "en-GB")
+    monkeypatch.setattr(parse, "ocr_images", lambda images, lang, dpi=150: {1: [OcrLine(t, 40, 500, 100 + 14 * i, 10)
+                                                                                for i, t in enumerate(lines)]})
+    buffer = io.BytesIO()
+    Image.new("RGB", (800, 1100), "white").save(buffer, format="JPEG")
+    doc = parse.parse_document(buffer.getvalue(), 10)
+    assert doc.ocr_pages == [1] and all(p["locator"].endswith("· OCR") for p in doc.passages)
+    assert any(w.startswith("The image was read with OCR") for w in doc.warnings)
+
+
+def test_unsupported_files_get_a_clear_reason():
+    from app.documents.parse import UploadError, parse_document
+
+    for data, fragment in [(b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1" + b"\0" * 64, "old Word .doc"),
+                           (b"\0\0\0\x18ftypheic" + b"\0" * 32, "HEIC"), (b"hello", "Word document (.docx)")]:
+        try:
+            parse_document(data, 10)
+            raise AssertionError("expected a refusal")
+        except UploadError as exc:
+            assert exc.status == 415 and fragment in exc.message

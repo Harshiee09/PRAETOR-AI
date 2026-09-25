@@ -5,10 +5,20 @@ export const MAX_PDF_BYTES = 4 * 1024 * 1024;
 export const DOCUMENT_TASKS: DocumentTask[] = ["ask", "summary", "risks", "checklist", "lawyer_questions", "compare"];
 export const DOCUMENT_EXPIRED_MESSAGE = "This document has expired (documents are kept for 60 minutes). Upload it again.";
 
-export function validatePdfFile(file: Pick<File, "size" | "type">): string | null {
-  if (file.type !== "application/pdf") return "Only PDF files can be uploaded";
-  if (file.size > MAX_PDF_BYTES) return "Upload a PDF up to 4 MB.";
-  if (file.size === 0) return "This PDF is empty. Upload a PDF with text or a clear scan.";
+/** PDF (typed or scanned), Word .docx, or a photo/scan image; the service checks the content again. */
+export const ACCEPTED_TYPES = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/jpeg", "image/png", "image/webp", "image/tiff"];
+export const ACCEPT_ATTRIBUTE = [...ACCEPTED_TYPES, ".pdf", ".docx", ".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff"].join(",");
+export const UNSUPPORTED_FILE_MESSAGE = "Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF).";
+const ACCEPTED_EXTENSION = /\.(pdf|docx|jpe?g|png|webp|tiff?)$/i;
+
+export function isSupportedFile(file: { type: string; name?: string }): boolean {
+  return ACCEPTED_TYPES.includes(file.type) || ((!file.type || file.type === "application/octet-stream") && ACCEPTED_EXTENSION.test(file.name ?? ""));
+}
+
+export function validatePdfFile(file: Pick<File, "size" | "type"> & { name?: string }): string | null {
+  if (!isSupportedFile(file)) return UNSUPPORTED_FILE_MESSAGE;
+  if (file.size > MAX_PDF_BYTES) return "Upload a file up to 4 MB.";
+  if (file.size === 0) return "This file is empty. Upload a document with text or a clear scan or photo.";
   return null;
 }
 

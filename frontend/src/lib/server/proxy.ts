@@ -121,8 +121,8 @@ function upstreamError(
       message: "The research service connection is not authorized.",
     },
     404: { code: "not_found", message: "The requested source was not found." },
-    413: { code: "too_large", message: "Upload a PDF up to 4 MB." },
-    415: { code: "unsupported_media_type", message: "Only PDF files can be uploaded" },
+    413: { code: "too_large", message: "Upload a file up to 4 MB." },
+    415: { code: "unsupported_media_type", message: "Upload a PDF, a Word document (.docx) or a photo or scan (JPG, PNG, WebP or TIFF)." },
     422: {
       code: "invalid_request",
       message: "Check your question and try again.",

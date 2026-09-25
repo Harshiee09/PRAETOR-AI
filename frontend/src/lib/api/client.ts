@@ -9,7 +9,7 @@ import type {
   DocumentAnalysis,
   DocumentAnalysisRequest,
 } from "./types";
-import { validateDocumentAnalysis, validatePdfFile } from "./documents";
+import { isSupportedFile, validateDocumentAnalysis, validatePdfFile } from "./documents";
 
 export { ApiClientError } from "./errors";
 type RequestOptions = { signal?: AbortSignal };
@@ -170,7 +170,7 @@ export function getHealth(
 
 export async function uploadDocument(file: File, options: RequestOptions = {}): Promise<ApiResult<DocumentInfo>> {
   const invalid = validatePdfFile(file);
-  if (invalid) throw new ApiClientError(file.type !== "application/pdf" ? "unsupported_media_type" : file.size === 0 ? "unreadable_document" : "too_large", invalid, makeRequestId(), file.type !== "application/pdf" ? 415 : file.size === 0 ? 422 : 413);
+  if (invalid) throw new ApiClientError(!isSupportedFile(file) ? "unsupported_media_type" : file.size === 0 ? "unreadable_document" : "too_large", invalid, makeRequestId(), !isSupportedFile(file) ? 415 : file.size === 0 ? 422 : 413);
   const form = new FormData();
   form.set("file", file);
   return request<DocumentInfo>("/api/documents", { method: "POST", body: form, signal: options.signal }, false, UPLOAD_CLIENT_TIMEOUT_MS);

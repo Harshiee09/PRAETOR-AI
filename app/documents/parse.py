@@ -15,7 +15,8 @@ from io import BytesIO
 import pdfplumber
 
 from app.multilingual.script import dominant_script, nfc
-from app.ocr.windows_ocr import MIN_PAGE_CHARS, OcrLine, OcrUnavailable, ocr_language, ocr_pages
+from app.documents.formats import IMAGE_DPI, UNSUPPORTED, detect_kind, docx_lines, image_pages, word_page_count
+from app.ocr.windows_ocr import MIN_PAGE_CHARS, OcrLine, OcrUnavailable, ocr_images, ocr_language, ocr_pages
 from app.parsing.pdf import Line, parse_pdf
 
 PASSAGE_WORDS = 200
@@ -174,9 +175,95 @@ def _pack(units: list[dict], label: str, ocr: frozenset[int] = frozenset()) -> l
     return out
 
 
+OCR_WARNING = ("{what} read with OCR on this computer. OCR can misread words and figures: check amounts, dates and "
+               "names against the original.")
+
+
+def parse_document(data: bytes, max_pages: int, ocr_max_pages: int = 40) -> ParsedUpload:
+    """Any supported upload: PDF (text layer, or OCR for scanned pages), Word .docx, or a photo/scan image."""
+    kind = detect_kind(data)
+    if kind == "pdf":
+        return parse_upload(data, max_pages, ocr_max_pages)
+    if kind == "docx":
+        return _parse_docx(data, max_pages)
+    if kind == "image":
+        return _parse_image(data, ocr_max_pages)
+    if kind == "doc":
+        raise UploadError(415, "this is an old Word .doc file: open it in Word and save it as .docx or PDF, then "
+                               "upload that")
+    if kind == "heic":
+        raise UploadError(415, "iPhone HEIC photos cannot be read here: export the photo as JPG (or set the camera to "
+                               "Most Compatible) and upload that")
+    raise UploadError(415, UNSUPPORTED)
+
+
+def _finish(data: bytes, lines: list, pages: int, script: str, warnings: list[str], ocr: list[int],
+            unreadable: list[int] | None = None) -> ParsedUpload:
+    passages = _pack(_units(lines), document_label([ln.text for ln in lines]), frozenset(ocr))
+    return ParsedUpload(sha256=hashlib.sha256(data).hexdigest(), pages=pages, unreadable_pages=unreadable or [],
+                        passages=passages, words=sum(len(p["text"].split()) for p in passages), script=script,
+                        warnings=warnings, ocr_pages=ocr)
+
+
+def _parse_docx(data: bytes, max_pages: int) -> ParsedUpload:
+    try:
+        lines, pages = docx_lines(data)
+    except Exception as exc:  # noqa: BLE001 — damaged or password-protected files raise many zip/XML errors
+        raise UploadError(422, f"the Word document could not be read ({type(exc).__name__}); if it is "
+                               "password-protected, remove the password and upload it again") from exc
+    if pages > max_pages:
+        raise UploadError(413, f"the document has about {pages} pages; the limit is {max_pages} (DOC_MAX_PAGES)")
+    if not lines:
+        raise UploadError(422, "the Word document has no text (it may contain only pictures): save it as PDF and "
+                               "upload that, so its pages can be read with OCR")
+    lines = [Line(text=nfc(ln.text), page=ln.page, x0=ln.x0, x1=ln.x1, top=ln.top, size=ln.size,
+                  bold_prefix=nfc(ln.bold_prefix)) for ln in lines]
+    script = dominant_script(" ".join(ln.text for ln in lines[:200]))[0] or "Latn"
+    recorded = word_page_count(data)
+    if recorded and recorded != pages:
+        warnings = [f"Word document: Word recorded {recorded} pages but only {pages} page breaks are marked in the "
+                    "file, so page numbers here are approximate; use the clause or paragraph text to find a passage."]
+    else:
+        warnings = ["Word document: page numbers follow Word's own layout of this file and can differ slightly from "
+                    "a printout."]
+    return _finish(data, lines, pages, script, warnings, [])
+
+
+def _parse_image(data: bytes, ocr_max_pages: int) -> ParsedUpload:
+    try:
+        images = image_pages(data, max(1, ocr_max_pages))
+    except Exception as exc:  # noqa: BLE001 — truncated or unusual image files
+        raise UploadError(422, f"the image could not be opened ({type(exc).__name__}); upload it again as JPG or "
+                               "PNG") from exc
+    language = ocr_language("Latn")
+    if not language:
+        raise UploadError(422, "images are read with the OCR built into Windows, and no English OCR language is "
+                               "installed on this computer")
+    try:
+        recognised = ocr_images(images, language, dpi=IMAGE_DPI)
+    except OcrUnavailable as exc:
+        raise UploadError(422, f"the image could not be read: {exc}") from exc
+    lines, done = [], []
+    for number in sorted(images):
+        rows = merge_rows(recognised.get(number, []))
+        if sum(len(row.text.strip()) for row in rows) >= MIN_PAGE_CHARS:
+            lines += [Line(text=nfc(row.text), page=number, x0=row.x0, x1=row.x1, top=row.top, size=row.size)
+                      for row in rows]
+            done.append(number)
+    if not lines:
+        raise UploadError(422, "no readable text in the image: photograph the page straight on, in good light, with "
+                               "the whole page in view, or upload a PDF")
+    what = "The image was" if len(images) == 1 else f"Images {page_runs(done)} were"
+    unreadable = [n for n in images if n not in done]
+    warnings = [OCR_WARNING.format(what=what)]
+    if unreadable:
+        warnings.append(f"Images {page_runs(unreadable)} have no readable text and were left out.")
+    return _finish(data, lines, len(images), "Latn", warnings, done, unreadable)
+
+
 def parse_upload(data: bytes, max_pages: int, ocr_max_pages: int = 40) -> ParsedUpload:
     if not data.startswith(b"%PDF-"):
-        raise UploadError(415, "only PDF files are accepted (the file does not start with %PDF-)")
+        raise UploadError(415, UNSUPPORTED)
     try:
         with pdfplumber.open(BytesIO(data)) as pdf:
             n_pages = len(pdf.pages)
