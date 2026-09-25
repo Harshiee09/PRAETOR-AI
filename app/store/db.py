@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 import sqlite3
-import threading
 from dataclasses import fields
 from pathlib import Path
 
@@ -67,33 +66,16 @@ SCHEMA = [
 ]
 
 
-_READY: set[str] = set()
-_READY_LOCK = threading.Lock()
-
-
 def connect(path: Path) -> sqlite3.Connection:
-    """Open a connection. Schema creation, the FTS migration and WAL mode run once per database file per process
-    (they used to run on every request) and again if the file has been removed; per-connection settings (row factory,
-    foreign keys) are applied every time."""
-    path = Path(path)
-    key = str(path.resolve())
-    if key not in _READY or not path.exists():
-        with _READY_LOCK:
-            if key not in _READY or not path.exists():
-                path.parent.mkdir(parents=True, exist_ok=True)
-                conn = sqlite3.connect(path)
-                conn.row_factory = sqlite3.Row
-                conn.execute("PRAGMA foreign_keys = ON")
-                conn.execute("PRAGMA journal_mode = WAL")
-                _migrate_fts(conn)
-                for stmt in SCHEMA:
-                    conn.execute(stmt)
-                conn.commit()
-                _READY.add(key)
-                return conn
+    path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
+    conn.execute("PRAGMA journal_mode = WAL")
+    _migrate_fts(conn)
+    for stmt in SCHEMA:
+        conn.execute(stmt)
+    conn.commit()
     return conn
 
 

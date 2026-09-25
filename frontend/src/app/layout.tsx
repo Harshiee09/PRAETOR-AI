@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description:
     "An informational research workspace for Indian central Acts and Supreme Court judgments. Answers grounded in cited sources. Not legal advice.",
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
 };
 export default function RootLayout({
   children,

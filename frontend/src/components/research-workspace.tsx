@@ -19,11 +19,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useResearch } from "./research-provider";
-import dynamic from "next/dynamic";
-// Markdown rendering is needed only once an answer arrives, so it is not part of the first load.
-const AnswerView = dynamic(() => import("./answer-view").then((m) => m.AnswerView), {
-  loading: () => <p className="answer-loading" role="status">Loading the answer…</p>,
-});
+import { AnswerView } from "./answer-view";
 import Velaris from "./ui/velaris";
 import ComparisonBlock from "./ui/comparison-2";
 import { FlowButton } from "./ui/flow-button";
