@@ -14,6 +14,10 @@ findstr /r /c:"^API_KEY=.........." .env >nul || (
   echo API_KEY is missing or too short in .env; the tunnel would refuse every call. See docs\topics\ops\deployment.md
   exit /b 1
 )
-start "PRAETOR API" cmd /k praetor.cmd serve
+rem full path: cmd does not always search the current folder (NoDefaultCurrentDirectoryInExePath)
+start "PRAETOR API" cmd /k ""%~dp0..\praetor.cmd" serve"
 echo Starting the API in its own window (the models take about a minute to load) ...
-"%CLOUDFLARED%" tunnel --no-autoupdate --url http://127.0.0.1:8000
+rem The tunnel log, including the public URL, also goes to data\scratch\tunnel.log so it can be found later.
+if not exist data\scratch mkdir data\scratch
+if exist data\scratch\tunnel.log del data\scratch\tunnel.log
+"%CLOUDFLARED%" tunnel --no-autoupdate --url http://127.0.0.1:8000 --logfile data\scratch\tunnel.log
