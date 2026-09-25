@@ -10,3 +10,4 @@ coverage/
 !.env.example
 *.log
 public/__qa-*.pdf
+.vercel

@@ -8,7 +8,7 @@ export const DOCUMENT_EXPIRED_MESSAGE = "This document has expired (documents ar
 export function validatePdfFile(file: Pick<File, "size" | "type">): string | null {
   if (file.type !== "application/pdf") return "Only PDF files can be uploaded";
   if (file.size > MAX_PDF_BYTES) return "Upload a PDF up to 4 MB.";
-  if (file.size === 0) return "This PDF is empty. Upload a PDF with selectable text.";
+  if (file.size === 0) return "This PDF is empty. Upload a PDF with text or a clear scan.";
   return null;
 }
 

@@ -82,7 +82,7 @@ Documents: `uv run python scripts/demo_documents.py data/scratch/docs/punjab_rer
 - **Windows Smart App Control** has intermittently blocked downloaded binaries (torch, scikit-learn, the `praetor.exe` launcher; V37, V45); clear again on 2026-09-25 (V47).
 - **Quick tunnel:** random URL on every start, no uptime guarantee, 125 s Cloudflare timeout; one question at a time on the laptop (V47).
 - Cosmetic: the model sometimes writes an empty `[]` marker (seen once in the eviction answer).
-- **Document mode:** text-layer PDFs only (no OCR); one pass reads ~10k tokens (a 24-page agreement: 44 of 49 passages), longer documents get the opening plus the best-matching passages and a warning; clause numbers are a heuristic (a wrapped line starting "4.1 ..." can be read as a clause); the law cross-check covers central Acts only and the model does not always use the law passages it gets (V47); documents are held in memory, so a restart forgets them.
+- **Document mode:** scanned pages are read with Windows OCR (English only; OCR can misread figures, marked "· OCR"; D55); one pass reads ~10k tokens (a 24-page agreement: 44 of 49 passages), longer documents get the opening plus the best-matching passages and a warning; clause numbers are a heuristic (a wrapped line starting "4.1 ..." can be read as a clause); the law cross-check covers central Acts only and the model does not always use the law passages it gets (V47); documents are held in memory, so a restart forgets them.
 - Judgment locators: 36% by page; 8 chunks over 450 tokens. Not built: LLM classification / query rewriting; soft domain filter.
 
 ### 10. Recommended next step

@@ -203,3 +203,4 @@
   .document-intro .coverage-strip { gap: 8px 18px; }
   .document-intro .coverage-strip > span + span { border-left: 0; padding-left: 0; }
 }
+.document-uploading-note { font-size: 10px !important; letter-spacing: .2px; }

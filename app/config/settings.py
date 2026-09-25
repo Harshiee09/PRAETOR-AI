@@ -69,6 +69,8 @@ class Settings(BaseSettings):
     doc_num_ctx: int = 16384
     doc_context_tokens: int = 14000
     doc_law_passages: int = 3
+    # scanned pages read with the Windows OCR engine per upload (~0.5 s a page; D55)
+    doc_ocr_max_pages: int = 40
 
     # --- API (local only; the Vercel frontend reaches it through a tunnel, DECISIONS D47)
     # Required for any request that is not a direct localhost call (tunnels arrive as localhost with forwarding

@@ -15,7 +15,8 @@ from io import BytesIO
 import pdfplumber
 
 from app.multilingual.script import dominant_script, nfc
-from app.parsing.pdf import parse_pdf
+from app.ocr.windows_ocr import MIN_PAGE_CHARS, OcrLine, OcrUnavailable, ocr_language, ocr_pages
+from app.parsing.pdf import Line, parse_pdf
 
 PASSAGE_WORDS = 200
 PREFIXED = re.compile(r"^\s*(?:clause|article|para(?:graph)?)\s+(?P<num>\d{1,3}(?:\.\d{1,2}){0,3})\b", re.I)
@@ -40,6 +41,7 @@ class ParsedUpload:
     words: int
     script: str
     warnings: list[str] = field(default_factory=list)
+    ocr_pages: list[int] = field(default_factory=list)
 
 
 def estimate_tokens(text: str) -> int:
@@ -99,7 +101,40 @@ def document_label(lines: list[str]) -> str:
     return "clause" if AGREEMENT.search(head) else "para"
 
 
-def _pack(units: list[dict], label: str) -> list[dict]:
+def page_runs(pages: list[int]) -> str:
+    """[1, 2, 3, 7] -> "1-3, 7"."""
+    runs, start = [], None
+    pages = sorted(set(pages))
+    for i, pg in enumerate(pages):
+        start = pg if start is None else start
+        if i + 1 == len(pages) or pages[i + 1] != pg + 1:
+            runs.append(str(start) if start == pg else f"{start}-{pg}")
+            start = None
+    return ", ".join(runs)
+
+
+def merge_rows(lines: list[OcrLine]) -> list[OcrLine]:
+    """OCR splits one printed line into pieces when there is a wide gap ("7.5" and its text): join pieces whose
+    vertical extents overlap by more than half the smaller height, left to right, top to bottom."""
+    rows: list[list[OcrLine]] = []
+    for line in sorted(lines, key=lambda ln: (ln.top, ln.x0)):
+        for row in rows:
+            ref = row[0]
+            overlap = min(ref.top + ref.size, line.top + line.size) - max(ref.top, line.top)
+            if overlap > 0.5 * min(ref.size, line.size):
+                row.append(line)
+                break
+        else:
+            rows.append([line])
+    merged = []
+    for row in rows:
+        row.sort(key=lambda ln: ln.x0)
+        merged.append(OcrLine(text=" ".join(ln.text.strip() for ln in row), x0=row[0].x0, x1=max(ln.x1 for ln in row),
+                              top=min(ln.top for ln in row), size=max(ln.size for ln in row)))
+    return sorted(merged, key=lambda ln: ln.top)
+
+
+def _pack(units: list[dict], label: str, ocr: frozenset[int] = frozenset()) -> list[dict]:
     """Units -> passages of about PASSAGE_WORDS words; a long unit is split at line boundaries."""
     pieces: list[dict] = []
     for u in units:
@@ -131,13 +166,15 @@ def _pack(units: list[dict], label: str) -> list[dict]:
         where = f"p. {ps}" if ps == pe else f"pp. {ps}-{pe}"
         nums = p["nums"]
         loc = f"{_numbers(label, nums)} · {where}" if nums else where
+        if ocr & set(range(ps, pe + 1)):
+            loc += " · OCR"  # read from a scanned page: the card says so
         text = "\n".join(t for t, _ in p["lines"])
         out.append({"n": i, "locator": loc, "page_start": ps, "page_end": pe, "text": text,
                     "tokens": estimate_tokens(text)})
     return out
 
 
-def parse_upload(data: bytes, max_pages: int) -> ParsedUpload:
+def parse_upload(data: bytes, max_pages: int, ocr_max_pages: int = 40) -> ParsedUpload:
     if not data.startswith(b"%PDF-"):
         raise UploadError(415, "only PDF files are accepted (the file does not start with %PDF-)")
     try:
@@ -153,15 +190,42 @@ def parse_upload(data: bytes, max_pages: int) -> ParsedUpload:
     except Exception as exc:  # noqa: BLE001 — encrypted or damaged files; the parser's own error types vary
         raise UploadError(422, f"the PDF could not be read ({type(exc).__name__}); if it is password-protected, "
                                "remove the password and upload it again") from exc
-    unreadable = [p.number for p in parsed.unusable_pages]
-    if not parsed.lines:
-        raise UploadError(422, "no readable text layer: this looks like a scanned PDF, and OCR (Tesseract) is not "
-                               "installed, so its text cannot be read. Upload a PDF with selectable text.")
-    passages = _pack(_units(parsed.lines), document_label([ln.text for ln in parsed.lines]))
-    warnings = []
+    unusable = [p.number for p in parsed.unusable_pages]
+    lines = list(parsed.lines)
+    warnings: list[str] = []
+    done: list[int] = []
+    language = ocr_language(script) if unusable else None
+    todo = unusable[:max(0, ocr_max_pages)] if language else []
+    if todo:
+        try:
+            recognised = ocr_pages(data, todo, language)
+        except OcrUnavailable as exc:
+            recognised = {}
+            warnings.append(f"OCR could not run ({exc}), so the scanned pages were left out.")
+        for number in todo:
+            rows = merge_rows(recognised.get(number, []))
+            if sum(len(row.text.strip()) for row in rows) >= MIN_PAGE_CHARS:
+                lines += [Line(text=nfc(row.text), page=number, x0=row.x0, x1=row.x1, top=row.top, size=row.size)
+                          for row in rows]
+                done.append(number)
+        lines.sort(key=lambda ln: ln.page)  # stable: reading order within each page is kept
+    unreadable = [n for n in unusable if n not in done]
+    if not lines:
+        if unusable and not language:
+            raise UploadError(422, "no readable text: the pages look scanned, and the OCR on this computer reads "
+                                   "English only. Upload an English scan or a PDF with selectable text.")
+        raise UploadError(422, "no readable text: the pages look scanned and OCR could not recognise text on them. "
+                               "Rescan clearly (300 dpi, straight, good contrast) or upload a PDF with selectable text.")
+    passages = _pack(_units(lines), document_label([ln.text for ln in lines]), frozenset(done))
+    if done:
+        warnings.append(f"Page{'s' if len(done) > 1 else ''} {page_runs(done)} had no text layer (scanned) and "
+                        f"{'were' if len(done) > 1 else 'was'} read with OCR on this computer. OCR can misread words "
+                        "and figures: check amounts, dates and names against the original.")
     if unreadable:
-        warnings.append(f"Pages {', '.join(map(str, unreadable))} have no readable text (scanned or unusual fonts) and "
-                        "were left out; answers cannot draw on them.")
+        why = (f" (only the first {ocr_max_pages} scanned pages are read)" if len(unusable) > len(todo) and language
+               else "")
+        warnings.append(f"Pages {page_runs(unreadable)} have no readable text{why} and were left out; answers cannot "
+                        "draw on them.")
     return ParsedUpload(sha256=hashlib.sha256(data).hexdigest(), pages=n_pages, unreadable_pages=unreadable,
                         passages=passages, words=sum(len(p["text"].split()) for p in passages), script=script,
-                        warnings=warnings)
+                        warnings=warnings, ocr_pages=done)

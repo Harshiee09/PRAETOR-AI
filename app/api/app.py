@@ -221,7 +221,7 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
         if len(data) > limit:
             raise HTTPException(413, f"the file is larger than {settings.doc_max_mb:g} MB (DOC_MAX_MB)")
         try:
-            parsed = parse_upload(data, settings.doc_max_pages)
+            parsed = parse_upload(data, settings.doc_max_pages, settings.doc_ocr_max_pages)
         except UploadError as exc:
             raise HTTPException(exc.status, exc.message) from None
         base = re.split(r"[\\/]", file.filename or "document.pdf")[-1]

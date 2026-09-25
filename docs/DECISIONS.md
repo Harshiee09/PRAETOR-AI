@@ -239,3 +239,15 @@ Append-only, newest last. Each entry: what was decided or verified, and the evid
 | # | Decision | Why / source |
 |---|---|---|
 | D54 | **Vercel project `praetor-ai`** (Hobby, team harshiee09s-projects) created with the Vercel CLI 60.0.1 after the user's own device-code login: framework Next.js, Root Directory `frontend`, connected to GitHub `Harshiee09/PRAETOR-AI` so every push to `main` deploys; `PRAETOR_API_URL` (production, preview) set to the API quick tunnel from `scripts\serve_public.cmd`. `PRAETOR_API_KEY` is added by the user (`vercel env add`), never by the assistant. `frontend/.vercelignore` keeps `.env*` out of any CLI upload; `vercel link` appends a local `VERCEL_OIDC_TOKEN` to the gitignored `.env.local` and keeps the local values. The one-link route (D53) stays available | user message 2026-09-26 ("deploy it on vercel too", "push everything on git") |
+
+## 2026-09-26 — Scanned uploads: OCR with the engine built into Windows
+
+### Decisions
+| # | Decision | Why / source |
+|---|---|---|
+| D55 | **Uploaded pages without a usable text layer are read with Windows OCR** (`Windows.Media.Ocr`, part of Windows 10/11): `app/ocr/windows_ocr.py` renders the pages with pypdfium2 at 200 dpi and passes PNG bytes over stdin to `app/ocr/windows_ocr.ps1` (Windows PowerShell's WinRT bridge), so nothing is installed, downloaded or written to disk and nothing leaves the laptop. Pieces of one printed row are merged (OCR splits "7.5" from its text), passages from OCR pages carry "· OCR" in their locator, the upload warns that OCR can misread figures, and prompt `document-v2` tells the model to quote such passages exactly and flag garbled figures. Up to `DOC_OCR_MAX_PAGES` (40) scanned pages per upload. Only the installed OCR languages are available (en-GB, en-US here), so Hindi scans are refused with a clear message. Tesseract (D9) stays uninstalled: it needs an installer with admin rights, Windows OCR does not | user message 2026-09-26: an uploaded Word-converted PDF was refused as "scanned", and consumers mostly have scans |
+
+### Verifications
+| # | Fact | Evidence |
+|---|---|---|
+| V50 | Windows OCR languages on this laptop: en-GB, en-US. Image-only PDF made from the 24-page Punjab RERA agreement (pages rendered at 150 dpi): parsed in 5.9 s, 24 pages read with OCR, 51 passages, 7,956 words (text layer: 7,704), clause numbers recognised ("7.4 Possession by the Allottee"). Through the public one-link site: a 10-page scan (2.2 MB) uploaded in 3.8 s (25 passages, OCR warning); "Can I cancel, and what do I lose?" answered in 15 s citing [D9] "clauses 7.4-7.5 · p. 4 · OCR" (ten percent forfeited, balance within ninety days). Integration test `tests/integration/test_ocr.py` (a real India Code page scanned to an image) passes; unit tests 117, frontend 119 | scripted checks, 2026-09-26 |

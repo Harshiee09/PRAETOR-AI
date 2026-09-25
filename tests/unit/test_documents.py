@@ -178,3 +178,55 @@ def test_long_runs_of_markers_are_cut_to_the_first_three():
 
     text, n = trim_marker_runs("It is an agreement [S1][S2][S3][S4][S5][S6][S7]. Parties [S1-S9]. Price [S2][S4].")
     assert n == 2 and text == "It is an agreement [S1][S2][S3]. Parties [S1][S2][S3]. Price [S2][S4]."
+
+
+def test_ocr_pieces_on_one_printed_row_are_joined_in_reading_order():
+    from app.documents.parse import merge_rows, page_runs
+    from app.ocr.windows_ocr import OcrLine
+
+    pieces = [OcrLine("Cancellation by Allottee.", 90, 300, 100.4, 10), OcrLine("7.5", 40, 60, 100, 10),
+              OcrLine("The Allottee shall have the right", 40, 330, 114, 10)]
+    rows = merge_rows(pieces)
+    assert [r.text for r in rows] == ["7.5 Cancellation by Allottee.", "The Allottee shall have the right"]
+    assert page_runs([7, 1, 2, 3, 9, 10]) == "1-3, 7, 9-10"
+
+
+def test_scanned_pages_are_read_with_ocr_and_marked(monkeypatch):
+    """A page without a text layer goes to OCR; its passages say so and the upload warns to check figures.
+    The OCR engine is stubbed here with the real s. 106 wording (the real engine: tests/integration)."""
+    import app.documents.parse as parse
+    from app.ocr.windows_ocr import OcrLine
+
+    lines = _s106_lines()
+    monkeypatch.setattr(parse, "ocr_language", lambda script: "en-GB")
+    monkeypatch.setattr(parse, "ocr_pages", lambda data, pages, lang: {1: [OcrLine(t, 40, 500, 100 + 14 * i, 10)
+                                                                           for i, t in enumerate(lines)]})
+    monkeypatch.setattr(parse, "parse_pdf", lambda stream, script, **kw: _no_text_layer())
+    doc = parse.parse_upload(_pdf([]), 10)
+    assert doc.ocr_pages == [1] and doc.unreadable_pages == []
+    assert all(p["locator"].endswith("· OCR") for p in doc.passages)
+    assert "fifteen days" in " ".join(" ".join(p["text"] for p in doc.passages).split())
+    assert any("read with OCR" in w for w in doc.warnings)
+
+
+def test_an_unreadable_scan_is_refused_with_a_clear_reason(monkeypatch):
+    import app.documents.parse as parse
+    from app.documents.parse import UploadError
+
+    monkeypatch.setattr(parse, "ocr_language", lambda script: "en-GB")
+    monkeypatch.setattr(parse, "ocr_pages", lambda data, pages, lang: {1: []})
+    monkeypatch.setattr(parse, "parse_pdf", lambda stream, script, **kw: _no_text_layer())
+    try:
+        parse.parse_upload(_pdf([]), 10)
+        raise AssertionError("expected a 422")
+    except UploadError as exc:
+        assert exc.status == 422 and "OCR could not recognise" in exc.message
+
+
+def _no_text_layer():
+    from pathlib import Path as _P
+
+    from app.parsing.pdf import PageInfo, ParsedPdf
+    return ParsedPdf(path=_P("scan.pdf"), pages=[PageInfo(number=1, text_source="none", usable=False,
+                                                          reason="only 0 text-layer characters on an image page")],
+                     lines=[], body_size=0.0, page_height=842.0)

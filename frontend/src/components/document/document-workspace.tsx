@@ -200,7 +200,7 @@ export function DocumentWorkspace() {
       <div className="eyebrow"><span/> READ WITH CONTEXT</div>
       <h1>Your document.<br/><em>A clearer understanding.</em></h1>
       <p>Understand the text, follow every citation, and prepare better questions.</p>
-      <div className="coverage-strip" aria-label="How documents are handled"><span><strong>PDF</strong> up to 4 MB</span><span><strong>60 min</strong> in memory, never stored</span><span><strong>[D#]</strong> every point cited</span><Link href="/about#privacy">Privacy & limits <ArrowUpRight size={14}/></Link></div>
+      <div className="coverage-strip" aria-label="How documents are handled"><span><strong>PDF</strong> typed or scanned, up to 4 MB</span><span><strong>60 min</strong> in memory, never stored</span><span><strong>[D#]</strong> every point cited</span><Link href="/about#privacy">Privacy & limits <ArrowUpRight size={14}/></Link></div>
     </header>
     {research.sampleData && <div className="notice sample-notice" role="status"><strong>Sample data</strong><p>Development preview. Uploaded PDFs are not being analysed by a live service.</p></div>}
     {research.documentHealth === "offline" && <div className="notice offline-notice" role="status"><div><strong>The document research service is offline</strong><p>Reconnect the service to upload and analyse documents.</p><small>Request ID: {research.healthRequestId || "unavailable"}</small></div><button className="text-button" onClick={research.refreshHealth}>Retry</button></div>}

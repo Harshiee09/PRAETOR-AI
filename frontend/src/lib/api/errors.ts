@@ -26,7 +26,7 @@ export function errorMessage(error: unknown): string {
     case "unsupported_media_type":
       return "Only PDF files can be uploaded";
     case "unreadable_document":
-      return error.message || "Upload a PDF with selectable text. Scanned or password-protected PDFs cannot be read.";
+      return error.message || "This PDF could not be read. Remove any password, or rescan it clearly (300 dpi, straight, good contrast).";
     case "unauthorized":
       return "The research service connection needs attention. Please contact the owner.";
     case "not_found":
