@@ -310,3 +310,28 @@ def test_unsupported_files_get_a_clear_reason():
             raise AssertionError("expected a refusal")
         except UploadError as exc:
             assert exc.status == 415 and fragment in exc.message
+
+
+def test_law_lookup_is_cached_per_query(tmp_path):
+    """Every task on one document asks the same law question: the second lookup must not search again."""
+    from types import SimpleNamespace
+
+    import app.documents.analyze as analyze_module
+    from app.retrieval.registry import load_registry
+
+    calls = []
+
+    class FakeRetriever:
+        def retrieve(self, conn, query, mode="full", cls=None):
+            calls.append(query)
+            return SimpleNamespace(abstained=True, gate={"on": "rerank", "score": 0.01}, candidates=[], notes=[],
+                                   classification=cls)
+
+    settings = _settings(tmp_path)
+    engine = SimpleNamespace(retriever=FakeRetriever(), registry=load_registry(str(settings.registry_dir)))
+    analyze_module._LAW_CACHE.clear()
+    find = analyze_module.law_lookup(engine, settings)
+    assert find("tenancy notice") == ([], [], {"on": "rerank", "score": 0.01})
+    assert find("tenancy notice") == ([], [], {"on": "rerank", "score": 0.01})
+    find("another topic")
+    assert calls == ["tenancy notice", "another topic"]

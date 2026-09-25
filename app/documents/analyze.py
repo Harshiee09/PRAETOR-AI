@@ -15,9 +15,10 @@ from __future__ import annotations
 import logging
 import math
 import re
+import threading
 import time
 import uuid
-from collections import Counter
+from collections import Counter, OrderedDict
 from collections.abc import Callable
 from functools import lru_cache
 from pathlib import Path
@@ -349,13 +350,37 @@ def analyze(settings: Settings, docs: list[StoredDocument], task: str, question:
     return out
 
 
+_LAW_CACHE: OrderedDict = OrderedDict()
+_LAW_CACHE_LOCK = threading.Lock()
+LAW_CACHE_SIZE = 128
+
+
 def law_lookup(engine, settings: Settings) -> Callable[[str], tuple[list[dict], list[str], dict]]:
-    """Corpus passages for a document's topic through the normal retrieval and evidence gate (nothing below the gate)."""
+    """Corpus passages for a document's topic through the normal retrieval and evidence gate (nothing below the gate).
+
+    Results are kept in a small in-process LRU keyed by the query: every task on one document asks the same law
+    question, and on the CPU server the reranker makes each lookup ~20 s (V52). The index cannot change while the
+    process runs, so a cached result is identical to a fresh one; only the query text is the key, never stored."""
     from app.rag.context import reserve_statute_slots
     from app.rag.pipeline import deterministic_notes
     from app.store.db import connect
 
     def find(query: str):
+        key = (query, settings.doc_law_passages, id(engine))
+        with _LAW_CACHE_LOCK:
+            if key in _LAW_CACHE:
+                _LAW_CACHE.move_to_end(key)
+                law, notes, gate = _LAW_CACHE[key]
+                return list(law), list(notes), dict(gate or {})
+        result = _find(query)
+        with _LAW_CACHE_LOCK:
+            _LAW_CACHE[key] = result
+            while len(_LAW_CACHE) > LAW_CACHE_SIZE:
+                _LAW_CACHE.popitem(last=False)
+        law, notes, gate = result
+        return list(law), list(notes), dict(gate or {})
+
+    def _find(query: str):
         conn = connect(settings.sqlite_path)
         try:
             cls = classify(query, engine.registry, settings.registry_dir)
@@ -364,5 +389,6 @@ def law_lookup(engine, settings: Settings) -> Callable[[str], tuple[list[dict], 
             conn.close()
         if r.abstained:
             return [], [], r.gate
-        return reserve_statute_slots(r.candidates, settings.doc_law_passages), deterministic_notes(r, engine.registry), r.gate
+        slots = reserve_statute_slots(r.candidates, settings.doc_law_passages)[: settings.doc_law_passages]
+        return slots, deterministic_notes(r, engine.registry), r.gate
     return find
