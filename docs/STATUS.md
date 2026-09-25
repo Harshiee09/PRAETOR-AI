@@ -7,7 +7,7 @@ _Last updated: 2026-09-25 · Phases 0–4 built · everything local, no AWS (D47
    - `uv run pytest -m integration` → expect 19 (16 + 3 new API tests in `tests/integration/test_api.py`)
    - `.\praetor serve`, then in a second window `uv run python scripts/demo.py --fresh --save-examples docs/api/examples` → all seven scenarios `OK`; commit the examples
    - if both pass: `git checkout main && git merge --ff-only phase-3-4-local`
-2. You: build the frontend against `docs/api/openapi.json` and [the API note](topics/architecture/api.md); deploy it on Vercel with [the deployment note](topics/ops/deployment.md).
+2. You: build the frontend with GPT-6 Astra using `docs/api/frontend-prompt.md` plus `docs/api/openapi.json` ([API note](topics/architecture/api.md)); deploy it on Vercel with [the deployment note](topics/ops/deployment.md).
 3. You: verify the gold set (`evaluation/verification_sheet.csv`).
 Local-only file: `.env` (gitignored). Leftover AWS lines in it are ignored; add `API_KEY` before any tunnel.
 
