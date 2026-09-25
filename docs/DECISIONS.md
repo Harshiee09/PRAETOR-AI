@@ -232,3 +232,10 @@ Append-only, newest last. Each entry: what was decided or verified, and the evid
 | # | Fact | Evidence |
 |---|---|---|
 | V49 | Through the public link (`https://disposition-charm-tray-abilities.trycloudflare.com`, 2026-09-26): `/`, `/document`, `/about` 200; `/api/health` all checks ok; library ask 200 in 19 s citing Registration Act ss. 23, 25, 26; PDF upload 201 (24 pages, 49 passages); document ask 200 in 24 s citing [D25]; delete 204 | scripted check, 2026-09-26 |
+
+## 2026-09-26 — Vercel project
+
+### Decisions
+| # | Decision | Why / source |
+|---|---|---|
+| D54 | **Vercel project `praetor-ai`** (Hobby, team harshiee09s-projects) created with the Vercel CLI 60.0.1 after the user's own device-code login: framework Next.js, Root Directory `frontend`, connected to GitHub `Harshiee09/PRAETOR-AI` so every push to `main` deploys; `PRAETOR_API_URL` (production, preview) set to the API quick tunnel from `scripts\serve_public.cmd`. `PRAETOR_API_KEY` is added by the user (`vercel env add`), never by the assistant. `frontend/.vercelignore` keeps `.env*` out of any CLI upload; `vercel link` appends a local `VERCEL_OIDC_TOKEN` to the gitignored `.env.local` and keeps the local values. The one-link route (D53) stays available | user message 2026-09-26 ("deploy it on vercel too", "push everything on git") |
