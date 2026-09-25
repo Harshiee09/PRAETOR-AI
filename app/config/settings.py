@@ -45,7 +45,10 @@ class Settings(BaseSettings):
     # --- LLM routing
     llm_classify: Literal["rules", "ollama"] = "rules"
     llm_rewrite: Literal["aliases", "ollama"] = "aliases"
-    llm_answer: Literal["ollama", "extractive"] = "ollama"
+    llm_answer: Literal["ollama", "bedrock", "extractive"] = "ollama"
+    # cloud deployment (DECISIONS D58): Amazon Bedrock; credentials from the instance role or AWS CLI profile
+    bedrock_model_id: str = "apac.amazon.nova-pro-v1:0"
+    aws_region: str = "ap-south-1"
     llm_fallback: str = "extractive"
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = ""

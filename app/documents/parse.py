@@ -16,7 +16,7 @@ import pdfplumber
 
 from app.multilingual.script import dominant_script, nfc
 from app.documents.formats import IMAGE_DPI, UNSUPPORTED, detect_kind, docx_lines, image_pages, word_page_count
-from app.ocr.windows_ocr import MIN_PAGE_CHARS, OcrLine, OcrUnavailable, ocr_images, ocr_language, ocr_pages
+from app.ocr.engine import MIN_PAGE_CHARS, OcrLine, OcrUnavailable, ocr_images, ocr_language, ocr_pages
 from app.parsing.pdf import Line, parse_pdf
 
 PASSAGE_WORDS = 200
@@ -175,7 +175,7 @@ def _pack(units: list[dict], label: str, ocr: frozenset[int] = frozenset()) -> l
     return out
 
 
-OCR_WARNING = ("{what} read with OCR on this computer. OCR can misread words and figures: check amounts, dates and "
+OCR_WARNING = ("{what} read with OCR. OCR can misread words and figures: check amounts, dates and "
                "names against the original.")
 
 
@@ -237,8 +237,8 @@ def _parse_image(data: bytes, ocr_max_pages: int) -> ParsedUpload:
                                "PNG") from exc
     language = ocr_language("Latn")
     if not language:
-        raise UploadError(422, "images are read with the OCR built into Windows, and no English OCR language is "
-                               "installed on this computer")
+        raise UploadError(422, "images are read with OCR, and no OCR engine with English is available on this "
+                               "server")
     try:
         recognised = ocr_images(images, language, dpi=IMAGE_DPI)
     except OcrUnavailable as exc:
@@ -299,14 +299,14 @@ def parse_upload(data: bytes, max_pages: int, ocr_max_pages: int = 40) -> Parsed
     unreadable = [n for n in unusable if n not in done]
     if not lines:
         if unusable and not language:
-            raise UploadError(422, "no readable text: the pages look scanned, and the OCR on this computer reads "
-                                   "English only. Upload an English scan or a PDF with selectable text.")
+            raise UploadError(422, "no readable text: the pages look scanned, and no OCR language for this script is "
+                                   "installed here. Upload a PDF with selectable text.")
         raise UploadError(422, "no readable text: the pages look scanned and OCR could not recognise text on them. "
                                "Rescan clearly (300 dpi, straight, good contrast) or upload a PDF with selectable text.")
     passages = _pack(_units(lines), document_label([ln.text for ln in lines]), frozenset(done))
     if done:
         warnings.append(f"Page{'s' if len(done) > 1 else ''} {page_runs(done)} had no text layer (scanned) and "
-                        f"{'were' if len(done) > 1 else 'was'} read with OCR on this computer. OCR can misread words "
+                        f"{'were' if len(done) > 1 else 'was'} read with OCR. OCR can misread words "
                         "and figures: check amounts, dates and names against the original.")
     if unreadable:
         why = (f" (only the first {ocr_max_pages} scanned pages are read)" if len(unusable) > len(todo) and language

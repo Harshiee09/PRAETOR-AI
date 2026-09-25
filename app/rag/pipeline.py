@@ -25,6 +25,7 @@ from app.config import Settings
 from app.config.logs import loggable_query
 from app.embeddings.embedder import Embedder, count_tokens
 from app.llm.base import LLMError, Message
+from app.llm.bedrock import BedrockClient
 from app.llm.extractive import ExtractiveClient, excerpt
 from app.llm.ollama import OllamaClient
 from app.multilingual.script import dominant_script, nfc
@@ -229,6 +230,9 @@ def _generate(engine: Engine, provider: str, user: str, model: str | None, stric
         client = OllamaClient(s.ollama_base_url, model or s.ollama_model, s.ollama_timeout_s)
         return client.generate([Message("user", user)], system=system, max_tokens=900, temperature=s.llm_temperature,
                                seed=s.llm_seed)
+    if provider == "bedrock":
+        client = BedrockClient(model or s.bedrock_model_id, s.aws_region, s.ollama_timeout_s)
+        return client.generate([Message("user", user)], system=system, max_tokens=900, temperature=s.llm_temperature)
     if provider == "extractive":
         return ExtractiveClient().answer_from_blocks(blocks)
     raise LLMError(f"unknown provider {provider!r}")

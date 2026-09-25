@@ -26,6 +26,7 @@ from app.citations.validator import GROUP, _expand_group, citation_card, validat
 from app.config import Settings
 from app.documents.store import StoredDocument
 from app.llm.base import LLMError, Message
+from app.llm.bedrock import BedrockClient
 from app.llm.extractive import ExtractiveClient, excerpt
 from app.llm.ollama import OllamaClient
 from app.rag.classify import classify
@@ -283,6 +284,11 @@ def analyze(settings: Settings, docs: list[StoredDocument], task: str, question:
                 client = llm or OllamaClient(s.ollama_base_url, s.ollama_model, s.ollama_timeout_s, num_ctx=s.doc_num_ctx)
                 result = client.generate([Message("user", user)], system=system_base, max_tokens=MAX_OUTPUT,
                                          temperature=s.llm_temperature, seed=s.llm_seed)
+                provider = name
+            elif name == "bedrock":
+                client = llm or BedrockClient(s.bedrock_model_id, s.aws_region, s.ollama_timeout_s)
+                result = client.generate([Message("user", user)], system=system_base, max_tokens=MAX_OUTPUT,
+                                         temperature=s.llm_temperature)
                 provider = name
             else:
                 raise LLMError(f"unknown provider {name!r}")

@@ -269,7 +269,7 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
             conn.close()
         checks["index"] = "ok" if not problems else "; ".join(problems)
         checks["engine"] = "ok" if state.engine is not None else f"not loaded: {state.load_error or 'starting'}"
-        checks["answer_model"] = _ollama_check(settings)
+        checks["answer_model"] = _answer_model_check(settings)
         # uploaded documents need neither the index nor the engine (D50); without a model they get verbatim passages
         checks["documents"] = "ok" if checks["answer_model"] == "ok" else "verbatim passages only (no answer model)"
         down = checks["index"] != "ok" or checks["engine"] != "ok"
@@ -292,7 +292,7 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
         lat = sorted(state.latencies)
         return {"documents": docs, "chunks": chunks,
                 "index": {k: m.get(k) for k in ("chunk_count", "faiss_ntotal", "corpus_hash", "embed_model", "created_at")},
-                "model": {"answer": settings.ollama_model, "digest": state.version.get("model_digest"),
+                "model": {"answer": _answer_model(settings), "digest": state.version.get("model_digest"),
                           "temperature": settings.llm_temperature, "seed": settings.llm_seed,
                           "embed": settings.embed_model, "rerank": settings.rerank_model},
                 "prompt_version": state.version.get("prompt_version", "?"), "cache_entries": cached,
@@ -301,6 +301,18 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
                                       "p95": lat[max(0, int(0.95 * len(lat)) - 1)] if lat else None}}
 
     return app
+
+
+def _answer_model(settings: Settings) -> str:
+    return settings.bedrock_model_id if settings.llm_answer == "bedrock" else settings.ollama_model
+
+
+def _answer_model_check(settings: Settings) -> str:
+    if settings.llm_answer == "bedrock":
+        from app.llm.bedrock import bedrock_credentials_ok
+
+        return "ok" if bedrock_credentials_ok() else "no AWS credentials for Bedrock (instance role or AWS profile)"
+    return _ollama_check(settings)
 
 
 def _ollama_check(settings: Settings) -> str:
@@ -320,10 +332,11 @@ def _version(settings: Settings, engine) -> dict:
     from app.llm.ollama import OllamaClient
 
     m = read_manifest(settings) or {}
-    digest = OllamaClient(settings.ollama_base_url, settings.ollama_model).digest() if settings.ollama_model else None
+    digest = (OllamaClient(settings.ollama_base_url, settings.ollama_model).digest()
+              if settings.llm_answer == "ollama" and settings.ollama_model else None)
     from app.rag.pipeline import RULES_VERSION
 
-    return {"prompt_version": engine.prompt_version, "rules": RULES_VERSION, "model": settings.ollama_model, "model_digest": digest,
+    return {"prompt_version": engine.prompt_version, "rules": RULES_VERSION, "model": _answer_model(settings), "model_digest": digest,
             "temperature": settings.llm_temperature, "seed": settings.llm_seed, "corpus_hash": m.get("corpus_hash"),
             "registry": _registry_hash(settings), "min_evidence_score": settings.min_evidence_score,
             "context_max_chunks": settings.context_max_chunks}
