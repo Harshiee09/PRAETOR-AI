@@ -220,3 +220,15 @@ Append-only, newest last. Each entry: what was decided or verified, and the evid
 | # | Fact | Evidence |
 |---|---|---|
 | V48 | Frontend: `tsc` clean, **119/119** tests, `next build` OK. Live against the real API through the frontend proxy (`next dev` on :3001, `praetor serve`): library question answered with an [S1] card (TPA s. 106); document upload (24 pages, 49 passages, 60-minute expiry); `risks` result with [D#] chips, "Your document · A" cards and pages-read line (30 s); `compare` of the Punjab and MahaRERA model agreements with the A/B comparison cards listing the cited clauses (19 s); light and dark themes and a 375 px phone layout checked by screenshot | browser pane, 2026-09-25 |
+
+## 2026-09-26 — Alternative deployment: the whole app behind one link
+
+### Decisions
+| # | Decision | Why / source |
+|---|---|---|
+| D53 | **One public link for the whole app, served from the laptop** (`scripts\serve_app_public.cmd`): the API on 127.0.0.1:8000 (never exposed), the production website (`next build` + `next start`) on 127.0.0.1:3100, and one Cloudflare quick tunnel to the website. The website's server-side routes call the API locally with the key from `frontend\.env.local`, so no key or API URL lives in any cloud service and nothing needs updating when the link changes; the link is printed and saved to `data\scratch\app-tunnel.log`. Vercel (D51) stays possible but is not needed | user message 2026-09-26 ("take an alternate route"): the quick-tunnel URL kept changing after windows were closed or Ctrl+C was pressed, and Vercel's environment variable had to follow it |
+
+### Verifications
+| # | Fact | Evidence |
+|---|---|---|
+| V49 | Through the public link (`https://disposition-charm-tray-abilities.trycloudflare.com`, 2026-09-26): `/`, `/document`, `/about` 200; `/api/health` all checks ok; library ask 200 in 19 s citing Registration Act ss. 23, 25, 26; PDF upload 201 (24 pages, 49 passages); document ask 200 in 24 s citing [D25]; delete 204 | scripted check, 2026-09-26 |

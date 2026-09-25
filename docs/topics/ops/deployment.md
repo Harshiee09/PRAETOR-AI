@@ -32,6 +32,9 @@ For local development the frontend can call `http://127.0.0.1:8000` directly (al
 2. `.env`: `API_KEY=<long random string>` for anything beyond localhost; `CORS_ORIGINS` for local frontends.
 3. `praetor serve` (or `praetor.cmd serve` if Windows blocks the `praetor.exe` launcher, V45). Check `GET /v1/healthz` → `ok`.
 
+### One link from the laptop (simplest; DECISIONS D53, verified V49)
+Double-click `scripts\serve_app_public.cmd`. It starts the API (if not running), builds and serves the website on 127.0.0.1:3100, and opens a Cloudflare quick tunnel to the website. Share the `https://….trycloudflare.com` link it prints (also in `data\scratchpp-tunnel.log`). The API is never exposed; the key stays in `frontend\.env.local`. Keep the three windows open; Ctrl+C or closing one takes the site offline, and a restart gives a new link.
+
 ### Connect the Vercel frontend (remote demo; DECISIONS D51, verified V47)
 Code: https://github.com/Harshiee09/PRAETOR-AI (public). Put the frontend in `frontend/` of this repository and set the Vercel project's **Root Directory** to `frontend` (or give it its own repository).
 1. **Key.** `.env` must hold `API_KEY` (a long random string; generated 2026-09-25). Copy it from `.env` yourself; never paste it into chat, code or a commit.
