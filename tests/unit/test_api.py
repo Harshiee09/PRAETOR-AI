@@ -51,7 +51,7 @@ def _client(tmp_path, client=LOCAL, **overrides):
 
 
 def test_ask_returns_the_contract_and_echoes_the_request_id(tmp_path):
-    c, calls, _ = _client(tmp_path)
+    c, _, _ = _client(tmp_path)
     with c:
         r = c.post("/v1/ask", json={"question": "How long do I have to present a sale deed?"}, headers={"X-Request-ID": "req-123"})
     assert r.status_code == 200, r.text
@@ -156,3 +156,18 @@ def test_serve_refuses_a_public_bind_without_api_key(host, monkeypatch, capsys):
     monkeypatch.setattr(cli, "get_settings", lambda: Settings(_env_file=None, api_key=""))
     assert cli.main(["serve", "--host", host]) == 2
     assert "API_KEY" in capsys.readouterr().out
+
+
+def test_demo_checks_catch_orphan_markers_and_missed_abstentions():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("demo", Path(__file__).parents[2] / "scripts" / "demo.py")
+    demo = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(demo)
+    good = {"answer_markdown": "x [S1].", "citations": [{"id": "S1"}], "abstained": False}
+    assert demo.check(good, should_abstain=False) == []
+    assert demo.check({**good, "answer_markdown": "x [S1][S2]."}, False) == ["markers without a source card: ['S2']"]
+    assert demo.check(good, should_abstain=True) == ["expected an abstention"]
+    from app.rag.evaluate import load_gold
+
+    assert {g for _, g, _ in demo.SCENARIOS} <= {g["id"] for g in load_gold("all")}  # real gold questions only
