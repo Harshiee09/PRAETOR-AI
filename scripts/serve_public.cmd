@@ -15,7 +15,7 @@ findstr /r /c:"^API_KEY=.........." .env >nul || (
   exit /b 1
 )
 rem full path: cmd does not always search the current folder (NoDefaultCurrentDirectoryInExePath)
-start "PRAETOR API" cmd /k ""%~dp0..\praetor.cmd" serve"
+netstat -ano | findstr /r /c:"127.0.0.1:8000 .*LISTENING" >nul || start "PRAETOR API" /d "%~dp0.." cmd /k call "%~dp0..\praetor.cmd" serve
 echo Starting the API in its own window (the models take about a minute to load) ...
 rem The tunnel log, including the public URL, also goes to data\scratch\tunnel.log so it can be found later.
 if not exist data\scratch mkdir data\scratch

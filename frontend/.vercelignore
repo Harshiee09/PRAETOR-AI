@@ -1,0 +1,8 @@
+# never upload local secrets or build output (the key lives only in .env.local on the laptop)
+.env*
+!.env.example
+node_modules
+.next
+coverage
+*.tsbuildinfo
+*.log
