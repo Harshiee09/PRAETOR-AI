@@ -1,13 +1,20 @@
 # Prompt for the frontend builder (GPT-6 Astra)
 
 Paste everything below the line. Attach `docs/api/openapi.json` from this repository (the contract is authoritative
-if anything here disagrees), and `docs/api/examples/*.json` once they exist.
+if anything here disagrees) and every file in `docs/api/examples/`: the `document_*.json` files are real responses
+from the running backend (upload, passages, and one analysis per task) on an official RERA model agreement.
 
 ---
 
-Build the web frontend for **PRAETOR AI**, an informational legal-research assistant for Indian law. It answers
-questions from 12 central Acts and 1,000 Supreme Court judgments, and every answer cites its sources. It is **not a
-lawyer and gives no legal advice**; the UI must never suggest otherwise.
+Build the web frontend for **PRAETOR AI**, an informational legal-research assistant for Indian law. It has two
+parts, and both must be built:
+1. **Ask** — answers questions from 12 central Acts and 1,000 Supreme Court judgments.
+2. **Your document** — the user uploads a PDF (an agreement, notice, order or policy) and PRAETOR answers questions
+   about it, summarises it, highlights its key clauses, obligations, risks and inconsistencies, turns it into a
+   checklist, prepares questions for a lawyer, or compares it with a second document.
+
+Every answer cites its sources. PRAETOR is **not a lawyer and gives no legal advice**; the UI must never suggest
+otherwise, and it never says whether a document is valid, fair or enforceable.
 
 ## Architecture (fixed)
 - The backend is a FastAPI server that runs on the owner's laptop (it needs a GPU and several GB of models, so it
@@ -17,17 +24,20 @@ lawyer and gives no legal advice**; the UI must never suggest otherwise.
   - `POST /api/ask` → `POST {PRAETOR_API_URL}/v1/ask`
   - `GET /api/sources/[chunkId]` → `GET {PRAETOR_API_URL}/v1/sources/{chunk_id}`
   - `GET /api/health` → `GET {PRAETOR_API_URL}/v1/healthz`
-  - `POST /api/documents` → `POST {PRAETOR_API_URL}/v1/documents` (multipart `file`; stream the body through)
+  - `POST /api/documents` → `POST {PRAETOR_API_URL}/v1/documents`: read `await request.formData()`, take the `file`
+    field, reject anything that is not `application/pdf` or is over 4 MB (return the same error shape, 415 / 413),
+    then send a new `FormData` with that one `file` upstream
   - `GET /api/documents/[id]` and `DELETE /api/documents/[id]` → `/v1/documents/{document_id}`
   - `POST /api/documents/analyze` → `POST {PRAETOR_API_URL}/v1/documents/analyze`
 - Server-only environment variables: `PRAETOR_API_URL` and `PRAETOR_API_KEY`. The proxy sends `X-API-Key:
   PRAETOR_API_KEY` and forwards or creates `X-Request-ID`. **The key must never reach browser code or any
   `NEXT_PUBLIC_*` variable.**
-- Answers take about 10–20 s, and the backend answers one question at a time, so requests may queue. Set the ask
-  route's `maxDuration` to 300 s (Vercel Hobby maximum) and the upstream fetch timeout to about 280 s.
+- Answers and document analyses take about 10–25 s, and the backend does one at a time, so requests may queue. Set
+  `maxDuration` to 300 s (Vercel Hobby maximum) with an upstream fetch timeout of about 280 s on the ask and analyze
+  routes, and 60 s on the upload route (parsing a 24-page PDF takes a few seconds).
 - Validate on the server too: `question` is 1–2000 characters, trimmed.
 - Uploads: Vercel Functions accept request bodies up to 4.5 MB, so accept PDFs up to **4 MB** (check in the browser
-  and again in the route), `application/pdf` only. Give the analyze route the same 300 s `maxDuration`.
+  and again in the route), `application/pdf` only.
 
 ## API contract (from openapi.json)
 `POST /v1/ask` request: `{"question": string, "mode": "full", "explain": false, "use_cache": true}` (always send
@@ -68,7 +78,9 @@ and statute fields (`act_title`, `section`, `section_heading`) or judgment field
   fields plus `task`, `documents[]` (`filename`, `pages_read`, `complete`) and `law_checked`. Markers: `[D#]` cites
   the user's document (card `kind: "document"`, `locator` like `clause 7.5 · p. 13`, `page_start`, `document_id`;
   the passage text is `passages[n]` from `GET /v1/documents/{document_id}` where `n` is the number after the colon
-  in `chunk_id`); `[S#]` cites Indian law (card `kind: "law"`, as in `/v1/ask`).
+  in `chunk_id` — **not** the number in `D#`: in the real examples card `D14` has `chunk_id` `…:25`); `[S#]` cites
+  Indian law (card `kind: "law"`, as in `/v1/ask`). Document cards have `authority: "Uploaded by you"`,
+  `source_url: ""`, `status` and `jurisdiction` `"n/a"`, and `retrieved_at` = the upload date.
 
 `GET /v1/healthz` returns `{"status": "ok" | "degraded" | "down", "checks": {...}}`; `down` comes with HTTP 503 and refers to library questions only; document features are available when `checks.documents` is `"ok"`.
 
@@ -97,24 +109,96 @@ Errors are always `{"error": {"code", "message", "request_id"}}`: 401 `unauthori
 4. **Abstained answers**: no answer styling. Show `answer_markdown` as the explanation (it says what was searched and
    what source would be needed). If citations are present (high-stakes cases), title them "Closest provisions found
    (not confirmed to answer your question)".
-5. **Service status**: call `/api/health` on load and every 60 s. `degraded` shows a banner saying answers are limited
-   to verbatim source passages; `down` or unreachable disables the ask box with "The research service is offline".
+5. **Service status**: call `/api/health` on load and every 60 s. On the Ask page, `degraded` shows a banner saying
+   answers are limited to verbatim source passages, and `down` or unreachable disables the ask box with "The research
+   service is offline". The Your document page ignores `status` and looks only at `checks.documents`: `"ok"` →
+   enabled; anything else → a banner "Document analysis is limited to quoting the passages (no AI summary)"; health
+   unreachable → disabled. (Right now the backend reports `status: "down"` with `checks.documents: "ok"`: the Ask
+   page is offline but the document page must work.)
 6. **Errors**: plain-language messages mapped from `error.code` (e.g. 422 → the field message; 503 → "Still starting
    or offline, try again shortly"; timeout → "This took too long; try again"). Always show the `request_id` in small
    text so the owner can find it in the logs.
 7. **About page**: what the tool covers (central Acts on India Code and Supreme Court judgments 2016–2025, English
    texts; Hindi questions work but answers are in English; state laws and rules are not covered), that it is
-   informational only, and how citations work.
+   informational only, and how citations work. For documents: PDFs with selectable text only (scanned PDFs cannot be
+   read yet), up to 4 MB; the file is held in the PRAETOR server's memory for 60 minutes and never stored; very long
+   documents are read in part (the answer says which pages).
 
-8. **Your document page** (a second tab next to Ask): a PDF drop zone (4 MB, PDF only) showing filename, pages and
-   expiry after upload, plus a "Forget this document" button (DELETE). Action buttons, one per task: **Ask a
-   question** (question box), **Summarise**, **Risks and key clauses**, **Checklist**, **Questions for a lawyer**, and
-   **Compare with another document** (second drop zone, optional focus field). Show a progress state (10–25 s).
-   Render the result like an answer: `[D#]` markers link to "Your document" cards (filename, locator, quote; clicking
-   opens the full passage and its page number); `[S#]` markers link to law cards as on the Ask page. Show `warnings`
-   above the answer, including "longer than one analysis can read" notes, and a small "Pages read" line from
-   `documents[]`. Checklist items (`- [ ]`) render as checkboxes the user can tick locally (not sent anywhere).
-   State plainly that PRAETOR explains documents and does not decide whether they are valid or enforceable.
+8. **Your document page**: see the next section; it is a full page, not an add-on.
+
+## Your document page (build all of it)
+Navigation: a top-level tab bar or header links **Ask** | **Your document** | **About**, on every page. Route
+`/document`. Keep uploaded document ids in `sessionStorage` only, so a reload keeps the document until it expires.
+
+**Layout.** Desktop: left column = the document panel and the task buttons; right column = the result, with its
+citation cards beside it (below it on mobile). Mobile: one column in the order document → tasks → result → cards.
+
+**1. Document panel (states).**
+- *Empty:* a drop zone that is also a real `<input type="file" accept="application/pdf">` behind a labelled button
+  (keyboard and screen-reader usable). Text: "Upload a PDF with selectable text (up to 4 MB). It is kept for 60
+  minutes and never stored." Reject non-PDFs and files over 4 MB in the browser before uploading.
+- *Uploading:* progress indicator with the filename; the task buttons stay disabled.
+- *Uploaded:* filename, `pages` pages, `passage_count` passages, a live countdown to `expires_at` ("Expires in 42
+  min"), any `warnings[]` (e.g. unreadable scanned pages) and `unreadable_pages`, a **View text** button (opens the
+  passage drawer listing every passage with its `locator`) and a **Forget this document** button (DELETE, then back
+  to empty; confirm first).
+- *Expired or 404 from any call:* "This document has expired (documents are kept for 60 minutes). Upload it again."
+  Clear it from `sessionStorage` and return to empty.
+- *Upload errors:* 413 → the server's `message` (the file is too large, or has more than 80 pages); 415 → "Only PDF files can be uploaded"; 422
+  `unreadable_document` → show the server's `message` (it explains scanned or password-protected files).
+
+**2. Task buttons** (disabled until a document is uploaded, and while any request is running: the backend does one
+at a time). Each sends `POST /api/documents/analyze` with the body shown:
+
+| Button | Body |
+|---|---|
+| **Ask about this document** (opens a question box, 1–2000 characters; example chips: "When must I pay?", "Can I cancel, and what do I lose?", "What happens if possession is delayed?") | `{"document_ids": [id], "task": "ask", "question": q}` |
+| **Summarise in plain language** | `{"document_ids": [id], "task": "summary"}` |
+| **Key clauses, obligations and risks** | `{"document_ids": [id], "task": "risks"}` |
+| **Make a checklist** | `{"document_ids": [id], "task": "checklist"}` |
+| **Questions for a lawyer** | `{"document_ids": [id], "task": "lawyer_questions"}` |
+| **Compare with another document** (reveals a second upload panel with the same states, labelled "Document B", and an optional "Focus on" field, e.g. "refunds and cancellation") | `{"document_ids": [idA, idB], "task": "compare", "question": focus or null}` |
+
+The first document is always **Document A**. An optional "Anything to focus on?" field may also send `question`
+with summary, risks, checklist and lawyer_questions.
+
+**3. Waiting.** Show an elapsed-time counter and "Reading your document and checking every citation…" (typically
+10–25 s). Allow cancelling the wait in the UI (abort the fetch); the result is simply discarded.
+
+**4. Result view** (reuse the Ask page's answer components):
+- A title from the task ("Plain-language summary", "Key clauses, obligations and risks", "Checklist", "Questions for
+  a lawyer", "Comparison: {filename A} vs {filename B}", or the question for `ask`).
+- `warnings[]` as a "Notes" box **above** the answer. They include "is longer than one analysis can read … pages …"
+  and "Law cross-check skipped …"; show them in plain words, don't hide them.
+- A "Pages read" line from `documents[]`: "{filename}: pages {pages_read}" plus "(part of the document)" when
+  `complete` is false.
+- `answer_markdown` rendered with the same safe Markdown renderer (no raw HTML). Its bold headings come from the task
+  (e.g. **Risks:**, **Inconsistencies and gaps:**, **Only in Document A:**); render them as section headings.
+- Checklist lines `- [ ] …` render as real checkboxes the user can tick; ticks live only in the tab (not sent
+  anywhere). Add **Copy as text** and **Print** (browser print, a print stylesheet that keeps citations and the
+  disclaimer) buttons for every result.
+- Confidence badge, `provider === "extractive"` label ("The passages themselves (no AI summary)"), `disclaimer`
+  always visible, `jurisdiction_note` in small print, `request_id` in the footer — as on the Ask page.
+- If `law_checked` is true and law cards are present, add a line "Compared with Indian law where a law passage
+  covered the same point".
+
+**5. Citation chips and cards.**
+- `[D#]` chips link to **"Your document" cards**: filename, locator (e.g. `clause 7.5 · p. 13`), the verbatim
+  `quote`, "Page {page_start}" (or "Pages {page_start}–{page_end}"), and **Show full passage**, which opens the
+  passage drawer at that passage (fetch `GET /api/documents/{document_id}` once, cache the passages in memory, find
+  the passage whose `n` equals the number after the colon in `chunk_id`, and highlight the quoted text in it, matching while ignoring whitespace: the quote has the passage's line
+  breaks collapsed). No
+  status badge and no external link on document cards.
+- In a comparison, colour-code chips and cards by document (A and B, with a text label as well as colour, for
+  accessibility), using the card's `document_id`.
+- `[S#]` chips link to law cards exactly as on the Ask page (status badge, "Read full passage" via
+  `/api/sources/{chunkId}`, link to `source_url`).
+- A marker without a card renders as plain text.
+
+**6. Wording.** Never write "you should sign", "this clause is illegal/void/unfair", "you will win". Use "the
+document says", "may be worth checking with a lawyer". Show once on the page: "PRAETOR explains what your document
+says. It does not decide whether the document is valid or enforceable, and it is not legal advice. For your
+situation, consult an advocate or your District Legal Services Authority (free legal aid)."
 
 ## Language and design
 - Questions may be in Hindi or English: load a Devanagari-capable font (e.g. Noto Sans Devanagari) alongside the UI
@@ -127,20 +211,30 @@ Errors are always `{"error": {"code", "message", "request_id"}}`: 401 `unauthori
 - Do not log question or answer text on the server (no `console.log` of request bodies); log only status, latency and
   `request_id`.
 - Uploaded PDFs go only to the PRAETOR API through the proxy: never to any other service, never stored by the
-  frontend (no Vercel Blob, no logging of file contents or names).
+  frontend (no Vercel Blob, no logging of file contents or names). Keep only `document_id`, filename and
+  `expires_at` in `sessionStorage`; results live in the tab's memory. No PDF previews through third-party viewers.
 - No analytics or third-party scripts that receive question text. Keep conversation history only in the browser tab
   (memory or `sessionStorage`), with a "Clear" button.
 
 ## Development without the backend
 Build against the OpenAPI types (generate them with `openapi-typescript` from `openapi.json`). For offline UI work
 you may add a development-only mock mode behind an explicit `PRAETOR_MOCK=1` flag that serves the real example
-responses in `docs/api/examples/` (or clearly labelled placeholder text if they are not available yet). The mock mode
-must be impossible to enable in production and must label its output "Sample data".
+responses in `docs/api/examples/` (or clearly labelled placeholder text if they are not available yet): for
+documents, `document_upload.json` answers the upload, `document_passages.json` the passage list, and
+`document_{task}.json` each analysis. The mock mode must be impossible to enable in production and must label its
+output "Sample data".
 
 ## Deliverables
 - The Next.js app with the route handlers, typed API client, the pages and components above.
-- Unit tests for: `[S#]` and `[D#]` marker parsing and linking, the 4 MB upload check, error-code mapping, the proxy (key sent, key never exposed,
-  timeouts, 401/422/503 passthrough), and abstained / extractive / repealed rendering.
+- Unit tests for: `[S#]` and `[D#]` marker parsing and linking (including a `D#` whose passage `n` differs), the
+  4 MB and PDF-only checks in the browser and the upload route, the multipart proxy, error-code mapping (413, 415,
+  422 `unreadable_document`, 404 expired), the proxy (key sent, key never exposed, timeouts, 401/422/503
+  passthrough), checklist checkbox rendering, A/B colour coding in comparisons, and abstained / extractive / repealed
+  rendering. Render tests for each `document_*.json` example.
+- Acceptance checks (run against the real backend with `PRAETOR_API_URL=http://127.0.0.1:8000`): upload a text PDF
+  → the panel shows pages and expiry; each of the six task buttons returns a result whose every chip opens a card;
+  "Show full passage" highlights the quote; "Forget this document" then any task → the expired message; a scanned
+  PDF → the server's unreadable message; a 5 MB file → rejected in the browser without a request.
 - A README: local setup (`PRAETOR_API_URL=http://127.0.0.1:8000` against a local backend), the Vercel environment
   variables, and deployment steps.
 - Keep the repository lean: no committed build output, large fixtures or binaries.

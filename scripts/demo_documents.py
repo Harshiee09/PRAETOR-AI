@@ -46,7 +46,13 @@ def main() -> int:
             return 1
         info = r.json()
         ids.append(info["document_id"])
-        passages.update({f"{info['document_id']}:{x['n']}": x["text"] for x in c.get(f"/v1/documents/{info['document_id']}").json()["passages"]})
+        detail = c.get(f"/v1/documents/{info['document_id']}").json()
+        passages.update({f"{info['document_id']}:{x['n']}": x["text"] for x in detail["passages"]})
+        if args.save_examples and len(ids) == 1:  # the upload and passage responses, for frontend builders
+            args.save_examples.mkdir(parents=True, exist_ok=True)
+            for name, body in (("document_upload", info), ("document_passages", detail)):
+                (args.save_examples / f"{name}.json").write_text(json.dumps(body, ensure_ascii=False, indent=2) + "\n",
+                                                                 encoding="utf-8")
         print(f"uploaded {p.name}: {info['pages']} pages, {info['passage_count']} passages {info['warnings'] or ''}")
 
     runs = [("ask", ids[:1], args.question), ("summary", ids[:1], None), ("risks", ids[:1], None),
