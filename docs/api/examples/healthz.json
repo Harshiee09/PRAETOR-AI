@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "checks": {
+    "index": "ok",
+    "engine": "ok",
+    "answer_model": "ok",
+    "documents": "ok"
+  }
+}

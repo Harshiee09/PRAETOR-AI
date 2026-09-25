@@ -16,7 +16,9 @@ def client():
     s = get_settings()
     if not s.faiss_path.exists():
         pytest.skip("index missing: run `praetor index`")
-    with TestClient(create_app(s), client=("127.0.0.1", 50000)) as c:
+    # with API_KEY set in .env (needed for the tunnel, D51) even localhost calls must send it
+    headers = {"X-API-Key": s.api_key} if s.api_key else {}
+    with TestClient(create_app(s), client=("127.0.0.1", 50000), headers=headers) as c:
         yield c
 
 

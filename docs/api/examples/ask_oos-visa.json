@@ -1,0 +1,23 @@
+{
+  "answer_markdown": "I could not find sources in the current corpus that answer this. I searched 12 central Acts and 1000 Supreme Court judgments; the best passage scored 0.00, below the evidence threshold of 0.10, so no answer was generated. A reliable answer would need the Act, rules or state regulations that govern this topic, which may not be in the corpus yet.",
+  "language": "en",
+  "confidence": "low",
+  "abstained": true,
+  "citations": [],
+  "warnings": [
+    "insufficient_sources"
+  ],
+  "jurisdiction_note": "Central Acts as published on India Code (state amendments only where India Code prints them) and Supreme Court judgments; state rules and later changes may not be covered.",
+  "disclaimer": "General information drawn from the cited sources, not legal advice. For your own situation, consult an advocate or your District Legal Services Authority.",
+  "trace_id": "1b86b109ad794238",
+  "provider": null,
+  "model": null,
+  "classification": {
+    "domain": "other",
+    "intent": "procedure",
+    "high_stakes": false
+  },
+  "cached": false,
+  "latency_ms": 750,
+  "explain": null
+}

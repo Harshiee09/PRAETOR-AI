@@ -1,16 +1,13 @@
 # PRAETOR AI — status and final report
 
-_Last updated: 2026-09-25 · Phases 0–4 built + **document mode (D50, verified live V46)** · everything local, no AWS (D47) · branch `phase-3-4-local` (main = audit-verified Phase 2) · **library checks still blocked: Windows Smart App Control blocks `sentence_transformers` (V45, re-checked V46)**_
+_Last updated: 2026-09-25 · Phases 0–4 built + **document mode (D50, verified live V46)** · everything local, no AWS (D47) · branch `phase-3-4-local` (main = audit-verified Phase 2) · **verified end to end: integration 19/19, library demo 7/7, document demo 6/6, public tunnel path (V47)** · code on GitHub (D51)_
 
 ## Resume here (next session)
-1. When `uv run python -c "import sentence_transformers"` works again (the block is Windows' decision, see "Needs you"), run in order, one GPU job at a time:
-   - `uv run pytest -m integration` → expect 19 (16 + 3 new API tests in `tests/integration/test_api.py`)
-   - `.\praetor serve`, then in a second window `uv run python scripts/demo.py --fresh --save-examples docs/api/examples` → all seven scenarios `OK`; commit the examples
-   - if both pass: `git checkout main && git merge --ff-only phase-3-4-local`
-   - then, with the engine loaded, re-run `scripts/demo_documents.py` on the two agreements in `data/scratch/docs/` to see the law cross-check live (not yet verified, V46)
-2. You: build the frontend with GPT-6 Astra using `docs/api/frontend-prompt.md` (now includes the "Your document" page) plus `docs/api/openapi.json` ([API note](topics/architecture/api.md)); deploy it on Vercel with [the deployment note](topics/ops/deployment.md).
-3. You: verify the gold set (`evaluation/verification_sheet.csv`).
-Local-only file: `.env` (gitignored). Leftover AWS lines in it are ignored; add `API_KEY` before any tunnel.
+1. You: build the frontend with GPT-6 Astra from `docs/api/frontend-prompt.md` + `docs/api/openapi.json` + `docs/api/examples/`; put it in `frontend/` of https://github.com/Harshiee09/PRAETOR-AI.
+2. You, on Vercel: import the repository, Root Directory `frontend`, env vars `PRAETOR_API_URL` and `PRAETOR_API_KEY` (copy `API_KEY` from `.env` yourself).
+3. For the demo: `scripts\serve_public.cmd` → copy the printed `https://….trycloudflare.com` URL into `PRAETOR_API_URL` → redeploy (the URL changes on every start). Details: [deployment note](topics/ops/deployment.md).
+4. You: verify the gold set (`evaluation/verification_sheet.csv`).
+Local-only file: `.env` (gitignored; holds `API_KEY`).
 
 ## Final report
 
@@ -28,12 +25,13 @@ Local-only file: `.env` (gitignored). Leftover AWS lines in it are ignored; add 
 |---|---|---|
 | Unit tests | `uv run pytest -m "not integration"` | **114 passed** (incl. 13 API tests with a stubbed engine, 9 document tests, the repo-size guard) |
 | Document mode, live | `.\praetor serve` · `uv run python scripts/demo_documents.py A.pdf B.pdf` | **6 of 6 OK** on two official RERA model agreements, 12–21 s each (V46); examples in `docs/api/examples/document_*.json` |
-| Integration tests (GPU, real index) | `uv run pytest -m integration` | 16 passed on 2026-09-24 (before the API); the 3 API tests are written, not yet run (V45) |
+| Integration tests (GPU, real index) | `uv run pytest -m integration` | **19 passed** (16 + 3 API tests, V47) |
 | Corpus profile gate | `.\praetor profile` | every required field 100% → PASS |
 | Ask with per-stage ranks | `.\praetor ask "question" --explain` | ranks, scores, gate, rewrite, statute slots, validator result |
 | Evaluation | `.\praetor eval --split all` | final report `evaluation/reports/20260924T174231Z.md` (below) |
 | API contract | `.\praetor openapi` | `docs/api/openapi.json`, 7 paths |
-| API server and demo | `.\praetor serve` · `uv run python scripts/demo.py` | **not yet run end to end** (V45) |
+| API server and demo | `.\praetor serve` · `uv run python scripts/demo.py --fresh` | **7 of 7 OK** (V47); responses in `docs/api/examples/ask_*.json` |
+| Public path | `scripts\serve_public.cmd` (API + Cloudflare quick tunnel) | key enforced (401 without / wrong key), upload, document and library answers through the tunnel (V47) |
 | Diagnostics | `scripts/trace_stages.py`, `scripts/repeat_answers.py`, `scripts/make_verification_sheet.py` | stage trace before/after, repeated-run variance, gold review sheet |
 
 Evaluation (exploratory: 59 unverified draft questions, all seen during development, D38):
@@ -51,8 +49,7 @@ Evaluation (exploratory: 59 unverified draft questions, all seen during developm
 ¹ The two misses/fallbacks were Ollama timeouts during the run; both answered normally on re-run. ² 2 correct catches of the model mixing CrPC s. 438 into the BNSS, 2 the old rule also makes, 2 costs of the strict Act check (D46).
 
 ### 3. What remains
-- Run the three API integration tests and the library demo, merge to `main` (blocked by V45).
-- Document mode: the law cross-check live (needs the engine); map-reduce for documents longer than one pass (today: opening + best-matching passages, with a warning); OCR for scanned PDFs.
+- Document mode: map-reduce for documents longer than one pass (today: opening + best-matching passages, with a warning); OCR for scanned PDFs.
 - Human verification of the gold set, then a fresh verified holdout for an honest accuracy figure.
 - Hindi source texts (need OCR, Tesseract not installed); answers are in English.
 - Optional: the remote demo through a tunnel for the Vercel frontend.
@@ -81,8 +78,10 @@ Documents: `uv run python scripts/demo_documents.py data/scratch/docs/punjab_rer
 - **Term expansions** chosen after seeing failures; Hindi entries unverified; four concepts only.
 - **Not bit-for-bit deterministic** (first run after loading can differ, V40); **Ollama can time out** (fallback: verbatim sources).
 - **One question at a time** on the GPU; no rate limiting beyond that; the refusal rule is a narrow regex, not a safety classifier.
-- **Windows Smart App Control** intermittently blocks downloaded binaries (torch, scikit-learn, the `praetor.exe` launcher; V37, V45).
-- **Document mode:** text-layer PDFs only (no OCR); one pass reads ~10k tokens (a 24-page agreement: 44 of 49 passages), longer documents get the opening plus the best-matching passages and a warning; clause numbers are a heuristic (a wrapped line starting "4.1 ..." can be read as a clause); the law cross-check covers central Acts only and is not yet verified live; documents are held in memory, so a restart forgets them.
+- **Windows Smart App Control** has intermittently blocked downloaded binaries (torch, scikit-learn, the `praetor.exe` launcher; V37, V45); clear again on 2026-09-25 (V47).
+- **Quick tunnel:** random URL on every start, no uptime guarantee, 125 s Cloudflare timeout; one question at a time on the laptop (V47).
+- Cosmetic: the model sometimes writes an empty `[]` marker (seen once in the eviction answer).
+- **Document mode:** text-layer PDFs only (no OCR); one pass reads ~10k tokens (a 24-page agreement: 44 of 49 passages), longer documents get the opening plus the best-matching passages and a warning; clause numbers are a heuristic (a wrapped line starting "4.1 ..." can be read as a clause); the law cross-check covers central Acts only and the model does not always use the law passages it gets (V47); documents are held in memory, so a restart forgets them.
 - Judgment locators: 36% by page; 8 chunks over 450 tokens. Not built: LLM classification / query rewriting; soft domain filter.
 
 ### 10. Recommended next step
@@ -107,8 +106,8 @@ Other fixes: Act-title keyword phrases (0 → 260 hits), FAISS/SQLite vector dri
 - **Download contact address** in `HTTP_USER_AGENT`; **India Code terms of use** (V15).
 
 ## Needs you
-1. **Smart App Control** blocks `sentence_transformers` (a scikit-learn DLL) and the `praetor.exe` launcher again (V45). `.\praetor` avoids the launcher; the library block needs your decision on the Windows setting (check Microsoft's documentation first — it may not be possible to turn it back on without reinstalling Windows). I change no system setting.
-2. **Merge** `phase-3-4-local` into `main` after the checks in "Resume here" pass.
+1. **Frontend:** build it with Astra (prompt ready) and deploy it on Vercel with the two environment variables; you log in and paste the key yourself.
+2. **Merge:** `main` was fast-forwarded to this branch on 2026-09-25 after the checks passed (D51/V47).
 3. **Verify the gold set** (`evaluation/verification_sheet.csv`; Hindi rows need a Hindi speaker) and confirm the Hindi terms in `data/registry/legal_terms.yaml`.
 4. **CrPC text:** an official consolidated CrPC as in force on 30 June 2024 could be ingested as repealed law; none was reachable.
-5. Choose whether to add a third demo language (needs source text that extracts cleanly or OCR).
+5. Optional: a stable tunnel URL (Cloudflare account + domain, or ngrok) so Vercel's variable is set once.
