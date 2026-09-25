@@ -58,6 +58,7 @@ praetor.cmd   runs the CLI through Python if Windows blocks the praetor.exe laun
 | Tests | `pytest -m "not integration"` · `pytest -m integration` |
 | Phase 1 acceptance | `python scripts/phase1_acceptance.py` · fixtures: `python scripts/make_fixtures.py [NAME ...]` |
 | Demo (server running) | `python scripts/demo.py` · documents: `python scripts/demo_documents.py A.pdf [B.pdf]` |
+| Cloud API on AWS (D58) | `scripts\aws_server.cmd status|start|stop` · https://3-111-113-83.sslip.io |
 | Public demo: whole app, one link | `scripts\serve_app_public.cmd` (API tunnel only, for Vercel: `scripts\serve_public.cmd`) |
 | Diagnostics | stage ranks: `python scripts/trace_stages.py OUT.json` · run-to-run variation: `python scripts/repeat_answers.py ID --runs 5` · gold review sheet: `python scripts/make_verification_sheet.py` |
 

@@ -32,6 +32,9 @@ For local development the frontend can call `http://127.0.0.1:8000` directly (al
 2. `.env`: `API_KEY=<long random string>` for anything beyond localhost; `CORS_ORIGINS` for local frontends.
 3. `praetor serve` (or `praetor.cmd serve` if Windows blocks the `praetor.exe` launcher, V45). Check `GET /v1/healthz` → `ok`.
 
+### Cloud: the API on AWS (DECISIONS D58, verified V52) — works when the laptop is off
+`https://3-111-113-83.sslip.io` (EC2 `m6i.xlarge` in ap-south-1, Caddy HTTPS, systemd `praetor.service`; answers by Bedrock Nova Pro, OCR by Tesseract). Vercel's `PRAETOR_API_URL` points here and `PRAETOR_API_KEY` must equal the server's `API_KEY`. Control the cost with `scripts\aws_server.cmd status|start|stop` (~$0.20/h while running). Update the server: `ssh -i C:\dev\tools\praetor-ec2.pem ubuntu@3.111.113.83 "cd praetor-ai && git pull && sudo systemctl restart praetor"`. Resources and teardown: DECISIONS D58.
+
 ### One link from the laptop (simplest; DECISIONS D53, verified V49)
 Double-click `scripts\serve_app_public.cmd`. It starts the API (if not running), builds and serves the website on 127.0.0.1:3100, and opens a Cloudflare quick tunnel to the website. Share the `https://….trycloudflare.com` link it prints (also in `data\scratchpp-tunnel.log`). The API is never exposed; the key stays in `frontend\.env.local`. Keep the three windows open; Ctrl+C or closing one takes the site offline, and a restart gives a new link.
 

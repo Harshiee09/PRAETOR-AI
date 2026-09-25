@@ -5,7 +5,7 @@ _Last updated: 2026-09-25 · Phases 0–4 built + **document mode (D50, verified
 ## Resume here (next session)
 1. Frontend: built and in `frontend/` (D52, V48: 119 tests, build OK, verified live against the API). `cd frontend && npm ci && npm run dev` for local work.
 2. You, on Vercel: import the repository, Root Directory `frontend`, env vars `PRAETOR_API_URL` and `PRAETOR_API_KEY` (copy `API_KEY` from `.env` yourself).
-3. For the demo: double-click `scripts\serve_app_public.cmd` and share the link it prints (whole app on the laptop, API never exposed; D53, V49). Vercel is optional.
+3. **Cloud (no laptop needed, D58):** the API runs on AWS at https://3-111-113-83.sslip.io; Vercel points there. `scripts\aws_server.cmd stop` after judging. Alternative on the laptop: double-click `scripts\serve_app_public.cmd` and share the link it prints (whole app on the laptop, API never exposed; D53, V49). Vercel is optional.
 4. You: verify the gold set (`evaluation/verification_sheet.csv`).
 Local-only file: `.env` (gitignored; holds `API_KEY`).
 
