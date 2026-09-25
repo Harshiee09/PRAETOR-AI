@@ -1,4 +1,5 @@
-"""FastAPI app: POST /v1/ask, GET /v1/sources/{chunk_id}, GET /v1/healthz, GET /v1/stats (docs/topics/architecture/api.md).
+"""FastAPI app: POST /v1/ask, GET /v1/sources/{chunk_id}, GET /v1/healthz, GET /v1/stats, and uploaded documents:
+POST /v1/documents, GET|DELETE /v1/documents/{document_id}, POST /v1/documents/analyze (docs/topics/architecture/api.md).
 
 Local only (DECISIONS D47): the models need the GPU and several GB of weights, so this runs on the laptop; a frontend
 on Vercel reaches it through a tunnel, from server-side code that holds the API key.
@@ -25,13 +26,16 @@ from contextlib import asynccontextmanager
 from hmac import compare_digest
 
 import httpx
-from fastapi import Depends, FastAPI, HTTPException, Request
+from fastapi import Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.api.schemas import AskRequest, AskResponse, Error, Health, Source, Stats
+from app.api.schemas import (AnalyzeRequest, AnalyzeResponse, AskRequest, AskResponse, DocumentDetail, DocumentInfo,
+                             Error, Health, Source, Stats)
 from app.config import Settings
+from app.documents.parse import UploadError, parse_upload
+from app.documents.store import DocumentStore
 from app.store import cache
 from app.store.db import chunk_by_id, connect
 
@@ -41,6 +45,9 @@ FORWARDING_HEADERS = ("x-forwarded-for", "forwarded", "x-real-ip", "cf-connectin
 REQUEST_ID = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 SOURCE_FIELDS = list(Source.model_fields)
 ERROR_RESPONSES = {401: {"model": Error}, 404: {"model": Error}, 422: {"model": Error}, 503: {"model": Error}}
+UPLOAD_RESPONSES = {**ERROR_RESPONSES, 413: {"model": Error}, 415: {"model": Error}}
+ERROR_CODES = {401: "unauthorized", 404: "not_found", 413: "too_large", 415: "unsupported_media_type",
+               422: "unreadable_document", 503: "unavailable"}
 
 
 def _is_direct_local(request: Request) -> bool:
@@ -67,11 +74,13 @@ class State:
         self.started = time.time()
         self.requests: Counter = Counter()
         self.latencies: deque = deque(maxlen=500)
+        self.documents = DocumentStore(settings.doc_ttl_minutes, settings.doc_max_open)
 
 
 def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = None, load_engine: bool = True,
-               warm_up: bool = True) -> FastAPI:
-    """`engine`/`answer_fn` are injected by unit tests; `load_engine=False` builds the app only (OpenAPI export)."""
+               warm_up: bool = True, analyze_fn: Callable | None = None) -> FastAPI:
+    """`engine`/`answer_fn`/`analyze_fn` are injected by unit tests; `load_engine=False` builds the app only (OpenAPI
+    export)."""
     from app.rag.pipeline import answer as pipeline_answer
 
     state = State(settings)
@@ -85,11 +94,12 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
             try:
                 from app.rag.pipeline import Engine
 
-                state.engine = Engine.load(settings)
+                loaded = Engine.load(settings)
                 if warm_up:  # load both encoders now, so the first question is not slower than the rest
-                    state.engine.retriever.dense.embedder.encode(["warm up"])
-                    if state.engine.retriever.reranker is not None:
-                        state.engine.retriever.reranker.score("warm up", ["warm up"])
+                    loaded.retriever.dense.embedder.encode(["warm up"])
+                    if loaded.retriever.reranker is not None:
+                        loaded.retriever.reranker.score("warm up", ["warm up"])
+                state.engine = loaded  # only once the models really load (a failed warm-up used to leave it set)
             except Exception as exc:  # noqa: BLE001 — reported by /v1/healthz instead of crashing the server
                 state.load_error = f"{type(exc).__name__}: {exc}"
                 log.error("engine failed to load", extra={"error": state.load_error})
@@ -101,7 +111,7 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
                   description="Informational Indian-law answers grounded in cited sources. Not legal advice.")
     app.state.praetor = state
     origins = [o.strip() for o in settings.cors_origins.split(",") if o.strip()]
-    app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["GET", "POST", "OPTIONS"],
+    app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
                        allow_headers=["Content-Type", "X-API-Key", "X-Request-ID"], expose_headers=["X-Request-ID"])
 
     @app.middleware("http")
@@ -112,7 +122,11 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
         t0 = time.perf_counter()
         response = await call_next(request)
         response.headers["X-Request-ID"] = rid
-        path = "/v1/sources" if request.url.path.startswith("/v1/sources/") else request.url.path
+        path = request.url.path
+        if path.startswith("/v1/sources/"):
+            path = "/v1/sources"
+        elif path.startswith("/v1/documents/") and path != "/v1/documents/analyze":
+            path = "/v1/documents/{id}"
         state.requests[path] += 1
         log.info("request", extra={"request_id": rid, "method": request.method, "path": path,
                                    "status": response.status_code, "latency_ms": round((time.perf_counter() - t0) * 1000)})
@@ -125,7 +139,7 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
 
     @app.exception_handler(HTTPException)
     async def http_error(request: Request, exc: HTTPException):
-        code = {401: "unauthorized", 404: "not_found", 503: "unavailable"}.get(exc.status_code, "error")
+        code = ERROR_CODES.get(exc.status_code, "error")
         return _error(request, exc.status_code, code, str(exc.detail))
 
     @app.exception_handler(RequestValidationError)
@@ -192,6 +206,55 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
             raise HTTPException(404, f"no source with chunk_id {chunk_id!r}")
         return {k: c.get(k) for k in SOURCE_FIELDS}
 
+    def get_document(document_id: str):
+        doc = state.documents.get(document_id)
+        if doc is None:
+            raise HTTPException(404, f"no uploaded document {document_id!r} (documents expire after "
+                                     f"{settings.doc_ttl_minutes} minutes and are lost when the server restarts)")
+        return doc
+
+    @app.post("/v1/documents", status_code=201, response_model=DocumentInfo, responses=UPLOAD_RESPONSES,
+              dependencies=[Depends(require_key)], summary="Upload a PDF to ask about, summarise, review or compare")
+    def upload(file: UploadFile = File(description="A PDF with a text layer (scanned PDFs need OCR, not installed).")) -> dict:
+        limit = int(settings.doc_max_mb * 1024 * 1024)
+        data = file.file.read(limit + 1)
+        if len(data) > limit:
+            raise HTTPException(413, f"the file is larger than {settings.doc_max_mb:g} MB (DOC_MAX_MB)")
+        try:
+            parsed = parse_upload(data, settings.doc_max_pages)
+        except UploadError as exc:
+            raise HTTPException(exc.status, exc.message) from None
+        base = re.split(r"[\\/]", file.filename or "document.pdf")[-1]
+        return state.documents.put(re.sub(r"[^\w .()-]", "_", base)[:120] or "document.pdf", parsed).info()
+
+    @app.get("/v1/documents/{document_id}", response_model=DocumentDetail, responses=ERROR_RESPONSES,
+             dependencies=[Depends(require_key)], summary="An uploaded document's passages (the text behind [D#] cards)")
+    def document(document_id: str) -> dict:
+        doc = get_document(document_id)
+        return {**doc.info(), "passages": [{k: p[k] for k in ("n", "locator", "page_start", "page_end", "text")}
+                                           for p in doc.parsed.passages]}
+
+    @app.delete("/v1/documents/{document_id}", status_code=204, responses=ERROR_RESPONSES,
+                dependencies=[Depends(require_key)], summary="Forget an uploaded document now")
+    def delete_document(document_id: str) -> Response:
+        if not state.documents.delete(document_id):
+            raise HTTPException(404, f"no uploaded document {document_id!r}")
+        return Response(status_code=204)
+
+    @app.post("/v1/documents/analyze", response_model=AnalyzeResponse, responses=ERROR_RESPONSES,
+              dependencies=[Depends(require_key)],
+              summary="Ask about, summarise, review, make a checklist or lawyer questions from, or compare documents")
+    def analyze_documents(body: AnalyzeRequest, request: Request) -> dict:
+        from app.documents.analyze import analyze, law_lookup
+
+        docs = [get_document(d) for d in body.document_ids]
+        law_fn = law_lookup(state.engine, settings) if hasattr(state.engine, "retriever") else None
+        t0 = time.perf_counter()
+        with state.gpu:
+            out = (analyze_fn or analyze)(settings, docs, body.task, body.question, law_fn=law_fn,
+                                          explain=body.explain, trace_id=request.state.request_id)
+        return {**out, "cached": False, "latency_ms": round((time.perf_counter() - t0) * 1000)}
+
     @app.get("/v1/healthz", response_model=Health, responses={503: {"model": Health}},
              summary="Liveness and readiness (no key needed)")
     def healthz() -> JSONResponse:
@@ -206,6 +269,8 @@ def create_app(settings: Settings, *, engine=None, answer_fn: Callable | None = 
         checks["index"] = "ok" if not problems else "; ".join(problems)
         checks["engine"] = "ok" if state.engine is not None else f"not loaded: {state.load_error or 'starting'}"
         checks["answer_model"] = _ollama_check(settings)
+        # uploaded documents need neither the index nor the engine (D50); without a model they get verbatim passages
+        checks["documents"] = "ok" if checks["answer_model"] == "ok" else "verbatim passages only (no answer model)"
         down = checks["index"] != "ok" or checks["engine"] != "ok"
         status = "down" if down else ("ok" if checks["answer_model"] == "ok" else "degraded")
         return JSONResponse(status_code=503 if down else 200, content={"status": status, "checks": checks})

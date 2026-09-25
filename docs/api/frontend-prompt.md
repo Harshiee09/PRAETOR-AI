@@ -17,12 +17,17 @@ lawyer and gives no legal advice**; the UI must never suggest otherwise.
   - `POST /api/ask` → `POST {PRAETOR_API_URL}/v1/ask`
   - `GET /api/sources/[chunkId]` → `GET {PRAETOR_API_URL}/v1/sources/{chunk_id}`
   - `GET /api/health` → `GET {PRAETOR_API_URL}/v1/healthz`
+  - `POST /api/documents` → `POST {PRAETOR_API_URL}/v1/documents` (multipart `file`; stream the body through)
+  - `GET /api/documents/[id]` and `DELETE /api/documents/[id]` → `/v1/documents/{document_id}`
+  - `POST /api/documents/analyze` → `POST {PRAETOR_API_URL}/v1/documents/analyze`
 - Server-only environment variables: `PRAETOR_API_URL` and `PRAETOR_API_KEY`. The proxy sends `X-API-Key:
   PRAETOR_API_KEY` and forwards or creates `X-Request-ID`. **The key must never reach browser code or any
   `NEXT_PUBLIC_*` variable.**
 - Answers take about 10–20 s, and the backend answers one question at a time, so requests may queue. Set the ask
   route's `maxDuration` to 300 s (Vercel Hobby maximum) and the upstream fetch timeout to about 280 s.
 - Validate on the server too: `question` is 1–2000 characters, trimmed.
+- Uploads: Vercel Functions accept request bodies up to 4.5 MB, so accept PDFs up to **4 MB** (check in the browser
+  and again in the route), `application/pdf` only. Give the analyze route the same 300 s `maxDuration`.
 
 ## API contract (from openapi.json)
 `POST /v1/ask` request: `{"question": string, "mode": "full", "explain": false, "use_cache": true}` (always send
@@ -49,10 +54,26 @@ Response `AskResponse`:
 and statute fields (`act_title`, `section`, `section_heading`) or judgment fields (`case_title`, `court`,
 `decision_date`, `citation`).
 
-`GET /v1/healthz` returns `{"status": "ok" | "degraded" | "down", "checks": {...}}`; `down` comes with HTTP 503.
+**Documents** (the user's own PDF; see `docs/api/examples/document_*.json` for real responses):
+- `POST /v1/documents` (multipart field `file`) → 201 `DocumentInfo`: `document_id`, `filename`, `pages`,
+  `unreadable_pages[]`, `passage_count`, `words`, `uploaded_at`, `expires_at` (60 minutes; the server keeps the file in
+  memory only), `warnings[]`. Errors: 413 `too_large`, 415 `unsupported_media_type`, 422 `unreadable_document`
+  (scanned or password-protected: show the message).
+- `GET /v1/documents/{document_id}` → the same plus `passages[]` (`n`, `locator`, `page_start`, `page_end`, `text`).
+  404 means the document expired: ask the user to upload it again.
+- `DELETE /v1/documents/{document_id}` → 204.
+- `POST /v1/documents/analyze` with `{"document_ids": [id] | [idA, idB], "task": "ask" | "summary" | "risks" |
+  "checklist" | "lawyer_questions" | "compare", "question": string | null}`: `ask` needs `question`; `compare` needs
+  exactly two ids (the others take one); `question` is an optional focus for the rest. Returns the `AskResponse`
+  fields plus `task`, `documents[]` (`filename`, `pages_read`, `complete`) and `law_checked`. Markers: `[D#]` cites
+  the user's document (card `kind: "document"`, `locator` like `clause 7.5 · p. 13`, `page_start`, `document_id`;
+  the passage text is `passages[n]` from `GET /v1/documents/{document_id}` where `n` is the number after the colon
+  in `chunk_id`); `[S#]` cites Indian law (card `kind: "law"`, as in `/v1/ask`).
+
+`GET /v1/healthz` returns `{"status": "ok" | "degraded" | "down", "checks": {...}}`; `down` comes with HTTP 503 and refers to library questions only; document features are available when `checks.documents` is `"ok"`.
 
 Errors are always `{"error": {"code", "message", "request_id"}}`: 401 `unauthorized`, 404 `not_found`,
-422 `invalid_request`, 503 `unavailable`, 500 `internal_error`.
+413 `too_large`, 415 `unsupported_media_type`, 422 `invalid_request` or `unreadable_document`, 503 `unavailable`, 500 `internal_error`.
 
 ## Screens and behaviour
 1. **Ask page** (the home page): a question box (multiline, 2000-character counter, Enter to submit, Shift+Enter for
@@ -85,6 +106,16 @@ Errors are always `{"error": {"code", "message", "request_id"}}`: 401 `unauthori
    texts; Hindi questions work but answers are in English; state laws and rules are not covered), that it is
    informational only, and how citations work.
 
+8. **Your document page** (a second tab next to Ask): a PDF drop zone (4 MB, PDF only) showing filename, pages and
+   expiry after upload, plus a "Forget this document" button (DELETE). Action buttons, one per task: **Ask a
+   question** (question box), **Summarise**, **Risks and key clauses**, **Checklist**, **Questions for a lawyer**, and
+   **Compare with another document** (second drop zone, optional focus field). Show a progress state (10–25 s).
+   Render the result like an answer: `[D#]` markers link to "Your document" cards (filename, locator, quote; clicking
+   opens the full passage and its page number); `[S#]` markers link to law cards as on the Ask page. Show `warnings`
+   above the answer, including "longer than one analysis can read" notes, and a small "Pages read" line from
+   `documents[]`. Checklist items (`- [ ]`) render as checkboxes the user can tick locally (not sent anywhere).
+   State plainly that PRAETOR explains documents and does not decide whether they are valid or enforceable.
+
 ## Language and design
 - Questions may be in Hindi or English: load a Devanagari-capable font (e.g. Noto Sans Devanagari) alongside the UI
   font, and don't break Devanagari text.
@@ -95,6 +126,8 @@ Errors are always `{"error": {"code", "message", "request_id"}}`: 401 `unauthori
 ## Privacy
 - Do not log question or answer text on the server (no `console.log` of request bodies); log only status, latency and
   `request_id`.
+- Uploaded PDFs go only to the PRAETOR API through the proxy: never to any other service, never stored by the
+  frontend (no Vercel Blob, no logging of file contents or names).
 - No analytics or third-party scripts that receive question text. Keep conversation history only in the browser tab
   (memory or `sessionStorage`), with a "Clear" button.
 
@@ -105,8 +138,8 @@ responses in `docs/api/examples/` (or clearly labelled placeholder text if they 
 must be impossible to enable in production and must label its output "Sample data".
 
 ## Deliverables
-- The Next.js app with the three route handlers, typed API client, the pages and components above.
-- Unit tests for: `[S#]` marker parsing and linking, error-code mapping, the proxy (key sent, key never exposed,
+- The Next.js app with the route handlers, typed API client, the pages and components above.
+- Unit tests for: `[S#]` and `[D#]` marker parsing and linking, the 4 MB upload check, error-code mapping, the proxy (key sent, key never exposed,
   timeouts, 401/422/503 passthrough), and abstained / extractive / repealed rendering.
 - A README: local setup (`PRAETOR_API_URL=http://127.0.0.1:8000` against a local backend), the Vercel environment
   variables, and deployment steps.

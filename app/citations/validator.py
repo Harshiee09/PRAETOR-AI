@@ -226,12 +226,12 @@ def _sections_of(text: str) -> dict[str, str]:
     return out
 
 
-def _unsupported(text: str) -> tuple[int, int]:
+def _unsupported(text: str, claim_sections: tuple[str, ...] = CLAIM_SECTIONS) -> tuple[int, int]:
     """(flagged, total) sentences that state law ("Short answer", "What the sources say", "How it may apply") and carry
     no [S#] marker. Saying that the sources do not cover something is not a claim and is not counted."""
     sentences = []
     for head, body in _sections_of(text).items():
-        if head in CLAIM_SECTIONS:
+        if head in claim_sections:
             sentences += [s for s, _ in _split(body) if len(re.findall(r"\w+", s)) >= 5 and not NOT_COVERED.search(s)]
     flagged = [s for s in sentences if not MARKER.search(s)]
     return len(flagged), len(sentences)
@@ -251,8 +251,10 @@ def _quote_ok(quote: str, source: str) -> bool:
     return bool(pieces)
 
 
-def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | None = None, registry=None) -> ValidationResult:
-    """id_map: "S1" -> chunk dict (the only thing a citation can resolve to)."""
+def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | None = None, registry=None,
+             claim_sections: tuple[str, ...] = CLAIM_SECTIONS) -> ValidationResult:
+    """id_map: "S1" -> chunk dict (the only thing a citation can resolve to). claim_sections: the lower-cased headings
+    whose sentences must carry a marker (document analyses use their own headings, D50)."""
     text = GROUP.sub(_expand_group, answer)
     invalid: list[str] = []
 
@@ -298,7 +300,7 @@ def validate(answer: str, id_map: dict[str, dict], statutes: dict[str, dict] | N
     text = re.sub(r"[ \t]+([.,;:])", r"\1", text)
     text = re.sub(r"[ \t]{2,}", " ", text).strip()
 
-    flagged, total = _unsupported(text)
+    flagged, total = _unsupported(text, claim_sections)
     used = list(dict.fromkeys(f"S{int(n)}" for n in MARKER.findall(text)))
     warnings = []
     if invalid:

@@ -59,6 +59,17 @@ class Settings(BaseSettings):
     cache_enabled: bool = True
     cache_ttl_hours: int = 72
 
+    # --- uploaded documents (DECISIONS D50): held in memory only, never indexed, cached or written to disk
+    doc_max_mb: float = 10.0
+    doc_max_pages: int = 80
+    doc_ttl_minutes: int = 60
+    doc_max_open: int = 20
+    # model window for document analyses and the passage budget inside it (prompt ~0.8k + law passages + 1.2k output
+    # must fit; the estimate runs ~30% above gemma4's real count on English text, V46); corpus answers keep 8192
+    doc_num_ctx: int = 16384
+    doc_context_tokens: int = 14000
+    doc_law_passages: int = 3
+
     # --- API (local only; the Vercel frontend reaches it through a tunnel, DECISIONS D47)
     # Required for any request that is not a direct localhost call (tunnels arrive as localhost with forwarding
     # headers, so those need the key too). `praetor serve` refuses a non-localhost bind without it.

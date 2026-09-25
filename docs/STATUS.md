@@ -1,13 +1,14 @@
 # PRAETOR AI — status and final report
 
-_Last updated: 2026-09-25 · Phases 0–4 built · everything local, no AWS (D47) · work on branch `phase-3-4-local` (main = audit-verified Phase 2) · **three checks still to run: Windows Smart App Control blocks `sentence_transformers` (V45)**_
+_Last updated: 2026-09-25 · Phases 0–4 built + **document mode (D50, verified live V46)** · everything local, no AWS (D47) · branch `phase-3-4-local` (main = audit-verified Phase 2) · **library checks still blocked: Windows Smart App Control blocks `sentence_transformers` (V45, re-checked V46)**_
 
 ## Resume here (next session)
 1. When `uv run python -c "import sentence_transformers"` works again (the block is Windows' decision, see "Needs you"), run in order, one GPU job at a time:
    - `uv run pytest -m integration` → expect 19 (16 + 3 new API tests in `tests/integration/test_api.py`)
    - `.\praetor serve`, then in a second window `uv run python scripts/demo.py --fresh --save-examples docs/api/examples` → all seven scenarios `OK`; commit the examples
    - if both pass: `git checkout main && git merge --ff-only phase-3-4-local`
-2. You: build the frontend with GPT-6 Astra using `docs/api/frontend-prompt.md` plus `docs/api/openapi.json` ([API note](topics/architecture/api.md)); deploy it on Vercel with [the deployment note](topics/ops/deployment.md).
+   - then, with the engine loaded, re-run `scripts/demo_documents.py` on the two agreements in `data/scratch/docs/` to see the law cross-check live (not yet verified, V46)
+2. You: build the frontend with GPT-6 Astra using `docs/api/frontend-prompt.md` (now includes the "Your document" page) plus `docs/api/openapi.json` ([API note](topics/architecture/api.md)); deploy it on Vercel with [the deployment note](topics/ops/deployment.md).
 3. You: verify the gold set (`evaluation/verification_sheet.csv`).
 Local-only file: `.env` (gitignored). Leftover AWS lines in it are ignored; add `API_KEY` before any tunnel.
 
@@ -18,18 +19,20 @@ Local-only file: `.env` (gitignored). Leftover AWS lines in it are ignored; add 
 - **Retrieval:** rules classifier; lay-term → statutory-wording expansion (`data/registry/legal_terms.yaml`); exact section and CPC-rule lookup; dense (bge-m3) + keyword (BM25) with statute quotas; Act-scoped search; case-name lookup; repeal-section pin; RRF; bge-reranker-v2-m3; evidence gate; context with statute slots.
 - **Grounded answers:** local `gemma4:latest` through Ollama (greedy, seed 42), prompt `answer-v3`; deterministic validator (unknown IDs stripped; sections checked against the Act they are named with; case names, reporter citations and Acts with years checked; verbatim quotes, ellipsis-aware; unsupported claims → one stricter retry → verbatim fallback); jurisdiction line, repeal/transition notes, high-stakes safety block and harmful-request refusal from code, not the model.
 - **API (Phase 3):** `praetor serve` — `POST /v1/ask`, `GET /v1/sources/{chunk_id}`, `GET /v1/healthz`, `GET /v1/stats`; API key, CORS, request ids, one question at a time, answer cache; contract `docs/api/openapi.json`.
+- **Document mode (D50):** `POST /v1/documents` (PDF upload, memory only, 60 min), `GET`/`DELETE /v1/documents/{id}`, `POST /v1/documents/analyze` with `ask`, `summary`, `risks` (key clauses, obligations, risks, inconsistencies and gaps, comparison with the law), `checklist`, `lawyer_questions`, `compare` (two documents); passages located by the document's own clause numbers and pages; `[D#]` cites the user's document, `[S#]` Indian law; same validator, retry and verbatim fallback as library answers; law cross-check through the normal evidence gate when the engine is loaded. Runs without the embedder/reranker, so it works despite V45.
 - **Handoff (Phase 4):** README from zero to demo, `scripts/demo.py` (seven scripted scenarios with invariant checks), deployment note for a Vercel frontend, repo-size guard.
 - **Audit (2026-09-24/25):** four reported failures traced to the stage where each authority was lost and repaired there (D35–D46); index integrity guard; evaluation hygiene (paraphrase groups, run metadata, verification sheet).
 
 ### 2. What works, and the command that proves it (2026-09-25)
 | Capability | Command | Result |
 |---|---|---|
-| Unit tests | `uv run pytest -m "not integration"` | **105 passed** (incl. 13 API tests with a stubbed engine and the repo-size guard) |
+| Unit tests | `uv run pytest -m "not integration"` | **114 passed** (incl. 13 API tests with a stubbed engine, 9 document tests, the repo-size guard) |
+| Document mode, live | `.\praetor serve` · `uv run python scripts/demo_documents.py A.pdf B.pdf` | **6 of 6 OK** on two official RERA model agreements, 12–21 s each (V46); examples in `docs/api/examples/document_*.json` |
 | Integration tests (GPU, real index) | `uv run pytest -m integration` | 16 passed on 2026-09-24 (before the API); the 3 API tests are written, not yet run (V45) |
 | Corpus profile gate | `.\praetor profile` | every required field 100% → PASS |
 | Ask with per-stage ranks | `.\praetor ask "question" --explain` | ranks, scores, gate, rewrite, statute slots, validator result |
 | Evaluation | `.\praetor eval --split all` | final report `evaluation/reports/20260924T174231Z.md` (below) |
-| API contract | `.\praetor openapi` | `docs/api/openapi.json`, 4 paths |
+| API contract | `.\praetor openapi` | `docs/api/openapi.json`, 7 paths |
 | API server and demo | `.\praetor serve` · `uv run python scripts/demo.py` | **not yet run end to end** (V45) |
 | Diagnostics | `scripts/trace_stages.py`, `scripts/repeat_answers.py`, `scripts/make_verification_sheet.py` | stage trace before/after, repeated-run variance, gold review sheet |
 
@@ -48,7 +51,8 @@ Evaluation (exploratory: 59 unverified draft questions, all seen during developm
 ¹ The two misses/fallbacks were Ollama timeouts during the run; both answered normally on re-run. ² 2 correct catches of the model mixing CrPC s. 438 into the BNSS, 2 the old rule also makes, 2 costs of the strict Act check (D46).
 
 ### 3. What remains
-- Run the three API integration tests and the demo, save `docs/api/examples/`, merge to `main` (blocked by V45 today).
+- Run the three API integration tests and the library demo, merge to `main` (blocked by V45).
+- Document mode: the law cross-check live (needs the engine); map-reduce for documents longer than one pass (today: opening + best-matching passages, with a warning); OCR for scanned PDFs.
 - Human verification of the gold set, then a fresh verified holdout for an honest accuracy figure.
 - Hindi source texts (need OCR, Tesseract not installed); answers are in English.
 - Optional: the remote demo through a tunnel for the Vercel frontend.
@@ -66,7 +70,7 @@ Backend: the laptop (`.\praetor serve`, localhost). Frontend: Vercel; its server
 Measured in the final eval: mean 3,544 input and 514 output tokens per answer; latency p50 13.4 s, p95 19.5 s (retrieval ~0.6 s of that); GPU: bge-m3 ~1.1 GB + reranker ~1.1 GB + `gemma4:latest` 3.2 GB resident on the 8 GB card (D33). Cached answers return in milliseconds. Cost: $0 in cloud services (D47).
 
 ### 8. Demo commands
-`.\praetor serve` in one window; `uv run python scripts/demo.py` in another: statute lookup (Registration Act s. 23), procedure (consumer complaint), case law (Indore Development Authority v. Manoharlal), criminal-code transition (s. 438 CrPC → BNSS), Hindi (अग्रिम जमानत), out-of-corpus (Schengen visa, must abstain), high stakes (eviction without notice). Interactive: `http://127.0.0.1:8000/docs`.
+Documents: `uv run python scripts/demo_documents.py data/scratch/docs/punjab_rera_agreement_for_sale.pdf data/scratch/docs/maharera_agreement_for_sale.pdf` (upload, ask about delayed possession, summary, risks, checklist, lawyer questions, compare refunds). Library: `.\praetor serve` in one window; `uv run python scripts/demo.py` in another: statute lookup (Registration Act s. 23), procedure (consumer complaint), case law (Indore Development Authority v. Manoharlal), criminal-code transition (s. 438 CrPC → BNSS), Hindi (अग्रिम जमानत), out-of-corpus (Schengen visa, must abstain), high stakes (eviction without notice). Interactive: `http://127.0.0.1:8000/docs`.
 
 ### 9. Known limitations
 - **Gold set unverified**; all percentages exploratory; no human-verified holdout, so no validated accuracy.
@@ -78,6 +82,7 @@ Measured in the final eval: mean 3,544 input and 514 output tokens per answer; l
 - **Not bit-for-bit deterministic** (first run after loading can differ, V40); **Ollama can time out** (fallback: verbatim sources).
 - **One question at a time** on the GPU; no rate limiting beyond that; the refusal rule is a narrow regex, not a safety classifier.
 - **Windows Smart App Control** intermittently blocks downloaded binaries (torch, scikit-learn, the `praetor.exe` launcher; V37, V45).
+- **Document mode:** text-layer PDFs only (no OCR); one pass reads ~10k tokens (a 24-page agreement: 44 of 49 passages), longer documents get the opening plus the best-matching passages and a warning; clause numbers are a heuristic (a wrapped line starting "4.1 ..." can be read as a clause); the law cross-check covers central Acts only and is not yet verified live; documents are held in memory, so a restart forgets them.
 - Judgment locators: 36% by page; 8 chunks over 450 tokens. Not built: LLM classification / query rewriting; soft domain filter.
 
 ### 10. Recommended next step

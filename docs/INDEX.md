@@ -22,7 +22,7 @@
 - `20260922-chunk-schema` — **Chunk schema and provenance** — `docs/topics/architecture/chunk-schema.md` — Storage layout, required provenance fields, parsing and legal-aware chunking rules, and ingestion validation.
 - `20260922-retrieval-pipeline` — **Retrieval pipeline** — `docs/topics/architecture/retrieval-pipeline.md` — Query side from classification through hybrid search, fusion, reranking, the evidence gate and context building.
 - `20260922-llm-layer` — **LLM layer** — `docs/topics/architecture/llm-layer.md` — Provider interface, task routing, local model selection and the answer cache (local models only).
-- `20260925-api` — **API contract** — `docs/topics/architecture/api.md` — The local HTTP API the frontend builds against: endpoints, fields, auth, errors, cache, latency and rendering.
+- `20260925-api` — **API contract** — `docs/topics/architecture/api.md` — The local HTTP API the frontend builds against: endpoints, fields, auth, errors, cache, latency, rendering, and uploaded-document analysis (D50).
 
 ### legal
 - `20260922-grounding-and-citations` — **Grounding and citations** — `docs/topics/legal/grounding-and-citations.md` — Answer contract, deterministic citation validator, abstention and high-stakes handling.

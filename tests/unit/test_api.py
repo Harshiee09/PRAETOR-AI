@@ -146,7 +146,8 @@ def test_cors_allows_only_configured_origins(tmp_path):
 def test_openapi_lists_the_four_endpoints(tmp_path):
     data = tmp_path / "data"
     spec = create_app(Settings(_env_file=None, data_dir=data), load_engine=False).openapi()
-    assert {"/v1/ask", "/v1/sources/{chunk_id}", "/v1/healthz", "/v1/stats"} <= set(spec["paths"])
+    assert {"/v1/ask", "/v1/sources/{chunk_id}", "/v1/healthz", "/v1/stats", "/v1/documents",
+            "/v1/documents/{document_id}", "/v1/documents/analyze"} <= set(spec["paths"])
 
 
 @pytest.mark.parametrize("host", ["0.0.0.0", "192.168.1.5"])

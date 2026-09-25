@@ -143,6 +143,291 @@
         }
       }
     },
+    "/v1/documents": {
+      "post": {
+        "summary": "Upload a PDF to ask about, summarise, review or compare",
+        "operationId": "upload_v1_documents_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_v1_documents_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentInfo"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{document_id}": {
+      "get": {
+        "summary": "An uploaded document's passages (the text behind [D#] cards)",
+        "operationId": "document_v1_documents__document_id__get",
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Document Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDetail"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Forget an uploaded document now",
+        "operationId": "delete_document_v1_documents__document_id__delete",
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Document Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/documents/analyze": {
+      "post": {
+        "summary": "Ask about, summarise, review, make a checklist or lawyer questions from, or compare documents",
+        "operationId": "analyze_documents_v1_documents_analyze_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyzeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyzeResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/healthz": {
       "get": {
         "summary": "Liveness and readiness (no key needed)",
@@ -232,6 +517,203 @@
   },
   "components": {
     "schemas": {
+      "AnalyzeRequest": {
+        "properties": {
+          "document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "Document Ids",
+            "description": "One document; two for `compare`."
+          },
+          "task": {
+            "type": "string",
+            "enum": [
+              "ask",
+              "summary",
+              "risks",
+              "checklist",
+              "lawyer_questions",
+              "compare"
+            ],
+            "title": "Task",
+            "description": "`ask` (needs `question`), `summary`, `risks` (clauses, obligations, risks, inconsistencies, comparison with the law), `checklist`, `lawyer_questions`, `compare` (two documents).",
+            "default": "ask"
+          },
+          "question": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Question",
+            "description": "Required for `ask`; optional focus for the rest."
+          },
+          "explain": {
+            "type": "boolean",
+            "title": "Explain",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_ids"
+        ],
+        "title": "AnalyzeRequest"
+      },
+      "AnalyzeResponse": {
+        "properties": {
+          "answer_markdown": {
+            "type": "string",
+            "title": "Answer Markdown",
+            "description": "Markdown answer. A high-stakes answer starts with a safety block."
+          },
+          "language": {
+            "type": "string",
+            "title": "Language"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "title": "Confidence"
+          },
+          "abstained": {
+            "type": "boolean",
+            "title": "Abstained",
+            "description": "True when the system declined to answer (thin evidence or a refused request)."
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            },
+            "type": "array",
+            "title": "Citations"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "description": "Deterministic notes to show with the answer: repeal, transition, state-law coverage, removed sentences."
+          },
+          "jurisdiction_note": {
+            "type": "string",
+            "title": "Jurisdiction Note"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer",
+            "description": "Show once with every answer."
+          },
+          "trace_id": {
+            "type": "string",
+            "title": "Trace Id",
+            "description": "Equals the X-Request-ID response header."
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider",
+            "description": "`ollama`, `extractive` (no model; verbatim passages) or null."
+          },
+          "model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model"
+          },
+          "classification": {
+            "$ref": "#/components/schemas/Classification"
+          },
+          "cached": {
+            "type": "boolean",
+            "title": "Cached",
+            "default": false
+          },
+          "latency_ms": {
+            "type": "integer",
+            "title": "Latency Ms"
+          },
+          "explain": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explain"
+          },
+          "task": {
+            "type": "string",
+            "enum": [
+              "ask",
+              "summary",
+              "risks",
+              "checklist",
+              "lawyer_questions",
+              "compare"
+            ],
+            "title": "Task"
+          },
+          "documents": {
+            "items": {
+              "$ref": "#/components/schemas/Coverage"
+            },
+            "type": "array",
+            "title": "Documents"
+          },
+          "law_checked": {
+            "type": "boolean",
+            "title": "Law Checked",
+            "description": "True when Indian law passages were searched for (they are added only if they pass the evidence gate)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "answer_markdown",
+          "language",
+          "confidence",
+          "abstained",
+          "citations",
+          "warnings",
+          "jurisdiction_note",
+          "disclaimer",
+          "trace_id",
+          "provider",
+          "classification",
+          "latency_ms",
+          "task",
+          "documents",
+          "law_checked"
+        ],
+        "title": "AnalyzeResponse"
+      },
       "AskRequest": {
         "properties": {
           "question": {
@@ -392,17 +874,42 @@
         ],
         "title": "AskResponse"
       },
+      "Body_upload_v1_documents_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File",
+            "description": "A PDF with a text layer (scanned PDFs need OCR, not installed)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_v1_documents_post"
+      },
       "Citation": {
         "properties": {
           "id": {
             "type": "string",
             "title": "Id",
-            "description": "The [S#] marker used in answer_markdown."
+            "description": "The marker used in answer_markdown: [S#] for law, [D#] for the user's own document."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "law",
+              "document"
+            ],
+            "title": "Kind",
+            "description": "`document`: a passage of an uploaded document; its full text is in GET /v1/documents/{document_id}.",
+            "default": "law"
           },
           "chunk_id": {
             "type": "string",
             "title": "Chunk Id",
-            "description": "Pass to GET /v1/sources/{chunk_id} for the full passage."
+            "description": "Law: pass to GET /v1/sources/{chunk_id}. Document: `<document_id>:<passage n>`."
           },
           "title": {
             "type": "string",
@@ -484,6 +991,40 @@
             ],
             "title": "Citation",
             "description": "Neutral or reporter citation as printed in the source record."
+          },
+          "document_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Id",
+            "description": "Uploaded document the passage comes from (kind `document`)."
+          },
+          "page_start": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Start"
+          },
+          "page_end": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page End"
           }
         },
         "type": "object",
@@ -523,6 +1064,168 @@
           "high_stakes"
         ],
         "title": "Classification"
+      },
+      "Coverage": {
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "title": "Document Id"
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "pages_read": {
+            "type": "string",
+            "title": "Pages Read",
+            "description": "Pages the analysis could read, e.g. `1-6, 9`."
+          },
+          "complete": {
+            "type": "boolean",
+            "title": "Complete",
+            "description": "False when the document was too long for one pass or had unreadable pages."
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "filename",
+          "pages_read",
+          "complete"
+        ],
+        "title": "Coverage"
+      },
+      "DocumentDetail": {
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "title": "Document Id",
+            "description": "Use in POST /v1/documents/analyze; expires at `expires_at`."
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "pages": {
+            "type": "integer",
+            "title": "Pages"
+          },
+          "unreadable_pages": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Unreadable Pages",
+            "description": "Pages without a usable text layer (scanned); left out."
+          },
+          "passage_count": {
+            "type": "integer",
+            "title": "Passage Count"
+          },
+          "words": {
+            "type": "integer",
+            "title": "Words"
+          },
+          "uploaded_at": {
+            "type": "string",
+            "title": "Uploaded At"
+          },
+          "expires_at": {
+            "type": "string",
+            "title": "Expires At",
+            "description": "The document is held in server memory until then, never written to disk."
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "passages": {
+            "items": {
+              "$ref": "#/components/schemas/Passage"
+            },
+            "type": "array",
+            "title": "Passages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "filename",
+          "pages",
+          "unreadable_pages",
+          "passage_count",
+          "words",
+          "uploaded_at",
+          "expires_at",
+          "warnings",
+          "passages"
+        ],
+        "title": "DocumentDetail"
+      },
+      "DocumentInfo": {
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "title": "Document Id",
+            "description": "Use in POST /v1/documents/analyze; expires at `expires_at`."
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "pages": {
+            "type": "integer",
+            "title": "Pages"
+          },
+          "unreadable_pages": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Unreadable Pages",
+            "description": "Pages without a usable text layer (scanned); left out."
+          },
+          "passage_count": {
+            "type": "integer",
+            "title": "Passage Count"
+          },
+          "words": {
+            "type": "integer",
+            "title": "Words"
+          },
+          "uploaded_at": {
+            "type": "string",
+            "title": "Uploaded At"
+          },
+          "expires_at": {
+            "type": "string",
+            "title": "Expires At",
+            "description": "The document is held in server memory until then, never written to disk."
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "filename",
+          "pages",
+          "unreadable_pages",
+          "passage_count",
+          "words",
+          "uploaded_at",
+          "expires_at",
+          "warnings"
+        ],
+        "title": "DocumentInfo"
       },
       "Error": {
         "properties": {
@@ -569,7 +1272,7 @@
               "down"
             ],
             "title": "Status",
-            "description": "`degraded`: no answer model, so answers fall back to verbatim passages; `down`: the index is unusable."
+            "description": "Library questions (/v1/ask). `degraded`: no answer model, so answers fall back to verbatim passages; `down`: the index or engine is unusable. Document mode is separate: see `checks.documents`."
           },
           "checks": {
             "additionalProperties": {
@@ -585,6 +1288,41 @@
           "checks"
         ],
         "title": "Health"
+      },
+      "Passage": {
+        "properties": {
+          "n": {
+            "type": "integer",
+            "title": "N",
+            "description": "Passage number; a [D#] card's chunk_id is `<document_id>:<n>`."
+          },
+          "locator": {
+            "type": "string",
+            "title": "Locator",
+            "description": "`clause 7 · p. 2`, `paras 12-14 · pp. 3-4` or `p. 5`."
+          },
+          "page_start": {
+            "type": "integer",
+            "title": "Page Start"
+          },
+          "page_end": {
+            "type": "integer",
+            "title": "Page End"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "n",
+          "locator",
+          "page_start",
+          "page_end",
+          "text"
+        ],
+        "title": "Passage"
       },
       "Source": {
         "properties": {

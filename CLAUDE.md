@@ -32,7 +32,7 @@ Live state: `docs/STATUS.md` (what works now) · `docs/DECISIONS.md` (dated deci
 ## Repo map (keep current)
 ```text
 app/          api/ ingestion/ parsing/ ocr/ chunking/ embeddings/ retrieval/ reranking/
-              rag/ llm/ citations/ multilingual/ store/ config/ cli.py
+              rag/ llm/ citations/ multilingual/ store/ config/ documents/ (uploads, D50) cli.py
 data/         raw/ processed/ indexes/   (gitignored)
               registry/                  (committed: statutes.yaml, aliases.yaml, sources.yaml, jurisdictions.yaml)
 evaluation/   gold.jsonl  reports/
@@ -56,7 +56,7 @@ praetor.cmd   runs the CLI through Python if Windows blocks the praetor.exe laun
 | Evaluation: ablation + abstention (`--no-llm`), answers, gate sweep, model benchmark | `praetor eval [--split dev|test] [--no-llm] [--calibrate] [--model NAME]` |
 | Tests | `pytest -m "not integration"` · `pytest -m integration` |
 | Phase 1 acceptance | `python scripts/phase1_acceptance.py` · fixtures: `python scripts/make_fixtures.py [NAME ...]` |
-| Demo (server running) | `python scripts/demo.py` |
+| Demo (server running) | `python scripts/demo.py` · documents: `python scripts/demo_documents.py A.pdf [B.pdf]` |
 | Diagnostics | stage ranks: `python scripts/trace_stages.py OUT.json` · run-to-run variation: `python scripts/repeat_answers.py ID --runs 5` · gold review sheet: `python scripts/make_verification_sheet.py` |
 
 ## Working agreement

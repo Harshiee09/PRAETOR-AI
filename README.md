@@ -51,6 +51,14 @@ The demo asks seven questions (statute lookup, procedure, case law, the 2024 cri
 out-of-corpus question that must be refused, and a high-stakes question) and checks that every `[S#]` in an answer has
 a source card. Interactive API docs: http://127.0.0.1:8000/docs.
 
+**Your own documents** (works even when the library search cannot load): upload a PDF with a text layer and ask about
+it, summarise it, list its key clauses, obligations, risks and inconsistencies, turn it into a checklist, prepare
+questions for a lawyer, or compare two agreements. With the server running:
+```bat
+uv run python scripts/demo_documents.py AGREEMENT.pdf [OTHER_AGREEMENT.pdf] --question "What if possession is delayed?"
+```
+Uploads stay in server memory for 60 minutes and are never indexed, cached or written to disk (DECISIONS D50).
+
 ## Connecting a frontend
 - Contract: [`docs/api/openapi.json`](docs/api/openapi.json) (regenerate with `.\praetor openapi`), field-by-field
   guidance in [`docs/topics/architecture/api.md`](docs/topics/architecture/api.md), real responses in

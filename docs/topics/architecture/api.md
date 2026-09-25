@@ -23,6 +23,10 @@ The frontend is built separately (DECISIONS D47). It talks to PRAETOR only throu
 | `POST /v1/ask` | key* | answer a question with citations |
 | `GET /v1/sources/{chunk_id}` | key* | the full stored passage behind a citation card |
 | `GET /v1/healthz` | none | `ok` / `degraded` (no answer model: verbatim passages only) / `down` (HTTP 503: index or engine unusable) |
+| `POST /v1/documents` | key* | upload a PDF (multipart field `file`) → `document_id`, pages, passages, expiry |
+| `GET /v1/documents/{document_id}` | key* | the uploaded document's passages (`n`, `locator`, pages, `text`): the text behind `[D#]` cards |
+| `DELETE /v1/documents/{document_id}` | key* | forget the document now (204) |
+| `POST /v1/documents/analyze` | key* | `task`: `ask` (needs `question`), `summary`, `risks`, `checklist`, `lawyer_questions`, or `compare` (two `document_ids`) |
 | `GET /v1/stats` | key* | corpus and index counts, model and digest, prompt version, cache size, uptime, request counts, answer latency p50/p95 |
 
 \* With `API_KEY` set, send it as `X-API-Key` on every call except `/v1/healthz`. Without `API_KEY`, the server answers only direct localhost calls; tunnel traffic (forwarding headers) and other hosts get 401. `praetor serve` refuses to listen on anything but localhost without a key.
@@ -48,8 +52,16 @@ Response fields and how to render them:
 
 Latency: about 13 s median and 20 s p95 on the dev laptop (eval `20260924T174231Z`); questions are answered **one at a time**, so concurrent requests queue. Show progress, and set client timeouts to at least 120 s. A cache hit returns in milliseconds.
 
+### Uploaded documents (DECISIONS D50)
+- **Upload:** a PDF with a text layer, at most `DOC_MAX_MB` (10) and `DOC_MAX_PAGES` (80). Errors: 413 `too_large`, 415 `unsupported_media_type` (not a PDF), 422 `unreadable_document` (scanned without OCR, encrypted, damaged). Pages without text are listed in `unreadable_pages` and left out. Passages follow the document's own numbering (`clause 7 · p. 2`, `section 18 · p. 11`, `paras 12-14 · pp. 3-4`) or its pages.
+- **Held in memory only:** never indexed into the corpus, cached, logged or written to disk; expires after `DOC_TTL_MINUTES` (60), at most `DOC_MAX_OPEN` (20) at a time (oldest dropped first), lost on restart. An expired id gives 404.
+- **Analyze** returns the `/v1/ask` answer shape plus `task`, `documents[]` (`pages_read`, `complete`) and `law_checked`. Markers: `[D#]` = a passage of the user's document (card `kind: "document"`, `document_id`, `page_start`/`page_end`; full text via `GET /v1/documents/{document_id}`, passage `n` = the number after the colon in `chunk_id`); `[S#]` = Indian law (card `kind: "law"`, as in `/v1/ask`). Same validator as `/v1/ask`: unknown ids stripped, sentences with authorities or quotations the cited passages lack removed, ungrounded output retried once then replaced by the passages verbatim.
+- **Law cross-check:** when the retrieval engine is loaded, up to `DOC_LAW_PASSAGES` (3) corpus passages for the document's topic (or the question) are added if they pass the evidence gate, so a clause can be compared with the Act. Without the engine the analysis uses the document alone and says so in `warnings`. Not used for `compare`.
+- **Long documents:** one analysis reads up to `DOC_CONTEXT_TOKENS` (≈ 14k estimated, ~10k real) in a 16k window (`DOC_NUM_CTX`): the whole document if it fits, otherwise the opening passage plus the passages that best match the question or task (BM25), in document order. `documents[].complete` is false and a warning names the pages read.
+- Answers take 12–21 s on the RTX 5070 (V46). `/v1/healthz` `checks.documents` is `ok` when the answer model is available, whatever the library status.
+
 ### Errors
-Every error is `{"error": {"code", "message", "request_id"}}` with the HTTP status: 401 `unauthorized`, 404 `not_found`, 422 `invalid_request` (the message names the field), 503 `unavailable` (engine still loading or failed), 500 `internal_error`. `X-Request-ID` is echoed on every response; send your own (letters, digits, `-`, `_`, ≤ 64) to correlate logs.
+Every error is `{"error": {"code", "message", "request_id"}}` with the HTTP status: 401 `unauthorized`, 404 `not_found`, 413 `too_large`, 415 `unsupported_media_type`, 422 `invalid_request` (the message names the field) or `unreadable_document`, 503 `unavailable` (engine still loading or failed), 500 `internal_error`. `X-Request-ID` is echoed on every response; send your own (letters, digits, `-`, `_`, ≤ 64) to correlate logs.
 
 ### Cache
 Non-`explain` answers are cached in SQLite for `CACHE_TTL_HOURS` (72). The key covers the normalised question and every version that can change an answer (prompt, model digest, decoding, index, registries, gate), so updates miss automatically. Send `"use_cache": false` to force a fresh answer. The question text itself is never stored.
