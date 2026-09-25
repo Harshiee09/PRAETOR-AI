@@ -212,3 +212,13 @@ describe("typed browser client metadata", () => {
     expect(vi.getTimerCount()).toBe(0);
   });
 });
+
+
+describe("missing server configuration", () => {
+  it("says the site is not connected instead of offline", async () => {
+    const { ApiClientError, errorMessage } = await import("@/lib/api/errors");
+    const message = "This site is not connected to the research service yet: the owner needs to finish the server setup.";
+    expect(errorMessage(new ApiClientError("unavailable", message, "r1", 503))).toBe(message);
+    expect(errorMessage(new ApiClientError("unavailable", "Service unavailable", "r2", 503))).toBe("Still starting or offline, try again shortly.");
+  });
+});

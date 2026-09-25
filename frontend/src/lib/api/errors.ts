@@ -32,7 +32,7 @@ export function errorMessage(error: unknown): string {
     case "not_found":
       return "This passage is no longer available. Try another source.";
     case "unavailable":
-      return "Still starting or offline, try again shortly.";
+      return error.message?.startsWith("This site is not connected") ? error.message : "Still starting or offline, try again shortly.";
     case "timeout":
       return "This took too long; try again.";
     case "cancelled":

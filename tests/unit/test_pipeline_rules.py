@@ -99,3 +99,14 @@ def test_repeal_source_is_found_only_for_a_named_repealed_act(registry):
     assert sids == ["S1"] and "Code of Criminal Procedure, 1973" in note and "Bharatiya Nagarik Suraksha Sanhita" in note
     q2 = "How do I apply for anticipatory bail?"  # names no repealed Act
     assert repeal_sources([s531, s482], id_map, classify(q2, registry, REG), registry) == ([], "")
+
+
+def test_constitution_questions_get_a_coverage_note():
+    from app.rag.pipeline import CONSTITUTION_NOTE, constitution_note
+    from app.retrieval.registry import load_registry
+
+    registry = load_registry(str(Path(__file__).parents[2] / "data" / "registry"))
+    assert constitution_note("Article 1", registry) == [CONSTITUTION_NOTE]
+    assert constitution_note("What does Art. 21 protect?", registry) == [CONSTITUTION_NOTE]
+    assert constitution_note("अनुच्छेद 14 क्या है?", registry) == [CONSTITUTION_NOTE]
+    assert constitution_note("How much notice ends a month-to-month lease?", registry) == []

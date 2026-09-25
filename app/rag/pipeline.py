@@ -122,6 +122,21 @@ def _corpus_summary(conn) -> str:
     return f"{n_acts} central Acts and {n_j} Supreme Court judgments"
 
 
+# Part of the answer-cache key: bump when deterministic notes or validator rules change, so answers cached
+# under the old rules are not served again (they simply miss; nothing is deleted).
+RULES_VERSION = "2026-09-26"
+CONSTITUTION = regex.compile(r"\b(?:article|art\.)\s*\d{1,3}[A-Z]{0,2}\b|\bconstitution\b|अनुच्छेद|संविधान", regex.I)
+CONSTITUTION_NOTE = ("The text of the Constitution of India is not in this library, so anything said here about its "
+                     "articles comes only from the Supreme Court judgments cited.")
+
+
+def constitution_note(query: str, registry: Registry) -> list[str]:
+    """Library questions that name an Article or the Constitution: say plainly that its text is not indexed."""
+    if CONSTITUTION.search(query) and not registry.get("constitution-1950"):
+        return [CONSTITUTION_NOTE]
+    return []
+
+
 def deterministic_notes(r: RetrievalResult, registry: Registry) -> list[str]:
     cls = r.classification
     notes = list(r.notes)
@@ -243,7 +258,7 @@ def answer(engine: Engine, query: str, *, explain: bool = False, mode: str = "fu
             return {**out, "explain": {"classification": cls.as_dict(), "refused": True}} if explain else out
 
         r = engine.retriever.retrieve(conn, q, mode=mode, cls=cls)
-        notes = deterministic_notes(r, engine.registry)
+        notes = deterministic_notes(r, engine.registry) + constitution_note(q, engine.registry)
         explain_info = {"classification": cls.as_dict(), "gate": r.gate, "timings_ms": r.timings_ms,
                         "keyword_match": r.keyword_match, "rewrites": r.rewrites,
                         "candidates": [{"chunk_id": c["chunk_id"], "title": c["title"], "locator": c["locator"],

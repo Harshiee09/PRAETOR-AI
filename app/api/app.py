@@ -321,7 +321,9 @@ def _version(settings: Settings, engine) -> dict:
 
     m = read_manifest(settings) or {}
     digest = OllamaClient(settings.ollama_base_url, settings.ollama_model).digest() if settings.ollama_model else None
-    return {"prompt_version": engine.prompt_version, "model": settings.ollama_model, "model_digest": digest,
+    from app.rag.pipeline import RULES_VERSION
+
+    return {"prompt_version": engine.prompt_version, "rules": RULES_VERSION, "model": settings.ollama_model, "model_digest": digest,
             "temperature": settings.llm_temperature, "seed": settings.llm_seed, "corpus_hash": m.get("corpus_hash"),
             "registry": _registry_hash(settings), "min_evidence_score": settings.min_evidence_score,
             "context_max_chunks": settings.context_max_chunks}

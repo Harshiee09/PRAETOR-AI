@@ -164,7 +164,7 @@ export async function proxyRequest(
   if (!config)
     return errorResponse(
       "unavailable",
-      "The research service is not configured or is offline.",
+      "This site is not connected to the research service yet: the owner needs to finish the server setup.",
       requestId,
       503,
     );
