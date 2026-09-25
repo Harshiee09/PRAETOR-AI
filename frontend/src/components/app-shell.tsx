@@ -53,7 +53,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <a className="skip-link" href="#main-content">Skip to content</a>
     <Header1><span className="header-service" data-status={offline ? "down" : checking ? "checking" : "ok"}><span className="status-dot"/>{statusText}</span><MotionToggle/><ThemeToggle/></Header1>
     {isAsk && <>
-      <div className="session-mobile-bar"><span>RESEARCH WORKSPACE</span><button className="text-button" onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "Close session history" : "Open session history"} aria-expanded={mobileOpen} aria-controls="sidebar">{mobileOpen ? <X size={16}/> : <Menu size={16}/>} This session</button></div>
+      <div className="session-mobile-bar"><span>RESEARCH WORKSPACE</span><button className="text-button" onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "This session: close history" : "This session: open history"} aria-expanded={mobileOpen} aria-controls="sidebar">{mobileOpen ? <X size={16}/> : <Menu size={16}/>} This session</button></div>
       <aside className={`sidebar ${mobileOpen ? "is-open" : ""}`} id="sidebar" aria-label="Session history">
         <div className="sidebar-workspace-label">RESEARCH WORKSPACE</div>
         <button className="new-research" onClick={start} disabled={research.operationBusy}><Plus size={16}/> New research <span className="shortcut">↗</span></button>

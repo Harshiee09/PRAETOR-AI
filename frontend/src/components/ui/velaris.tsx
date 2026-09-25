@@ -113,6 +113,9 @@ export default function Velaris({
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
+    // Phones and data-saver keep the static CSS gradient: no WebGL work where it costs the most battery and CPU.
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (window.matchMedia?.("(max-width: 720px)").matches || connection?.saveData) return;
     let gl: WebGLRenderingContext | null;
     try {
       gl = canvas.getContext("webgl", {
@@ -254,8 +257,14 @@ export default function Velaris({
     canvas.addEventListener("webglcontextrestored", restored);
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(container);
-    initialize();
+    // Compile the shader once the page is idle, so it never competes with the first paint or hydration.
+    const idle = typeof window.requestIdleCallback === "function";
+    const pending = idle
+      ? window.requestIdleCallback(() => initialize(), { timeout: 1500 })
+      : window.setTimeout(initialize, 600);
     return () => {
+      if (idle) window.cancelIdleCallback(pending);
+      else window.clearTimeout(pending);
       resizeObserver.disconnect();
       canvas.removeEventListener("webglcontextlost", lost);
       canvas.removeEventListener("webglcontextrestored", restored);

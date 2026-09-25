@@ -204,3 +204,18 @@
   .document-intro .coverage-strip > span + span { border-left: 0; padding-left: 0; }
 }
 .document-uploading-note { font-size: 10px !important; letter-spacing: .2px; }
+
+/* Phones: running text at 12px or more, small labels at 10px or more (legibility; Lighthouse font-size audit) */
+@media (max-width: 720px) {
+  .research-principles p, .research-principles h3, .persistent-disclaimer, .research-intro > p, .comparison-intro p,
+  .monochrome-shell .app-footer, .question-meta, .input-footnote, .example-category, .example-bottom, .example-text,
+  .document-disclaimer, .document-question-meta, .document-drop-hint, .document-stats, .document-expiry,
+  .jurisdiction-note, .answer-details, .citation-meta, .reference-card-description, .reference-card-content li {
+    font-size: 12px !important; line-height: 1.7;
+  }
+  .research-intro .eyebrow, .hero-edition, .reference-badge, .research-intro .coverage-strip,
+  .research-intro .coverage-strip a, .session-mobile-bar, .product-brand small, .sidebar-foot {
+    font-size: 10px !important;
+  }
+}
+.answer-loading { font-size: 12px; color: var(--muted); margin: 24px 0; }
