@@ -77,6 +77,8 @@ Uploads stay in server memory for 60 minutes and are never indexed, cached or wr
 
 Built-in savings: repeated questions come from the answer cache in milliseconds; every task after the first on the same uploaded document reuses the law lookup (35 s, then about 5 s); models and the index load once; a Word file is read in 0.1 s and a scanned page with OCR in about 0.5-0.8 s. The reranker dominates on CPU: int8 quantization would halve it with small ranking changes, and a larger instance would halve it losslessly (D59).
 
+Website quality (Lighthouse, live site): Ask page mobile 90 / accessibility 100 / best practices 100 / SEO 100; desktop 100 across the board (DECISIONS V56).
+
 ## Tests and evaluation
 ```bat
 uv run pytest -m "not integration"
