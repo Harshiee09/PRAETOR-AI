@@ -1,0 +1,4 @@
+.next
+node_modules
+src/lib/api/schema.ts
+src/lib/api/document-schema.ts

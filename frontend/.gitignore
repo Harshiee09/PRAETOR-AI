@@ -1,0 +1,12 @@
+# dependencies and build output
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.vercel/
+# secrets stay local (copy .env.example to .env.local)
+.env*
+!.env.example
+*.log
+public/__qa-*.pdf

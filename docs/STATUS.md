@@ -3,7 +3,7 @@
 _Last updated: 2026-09-25 · Phases 0–4 built + **document mode (D50, verified live V46)** · everything local, no AWS (D47) · branch `phase-3-4-local` (main = audit-verified Phase 2) · **verified end to end: integration 19/19, library demo 7/7, document demo 6/6, public tunnel path (V47)** · code on GitHub (D51)_
 
 ## Resume here (next session)
-1. You: build the frontend with GPT-6 Astra from `docs/api/frontend-prompt.md` + `docs/api/openapi.json` + `docs/api/examples/`; put it in `frontend/` of https://github.com/Harshiee09/PRAETOR-AI.
+1. Frontend: built and in `frontend/` (D52, V48: 119 tests, build OK, verified live against the API). `cd frontend && npm ci && npm run dev` for local work.
 2. You, on Vercel: import the repository, Root Directory `frontend`, env vars `PRAETOR_API_URL` and `PRAETOR_API_KEY` (copy `API_KEY` from `.env` yourself).
 3. For the demo: `scripts\serve_public.cmd` → copy the printed `https://….trycloudflare.com` URL into `PRAETOR_API_URL` → redeploy (the URL changes on every start). Details: [deployment note](topics/ops/deployment.md).
 4. You: verify the gold set (`evaluation/verification_sheet.csv`).
@@ -31,6 +31,7 @@ Local-only file: `.env` (gitignored; holds `API_KEY`).
 | Evaluation | `.\praetor eval --split all` | final report `evaluation/reports/20260924T174231Z.md` (below) |
 | API contract | `.\praetor openapi` | `docs/api/openapi.json`, 7 paths |
 | API server and demo | `.\praetor serve` · `uv run python scripts/demo.py --fresh` | **7 of 7 OK** (V47); responses in `docs/api/examples/ask_*.json` |
+| Frontend | `cd frontend && npm test && npm run build` | 119 tests, build OK; Ask, document tasks and compare verified live (V48) |
 | Public path | `scripts\serve_public.cmd` (API + Cloudflare quick tunnel) | key enforced (401 without / wrong key), upload, document and library answers through the tunnel (V47) |
 | Diagnostics | `scripts/trace_stages.py`, `scripts/repeat_answers.py`, `scripts/make_verification_sheet.py` | stage trace before/after, repeated-run variance, gold review sheet |
 
@@ -106,7 +107,7 @@ Other fixes: Act-title keyword phrases (0 → 260 hits), FAISS/SQLite vector dri
 - **Download contact address** in `HTTP_USER_AGENT`; **India Code terms of use** (V15).
 
 ## Needs you
-1. **Frontend:** build it with Astra (prompt ready) and deploy it on Vercel with the two environment variables; you log in and paste the key yourself.
+1. **Vercel:** import the repo, Root Directory `frontend`, env vars `PRAETOR_API_URL` + `PRAETOR_API_KEY`; you log in and paste the key yourself.
 2. **Merge:** `main` was fast-forwarded to this branch on 2026-09-25 after the checks passed (D51/V47).
 3. **Verify the gold set** (`evaluation/verification_sheet.csv`; Hindi rows need a Hindi speaker) and confirm the Hindi terms in `data/registry/legal_terms.yaml`.
 4. **CrPC text:** an official consolidated CrPC as in force on 30 June 2024 could be ingested as repealed law; none was reachable.

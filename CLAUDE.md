@@ -39,6 +39,7 @@ evaluation/   gold.jsonl  reports/
 scripts/      one-off utilities only; real entry points live in app/cli.py
 tests/        unit/  integration/ (marked; may need GPU or network)  fixtures/ (real excerpts + source URL)
 docs/         INDEX.md  STATUS.md  DECISIONS.md  api/ (openapi.json, examples/)  reports/  sources/  topics/
+frontend/     Next.js app for Vercel (Ask, Your document, About); see frontend/README.md
 praetor.cmd   runs the CLI through Python if Windows blocks the praetor.exe launcher (V45)
 ```
 
