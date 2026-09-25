@@ -73,7 +73,7 @@ Uploads stay in server memory for 60 minutes and are never indexed, cached or wr
 | Where | Search | Rerank | Answer model | Typical answer |
 |---|---|---|---|---|
 | Laptop (RTX 5070 GPU, gemma4 via Ollama) | 0.2 s | 0.4 s | 10-12 s | 12-15 s |
-| Cloud (AWS m6i.xlarge CPU, Bedrock Nova Pro) | 0.2 s | 20-24 s | 2 s | 22-30 s |
+| Cloud (AWS c6i.2xlarge CPU, Bedrock Nova Pro) | 0.2 s | 11-14 s | 2 s | 12-17 s |
 
 Built-in savings: repeated questions come from the answer cache in milliseconds; every task after the first on the same uploaded document reuses the law lookup (35 s, then about 5 s); models and the index load once; a Word file is read in 0.1 s and a scanned page with OCR in about 0.5-0.8 s. The reranker dominates on CPU: int8 quantization would halve it with small ranking changes, and a larger instance would halve it losslessly (D59).
 

@@ -1,6 +1,6 @@
 @echo off
 rem PRAETOR cloud API on AWS EC2 (DECISIONS D58):  aws_server status | start | stop
-rem Stopping ends the ~$0.20/hour instance charge; the 40 GB disk and the Elastic IP still cost a few cents a day
+rem Stopping ends the $0.34/hour instance charge (c6i.2xlarge, D60); the 40 GB disk and the Elastic IP still cost a few cents a day
 rem while stopped. The address never changes: https://3-111-113-83.sslip.io (Vercel's PRAETOR_API_URL).
 rem The API and HTTPS start by themselves about two minutes after "start".
 setlocal
